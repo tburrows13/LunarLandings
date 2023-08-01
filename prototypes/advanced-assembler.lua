@@ -244,13 +244,13 @@ data:extend{
       usage_priority = "secondary-input",
       emissions_per_minute = 50,
     },
-    energy_usage = "2000kW",
+    energy_usage = "1MW",
     ingredient_count = 12,
     module_specification =
     {
       module_slots = 6
     },
-    allowed_effects = {"consumption", "speed",  "pollution"}, -- not "productivity",
+    allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     working_visualisations =
     {
       {

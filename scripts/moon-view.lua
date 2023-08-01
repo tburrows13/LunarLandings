@@ -13,6 +13,7 @@ function MoonView.toggle_moon_view(event)
   if player.controller_type ~= defines.controllers.character then return end
   local moon_view_data = MoonView.get_data(event.player_index)
   if player.surface.name == "luna" then
+    moon_view_data.luna_character = player.character
     -- Player is on moon
     -- Can't set controller to character on another surface, and teleporting the player also teleports the character
     player.set_controller{

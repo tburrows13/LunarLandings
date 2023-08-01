@@ -21,6 +21,7 @@ data:extend{
     subgroup = "raw-resource",
     order="a-b-a",
     --infinite = true,
+    selection_priority = 49,
     highlight = true,
     minimum = 60000,
     normal = 300000,

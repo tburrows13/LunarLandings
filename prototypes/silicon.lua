@@ -22,8 +22,8 @@ data:extend{
     name = "ll-silicon",
     category = "smelting",
     enabled = false,
-    energy_required = 16,
-    ingredients = {{"coal", 1}, {"ll-silica", 5}},
+    energy_required = 8,
+    ingredients = {{"coal", 1}, {"ll-silica", 2}},
     results = {{"ll-silicon", 5}}
   },
 }

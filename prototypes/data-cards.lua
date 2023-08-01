@@ -50,6 +50,7 @@ data:extend{
     name = "ll-blank-data-card",
     enabled = false,
     category = "advanced-circuit-crafting",
+    energy_required = 10,
     ingredients = {
       {"advanced-circuit", 5},
       {"ll-silicon", 5},
@@ -74,7 +75,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-broken-data-card-recycling",
-    icon = "__space-exploration-graphics__/graphics/icons/data/junk.png",
+    icon = "__space-exploration-graphics__/graphics/icons/data/broken.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-data-cards",
     enabled = false,
@@ -97,7 +98,7 @@ data:extend{
     energy_required = 10,
     ingredients = {
       {"ll-blank-data-card", 1},
-      {"processing-unit", 2},
+      {"processing-unit", 1},
       {type = "fluid", name = "ll-oxygen", amount = 10}
     },
     results = {

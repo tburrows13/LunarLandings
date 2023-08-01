@@ -1,9 +1,8 @@
 local moon_rock = table.deepcopy(data.raw.resource["stone"])
 
 moon_rock.name = "ll-moon-rock"
-
 moon_rock.minable.result = "ll-moon-rock"
-moon_rock.autoplace = nil
+moon_rock.selection_priority = 49
 
 data:extend{
   moon_rock,

@@ -21,7 +21,7 @@ end
 -- TODO replace with prototype attribute based system
 
 for name, prototype in pairs(data.raw["assembling-machine"]) do
-  if name ~= "ll-telescope" then
+  if name ~= "ll-telescope" and name ~= "electric-furnace" then
     local mask = collision_mask_util.get_mask(prototype)
     collision_mask_util.add_layer(mask, moon_rock_layer)
     prototype.collision_mask = mask
