@@ -1,0 +1,60 @@
+local function on_init()
+  --local default_map_gen_settings = table.deepcopy(game.default_map_gen_settings)
+  tile_settings = {
+    ["ll-moon"] = {
+      frequency = "regular",
+      size = "regular",
+    }
+  }
+  local nauvis = game.get_surface("nauvis")
+  local nauvis_map_gen_settings = nauvis.map_gen_settings
+  local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"]
+  local ice_controls = nauvis_map_gen_settings.autoplace_controls["ll-ice"]
+
+  local luna = game.create_surface(
+    "luna",
+    {
+      seed = nauvis_map_gen_settings.seed + 1,
+      starting_area = "none",
+      water = "none",
+      cliff_settings = { cliff_elevation_0 = 1024 },
+      default_enable_all_autoplace_controls = false,
+      autoplace_controls = {
+        ["ll-moon-rock"] = moon_rock_controls,
+        ["ll-ice"] = ice_controls,
+      },
+      autoplace_settings = {
+        decorative = { treat_missing_as_default = false },
+        entity = { treat_missing_as_default = false, settings = {
+          ["ll-moon-rock"] = moon_rock_controls,
+          ["ll-ice"] = ice_controls,
+        }},
+        tile = { treat_missing_as_default = false, settings = tile_settings },
+      },
+    }
+  )
+  -- Nauvis is 25000 ticks per day
+  local ticks_per_day = 100000
+  luna.daytime = (game.tick / ticks_per_day) % 1
+  luna.ticks_per_day = ticks_per_day
+  luna.solar_power_multiplier = 2
+  luna.freeze_daytime = false
+  luna.show_clouds = false
+
+  --[[nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"] = {
+      frequency = "none",
+      size = "none",
+  }
+  nauvis_map_gen_settings.autoplace_controls["ll-ice"] = {
+      frequency = "none",
+      size = "none",
+  }]]
+  --nauvis.map_gen_settings = nauvis_map_gen_settings
+  log("LunarLandings: on_init() done")
+  -- 3577590362
+end
+
+local MoonSurface = {}
+
+MoonSurface.on_init = on_init
+return MoonSurface
