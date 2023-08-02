@@ -6,6 +6,9 @@ local function on_init()
       size = "regular",
     }
   }
+  local crater_names = {
+    "crater3-huge", "crater1-large-rare", "crater1-large", "crater2-medium", "crater4-small"
+  }
   local nauvis = game.get_surface("nauvis")
   local nauvis_map_gen_settings = nauvis.map_gen_settings
   local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"]
@@ -28,6 +31,11 @@ local function on_init()
         entity = { treat_missing_as_default = false, settings = {
           ["ll-moon-rock"] = moon_rock_controls,
           ["ll-ice"] = ice_controls,
+          --[[["crater3-huge"] = moon_rock_controls,
+          ["crater1-large-rare"] = moon_rock_controls,
+          ["crater1-large"] = moon_rock_controls,
+          ["crater2-medium"] = moon_rock_controls,
+          ["crater4-small"] = moon_rock_controls,]]
         }},
         tile = { treat_missing_as_default = false, settings = tile_settings },
       },

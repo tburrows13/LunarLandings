@@ -1,5 +1,8 @@
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
+-- Set tile layer because Alien Biomes overwrites it in data-final-fixes
+data.raw.tile["ll-moon"].layer = 10
+
 local moon_rock_layer = collision_mask_util.get_first_unused_layer()
 collision_mask_util.add_layer(data.raw.tile["ll-moon"].collision_mask, moon_rock_layer)
 
@@ -45,6 +48,35 @@ for _, type in pairs{"beacon", "mining-drill", "assembling-machine", "rocket-sil
       collision_mask_util.add_layer(mask, nauvis_layer)
       prototype.collision_mask = mask
     end
+  end
+end
+
+local not_on_luna = {
+  ["straight-rail"] = true,
+  ["curved-rail"] = true,
+}
+
+for _, type in pairs{"straight-rail", "curved-rail"} do
+  for name, prototype in pairs(data.raw[type]) do
+    if not_on_luna[name] then
+      local mask = collision_mask_util.get_mask(prototype)
+      collision_mask_util.add_layer(mask, moon_rock_layer)
+      collision_mask_util.add_layer(mask, moon_foundation_layer)
+      prototype.collision_mask = mask
+    end
+  end
+end
+
+local types_not_on_luna = {
+  "radar",
+}
+
+for _, type in pairs(types_not_on_luna) do
+  for name, prototype in pairs(data.raw[type]) do
+    local mask = collision_mask_util.get_mask(prototype)
+    collision_mask_util.add_layer(mask, moon_rock_layer)
+    collision_mask_util.add_layer(mask, moon_foundation_layer)
+    prototype.collision_mask = mask
   end
 end
 

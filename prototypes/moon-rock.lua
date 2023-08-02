@@ -30,7 +30,7 @@ data:extend{
     order = "d[stone]",
     stack_size = 50
   },
-  {
+  --[[{
     type = "recipe",
     name = "ll-moon-rock-processing-with-oxygen-helium",
     category = "ll-electric-smelting",
@@ -51,10 +51,24 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "a[oil-processing]-b[advanced-oil-processing]"
-  },
+  },]]
   {
     type = "recipe",
     name = "ll-moon-rock-processing-with-helium",
+    icons = {
+      {
+        icon = "__LunarLandings__/graphics/icons/moon-rock.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+      },
+      {
+        icon = "__LunarLandings__/graphics/fluids/helium-3.png",
+        icon_size = 64,
+        icon_mipmaps = 1,
+        scale = 0.25,
+        shift = {-3, 3},
+      },
+    },
     category = "ll-electric-smelting",
     enabled = false,
     energy_required = 5,
@@ -66,7 +80,7 @@ data:extend{
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-helium-3", amount=50, fluidbox_index = 3},
+      {type="fluid", name="ll-helium-3", amount=5, fluidbox_index = 3},
     },
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
@@ -76,6 +90,20 @@ data:extend{
   {
     type = "recipe",
     name = "ll-moon-rock-processing-with-oxygen",
+    icons = {
+      {
+        icon = "__LunarLandings__/graphics/icons/moon-rock.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+      },
+      {
+        icon = "__LunarLandings__/graphics/fluids/oxygen.png",
+        icon_size = 64,
+        icon_mipmaps = 1,
+        scale = 0.25,
+        shift = {-3, 3},
+      },
+    },
     category = "ll-electric-smelting",
     enabled = false,
     energy_required = 5,
@@ -117,7 +145,7 @@ data:extend{
   },
 }
 
-data_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
+--data_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
 data_util.allow_productivity("ll-moon-rock-processing-with-oxygen")
 data_util.allow_productivity("ll-moon-rock-processing-with-helium")
 data_util.allow_productivity("ll-moon-rock-processing")

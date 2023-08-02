@@ -11,7 +11,7 @@ data:extend{
     order = "e[moon]",
     collision_mask = {"ground-tile"},
     --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
-    layer = 19,
+    layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
       "__space-exploration-graphics__/graphics/terrain/asteroid/asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
       "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
@@ -32,6 +32,7 @@ data:extend{
     --scorch_mark_color = {r = 0.541, g = 0.407, b = 0.248, a = 1.000},
     pollution_absorption_per_second = 0.0000066,
     vehicle_friction_modifier = 1.5,
+    can_be_part_of_blueprint = false,
 
     --trigger_effect = tile_trigger_effects.dirt_1_trigger_effect()
     autoplace = {
@@ -226,3 +227,14 @@ data:extend{
     result_count = 20
   },
 }
+
+-- Add craters to tile
+local crater_names = {
+  "crater3-huge", "crater1-large-rare", "crater1-large", "crater2-medium", "crater4-small"
+}
+
+for _, crater_name in pairs(crater_names) do
+  local crater = data.raw["optimized-decorative"][crater_name]
+  table.insert(crater.autoplace.tile_restriction, "ll-moon")
+  --crater.autoplace = nil
+end

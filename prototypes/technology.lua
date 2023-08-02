@@ -75,10 +75,10 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-moon-rock-processing-with-helium"
       },
-      {
+      --[[{
         type = "unlock-recipe",
         recipe = "ll-moon-rock-processing-with-oxygen-helium"
-      },
+      },]]
       {
         type = "unlock-recipe",
         recipe = "ll-silicon"
