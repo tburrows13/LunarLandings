@@ -2,6 +2,13 @@ local moon_rock = table.deepcopy(data.raw.resource["stone"])
 
 moon_rock.name = "ll-moon-rock"
 moon_rock.minable.result = "ll-moon-rock"
+
+moon_rock.icon = "__LunarLandings__/graphics/icons/moon-rock.png"
+moon_rock.stages.sheet.filename = "__LunarLandings__/graphics/moon-rock/moon-rock.png"
+moon_rock.stages.sheet.hr_version.filename = "__LunarLandings__/graphics/moon-rock/hr-moon-rock.png"
+
+moon_rock.map_color = {r=0.8, g=0.8, b=0.8}
+
 moon_rock.selection_priority = 49
 
 data:extend{
@@ -9,15 +16,15 @@ data:extend{
   {
     type = "item",
     name = "ll-moon-rock",
-    icon = "__base__/graphics/icons/stone.png",
+    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64,
     icon_mipmaps = 4,
     pictures =
     {
-      { size = 64, filename = "__base__/graphics/icons/stone.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__base__/graphics/icons/stone-1.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__base__/graphics/icons/stone-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__base__/graphics/icons/stone-3.png", scale = 0.25, mipmap_count = 4 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock.png",   scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-1.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-2.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-3.png", scale = 0.25, mipmap_count = 4 }
     },
     subgroup = "raw-resource",
     order = "d[stone]",
@@ -40,7 +47,7 @@ data:extend{
       {type="fluid", name="ll-oxygen", amount=50, fluidbox_index = 1},
       {type="fluid", name="ll-helium-3", amount=50, fluidbox_index = 3},
     },
-    icon = "__base__/graphics/icons/stone.png",
+    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "a[oil-processing]-b[advanced-oil-processing]"
@@ -61,7 +68,7 @@ data:extend{
       {type="item", name="stone", amount=5},
       {type="fluid", name="ll-helium-3", amount=50, fluidbox_index = 3},
     },
-    icon = "__base__/graphics/icons/stone.png",
+    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "a[oil-processing]-b[advanced-oil-processing]"
@@ -82,7 +89,7 @@ data:extend{
       {type="item", name="stone", amount=5},
       {type="fluid", name="ll-oxygen", amount=50, fluidbox_index = 1},
     },
-    icon = "__base__/graphics/icons/stone.png",
+    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "a[oil-processing]-b[advanced-oil-processing]"
@@ -103,7 +110,7 @@ data:extend{
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
     },
-    icon = "__base__/graphics/icons/stone.png",
+    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "a[oil-processing]-b[advanced-oil-processing]"

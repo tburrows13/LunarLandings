@@ -96,7 +96,7 @@ data:extend({
 		  circuit_connector_layer = "object",
 		  circuit_connector_secondary_draw_order = { north = 14, east = 30, south = 30, west = 30 },
 
-		  working_visualisations =
+		  --[[working_visualisations =
 		  {
 			{
 			  effect = "uranium-glow",
@@ -136,7 +136,7 @@ data:extend({
 				  }
 			  }}
 			}
-		  },
+		  },]]
 		  always_draw_idle_animation = true,
 		  idle_animation = {
 			  layers = {

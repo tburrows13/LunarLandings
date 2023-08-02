@@ -147,13 +147,13 @@ data:extend{
       module_slots = 4
     },
     allowed_effects = {"consumption", "speed",  "pollution"}, -- not "productivity",
-    working_visualisations =
+    --[[working_visualisations =
     {
       {
         effect = "uranium-glow", -- changes alpha based on energy source light intensity
         light = {intensity = 0.5, size = 8, shift = {0.0, 0.0}, color = {r = 0.9, g = 1, b = 0.8}}
       },
-    },
+    },]]
   },
 
 }

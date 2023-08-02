@@ -170,6 +170,7 @@ local rocket_down = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_down.name = "ll-rocket-silo-down"
 rocket_down.localised_name = {"entity-name.rocket-silo"}
 rocket_down.minable.result = "rocket-silo"
+rocket_down.placeable_by = {item = "rocket-silo", count = 1}
 rocket_down.rocket_parts_required = 5
 rocket_down.fixed_recipe = "rocket-part-down"
 rocket_down.fluid_boxes =

@@ -14,7 +14,12 @@ end
 
 data.raw.recipe["processing-unit"].category = "advanced-circuit-crafting"
 
-local animation_speed = 0.15
+-- SE Space Manufactory is 9x9 - too big
+-- This one needs scaling down: 5x5
+
+local scale = 5 / 9
+
+local animation_speed = 0.3
 data:extend{
   {
     type = "recipe-category",
@@ -73,7 +78,7 @@ data:extend{
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
-        pipe_connections = {{ type="input", position = {0, -5} }},
+        pipe_connections = {{ type="input", position = {0, -3} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -82,7 +87,7 @@ data:extend{
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
-        pipe_connections = {{ type="input", position = {0, 5} }},
+        pipe_connections = {{ type="input", position = {0, 3} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -91,7 +96,7 @@ data:extend{
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
-        pipe_connections = {{ type="input", position = {-5, 0} }},
+        pipe_connections = {{ type="input", position = {-3, 0} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -100,10 +105,10 @@ data:extend{
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
-        pipe_connections = {{ type="input", position = {5, 0} }},
+        pipe_connections = {{ type="input", position = {3, 0} }},
         secondary_draw_orders = { north = -1 }
       },
-      --off_when_no_fluid_recipe = true
+      off_when_no_fluid_recipe = true
     },
     --open_sound = data_util.machine_open_sound,
     --close_sound = data_util.machine_close_sound, TODO
@@ -123,7 +128,7 @@ data:extend{
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
       apparent_volume = 1.5,
     },
-    collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+    collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     collision_mask = {
       "water-tile",
       --"ground-tile",
@@ -131,8 +136,8 @@ data:extend{
       "object-layer",
       "player-layer",
     },
-    selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
-    drawing_box = {{-4.5, -4.7}, {4.5, 4.5}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    drawing_box = {{-3, -3.3}, {3, 3}},
     animation =
     {
       layers =
@@ -145,18 +150,18 @@ data:extend{
           frame_count = 1,
           line_length = 1,
           repeat_count = 128,
-          shift = util.by_pixel(0, -8),
+          shift = util.by_pixel(0, -8 * scale),
           animation_speed = animation_speed,
-          scale = 0.5,
+          scale = 0.5 * scale,
         },
         {
           priority = "high",
           width = 512,
           height = 422,
           frame_count = 128,
-          shift = util.by_pixel(-0, -51),
+          shift = util.by_pixel(-0, -51 * scale),
           animation_speed = animation_speed,
-          scale = 0.5,
+          scale = 0.5 * scale,
           stripes =
           {
             {
@@ -208,9 +213,9 @@ data:extend{
           height = 82,
           frame_count = 128,
           line_length = 16,
-          shift = util.by_pixel(51, 79),
+          shift = util.by_pixel(51 * scale, 79 * scale),
           animation_speed = animation_speed,
-          scale = 0.5,
+          scale = 0.5 * scale,
         },
         --[[{
           filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/lower.png",
@@ -231,33 +236,33 @@ data:extend{
           frame_count = 1,
           line_length = 1,
           repeat_count = 128,
-          shift = util.by_pixel(67, 38),
-          scale = 0.5,
+          shift = util.by_pixel(67 * scale, 38 * scale),
+          scale = 0.5 * scale,
         },
       },
     },
     crafting_categories = {"circuit-crafting", "advanced-circuit-crafting"},
-    crafting_speed = 4,
+    crafting_speed = 2,
     energy_source =
     {
       type = "electric",
       usage_priority = "secondary-input",
       emissions_per_minute = 50,
     },
-    energy_usage = "1MW",
-    ingredient_count = 12,
+    energy_usage = "750kW",
     module_specification =
     {
       module_slots = 6
     },
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-    working_visualisations =
+    --scale_entity_info_icon = true,
+    --[[working_visualisations =
     {
       {
         effect = "uranium-glow", -- changes alpha based on energy source light intensity
         light = {intensity = 0.8, size = 20, shift = {0.0, 0.0}, color = {r = 0.7, g = 0.8, b = 1}}
       },
-    },
+    },]]
   },
 
 }

@@ -54,12 +54,36 @@ data:extend{
     ingredients = {
       {"advanced-circuit", 5},
       {"ll-silicon", 5},
+      {"stone-brick", 1}
     },
     result = "ll-blank-data-card",
   },
   {
     type = "recipe",
     name = "ll-data-card-reformatting",
+    icons = {
+      {
+        icon = "__LunarLandings__/graphics/icons/background.png",
+        scale = 0.5
+      },
+      {
+        icon = "__space-exploration-graphics__/graphics/icons/data/junk.png",
+        scale = 0.35,
+        shift = {-5, -5},
+      },
+      {
+        icon = "__space-exploration-graphics__/graphics/icons/data/empty.png",
+        scale = 0.35,
+        shift = {5, 5},
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/arrow.png",
+        scale = 0.45,
+        shift = {2, 1},
+      }
+    },
+    icon_size = 64, icon_mipmaps = 1,
+    subgroup = "ll-data-cards",
     enabled = false,
     category = "advanced-circuit-crafting",
     ingredients = {
@@ -70,7 +94,6 @@ data:extend{
       {type = "item", name = "ll-blank-data-card", amount = 1, probability = 0.9},
       {type = "item", name = "ll-broken-data-card", amount = 1, probability = 0.1},
     },
-    main_product = "ll-blank-data-card",  -- TODO
   },
   {
     type = "recipe",
