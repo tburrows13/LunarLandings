@@ -1,3 +1,5 @@
+-- TODO change "Select recipe for assembling" text in this and arc furnace
+
 local furnace = data.raw.furnace["electric-furnace"]
 furnace.type = "assembling-machine"
 table.insert(furnace.crafting_categories, "ll-electric-smelting")
@@ -12,7 +14,7 @@ furnace.fluid_boxes =
     pipe_connections = {{ type="input", position = {-1, 2} }},
     secondary_draw_orders = { north = -1 }
   },
-  {
+  --[[{
     production_type = "output",
     pipe_picture = assembler3pipepictures(),
     pipe_covers = pipecoverspictures(),
@@ -20,7 +22,7 @@ furnace.fluid_boxes =
     base_level = 1,
     pipe_connections = {{ type="output", position = {-2, -1} }},
     secondary_draw_orders = { north = -1 }
-  },
+  },]]
   {
     production_type = "output",
     pipe_picture = assembler3pipepictures(),
@@ -30,7 +32,7 @@ furnace.fluid_boxes =
     pipe_connections = {{ type="output", position = {1, -2} }},
     secondary_draw_orders = { north = -1 }
   },
-  {
+  --[[{
     production_type = "output",
     pipe_picture = assembler3pipepictures(),
     pipe_covers = pipecoverspictures(),
@@ -38,7 +40,7 @@ furnace.fluid_boxes =
     base_level = 1,
     pipe_connections = {{ type="output", position = {2, 1} }},
     secondary_draw_orders = { north = -1 }
-  },
+  },]]
   off_when_no_fluid_recipe = true
 }
 
@@ -58,7 +60,7 @@ data:extend{
     subgroup = "fluid-recipes",
     ingredients = {{"ll-ice", 1}},
     results = {
-      {type = "fluid", name = "water", amount = 100, fluidbox_index = 2},
+      {type = "fluid", name = "water", amount = 100},
     }
   },
   {
@@ -68,10 +70,10 @@ data:extend{
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
     ingredients = {
-      {type = "fluid", name = "water", amount = 100, fluidbox_index = 0},
+      {type = "fluid", name = "water", amount = 100},
     },
     results = {
-      {type = "fluid", name = "steam", amount = 100, temperature = 500, fluidbox_index = 2},
+      {type = "fluid", name = "steam", amount = 100, temperature = 500},
     }
   },
 }

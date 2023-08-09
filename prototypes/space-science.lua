@@ -21,6 +21,7 @@ data:extend{
     {
       {type = "item", name = "ll-data-card", amount = 1, catalyst_amount = 1},
       {"ll-low-grav-assembling-machine", 1}, -- TODO consider core extractor?
+      {"ll-aluminium-plate", 5}  -- TODO replace with aluminium product
     },
     main_product = "ll-space-science-pack",
     results = {

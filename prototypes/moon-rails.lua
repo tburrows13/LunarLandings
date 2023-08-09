@@ -38,7 +38,7 @@ local function replace_filenames(table, old, new)
     elseif type(v) == "string" and k == "filename" then
       local start = v:sub(1, #old)
       if start == old then
-        table[k] = new .. v:sub(#old)
+        table[k] = new .. v:sub(#old+1)
         log(table[k])
       end
     end
@@ -56,10 +56,10 @@ straight_rail.minable.result = "ll-moon-rail"
 --log(serpent.block(straight_rail.pictures))
 replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
 replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.pn")  -- Hack: removed 'g' for reasons
+  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
 replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/", "__space-exploration-graphics__/graphics/entity/space-rail/sr/")
 replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.pn")  -- Hack: removed 'g' for reasons
+  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.png")
 
 local curved_rail = table.deepcopy(data.raw["curved-rail"]["curved-rail"])
 curved_rail.name = "ll-curved-moon-rail"
@@ -70,9 +70,9 @@ curved_rail.minable.result = "ll-moon-rail"
 curved_rail.placeable_by.item = "ll-moon-rail"
 replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
 replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.pn")
+  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
   replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/", "__space-exploration-graphics__/graphics/entity/space-rail/sr/")
   replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.pn")
+  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.png")
 
 data:extend{straight_rail, curved_rail}

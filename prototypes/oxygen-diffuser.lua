@@ -191,7 +191,7 @@ data:extend{
     --damaged_trigger_effect = hit_effects.entity(),
     fluid_box =
     {
-      base_area = 10,
+      base_area = 1,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
@@ -247,5 +247,6 @@ data:extend{
       rotate = false,
       orientation_to_variation = false
     }]]
+    surface_conditions = {nauvis = false, luna = {rock = false, foundation = true}},
   },
 }

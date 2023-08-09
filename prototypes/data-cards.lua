@@ -102,6 +102,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-data-cards",
     enabled = false,
+    allow_decomposition = false,
     category = "advanced-crafting",
     ingredients = {
       {"ll-broken-data-card", 1},

@@ -143,7 +143,7 @@ local function on_rocket_silo_built(event)
   local entity = event.created_entity or event.entity
   if entity.type ~= "rocket-silo" then return end
 
-  if entity.surface.name == "luna" then
+  if entity.name == "rocket-silo" and entity.surface.name == "luna" then
     local new_entity = entity.surface.create_entity{
       name = "ll-rocket-silo-down",
       position = entity.position,
@@ -152,7 +152,17 @@ local function on_rocket_silo_built(event)
     }
     entity.destroy()
     entity = new_entity
+  elseif entity.name == "ll-rocket-silo-down" and entity.surface.name == "nauvis" then
+    local new_entity = entity.surface.create_entity{
+      name = "rocket-silo",
+      position = entity.position,
+      force = entity.force,
+      create_build_effect_smoke = false,
+    }
+    entity.destroy()
+    entity = new_entity
   end
+
 
   global.rocket_silos[entity.unit_number] = {
     entity = entity,

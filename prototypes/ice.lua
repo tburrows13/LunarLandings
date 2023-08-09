@@ -8,7 +8,7 @@ data:extend{
     icon = "__space-exploration-graphics__/graphics/icons/water-ice.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
-    order = "d[stone]",
+    order = "h[moon]-d[ice]",
     stack_size = 50
   },
   {
@@ -97,7 +97,8 @@ data:extend{
       richness_expression = noise.define_noise_function( function(x, y, tile, map)
         return 100000
       end)
-    }
+    },
+    surface_conditions = {nauvis = false, luna = true},
   }
 
 }

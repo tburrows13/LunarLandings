@@ -220,6 +220,7 @@ rocket_interstellar.name = "ll-rocket-silo-interstellar"
 rocket_interstellar.minable.result = "ll-rocket-silo-interstellar"
 rocket_interstellar.rocket_parts_required = 50
 rocket_interstellar.fixed_recipe = "rocket-part-interstellar"
+rocket_interstellar.surface_conditions = {nauvis = false, luna = true}
 
 data:extend{rocket_down, rocket_interstellar}
 

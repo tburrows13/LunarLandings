@@ -11,6 +11,8 @@ moon_rock.map_color = {r=0.8, g=0.8, b=0.8}
 
 moon_rock.selection_priority = 49
 
+moon_rock.surface_conditions = {nauvis = false, luna = true}
+
 data:extend{
   moon_rock,
   {
@@ -27,7 +29,7 @@ data:extend{
       { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-3.png", scale = 0.25, mipmap_count = 4 }
     },
     subgroup = "raw-resource",
-    order = "d[stone]",
+    order = "h[moon]-a[moon-rock]",
     stack_size = 50
   },
   --[[{
@@ -71,6 +73,7 @@ data:extend{
     },
     category = "ll-electric-smelting",
     enabled = false,
+    allow_decomposition = false,
     energy_required = 5,
     ingredients =
     {
@@ -80,12 +83,12 @@ data:extend{
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-helium-3", amount=5, fluidbox_index = 3},
+      {type="fluid", name="ll-helium-3", amount=5},
     },
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "raw-material",
-    order = "a[oil-processing]-b[advanced-oil-processing]"
+    subgroup = "ll-raw-material-moon",
+    order = "a[moon-rock]-c"
   },
   {
     type = "recipe",
@@ -106,6 +109,7 @@ data:extend{
     },
     category = "ll-electric-smelting",
     enabled = false,
+    allow_decomposition = false,
     energy_required = 5,
     ingredients =
     {
@@ -115,12 +119,12 @@ data:extend{
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-oxygen", amount=50, fluidbox_index = 1},
+      {type="fluid", name="ll-oxygen", amount=50},
     },
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "raw-material",
-    order = "a[oil-processing]-b[advanced-oil-processing]"
+    subgroup = "ll-raw-material-moon",
+    order = "a[moon-rock]-b"
   },
 
   {
@@ -128,6 +132,7 @@ data:extend{
     name = "ll-moon-rock-processing",
     category = "ll-electric-smelting",
     enabled = false,
+    allow_decomposition = false,
     energy_required = 5,
     ingredients =
     {
@@ -140,8 +145,8 @@ data:extend{
     },
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "raw-material",
-    order = "a[oil-processing]-b[advanced-oil-processing]"
+    subgroup = "ll-raw-material-moon",
+    order = "a[moon-rock]-a"
   },
 }
 

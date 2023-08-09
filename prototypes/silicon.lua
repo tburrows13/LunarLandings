@@ -1,11 +1,17 @@
 data:extend{
   {
+    type = "item-subgroup",
+    name = "ll-raw-material-moon",
+    group = "intermediate-products",
+    order = "c-a"
+  },
+  {
     type = "item",
     name = "ll-silica",
     icon = "__LunarLandings__/graphics/silica.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "raw-material",
-    order = "b[iron-plate]",
+    subgroup = "ll-raw-material-moon",
+    order = "a[silica]",
     stack_size = 100
   },
   {
@@ -13,8 +19,8 @@ data:extend{
     name = "ll-silicon",
     icon = "__LunarLandings__/graphics/silicon.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "raw-material",
-    order = "b[iron-plate]",
+    subgroup = "ll-raw-material-moon",
+    order = "b[silicon]",
     stack_size = 100
   },
   {

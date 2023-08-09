@@ -2,9 +2,11 @@ local OxygenDiffuser = {}
 
 -- TODO Beacon Overhaul compatibility
 
-local allowed_machines = {
-  ["ll-telescope"] = true,
-  ["electric-furnace"] = true,  -- This is actually an assembling machine
+local oxygen_machines = {
+  ["assembling-machine-1"] = true,
+  ["assembling-machine-2"] = true,
+  ["assembling-machine-3"] = true,
+  ["ll-low-grav-assembling-machine"] = true,
 }
 
 local function affected_by_oxygen_diffuser(entity, ignore_unit_number)
@@ -49,13 +51,13 @@ local function on_entity_built(event)
   if entity.name == "ll-oxygen-diffuser" then
     local assemblers = entity.get_beacon_effect_receivers()
     for _, assembler in pairs(assemblers) do
-      if assembler.type == "assembling-machine" and not allowed_machines[assembler.name] then
+      if assembler.type == "assembling-machine" and oxygen_machines[assembler.name] then
         -- Enable entities now covered by diffuser
         assembler.active = true
       end
     end
 
-  elseif entity.type == "assembling-machine" and not allowed_machines[entity.name] then
+  elseif entity.type == "assembling-machine" and oxygen_machines[entity.name] then
     if not affected_by_oxygen_diffuser(entity) then
       entity.active = false
     end
@@ -68,7 +70,7 @@ local function on_entity_removed(event)
     local assemblers = entity.get_beacon_effect_receivers()
     local unit_number = entity.unit_number
     for _, assembler in pairs(assemblers) do
-      if assembler.type == "assembling-machine" and not allowed_machines[entity.name]
+      if assembler.type == "assembling-machine" and oxygen_machines[assembler.name]
         and not affected_by_oxygen_diffuser(assembler, unit_number) then
         -- Disable entities which are no longer covered by diffuser
         assembler.active = false
@@ -95,7 +97,7 @@ local function update_diffuser(entity, fluidbox)
 
   -- Filter out non-assembling machines
   for i, assembler in pairs(assemblers) do
-    if assembler.type ~= "assembling-machine" or allowed_machines[assembler.name] then
+    if assembler.type ~= "assembling-machine" or not oxygen_machines[assembler.name] then
       assemblers[i] = nil
     end
   end
@@ -110,7 +112,7 @@ local function update_diffuser(entity, fluidbox)
     end
   end
 
-  local oxygen_required = machines_working * 0.01
+  local oxygen_required = machines_working * 0.05
   local oxygen_in_fluidbox = fluidbox.get_fluid_count("ll-oxygen")
   if oxygen_in_fluidbox >= oxygen_required then
     for _, assembler in pairs(assemblers) do

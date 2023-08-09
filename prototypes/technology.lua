@@ -88,7 +88,7 @@ data:extend{
         recipe = "ll-heat-shielding"
       },
     },
-    prerequisites = {"ll-luna-exploration"},
+    prerequisites = {"ll-luna-exploration", "advanced-material-processing-2"},
     unit =
     {
       count = 150,
@@ -168,6 +168,77 @@ data:extend{
   },
   {
     type = "technology",
+    name = "ll-arc-furnace",
+    icon = "__LunarLandings__/graphics/technology/arc-furnace.png",
+    icon_size = 256, icon_mipmaps = 1,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-arc-furnace"
+      },
+    },
+    prerequisites = {"ll-moon-rock-processing", "production-science-pack"},
+    unit =
+    {
+      count = 150,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
+    name = "ll-rich-moon-rock-processing",
+    icon = "__LunarLandings__/graphics/icons/aluminium-plate.png",
+    icon_size = 128, icon_mipmaps = 1,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-rich-moon-rock-processing"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-alumina"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-aluminium-plate"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-red-mud-recovery"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-low-density-structure-aluminium"  -- TODO split into separate tech
+      }
+    },
+    prerequisites = {"ll-arc-furnace"},
+    unit =
+    {
+      count = 150,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-o-a"
+  },
+
+  {
+    type = "technology",
     name = "ll-space-data-collection",
     icon = "__space-exploration-graphics__/graphics/technology/telescope.png",
     icon_size = 128, icon_mipmaps = 1,
@@ -216,7 +287,7 @@ data:extend{
     name = "ll-space-science-pack",
     icon = "__LunarLandings__/graphics/technology/space-science-pack.png",
     icon_size = 256, icon_mipmaps = 1,
-    prerequisites = {"ll-space-data-collection"},
+    prerequisites = {"ll-space-data-collection", "ll-rich-moon-rock-processing"},
     effects =
     {
       {
