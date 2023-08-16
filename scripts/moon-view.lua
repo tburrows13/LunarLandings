@@ -1,6 +1,8 @@
 ---@type ScriptLib
 local MoonView = {}
 
+-- TODO handle incorrect character after respawn or editor-change-surface
+
 function MoonView.get_data(player_index)
   global.moon_view_data[player_index] = global.moon_view_data[player_index] or {}
   return global.moon_view_data[player_index]
@@ -27,9 +29,9 @@ function MoonView.toggle_moon_view(event)
   elseif player.surface.name == "nauvis" then
     moon_view_data.nauvis_character = player.character
     local luna_character = moon_view_data.luna_character
-    if not luna_character then
+    if not luna_character or not luna_character.valid then
       luna_character = game.get_surface("luna").create_entity{
-        name = "character",
+        name = "ll-remote-drone",
         position = {0, 0},
         force = player.force,
         create_build_effect_smoke = false,
