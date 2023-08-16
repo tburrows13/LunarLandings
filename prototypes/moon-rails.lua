@@ -7,7 +7,7 @@ data:extend{
     {
       {"stone", 1},
       {"iron-stick", 1},
-      {"steel-plate", 1}
+      {"steel-plate", 1}  -- TODO add plastic?
     },
     result = "ll-moon-rail",
     result_count = 2

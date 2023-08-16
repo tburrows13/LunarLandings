@@ -8,6 +8,7 @@ handler.add_libraries{
   require "scripts.rocket-silo",
   require "scripts.landing-pad",
   require "scripts.rtg",
-  require "scripts.oxygen-diffuser"
+  require "scripts.oxygen-diffuser",
+  require "scripts.arc-furnace",
 }
 

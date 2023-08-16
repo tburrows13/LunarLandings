@@ -83,7 +83,7 @@ data:extend{
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-helium-3", amount=5},
+      {type="fluid", name="ll-helium-3", amount=5, fluidbox_index = 1},
     },
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,
@@ -119,7 +119,7 @@ data:extend{
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-oxygen", amount=50},
+      {type="fluid", name="ll-oxygen", amount=50, fluidbox_index = 1},
     },
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",
     icon_size = 64, icon_mipmaps = 4,

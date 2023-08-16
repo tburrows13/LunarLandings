@@ -58,10 +58,11 @@ data:extend{
     enabled = false,
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
+    energy_required = 5,
     ingredients = {{"ll-ice", 1}},
     results = {
-      {type = "fluid", name = "water", amount = 100},
-    }
+      {type = "fluid", name = "water", amount = 100, fluidbox_index = 1},
+    },
   },
   {
     type = "recipe",
@@ -69,11 +70,12 @@ data:extend{
     enabled = false,
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
+    energy_required = 5,
     ingredients = {
       {type = "fluid", name = "water", amount = 100},
     },
     results = {
-      {type = "fluid", name = "steam", amount = 100, temperature = 500},
-    }
+      {type = "fluid", name = "steam", amount = 100, temperature = 500, fluidbox_index = 1},
+    },
   },
 }
