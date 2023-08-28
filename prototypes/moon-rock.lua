@@ -54,7 +54,7 @@ data:extend{
     subgroup = "raw-material",
     order = "a[oil-processing]-b[advanced-oil-processing]"
   },]]
-  {
+  --[[{
     type = "recipe",
     name = "ll-moon-rock-processing-with-helium",
     icons = {
@@ -89,7 +89,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "ll-raw-material-moon",
     order = "a[moon-rock]-c"
-  },
+  },]]
   {
     type = "recipe",
     name = "ll-moon-rock-processing-with-oxygen",
@@ -152,7 +152,7 @@ data:extend{
 
 --data_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
 data_util.allow_productivity("ll-moon-rock-processing-with-oxygen")
-data_util.allow_productivity("ll-moon-rock-processing-with-helium")
+--data_util.allow_productivity("ll-moon-rock-processing-with-helium")
 data_util.allow_productivity("ll-moon-rock-processing")
 
 

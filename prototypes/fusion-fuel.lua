@@ -35,7 +35,7 @@ data:extend{
   {
     type = "item",
     name = "ll-fusion-fuel",
-    icon = "__base__/graphics/icons/nuclear-fuel.png",
+    icon = "__LunarLandings__/graphics/icons/fusion-fuel.png",
     icon_size = 64, icon_mipmaps = 4,
     pictures =
     {
@@ -43,7 +43,7 @@ data:extend{
       {
         {
           size = 64,
-          filename = "__base__/graphics/icons/nuclear-fuel.png",
+          filename = "__LunarLandings__/graphics/icons/fusion-fuel.png",
           scale = 0.25,
           mipmap_count = 4
         },
@@ -77,8 +77,6 @@ data:extend{
       {type = "fluid", name = "ll-helium-3", amount = 1000},
       {"steel-plate", 1},
     },
-    icon = "__base__/graphics/icons/nuclear-fuel.png",
-    icon_size = 64, icon_mipmaps = 4,
     main_product = "ll-fusion-fuel",
     results = {
       {"ll-fusion-fuel", 1},

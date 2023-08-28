@@ -119,7 +119,7 @@ data:extend{
       {"ll-heat-shielding", 10},
       {"low-density-structure", 10},
       {"processing-unit", 1},
-      {"ll-fusion-fuel", 1},
+      {"nuclear-fuel", 1},
     },
     result = "rocket-part-interstellar"
   },
@@ -215,14 +215,101 @@ rocket_down.fluid_boxes =
   off_when_no_fluid_recipe = true
 }
 
-local rocket_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
-rocket_interstellar.name = "ll-rocket-silo-interstellar"
-rocket_interstellar.minable.result = "ll-rocket-silo-interstellar"
-rocket_interstellar.rocket_parts_required = 50
-rocket_interstellar.fixed_recipe = "rocket-part-interstellar"
-rocket_interstellar.surface_conditions = {nauvis = false, luna = true}
+local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
+rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.rocket_parts_required = 50
+rocket_silo_interstellar.fixed_recipe = "rocket-part-interstellar"
+rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
+rocket_silo_interstellar.surface_conditions = {nauvis = false, luna = true}
 
-data:extend{rocket_down, rocket_interstellar}
+rocket_silo_interstellar.base_day_sprite = {layers = {
+  {
+    filename = "__base__/graphics/entity/rocket-silo/06-rocket-silo.png",
+    width = 300,
+    height = 300,
+    shift = util.by_pixel(2, -2),
+    hr_version =
+    {
+      filename = "__base__/graphics/entity/rocket-silo/hr-06-rocket-silo.png",
+      width = 608,
+      height = 596,
+      shift = util.by_pixel(3, -1),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__space-exploration-graphics-5__/graphics/entity/probe/sr/06-rocket-silo-mask.png",
+    width = 608/2,
+    height = 596/2,
+    shift = util.by_pixel(3, -1),
+    tint = {r=0.9,b=0.3,g=0.3},
+    hr_version =
+    {
+      filename = "__space-exploration-graphics-5__/graphics/entity/probe/hr/06-rocket-silo-mask.png",
+      width = 608,
+      height = 596,
+      shift = util.by_pixel(3, -1),
+      tint = {r=0.9,b=0.3,g=0.3},
+      scale = 0.5
+    }
+  },
+}}
+rocket_silo_interstellar.base_front_sprite = {
+  layers = {
+    {
+      filename = "__base__/graphics/entity/rocket-silo/14-rocket-silo-front.png",
+      width = 292,
+      height = 132,
+      shift = util.by_pixel(-2, 78),
+      hr_version =
+      {
+        filename = "__base__/graphics/entity/rocket-silo/hr-14-rocket-silo-front.png",
+        width = 580,
+        height = 262,
+        shift = util.by_pixel(-1, 78),
+        scale = 0.5
+      }
+    },
+    {
+      filename = "__space-exploration-graphics-5__/graphics/entity/probe/sr/14-rocket-silo-front-mask.png",
+      width = 580/2,
+      height = 262/2,
+      shift = util.by_pixel(-1, 78),
+      tint = {r=0.9,b=0.3,g=0.3},
+      hr_version =
+      {
+        filename = "__space-exploration-graphics-5__/graphics/entity/probe/hr/14-rocket-silo-front-mask.png",
+        width = 580,
+        height = 262,
+        shift = util.by_pixel(-1, 78),
+        tint = {r=0.9,b=0.3,g=0.3},
+        scale = 0.5
+      }
+    },
+  }
+}
+
+local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
+rocket_interstellar.name = "ll-rocket-interstellar"
+rocket_interstellar.inventory_size = 1
+rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
+{
+  filename = "__space-exploration-graphics-5__/graphics/entity/probe/sr/probe-rocket.png",
+  width = 310/2,
+  height = 596/2,
+  shift = util.by_pixel(-5, -27),
+  hr_version = {
+    filename = "__space-exploration-graphics-5__/graphics/entity/probe/hr/probe-rocket.png",
+    width = 310,
+    height = 596,
+    shift = util.by_pixel(-5, -27),
+    scale = 0.5
+  }
+})
+
+
+data:extend{rocket_down, rocket_silo_interstellar, rocket_interstellar}
 
 data.raw.item["satellite"].rocket_launch_product = nil
 
@@ -267,7 +354,7 @@ data:extend{
       {"satellite", 1},
       {"low-density-structure", 50},
       {"rocket-control-unit", 50},
-      {"ll-fusion-fuel", 10},
+      {"nuclear-fuel", 10},
       {"processing-unit", 100},
     },
     result = "ll-interstellar-satellite",

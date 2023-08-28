@@ -33,7 +33,7 @@ local function build_gui(player, silo)
       direction = "vertical",
       anchor = anchor,
       children = {
-        {type = "label", style = "frame_title", caption = "Settings", ignored_by_interaction = true},
+        {type = "label", style = "frame_title", caption = {"gui-blueprint.settings"}, ignored_by_interaction = true},
         {type = "frame", direction = "vertical", style = "inside_shallow_frame_with_padding", children = {
           {
             type = "flow",
