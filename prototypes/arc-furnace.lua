@@ -202,7 +202,7 @@ data:extend{
     name = "ll-arc-furnace-reactor",
     icon = "__LunarLandings__/graphics/icons/arc-furnace.png",
     icon_size = 64,
-    flags = {"placeable-neutral", "placeable-player", "not-deconstructable", "not-blueprintable"},
+    flags = {"placeable-neutral", "placeable-player", "not-deconstructable", "not-blueprintable", "no-automated-item-insertion", "no-automated-item-removal"},
     placeable_by = {item = "ll-arc-furnace", count = 1},  -- So that pipette works
     --minable = {mining_time = 0.5, result = "nuclear-reactor"},
     max_health = 500,
@@ -234,6 +234,7 @@ data:extend{
       render_no_power_icon = false,
     },
     scale_energy_usage = true,  -- Stop when temperature is at max
+    neighbour_bonus = 0,
     collision_box = {{-2.1, -2.1}, {2.1, 2.1}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     collision_mask = {"not-colliding-with-itself"},
