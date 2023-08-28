@@ -14,6 +14,7 @@ data_util.add_prerequisite("advanced-electronics-2", "ll-moon-rock-processing")
 
 data_util.remove_prerequisite("rocket-silo", "speed-module-3")
 data_util.remove_prerequisite("rocket-silo", "productivity-module-3")
+data_util.add_prerequisite("rocket-silo", "low-density-structure")
 data_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 data_util.remove_research_ingredient("rocket-silo", "production-science-pack")
 bzutil.add_unlock("rocket-silo", "satellite")
@@ -71,10 +72,10 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-moon-rock-processing-with-oxygen"
       },
-      {
+      --[[{
         type = "unlock-recipe",
         recipe = "ll-moon-rock-processing-with-helium"
-      },
+      },]]
       --[[{
         type = "unlock-recipe",
         recipe = "ll-moon-rock-processing-with-oxygen-helium"
@@ -311,10 +312,170 @@ data:extend{
   },
   {
     type = "technology",
-    name = "ll-interstellar-rocket-silo",
-    icon = "__base__/graphics/technology/rocket-silo.png",
-    icon_size = 256, icon_mipmaps = 4,
+    name = "ll-quantum-resource-processing",
+    icon = "__LunarLandings__/graphics/technology/neodym-refining.png",
+    icon_size = 128, icon_mipmaps = 1,
     prerequisites = {"ll-space-science-pack"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-exotic-mineral-processing"
+      }
+    },
+    unit =
+    {
+      count = 75,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 5
+    },
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-quantum-computing",
+    icon = "__LunarLandings__/graphics/icons/quantum-processor.png",
+    icon_size = 64, icon_mipmaps = 1,
+    prerequisites = {"ll-quantum-resource-processing"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-quantum-processor"
+      },
+    },
+    unit =
+    {
+      count = 75,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 5
+    },
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-quantum-data-collection",
+    icon = "__LunarLandings__/graphics/technology/matter-cube.png",
+    icon_size = 256, icon_mipmaps = 4,
+    prerequisites = {"ll-quantum-computing"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-quantum-data-card"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-superposition-up-down"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-superposition-right-left"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-polarisation-up"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-polarisation-right"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-polarisation-left"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-polarisation-down"
+      },
+
+    },
+    unit =
+    {
+      count = 75,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 5
+    },
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-quantum-science-pack",
+    icon = "__LunarLandings__/graphics/technology/quantum-science-pack.png",
+    icon_size = 256, icon_mipmaps = 4,
+    prerequisites = {"ll-quantum-data"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-quantum-science-pack"
+      },
+    },
+    unit =
+    {
+      count = 75,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 5
+    },
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-quantum-module",
+    icon = "__LunarLandings__/graphics/technology/quantum-module.png",
+    icon_size = 256, icon_mipmaps = 4,
+    prerequisites = {"ll-quantum-science-pack"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-quantum-module"
+      },
+    },
+    unit =
+    {
+      count = 75,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 5
+    },
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-interstellar-rocket-silo",
+    icon = "__space-exploration-graphics__/graphics/technology/probe-rocket.png",
+    icon_size = 128, icon_mipmaps = 1,
+    prerequisites = {"ll-quantum-science-pack"},
     effects =
     {
       {

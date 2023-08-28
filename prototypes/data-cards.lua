@@ -25,11 +25,20 @@ data:extend{
   },
   {
     type = "item",
+    name = "ll-quantum-data-card",
+    icon = "__space-exploration-graphics__/graphics/icons/data/entanglement.png",
+    icon_size = 64,
+    subgroup = "ll-data-cards",
+    order = "c",
+    stack_size = 50
+  },
+  {
+    type = "item",
     name = "ll-junk-data-card",
     icon = "__space-exploration-graphics__/graphics/icons/data/junk.png",
     icon_size = 64,
     subgroup = "ll-data-cards",
-    order = "c",
+    order = "d",
     stack_size = 50
   },
   {
@@ -38,7 +47,7 @@ data:extend{
     icon = "__space-exploration-graphics__/graphics/icons/data/broken.png",
     icon_size = 64,
     subgroup = "ll-data-cards",
-    order = "d",
+    order = "e",
     stack_size = 50
   },
   {
@@ -85,7 +94,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-data-cards",
     enabled = false,
-    category = "advanced-circuit-crafting",
+    category = "advanced-crafting",
     ingredients = {
       {"ll-junk-data-card", 1},
       {"advanced-circuit", 1},
@@ -130,6 +139,29 @@ data:extend{
       {type = "item", name = "ll-junk-data-card", amount = 1, probability = 0.1},
     },
     main_product = "ll-data-card"
+  },
+  {
+    type = "recipe",
+    name = "ll-quantum-data-card",
+    enabled = false,
+    category = "ll-telescope-data",
+    always_show_made_in = true,
+    energy_required = 10,
+    ingredients = {
+      {"ll-blank-data-card", 1},
+      {"ll-quantum-processor", 1},
+      {"ll-superposed-qubit", 1},
+      {type = "fluid", name = "ll-oxygen", amount = 10}
+    },
+    results = {
+      {type = "item", name = "ll-quantum-data-card", amount = 1, probability = 0.7},
+      {type = "item", name = "ll-junk-data-card", amount = 1, probability = 0.3},
+      {type = "item", name = "ll-right-qubit", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-left-qubit", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-up-qubit", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-down-qubit", amount = 1, probability = 0.25},
+    },
+    main_product = "ll-quantum-data-card"
   },
 
 }

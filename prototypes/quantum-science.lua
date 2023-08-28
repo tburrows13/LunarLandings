@@ -1,12 +1,12 @@
 data:extend{
   {
     type = "tool",
-    name = "ll-space-science-pack",
-    localised_description = {"item-description.science-pack"},
-    icon = "__LunarLandings__/graphics/icons/space-science-pack.png",
+    name = "ll-quantum-science-pack",
+    localised_description = {"item-description.quantum-pack"},
+    icon = "__LunarLandings__/graphics/icons/quantum-science-pack.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "science-pack",
-    order = "g[space-science-pack",
+    order = "h[quantum-science-pack]",
     stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
@@ -14,22 +14,22 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ll-space-science-pack",
+    name = "ll-quantum-science-pack",
     enabled = false,
     energy_required = 14,
     ingredients =
     {
-      {type = "item", name = "ll-data-card", amount = 1, catalyst_amount = 1},
-      {"ll-low-grav-assembling-machine", 1}, -- TODO consider core extractor?
-      {"ll-aluminium-plate", 5}  -- TODO replace with aluminium product, LDS?
+      {type = "item", name = "ll-quantum-data-card", amount = 1, catalyst_amount = 1},
+      --{"ll-low-grav-assembling-machine", 1}, -- TODO
+      --{"ll-aluminium-plate", 5}  -- TODO
     },
-    main_product = "ll-space-science-pack",
+    main_product = "ll-quantum-science-pack",
     results = {
-      {"ll-space-science-pack", 4},
+      {"ll-quantum-science-pack", 6},
       {type = "item", name = "ll-blank-data-card", amount = 1, probability = 0.9, catalyst_amount = 1},  -- TODO check if this works properly
       {type = "item", name = "ll-broken-data-card", amount = 1, probability = 0.1, catalyst_amount = 1},
     },
   },
 }
 
-data_util.allow_productivity("ll-space-science-pack")
+data_util.allow_productivity("ll-quantum-science-pack")
