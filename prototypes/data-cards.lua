@@ -150,16 +150,16 @@ data:extend{
     ingredients = {
       {"ll-blank-data-card", 1},
       {"ll-quantum-processor", 1},
-      {"ll-superposed-qubit", 1},
+      {"ll-superposed-polariton", 1},
       {type = "fluid", name = "ll-oxygen", amount = 10}
     },
     results = {
       {type = "item", name = "ll-quantum-data-card", amount = 1, probability = 0.7},
       {type = "item", name = "ll-junk-data-card", amount = 1, probability = 0.3},
-      {type = "item", name = "ll-right-qubit", amount = 1, probability = 0.25},
-      {type = "item", name = "ll-left-qubit", amount = 1, probability = 0.25},
-      {type = "item", name = "ll-up-qubit", amount = 1, probability = 0.25},
-      {type = "item", name = "ll-down-qubit", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.25},
     },
     main_product = "ll-quantum-data-card"
   },

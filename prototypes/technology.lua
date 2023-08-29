@@ -421,7 +421,7 @@ data:extend{
     name = "ll-quantum-science-pack",
     icon = "__LunarLandings__/graphics/technology/quantum-science-pack.png",
     icon_size = 256, icon_mipmaps = 4,
-    prerequisites = {"ll-quantum-data"},
+    prerequisites = {"ll-quantum-data-collection"},
     effects =
     {
       {

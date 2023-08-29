@@ -111,101 +111,8 @@ data:extend({
   {
     type = "item",
     name = "ll-exotic-minerals",
-    icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-    pictures = {
-      {
-        layers = {
-          {
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-          {
-            draw_as_light = true,
-            flags = { "light" },
-            blend_mode = "additive",
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-light.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-        },
-      },
-      {
-        layers = {
-          {
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-          {
-            draw_as_light = true,
-            flags = { "light" },
-            blend_mode = "additive",
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1-light.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-        },
-      },
-      {
-        layers = {
-          {
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-          {
-            draw_as_light = true,
-            flags = { "light" },
-            blend_mode = "additive",
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2-light.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-        },
-      },
-      {
-        layers = {
-          {
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-          {
-            draw_as_light = true,
-            flags = { "light" },
-            blend_mode = "additive",
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
-            size = 64,
-            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3-light.png",
-            scale = 0.25,
-            mipmap_count = 4,
-          },
-        },
-      },
-    },
-    subgroup = "raw-resource",
-    order = "ga[raw-imersite]",
-    stack_size = 200,
-  },
-  {
-    type = "item",
-    name = "ll-exotic-matter",
     icon = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
+    icon_size = 64, icon_mipmaps = 4,
     pictures =
     {
       {
@@ -290,6 +197,98 @@ data:extend({
       }
     },
     subgroup = "raw-resource",
+    order = "ga[raw-imersite]",
+    stack_size = 200,
+  },
+  {
+    type = "item",
+    name = "ll-astrocrystals",
+    icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
+    icon_size = 64, icon_mipmaps = 4,
+    pictures =
+    {
+      {
+        layers = {
+          {
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+          {
+            draw_as_light = true,
+            flags = { "light" },
+            blend_mode = "additive",
+            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-light.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+        },
+      },
+      {
+        layers = {
+          {
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+          {
+            draw_as_light = true,
+            flags = { "light" },
+            blend_mode = "additive",
+            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1-light.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+        },
+      },
+      {
+        layers = {
+          {
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+          {
+            draw_as_light = true,
+            flags = { "light" },
+            blend_mode = "additive",
+            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2-light.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+        },
+      },
+      {
+        layers = {
+          {
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+          {
+            draw_as_light = true,
+            flags = { "light" },
+            blend_mode = "additive",
+            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3 },
+            size = 64,
+            filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3-light.png",
+            scale = 0.25,
+            mipmap_count = 4,
+          },
+        },
+      },
+    },
+    subgroup = "raw-resource",
     order = "g[uranium-ore]",
     stack_size = 50
   },
@@ -298,35 +297,35 @@ data:extend({
     name = "ll-exotic-mineral-processing",
     energy_required = 12,
     enabled = false,
-    category = "centrifuging",
+    category = "centrifuging",  -- TODO get pink tint
     ingredients = {{"ll-exotic-minerals", 4}},
-    icon = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym.png",
+    icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "l[exotic-mineral-processing]",
     results =
     {
       {
-        name = "ll-exotic-matter",
+        name = "ll-astrocrystals",
         amount = 1,
       },
       {
-        name = "ll-right-qubit",
+        name = "ll-right-polariton",
         probability = 0.0025,
         amount = 1
       },
       {
-        name = "ll-left-qubit",
+        name = "ll-left-polariton",
         probability = 0.0025,
         amount = 1
       },
       {
-        name = "ll-up-qubit",
+        name = "ll-up-polariton",
         probability = 0.0025,
         amount = 1
       },
       {
-        name = "ll-down-qubit",
+        name = "ll-down-polariton",
         probability = 0.0025,
         amount = 1
       },
