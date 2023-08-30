@@ -363,3 +363,6 @@ data:extend{
   },
 
 }
+
+data_util.allow_productivity("rocket-part-down")
+data_util.allow_productivity("rocket-part-interstellar")

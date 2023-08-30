@@ -6,7 +6,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/icons/space-science-pack.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "science-pack",
-    order = "g[space-science-pack",
+    order = "g-a[space-science-pack]",
     stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",

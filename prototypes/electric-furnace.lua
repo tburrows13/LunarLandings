@@ -79,3 +79,6 @@ data:extend{
     },
   },
 }
+
+data_util.allow_productivity("ll-melt-ice")
+data_util.allow_productivity("ll-boil-water")

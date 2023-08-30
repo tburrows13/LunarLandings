@@ -1,3 +1,10 @@
+data.raw["locomotive"]["space-locomotive"].burner = {
+  type = "burner",
+  fuel_inventory_size = 1,
+  burnt_inventory_size = 1,
+  fuel_category = "nuclear",
+}
+
 data:extend{
   {
     type = "recipe",
@@ -5,9 +12,9 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"stone", 1},
+      {"stone-brick", 1},
       {"iron-stick", 1},
-      {"steel-plate", 1}  -- TODO add plastic?
+      {"plastic-bar", 1},
     },
     result = "ll-moon-rail",
     result_count = 2

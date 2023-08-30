@@ -217,10 +217,6 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-red-mud-recovery"
       },
-      {
-        type = "unlock-recipe",
-        recipe = "ll-low-density-structure-aluminium"  -- TODO split into separate tech
-      }
     },
     prerequisites = {"ll-arc-furnace"},
     unit =
@@ -309,6 +305,34 @@ data:extend{
       time = 5
     },
     order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-low-density-structure-aluminium",
+    icon_size = 256, icon_mipmaps = 4,
+    icon = "__base__/graphics/technology/low-density-structure.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-low-density-structure-aluminium"
+      }
+    },
+    prerequisites = {"ll-space-science-pack"},
+    unit =
+    {
+      count = 600,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"ll-space-science-pack", 1},
+      },
+      time = 60
+    },
+    order = "k-a"
   },
   {
     type = "technology",

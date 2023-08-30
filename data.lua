@@ -1,6 +1,7 @@
 bzutil = require("__LunarLandings__.bzutil")
 data_util = require("__LunarLandings__.data-util")
 
+require "__LunarLandings__.prototypes.quantum-module"
 require "__LunarLandings__.prototypes.custom-input"
 require "__LunarLandings__.prototypes.item-groups"
 require "__LunarLandings__.prototypes.rocket-silo"
@@ -23,7 +24,6 @@ require "__LunarLandings__.prototypes.exotic-minerals"
 require "__LunarLandings__.prototypes.quantum-science"
 require "__LunarLandings__.prototypes.polariton"
 require "__LunarLandings__.prototypes.quantum-resonator"
-require "__LunarLandings__.prototypes.quantum-module"
 require "__LunarLandings__.prototypes.low-grav-assembling-machine"
 require "__LunarLandings__.prototypes.telescope"
 require "__LunarLandings__.prototypes.moon-rails"
