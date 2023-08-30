@@ -334,3 +334,5 @@ data:extend({
   },
 
 })
+
+data_util.allow_productivity("ll-exotic-mineral-processing")
