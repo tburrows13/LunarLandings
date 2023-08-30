@@ -24,5 +24,13 @@ data:extend(
     order = "d-c",
     category = "resource"
   },
+  {
+    type = "autoplace-control",
+    name = "ll-exotic-minerals",
+    localised_name = {"", "[entity=ll-exotic-minerals] ", {"entity-name.ll-exotic-minerals"}},
+    richness = true,
+    order = "d-d",
+    category = "resource",
+  },
 }
 )
