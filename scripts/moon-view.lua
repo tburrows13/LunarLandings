@@ -3,6 +3,8 @@ local MoonView = {}
 
 -- TODO handle incorrect character after respawn or editor-change-surface
 
+local SHORTCUT_NAME = "ll-toggle-moon-view"
+
 function MoonView.get_data(player_index)
   global.moon_view_data[player_index] = global.moon_view_data[player_index] or {}
   return global.moon_view_data[player_index]
@@ -26,6 +28,7 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = moon_view_data.nauvis_character
     }
+    player.set_shortcut_toggled(SHORTCUT_NAME, false)
   elseif player.surface.name == "nauvis" then
     moon_view_data.nauvis_character = player.character
     local luna_character = moon_view_data.luna_character
@@ -46,11 +49,19 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = luna_character,
     }
+    player.set_shortcut_toggled(SHORTCUT_NAME, true)
+  end
+end
+
+local function on_lua_shortcut(event)
+  if event.prototype_name == SHORTCUT_NAME then
+    MoonView.toggle_moon_view(event)
   end
 end
 
 MoonView.events = {
-  ["ll-toggle-moon-view"] = MoonView.toggle_moon_view,
+  [SHORTCUT_NAME] = MoonView.toggle_moon_view,
+  [defines.events.on_lua_shortcut] = on_lua_shortcut,
 }
 
 MoonView.on_init = function ()
