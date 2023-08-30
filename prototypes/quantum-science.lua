@@ -20,6 +20,7 @@ data:extend{
     ingredients =
     {
       {type = "item", name = "ll-quantum-data-card", amount = 1, catalyst_amount = 1},
+      {type = "item", name = "ll-quantum-resonator", amount = 1},
       --{"ll-low-grav-assembling-machine", 1}, -- TODO
       --{"ll-aluminium-plate", 5}  -- TODO
     },

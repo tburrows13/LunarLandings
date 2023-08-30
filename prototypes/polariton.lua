@@ -54,7 +54,7 @@ data:extend{
     type = "recipe",
     name = "ll-superposition-right-left",
     enabled = false,
-    category = "centrifuging",
+    category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
       {"ll-right-polariton", 1},
@@ -70,7 +70,7 @@ data:extend{
     type = "recipe",
     name = "ll-superposition-up-down",
     enabled = false,
-    category = "centrifuging",
+    category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
       {"ll-up-polariton", 1},
@@ -90,7 +90,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-a[up]",
     enabled = false,
-    category = "centrifuging",
+    category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
       {"ll-up-polariton", 1},
@@ -108,7 +108,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-b[right]",
     enabled = false,
-    category = "centrifuging",
+    category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
       {"ll-right-polariton", 1},
@@ -126,7 +126,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-c[down]",
     enabled = false,
-    category = "centrifuging",
+    category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
       {"ll-down-polariton", 1},
@@ -144,7 +144,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-d[left]",
     enabled = false,
-    category = "centrifuging",
+    category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
       {"ll-left-polariton", 1},

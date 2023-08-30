@@ -366,15 +366,15 @@ data:extend{
   },
   {
     type = "technology",
-    name = "ll-quantum-data-collection",
-    icon = "__LunarLandings__/graphics/technology/matter-cube.png",
-    icon_size = 256, icon_mipmaps = 4,
+    name = "ll-quantum-resonation",
+    icon = "__LunarLandings__/graphics/technology/computer-core.png",
+    icon_size = 256, icon_mipmaps = 1,
     prerequisites = {"ll-quantum-computing"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "ll-quantum-data-card"
+        recipe = "ll-quantum-resonator"
       },
       {
         type = "unlock-recipe",
@@ -401,6 +401,33 @@ data:extend{
         recipe = "ll-polarisation-down"
       },
 
+    },
+    unit =
+    {
+      count = 75,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 5
+    },
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-quantum-data-collection",
+    icon = "__space-exploration-graphics__/graphics/technology/telescope.png",
+    icon_size = 128, icon_mipmaps = 1,
+    prerequisites = {"ll-quantum-resonation"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-quantum-data-card"
+      },
     },
     unit =
     {

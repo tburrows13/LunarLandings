@@ -118,7 +118,8 @@ data:extend{
     {
       {"ll-heat-shielding", 10},
       {"low-density-structure", 10},
-      {"processing-unit", 1},
+      {"rocket-control-unit", 10},
+      {"ll-quantum-processor", 1},
       {"nuclear-fuel", 1},
     },
     result = "rocket-part-interstellar"
