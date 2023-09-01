@@ -6,7 +6,8 @@ data:extend{
     ingredients =
     {
       {"speed-module", 4},
-      {"processing-unit", 2}
+      {"processing-unit", 2},
+      {"lab", 2},
     },
     result = "ll-telescope"
   },

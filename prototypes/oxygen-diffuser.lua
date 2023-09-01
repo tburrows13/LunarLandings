@@ -174,6 +174,7 @@ data:extend{
         }
       }
     },
+    surface_conditions = {nauvis = false, luna = {rock = false, foundation = true}},
   },
 
   {
@@ -247,6 +248,5 @@ data:extend{
       rotate = false,
       orientation_to_variation = false
     }]]
-    surface_conditions = {nauvis = false, luna = {rock = false, foundation = true}},
   },
 }
