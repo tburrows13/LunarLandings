@@ -75,6 +75,19 @@ function data_util.allow_productivity(recipe_name)
   end
 end
 
+function data_util.disallow_productivity(recipe_name)
+  for _, module in pairs(data.raw.module) do
+    if module.category == "productivity" and module.limitation then
+      for i, name in pairs(module.limitation) do
+        if name == recipe_name then
+          table.remove(module.limitation, i)
+        end
+      end
+    end
+  end
+end
+
+
 function data_util.debug_technology(tech_name)
   local tech = data.raw.technology[tech_name]
   if not tech then log("Unable to find "..tech_name) return end

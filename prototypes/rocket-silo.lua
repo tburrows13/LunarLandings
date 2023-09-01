@@ -364,5 +364,4 @@ data:extend{
 
 }
 
-data_util.allow_productivity("rocket-part-down")
-data_util.allow_productivity("rocket-part-interstellar")
+data_util.disallow_productivity("rocket-part")
