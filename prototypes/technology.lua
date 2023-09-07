@@ -374,7 +374,7 @@ data:extend{
     {
       {
         type = "unlock-recipe",
-        recipe = "ll-exotic-mineral-processing"
+        recipe = "ll-astrocrystal-processing"
       }
     },
     unit =
