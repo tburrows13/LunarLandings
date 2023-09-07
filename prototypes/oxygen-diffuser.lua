@@ -9,10 +9,10 @@ data:extend{
     energy_required = 15,
     ingredients =
     {
-      {"electronic-circuit", 20},
       {"advanced-circuit", 20},
       {"steel-plate", 10},
-      {"copper-cable", 10}
+      {"copper-cable", 10},
+      {"pump", 2}
     },
     result = "ll-oxygen-diffuser"
   },

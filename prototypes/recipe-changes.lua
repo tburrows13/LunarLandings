@@ -2,8 +2,15 @@ local bzutil = require("__LunarLandings__.bzutil")
 local data_util = require("__LunarLandings__.data-util")
 
 bzutil.replace_ingredient("rocket-control-unit", "processing-unit", "advanced-circuit")
-bzutil.replace_ingredient("rocket-silo", "processing-unit", "advanced-circuit")
-bzutil.replace_ingredient("satellite", "processing-unit", "advanced-circuit")
+data.raw.recipe["satellite"].ingredients =
+{
+  {"low-density-structure", 50},
+  {"solar-panel", 50},
+  {"accumulator", 50},
+  {"radar", 5},
+  {"advanced-circuit", 100},
+  {"rocket-fuel", 25}
+}
 
 bzutil.add_ingredient("processing-unit", "ll-silicon", 5)
 

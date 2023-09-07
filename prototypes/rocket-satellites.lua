@@ -42,7 +42,7 @@ data:extend{
       {"low-density-structure", 50},
       {"rocket-control-unit", 50},
       {"nuclear-fuel", 10},
-      {"processing-unit", 100},
+      {"ll-quantum-processor", 100},
     },
     result = "ll-interstellar-satellite",
     requester_paste_multiplier = 1

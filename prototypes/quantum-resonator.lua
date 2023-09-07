@@ -60,11 +60,10 @@ data:extend{
     energy_required = 1,
     ingredients =
     {
-      {"lab", 4},
+      {"lab", 5},
       {"concrete", 100},
       {"steel-plate", 50},
-      {"advanced-circuit", 100},
-      {"iron-gear-wheel", 100}
+      {"processing-unit", 25},
     },
     result = "ll-quantum-resonator",
     result_count = 1,

@@ -66,7 +66,7 @@ data:extend{
       {"steel-plate", 1000},
       {"ll-lunar-foundation", 1000},
       {"pipe", 100},
-      {"processing-unit", 200},
+      {"ll-quantum-processor", 200},
       {"electric-engine-unit", 200}
     },
     energy_required = 30,
@@ -89,6 +89,16 @@ data:extend{
 }]]
 
 rocket_silo.rocket_parts_required = 20
+
+data.raw.recipe["rocket-silo"].ingredients =
+{
+  {"steel-plate", 200},
+  {"concrete", 200},
+  {"pipe", 20},
+  {"advanced-circuit", 100},
+  {"electric-engine-unit", 40}
+}
+
 
 local rocket_down = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_down.name = "ll-rocket-silo-down"
