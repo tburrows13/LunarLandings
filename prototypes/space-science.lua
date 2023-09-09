@@ -32,4 +32,5 @@ data:extend{
   },
 }
 
+table.insert(data.raw.lab.lab.inputs, 7, "ll-space-science-pack")
 data_util.allow_productivity("ll-space-science-pack")
