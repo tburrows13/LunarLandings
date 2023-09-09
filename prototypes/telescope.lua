@@ -5,8 +5,9 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"speed-module", 4},
-      {"processing-unit", 2}
+      {"iron-gear-wheel", 30},
+      {"processing-unit", 10},
+      {"lab", 2},
     },
     result = "ll-telescope"
   },

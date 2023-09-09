@@ -61,7 +61,10 @@ data:extend{
   {
     type = "recipe",
     name = "ll-arc-furnace",
-    ingredients = {{"steel-plate", 10}, {"advanced-circuit", 5}, {"stone-brick", 10}},
+    ingredients = {
+      {"steel-plate", 25},
+      {"processing-unit", 5},
+      {"concrete", 50}},
     result = "ll-arc-furnace",
     energy_required = 5,
     enabled = false

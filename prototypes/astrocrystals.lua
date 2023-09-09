@@ -3,7 +3,7 @@ local resource_autoplace = require("__core__/lualib/resource-autoplace")
 data:extend({
   {
     type = "resource",
-    name = "imersite",
+    name = "ll-astrocrystals",
     category = "ll-core",
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64,
@@ -22,12 +22,12 @@ data:extend({
     minable = {
       hardness = 1,
       mining_time = 2,
-      result = "ll-exotic-minerals",
+      result = "ll-astrocrystals",
     },
     collision_box = { { -3.4, -3.4 }, { 3.4, 3.4 } },
     selection_box = { { -3.5, -3.5 }, { 3.5, 3.5 } },
     autoplace = resource_autoplace.resource_autoplace_settings({
-      name = "imersite",
+      name = "ll-astrocrystals",
       order = "f",
       base_density = 1,
       richness_multiplier = 1,
@@ -95,110 +95,6 @@ data:extend({
     map_color = { r = 1, g = 0.5, b = 1 },
     mining_visualisation_tint = { r = 0.792, g = 0.050, b = 0.858 },
     map_grid = false,
-  },
-  {
-    type = "autoplace-control",
-    name = "imersite",
-    localised_name = { "", "[entity=imersite] ", { "autoplace-control-names.imersite" } },
-    richness = true,
-    order = "b-k",
-    category = "resource",
-  },
-  {
-    type = "noise-layer",
-    name = "imersite",
-  },
-  {
-    type = "item",
-    name = "ll-exotic-minerals",
-    icon = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym.png",
-    icon_size = 64, icon_mipmaps = 4,
-    pictures =
-    {
-      {
-        layers =
-        {
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym.png",
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym.png",
-            blend_mode = "additive",
-            draw_as_light = true,
-            tint = {r = 0.3, g = 0.3, b = 0.3, a = 0.3},
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-        }
-      },
-      {
-        layers =
-        {
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym-1.png",
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym-1.png",
-            blend_mode = "additive",
-            draw_as_light = true,
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3},
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-        }
-      },
-      {
-        layers =
-        {
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym-2.png",
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym-2.png",
-            blend_mode = "additive",
-            draw_as_light = true,
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3},
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-        }
-      },
-      {
-        layers =
-        {
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym-3.png",
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-          {
-            filename = "__LunarLandings__/graphics/item/neodym/crushed-pure-neodym-3.png",
-            blend_mode = "additive",
-            draw_as_light = true,
-            tint = { r = 0.3, g = 0.3, b = 0.3, a = 0.3},
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-        }
-      }
-    },
-    subgroup = "raw-resource",
-    order = "ga[raw-imersite]",
-    stack_size = 200,
   },
   {
     type = "item",
@@ -293,12 +189,23 @@ data:extend({
     stack_size = 50
   },
   {
+    type = "fluid",
+    name = "ll-astroflux",
+    default_temperature = 25,
+    heat_capacity = "0.1KJ",
+    base_color = {r=0, g=0, b=0},  -- TODO
+    flow_color = {r=0.5, g=0.5, b=0.5},  -- TODO
+    icon = "__LunarLandings__/graphics/fluid/neodym-solution.png",
+    icon_size = 64, icon_mipmaps = 4,
+    order = "a[fluid]-b[crude-oil]"
+  },
+  {
     type = "recipe",
-    name = "ll-exotic-mineral-processing",
+    name = "ll-astrocrystal-processing",
     energy_required = 12,
     enabled = false,
-    category = "centrifuging",  -- TODO get pink tint
-    ingredients = {{"ll-exotic-minerals", 4}},
+    category = "crafting-with-fluid",  -- TODO centrifuge? get pink tint
+    ingredients = {{"ll-astrocrystals", 4}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
@@ -306,8 +213,9 @@ data:extend({
     results =
     {
       {
-        name = "ll-astrocrystals",
-        amount = 1,
+        type = "fluid",
+        name = "ll-astroflux",
+        amount = 10,
       },
       {
         name = "ll-right-polariton",
@@ -335,4 +243,4 @@ data:extend({
 
 })
 
-data_util.allow_productivity("ll-exotic-mineral-processing")
+data_util.allow_productivity("ll-astrocrystal-processing")

@@ -20,6 +20,14 @@ data_util.remove_research_ingredient("rocket-silo", "production-science-pack")
 bzutil.add_unlock("rocket-silo", "satellite")
 bzutil.add_unlock("rocket-silo", "ll-used-rocket-part-recycling")
 
+data_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
+
+data_util.add_prerequisite("power-armor-mk2", "ll-quantum-computing")
+data_util.add_research_ingredient("power-armor-mk2", "production-science-pack")
+data_util.add_research_ingredient("power-armor-mk2", "ll-space-science-pack")
+
+data_util.add_prerequisite("spidertron", "ll-space-science-pack")
+
 data_util.remove_prerequisite("space-science-pack", "rocket-silo")
 data_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 bzutil.remove_recipe_effect("space-science-pack", "satellite")
@@ -60,8 +68,8 @@ data:extend{
   {
     type = "technology",
     name = "ll-moon-rock-processing",
-    icon = "__space-exploration-graphics__/graphics/technology/heat-shielding.png",  -- TODO change?
-    icon_size = 128, icon_mipmaps = 1,
+    icon = "__LunarLandings__/graphics/technology/silicon-processing.png",
+    icon_size = 256, icon_mipmaps = 4,
     effects =
     {
       {
@@ -84,12 +92,34 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-silicon"
       },
+    },
+    prerequisites = {"ll-luna-exploration", "advanced-material-processing-2"},
+    unit =
+    {
+      count = 150,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
+    name = "ll-heat-shielding",
+    icon = "__space-exploration-graphics__/graphics/technology/heat-shielding.png",
+    icon_size = 128, icon_mipmaps = 1,
+    effects =
+    {
       {
         type = "unlock-recipe",
         recipe = "ll-heat-shielding"
       },
     },
-    prerequisites = {"ll-luna-exploration", "advanced-material-processing-2"},
+    prerequisites = {"ll-moon-rock-processing"},
     unit =
     {
       count = 150,
@@ -179,7 +209,7 @@ data:extend{
         recipe = "ll-arc-furnace"
       },
     },
-    prerequisites = {"ll-moon-rock-processing", "production-science-pack"},
+    prerequisites = {"production-science-pack", "nuclear-power"},
     unit =
     {
       count = 150,
@@ -217,10 +247,6 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-red-mud-recovery"
       },
-      {
-        type = "unlock-recipe",
-        recipe = "ll-low-density-structure-aluminium"  -- TODO split into separate tech
-      }
     },
     prerequisites = {"ll-arc-furnace"},
     unit =
@@ -267,7 +293,8 @@ data:extend{
       },
 
     },
-    prerequisites = {"utility-science-pack", "production-science-pack"},
+    --prerequisites = {"utility-science-pack", "production-science-pack"},
+    prerequisites = {"advanced-electronics-2"},
     unit =
     {
       count = 150,
@@ -276,8 +303,8 @@ data:extend{
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        {"utility-science-pack", 1},
+        --{"production-science-pack", 1},
+        --{"utility-science-pack", 1},
       },
       time = 30
     },
@@ -304,11 +331,38 @@ data:extend{
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
         {"production-science-pack", 1},
-        {"utility-science-pack", 1},
       },
       time = 5
     },
     order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-low-density-structure-aluminium",
+    icon_size = 256, icon_mipmaps = 4,
+    icon = "__base__/graphics/technology/low-density-structure.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-low-density-structure-aluminium"
+      }
+    },
+    prerequisites = {"ll-space-science-pack"},
+    unit =
+    {
+      count = 600,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"ll-space-science-pack", 1},
+      },
+      time = 60
+    },
+    order = "k-a"
   },
   {
     type = "technology",
@@ -320,7 +374,7 @@ data:extend{
     {
       {
         type = "unlock-recipe",
-        recipe = "ll-exotic-mineral-processing"
+        recipe = "ll-astrocrystal-processing"
       }
     },
     unit =
@@ -331,7 +385,7 @@ data:extend{
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
         {"production-science-pack", 1},
-        {"utility-science-pack", 1},
+        --{"utility-science-pack", 1},
       },
       time = 5
     },
@@ -358,7 +412,7 @@ data:extend{
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
         {"production-science-pack", 1},
-        {"utility-science-pack", 1},
+        --{"utility-science-pack", 1},
       },
       time = 5
     },
@@ -369,7 +423,7 @@ data:extend{
     name = "ll-quantum-resonation",
     icon = "__LunarLandings__/graphics/technology/computer-core.png",
     icon_size = 256, icon_mipmaps = 1,
-    prerequisites = {"ll-quantum-computing"},
+    prerequisites = {"ll-quantum-computing", "utility-science-pack"},
     effects =
     {
       {

@@ -100,7 +100,7 @@ data:extend{
         icon_mipmaps = 4,
       },
       {
-        icon = "__LunarLandings__/graphics/fluids/oxygen.png",
+        icon = "__LunarLandings__/graphics/fluid/oxygen.png",
         icon_size = 64,
         icon_mipmaps = 1,
         scale = 0.25,

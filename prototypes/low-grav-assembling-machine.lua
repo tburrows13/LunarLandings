@@ -46,7 +46,7 @@ data:extend{
     type = "item",
     name = "ll-low-grav-assembling-machine",
     icon = "__space-exploration-graphics__/graphics/icons/manufactory.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "production-machine",
     order = "c[assembling-machine-3]",
     place_result = "ll-low-grav-assembling-machine",

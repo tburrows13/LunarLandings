@@ -140,3 +140,4 @@ data:extend{
 
 data_util.allow_productivity("ll-alumina")
 data_util.allow_productivity("ll-aluminium-plate")
+data_util.allow_productivity("ll-low-density-structure-aluminium")

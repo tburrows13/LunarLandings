@@ -32,10 +32,8 @@ for _, recipe in pairs(data.raw.recipe) do
     end
     if heat_recipe.results then
       table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = heat_recipe.energy_required or 0.5, fluidbox_index = 2})
-      if heat_recipe.name == "steel-plate-heat" then
-        log(serpent.block(heat_recipe))
-      end
       data:extend{heat_recipe}
+      data_util.allow_productivity(heat_recipe.name)
     end
   end
 end

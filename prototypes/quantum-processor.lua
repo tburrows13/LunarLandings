@@ -9,7 +9,7 @@ data:extend{
     {
       {"processing-unit", 1},
       {"ll-alumina", 5},
-      {"ll-astrocrystals", 5}
+      {type = "fluid", name = "ll-astroflux", amount = 5}
     },
     result = "ll-quantum-processor"
   },

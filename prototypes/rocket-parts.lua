@@ -42,6 +42,84 @@ data:extend{
   },
   {
     type = "item",
+    name = "ll-heat-shielding",
+    icon = "__space-exploration-graphics__/graphics/icons/heat-shielding.png",
+    icon_size = 64, icon_mipmaps = 1,
+    subgroup = "intermediate-product",
+    order = "q[low-density-structure]",
+    stack_size = 10
+  },
+  {
+    type = "recipe",
+    name = "ll-heat-shielding",
+    category = "crafting",
+    energy_required = 20,
+    enabled = false,
+    ingredients =
+    {
+      {"steel-plate", 2},
+      {"stone-brick", 10},
+      {"plastic-bar", 2},
+      {"ll-silica", 5},
+    },
+    result = "ll-heat-shielding"
+  },
+  {
+    type = "item",
+    name = "rocket-part-down",
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64, icon_mipmaps = 4,
+    localised_name = {"item-name.rocket-part"},
+    flags = {"hidden"},
+    subgroup = "intermediate-product",
+    order = "q[rocket-part]",
+    stack_size = 5
+  },
+  {
+    type = "recipe",
+    name = "rocket-part-down",
+    energy_required = 3,
+    enabled = false,
+    hidden = true,
+    category = "rocket-building",
+    ingredients =
+    {
+      {"ll-heat-shielding", 10},
+      {"low-density-structure", 10},
+      {type = "fluid", name = "steam", amount = 100, temperature = 500}
+    },
+    result = "rocket-part-down"
+  },
+  {
+    type = "item",
+    name = "rocket-part-interstellar",
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64, icon_mipmaps = 4,
+    localised_name = {"item-name.rocket-part"},
+    flags = {"hidden"},
+    subgroup = "intermediate-product",
+    order = "q[rocket-part]",
+    stack_size = 5
+  },
+  {
+    type = "recipe",
+    name = "rocket-part-interstellar",
+    energy_required = 3,
+    enabled = false,
+    hidden = true,
+    category = "rocket-building",
+    ingredients =
+    {
+      {"ll-heat-shielding", 10},
+      {"low-density-structure", 10},
+      {"rocket-control-unit", 10},
+      {"ll-quantum-processor", 1},
+      {"nuclear-fuel", 1},
+    },
+    result = "rocket-part-interstellar"
+  },
+  {
+    type = "item",
     name = "ll-used-rocket-part",
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64, icon_mipmaps = 4,

@@ -24,5 +24,13 @@ data:extend(
     order = "d-c",
     category = "resource"
   },
+  {
+    type = "autoplace-control",
+    name = "ll-astrocrystals",
+    localised_name = {"", "[entity=ll-astrocrystals] ", {"entity-name.ll-astrocrystals"}},
+    richness = true,
+    order = "d-d",
+    category = "resource",
+  },
 }
 )

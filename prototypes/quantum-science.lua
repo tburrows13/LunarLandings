@@ -6,7 +6,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/icons/quantum-science-pack.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "science-pack",
-    order = "h[quantum-science-pack]",
+    order = "g-b[quantum-science-pack]",
     stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",

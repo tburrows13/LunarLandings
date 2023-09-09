@@ -22,9 +22,9 @@ data:extend({
 		name = "ll-core-extractor",
 		enabled = false,
 		ingredients = {
-			{"steel-plate", 8},
-			{"stone-brick", 5},
-			{"iron-gear-wheel", 10},
+			{"steel-plate", 15},
+			{"stone-brick", 10},
+			{"iron-gear-wheel", 20},
 		},
 		result = "ll-core-extractor"
 	},
