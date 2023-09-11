@@ -341,9 +341,9 @@ local function disable_rocket_victory()
   if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
     remote.call("silo_script", "set_no_victory", true)
   end
-  if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
-    remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
-  end
+  --if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
+  --  remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
+  --end  // TODO
 end
 
 RocketSilo.on_init = function ()
