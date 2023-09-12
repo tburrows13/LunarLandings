@@ -155,7 +155,7 @@ data:extend{
         light = {intensity = 0.5, size = 8, shift = {0.0, 0.0}, color = {r = 0.9, g = 1, b = 0.8}}
       },
     },]]
-    surface_conditions = {nauvis = false, luna = true},
+    surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = true, foundation = false}}
   },
 
 }

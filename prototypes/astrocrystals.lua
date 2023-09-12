@@ -186,7 +186,8 @@ data:extend({
     },
     subgroup = "raw-resource",
     order = "g[uranium-ore]",
-    stack_size = 50
+    stack_size = 50,
+    surface_conditions = {nauvis = false, luna = true},
   },
   {
     type = "fluid",

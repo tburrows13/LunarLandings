@@ -309,3 +309,9 @@ for _, crater_name in pairs(crater_names) do
   table.insert(crater.autoplace.tile_restriction, "ll-luna-plain")
   --crater.autoplace = nil
 end
+
+data.raw["straight-rail"]["straight-rail"].surface_conditions = {nauvis = true, luna = false}
+data.raw["curved-rail"]["curved-rail"].surface_conditions = {nauvis = true, luna = false}
+data.raw["assembling-machine"]["assembling-machine-1"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["assembling-machine-2"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["assembling-machine-3"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
