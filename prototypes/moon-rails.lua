@@ -60,6 +60,7 @@ straight_rail.icon_mipmaps = 1
 straight_rail.minable.result = "ll-moon-rail"
 --straight_rail.placeable_by.item = "ll-moon-rail"
 -- TODO check fast_replaceable_group, next_upgrade
+straight_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
 --log(serpent.block(straight_rail.pictures))
 replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
 replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
@@ -75,6 +76,7 @@ curved_rail.icon_size = 64
 curved_rail.icon_mipmaps = 1
 curved_rail.minable.result = "ll-moon-rail"
 curved_rail.placeable_by.item = "ll-moon-rail"
+curved_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
 replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
 replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
   "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")

@@ -78,7 +78,7 @@ local function add_to_description(prototype, localised_string)
 end
 
 local function add_comma(restrictions_list)
-  if #restrictions_list > 2 then
+  if #restrictions_list >= 2 then
     table.insert(restrictions_list, ", ")
   end
 end

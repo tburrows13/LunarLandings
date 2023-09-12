@@ -137,7 +137,7 @@ data:extend{
       "player-layer",
     },
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-    drawing_box = {{-3, -3.3}, {3, 3}},
+    drawing_box = {{-2.5, -2.8}, {2.5, 2.5}},
     animation =
     {
       layers =
