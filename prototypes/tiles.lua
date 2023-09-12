@@ -3,12 +3,24 @@ local tne = noise.to_noise_expression
 local tile_trigger_effects = require("__base__.prototypes.tile.tile-trigger-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 
+local elevation = noise.var("elevation")
+
+local moon_autoplace = {
+  probability_expression = (elevation) * math.huge
+}
+local rough_moon_autoplace = {
+  probability_expression = (-elevation) * math.huge
+}
+local mountain_moon_autoplace = {
+  probability_expression = (elevation - 12) * 100 * math.huge
+}
+
 
 data:extend{
   {
-    name = "ll-moon",
+    name = "ll-luna-plain",
     type = "tile",
-    order = "e[moon]",
+    order = "e[moon]-a",
     collision_mask = {"ground-tile"},
     --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
@@ -35,14 +47,73 @@ data:extend{
     can_be_part_of_blueprint = false,
 
     --trigger_effect = tile_trigger_effects.dirt_1_trigger_effect()
-    autoplace = {
-      probability_expression = tne(-10000)
-    }
+    autoplace = moon_autoplace,
   },
+  {
+    name = "ll-luna-lowland",
+    type = "tile",
+    order = "e[moon]-b",
+    collision_mask = {"ground-tile"},
+    autoplace = rough_moon_autoplace,
+    layer = 22,
+    variants = tile_variations_template(
+      "__alien-biomes__/graphics/terrain/sr/mineral-white-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
+      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-2.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.070, 0.070, 0.025, 0.070, 0.070, 0.070, 0.007, 0.025, 0.070, 0.050, 0.015, 0.026, 0.030, 0.005, 0.070, 0.027 } },
+        [4] = { probability = 1.00, weights = {0.070, 0.070, 0.070, 0.070, 0.070, 0.070, 0.015, 0.070, 0.070, 0.070, 0.015, 0.050, 0.070, 0.070, 0.065, 0.070 }, },
+        --[8] = { probability = 1.00, weights = {0.090, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.025, 0.125, 0.005, 0.010, 0.100, 0.100, 0.010, 0.020, 0.020} }
+      }
+    ),
+
+    transitions = dark_dirt_transitions,
+    transitions_between_transitions = dark_dirt_transitions_between_transitions,
+
+    walking_sound = dirt_sounds,
+    map_color={r=0, g=0, b=75},
+    scorch_mark_color = {r = 0.420, g = 0.304, b = 0.191, a = 1.000},
+    pollution_absorption_per_second = dirt_pollution_absorption,
+    vehicle_friction_modifier = dirt_vehicle_speed_modifier,
+
+    trigger_effect = tile_trigger_effects.dirt_4_trigger_effect()
+  },
+  {
+    name = "ll-luna-mountain",
+    type = "tile",
+    order = "e[moon]-c",
+    collision_mask = {"ground-tile"},
+    autoplace = mountain_moon_autoplace,
+    layer = 22,
+    variants = tile_variations_template(
+      "__alien-biomes__/graphics/terrain/sr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
+      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.070, 0.070, 0.025, 0.070, 0.070, 0.070, 0.007, 0.025, 0.070, 0.050, 0.015, 0.026, 0.030, 0.005, 0.070, 0.027 } },
+        [4] = { probability = 1.00, weights = {0.070, 0.070, 0.070, 0.070, 0.070, 0.070, 0.015, 0.070, 0.070, 0.070, 0.015, 0.050, 0.070, 0.070, 0.065, 0.070 }, },
+        --[8] = { probability = 1.00, weights = {0.090, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.025, 0.125, 0.005, 0.010, 0.100, 0.100, 0.010, 0.020, 0.020} }
+      }
+    ),
+
+    transitions = dark_dirt_transitions,
+    transitions_between_transitions = dark_dirt_transitions_between_transitions,
+
+    walking_sound = dirt_sounds,
+    map_color={r=103, g=72, b=43},
+    scorch_mark_color = {r = 0.420, g = 0.304, b = 0.191, a = 1.000},
+    pollution_absorption_per_second = dirt_pollution_absorption,
+    vehicle_friction_modifier = dirt_vehicle_speed_modifier,
+
+    trigger_effect = tile_trigger_effects.dirt_4_trigger_effect()
+  },
+
   {
     type = "tile",
     name = "ll-lunar-foundation",
-    order = "e[moon]-a[foundation]",
+    order = "e[moon]-d[foundation]",
     needs_correction = false,
     minable = {mining_time = 0.1, result = "ll-lunar-foundation"},
     mined_sound = sounds.deconstruct_bricks(0.8),
@@ -235,6 +306,6 @@ local crater_names = {
 
 for _, crater_name in pairs(crater_names) do
   local crater = data.raw["optimized-decorative"][crater_name]
-  table.insert(crater.autoplace.tile_restriction, "ll-moon")
+  table.insert(crater.autoplace.tile_restriction, "ll-luna-plain")
   --crater.autoplace = nil
 end
