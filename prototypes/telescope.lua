@@ -32,7 +32,7 @@ data:extend{
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
-    collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
     resistances =
