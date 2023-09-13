@@ -20,15 +20,8 @@ data:extend{
     type = "item",
     name = "ll-alumina",
     icon = "__LunarLandings__/graphics/icons/alumina.png",
-    icon_size = 128,
-    icon_mipmaps = 1,
-    pictures =
-    {
-      { size = 128, filename = "__LunarLandings__/graphics/icons/alumina.png",   scale = 0.125, mipmap_count = 1 },
-      { size = 128, filename = "__LunarLandings__/graphics/icons/alumina-1.png", scale = 0.125, mipmap_count = 1 },
-      { size = 128, filename = "__LunarLandings__/graphics/icons/alumina-2.png", scale = 0.125, mipmap_count = 1 },
-      { size = 128, filename = "__LunarLandings__/graphics/icons/alumina-3.png", scale = 0.125, mipmap_count = 1 }
-    },
+    icon_size = 64,
+    icon_mipmaps = 4,
     subgroup = "ll-raw-material-moon",
     order = "c[alumina]",
     stack_size = 50
