@@ -1,5 +1,4 @@
 local sounds = require("__base__.prototypes.entity.sounds")
-local noise = require "noise"
 
 data:extend{
   {
@@ -20,7 +19,8 @@ data:extend{
     category = "ll-core",
     subgroup = "raw-resource",
     order="a-b-a",
-    --infinite = true,
+    infinite = true,
+    infinite_depletion_amount = 0,
     selection_priority = 49,
     highlight = true,
     minimum = 60000,
@@ -83,21 +83,8 @@ data:extend{
         }
       }
     },
-    map_color = {0.9, 0.9, 0.9},
+    map_color = {0.1, 0.2, 0.8},
     map_grid = false,
-    autoplace = {
-      name = "ll-ice",
-      order = "b",
-      probability_expression = noise.define_noise_function( function(x, y, tile, map)
-          -- Frequency value from map gen settings
-          local frequency_multiplier = noise.var("control-setting:ll-ice:frequency:multiplier")
-          local desired_frequency = 0.8 / (64 * 64^2)
-          return desired_frequency * frequency_multiplier
-        end),
-      richness_expression = noise.define_noise_function( function(x, y, tile, map)
-        return 100000
-      end)
-    },
     surface_conditions = {nauvis = false, luna = true},
   }
 

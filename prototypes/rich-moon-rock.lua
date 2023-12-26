@@ -58,18 +58,3 @@ data:extend{
 
 --data_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
 data_util.allow_productivity("ll-rich-moon-rock-processing")
-
-
--- Autoplace
-
-local resource_autoplace = require("resource-autoplace")
-resource_autoplace.initialize_patch_set("ll-rich-moon-rock", false)
-rich_moon_rock.autoplace = resource_autoplace.resource_autoplace_settings
-{
-  name = "ll-rich-moon-rock",
-  order = "b",
-  base_density = 4,
-  has_starting_area_placement = nil,
-  regular_rq_factor_multiplier = 1.0,
-  starting_rq_factor_multiplier = 1.1,
-}

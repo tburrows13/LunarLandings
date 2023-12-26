@@ -12,7 +12,9 @@ local function on_init()
   local nauvis = game.get_surface("nauvis")
   local nauvis_map_gen_settings = nauvis.map_gen_settings
   local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"]
+  local rich_moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-rich-moon-rock"]
   local ice_controls = nauvis_map_gen_settings.autoplace_controls["ll-ice"]
+  local astrocrystals_controls = nauvis_map_gen_settings.autoplace_controls["ll-astrocrystals"]
 
   local luna = game.create_surface(
     "luna",
@@ -24,12 +26,15 @@ local function on_init()
       default_enable_all_autoplace_controls = false,
       autoplace_controls = {
         ["ll-moon-rock"] = moon_rock_controls,
+        ["ll-rich-moon-rock"] = rich_moon_rock_controls,
         ["ll-ice"] = ice_controls,
+        ["ll-astrocrystals"] = astrocrystals_controls,
       },
       autoplace_settings = {
         decorative = { treat_missing_as_default = false },
         entity = { treat_missing_as_default = false, settings = {
           ["ll-moon-rock"] = moon_rock_controls,
+          ["ll-rich-moon-rock"] = rich_moon_rock_controls,
           ["ll-ice"] = ice_controls,
           --[[["crater3-huge"] = moon_rock_controls,
           ["crater1-large-rare"] = moon_rock_controls,
@@ -52,17 +57,7 @@ local function on_init()
   luna.freeze_daytime = false
   luna.show_clouds = false
 
-  --[[nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"] = {
-      frequency = "none",
-      size = "none",
-  }
-  nauvis_map_gen_settings.autoplace_controls["ll-ice"] = {
-      frequency = "none",
-      size = "none",
-  }]]
-  --nauvis.map_gen_settings = nauvis_map_gen_settings
   log("LunarLandings: on_init() done")
-  -- 3577590362
 end
 
 local MoonSurface = {}
