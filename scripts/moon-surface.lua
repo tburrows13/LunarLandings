@@ -39,6 +39,9 @@ local function on_init()
         }},
         tile = { treat_missing_as_default = false, settings = tile_settings },
       },
+      property_expression_names = {
+        elevation = "ll-luna-elevation",
+      }
     }
   )
   -- Nauvis is 25000 ticks per day
