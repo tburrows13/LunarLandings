@@ -2,7 +2,7 @@ data:extend{
   {
     type = "tool",
     name = "ll-quantum-science-pack",
-    localised_description = {"item-description.quantum-pack"},
+    localised_description = {"item-description.science-pack"},
     icon = "__LunarLandings__/graphics/icons/quantum-science-pack.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "science-pack",
