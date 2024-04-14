@@ -22,6 +22,9 @@ for _, recipe in pairs(data.raw.recipe) do
     heat_recipe.enabled = true
     heat_recipe.hide_from_player_crafting = true
 
+    -- Doesn't account for fluids
+    --heat_recipe.order = tostring(recipe.order or data.raw["item"][heat_recipe.result or heat_recipe.results[1][1]].order) .. "-heat"
+
     if heat_recipe.result and not heat_recipe.results then
       heat_recipe.results = {{type = "item", name = heat_recipe.result, amount = heat_recipe.result_count or 1}}
       heat_recipe.result = nil
