@@ -57,8 +57,24 @@ local function build_gui(player, silo)
               }},
               {
                 type = "drop-down", name = "ll-destination-dropdown", caption = "Destination",
-                items = landing_pad_names, selected_index = dropdown_index,
+                items = landing_pad_names,
+                selected_index = dropdown_index,
                 handler = {[defines.events.on_gui_selection_state_changed] = RocketSilo.destination_changed},
+                visible = silo.name ~= "ll-rocket-silo-interstellar",
+              },
+              {
+                type = "label",
+                caption = "Space: Send satellites for science?",
+                visible = silo.name ~= "ll-rocket-silo-interstellar",
+              },
+              {
+                type = "label",
+                caption = "Luna/Nauvis surface: Dump items onto that surface.",
+                visible = silo.name ~= "ll-rocket-silo-interstellar",
+              },
+              {
+                type = "label",
+                caption = "If multiple landing pads share a name, only one will be delived to (in the current version).",
                 visible = silo.name ~= "ll-rocket-silo-interstellar",
               }
             }
