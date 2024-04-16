@@ -212,7 +212,38 @@ data:extend{
     prerequisites = {"production-science-pack", "nuclear-power"},
     unit =
     {
-      count = 150,
+      count = 300,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
+    name = "ll-steam-condenser",
+    icon = "__LunarLandings__/graphics/technology/steam-condenser.png",
+    icon_size = 256, icon_mipmaps = 1,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-steam-condenser"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-condense-steam"
+      },
+    },
+    prerequisites = {"production-science-pack", "nuclear-power"},
+    unit =
+    {
+      count = 1000,
       ingredients =
       {
         {"automation-science-pack", 1},
