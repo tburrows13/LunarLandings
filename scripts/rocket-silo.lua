@@ -11,9 +11,13 @@ local function build_gui(player, silo)
 
   local anchor = {gui = defines.relative_gui_type.rocket_silo_gui, position = defines.relative_gui_position.right}
 
-  local landing_pad_names = {[1] = "Space", [2] = "Luna Surface"}
-  if silo.surface.name == "luna" then
-    landing_pad_names[2] = "Nauvis Surface"
+  local landing_pad_names = {[1] = "Space"}
+  if global.satellites_launched[silo.force.name] then
+    if silo.surface.name == "luna" then
+      landing_pad_names[2] = "Nauvis Surface"
+    else
+      landing_pad_names[2] = "Luna Surface"
+    end
   end
   local i = 1
   local dropdown_index = 1
@@ -56,27 +60,24 @@ local function build_gui(player, silo)
                 },
               }},
               {
-                type = "drop-down", name = "ll-destination-dropdown", caption = "Destination",
-                items = landing_pad_names,
-                selected_index = dropdown_index,
-                handler = {[defines.events.on_gui_selection_state_changed] = RocketSilo.destination_changed},
+                type = "flow", direction = "vertical", 
                 visible = silo.name ~= "ll-rocket-silo-interstellar",
+                children = {
+                  {
+                    type = "label",
+                    style = "heading_2_label",
+                    caption = "Destination [img=info]",
+                    tooltip = "Space: Send satellites to explore Luna.\nLuna/Nauvis surface: Dump items onto that surface\nIf multiple landing pads share a name, only one will be delived to (in the current version)."
+                  },
+                  {
+                    type = "drop-down", name = "ll-destination-dropdown", caption = "Destination",
+                    items = landing_pad_names,
+                    selected_index = dropdown_index,
+                    handler = {[defines.events.on_gui_selection_state_changed] = RocketSilo.destination_changed},
+                    visible = silo.name ~= "ll-rocket-silo-interstellar",
+                  }, 
+                } 
               },
-              {
-                type = "label",
-                caption = "Space: Send satellites for science?",
-                visible = silo.name ~= "ll-rocket-silo-interstellar",
-              },
-              {
-                type = "label",
-                caption = "Luna/Nauvis surface: Dump items onto that surface.",
-                visible = silo.name ~= "ll-rocket-silo-interstellar",
-              },
-              {
-                type = "label",
-                caption = "If multiple landing pads share a name, only one will be delived to (in the current version).",
-                visible = silo.name ~= "ll-rocket-silo-interstellar",
-              }
             }
           }
         }}
@@ -304,9 +305,13 @@ local function on_rocket_launched(event)
   if silo_data.destination == "Space" then
     if inventory.get_item_count("satellite") >= 1 then
       if silo.name == "rocket-silo" then
-        game.print("Satellite launched!")
-        local satellites_launched = (global.satellites_launched[silo.force.name] or 0) + 1
-        global.satellites_launched[silo.force.name] = satellites_launched
+        local force_name = silo.force.name
+        local satellites_launched = global.satellites_launched[force_name] or 0
+        if satellites_launched == 0 then
+          game.print("First satellite launched!\nA large moon called Luna was found orbiting Nauvis. It looks like a robot from the crashed ship landed on it - research Luna Exploration to re-establish a connection with it.\nSubsequent satellite launches will explore more of Luna's surface")
+          silo.force.technologies["ll-luna-exploration"].enabled = true
+        end
+        global.satellites_launched[silo.force.name] = satellites_launched + 1
         local position = global.satellite_cursors[silo.force.name] or {x = 0, y = 0}
         for i = 1, 27 do
           while silo.force.is_chunk_charted("luna", position) do
@@ -362,12 +367,24 @@ local function disable_rocket_victory()
   --end  // TODO
 end
 
+local function disable_luna_exploration_tech()
+    for _, force in pairs(game.forces) do
+    if not global.satellites_launched[force.name] then
+      if not force.technologies["ll-luna-exploration"].researched then
+        force.technologies["ll-luna-exploration"].enabled = false
+        force.technologies["ll-luna-exploration"].visible_when_disabled = true
+      end
+    end
+  end
+end
+
 RocketSilo.on_init = function ()
   global.rocket_silos = {}
   global.rocket_silo_guis = {}
   global.satellites_launched = {}
   global.satellite_cursors = {}
   disable_rocket_victory()
+  disable_luna_exploration_tech()
 end
 
 RocketSilo.on_configuration_changed = function(changed_data)

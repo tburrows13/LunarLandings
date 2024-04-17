@@ -12,8 +12,10 @@ end
 
 function MoonView.toggle_moon_view(event)
   local player = game.players[event.player_index]
-  --if not global.satellites_launched[player.force.name] then return end
-  --if not player.force.technologies["ll-luna-exploration"].researched then return end
+  if not player.force.technologies["ll-luna-exploration"].researched then
+    game.print("Connection to Luna robot not established. Research Luna Exploration first.")
+    return
+  end
   if player.controller_type ~= defines.controllers.character then return end
   local moon_view_data = MoonView.get_data(event.player_index)
   if player.surface.name == "luna" then
