@@ -107,6 +107,7 @@ rocket_down.minable.result = "rocket-silo"
 rocket_down.placeable_by = {item = "rocket-silo", count = 1}
 rocket_down.rocket_parts_required = 5
 rocket_down.fixed_recipe = "rocket-part-down"
+table.insert(rocket_down.flags, "not-in-made-in")
 rocket_down.fluid_boxes =
 {
   {

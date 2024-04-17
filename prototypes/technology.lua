@@ -18,7 +18,6 @@ data_util.add_prerequisite("rocket-silo", "low-density-structure")
 data_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 data_util.remove_research_ingredient("rocket-silo", "production-science-pack")
 bzutil.add_unlock("rocket-silo", "satellite")
-bzutil.add_unlock("rocket-silo", "ll-used-rocket-part-recycling")
 
 data_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
 
@@ -37,15 +36,37 @@ bzutil.add_unlock("space-science-pack", "ll-interstellar-satellite")
 data:extend{
   {
     type = "technology",
+    name = "ll-used-rocket-part-recycling",
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64, icon_mipmaps = 4,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-used-rocket-part-recycling"
+      },
+    },
+    prerequisites = {"rocket-silo"},
+    unit =
+    {
+      count = 500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
     name = "ll-luna-exploration",
     icon = "__LunarLandings__/graphics/technology/moon.png",  -- TODO change?
     icon_size = 256, icon_mipmaps = 1,
     effects =
     {
-      --[[{
-        type = "unlock-recipe",
-        recipe = "ll-moon-rock-processing"  -- TODO 'starter pack'
-      },]]
       {
         type = "unlock-recipe",
         recipe = "ll-landing-pad"
