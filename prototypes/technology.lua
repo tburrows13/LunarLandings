@@ -63,7 +63,7 @@ data:extend{
   {
     type = "technology",
     name = "ll-luna-exploration",
-    icon = "__LunarLandings__/graphics/technology/moon.png",  -- TODO change?
+    icon = "__LunarLandings__/graphics/technology/luna.png",
     icon_size = 256, icon_mipmaps = 1,
     effects =
     {
