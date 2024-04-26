@@ -23,7 +23,7 @@ data:extend{
     infinite_depletion_amount = 0,
     selection_priority = 49,
     highlight = true,
-    minimum = 60000,
+    minimum = 300000,
     normal = 300000,
     --infinite_depletion_amount = 10,
     resource_patch_search_radius = 12,
@@ -42,8 +42,8 @@ data:extend{
       }
     },
     walking_sound = sounds.oil,
-    collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
-    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    collision_box = {{-5.4, -5.4}, {5.4, 5.4}},
+    selection_box = {{-5.5, -5.5}, {5.5, 5.5}},
     --[[autoplace = resource_autoplace.resource_autoplace_settings
     {
       name = "crude-oil",
@@ -68,22 +68,11 @@ data:extend{
         height = 337,
         frame_count = 1,
         variation_count = 1,
-        shift = util.by_pixel(0, -2),
-        scale = 0.25,
-        hr_version =
-        {
-          filename = "__LunarLandings__/graphics/ice.png",
-          priority = "extra-high",
-          width = 474,
-          height = 337,
-          frame_count = 1,
-          variation_count = 1,
-          shift = util.by_pixel(0, -2),
-          scale = 0.25
-        }
+        shift = util.by_pixel(-2, -2),
+        scale = 0.6,
       }
     },
-    map_color = {0.1, 0.2, 0.8},
+    map_color = {0.1, 0.2, 0.5},
     map_grid = false,
     surface_conditions = {nauvis = false, luna = true},
   }
