@@ -421,7 +421,7 @@ data:extend{
     name = "ll-quantum-resource-processing",
     icon = "__LunarLandings__/graphics/technology/neodym-refining.png",
     icon_size = 128, icon_mipmaps = 1,
-    prerequisites = {"ll-space-science-pack"},
+    prerequisites = {"ll-space-science-pack", "ll-ice-extraction"},
     effects =
     {
       {
