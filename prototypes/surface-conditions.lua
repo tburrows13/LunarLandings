@@ -50,7 +50,7 @@ local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmeti
   Defaults:
   lab, radar: {nauvis = true, luna = false}
   logistic-container (active-provider, requester, buffer): {nauvis = true, luna = false}
-  straight-rail, curved-rail, rail-signal, rail-chain-signal, spider-vehicle, spider-leg, electric-pole: {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
+  straight-rail, curved-rail, rail-signal, rail-chain-signal, spider-vehicle, spider-leg, electric-pole, simple-entity: {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   everything else: {nauvis = true, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
 
   `luna = true` is the same as `luna = {plain = true, lowland = false, mountain = true, foundation = true}`
@@ -62,7 +62,7 @@ local function get_default_surface_conditions(prototype)
     return {nauvis = true, luna = false}
   elseif type == "logistic-container" and (prototype.logistic_mode == "active-provider" or prototype.logistic_mode == "requester" or prototype.logistic_mode == "buffer") then
     return {nauvis = true, luna = false}
-  elseif type == "straight-rail" or type == "curved-rail" or type == "rail-signal" or type == "rail-chain-signal" or type == "spider-vehicle" or type == "spider-leg" or type == "electric-pole" then
+  elseif type == "straight-rail" or type == "curved-rail" or type == "rail-signal" or type == "rail-chain-signal" or type == "spider-vehicle" or type == "spider-leg" or type == "electric-pole" or type == "simple-entity" then
     return {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   else
     return {nauvis = true, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
