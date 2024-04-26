@@ -289,14 +289,22 @@ local function on_rocket_launched(event)
     local result_inventory = silo.get_inventory(defines.inventory.rocket_silo_result)
     result_inventory.insert{name = "ll-used-rocket-part", count = 10}
   elseif silo.name == "ll-rocket-silo-interstellar" then
+    local rocket = event.rocket
+    if not (rocket and rocket.valid) then return end
+
     -- Win the game
-    if game.finished or game.finished_but_continuing then return end
-    game.set_game_state{
-      game_finished = true,
-      player_won = true,
-      can_continue = true,
-      victorious_force = rocket.force
-    }
+    if game.finished or game.finished_but_continuing or global.finished then return end
+    global.finished = true
+    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
+      remote.call("better-victory-screen", "trigger_victory", rocket.force)
+    else
+      game.set_game_state{
+        game_finished=true,
+        player_won=true,
+	      can_continue=true,
+        victorious_force=rocket.force
+      }
+    end
   end
 
   local inventory = event.rocket.get_inventory(defines.inventory.rocket)
@@ -359,8 +367,10 @@ RocketSilo.events = {
 }
 
 local function disable_rocket_victory()
-  if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
-    remote.call("silo_script", "set_no_victory", true)
+  for _, interface in pairs{"silo_script", "better-victory-screen"} do
+    if remote.interfaces[interface] and remote.interfaces[interface]["set_no_victory"] then
+      remote.call(interface, "set_no_victory", true)
+    end
   end
   --if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
   --  remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
