@@ -19,16 +19,13 @@ data:extend{
     category = "ll-core",
     subgroup = "raw-resource",
     order="a-b-a",
-    infinite = true,
-    infinite_depletion_amount = 0,
     selection_priority = 49,
     highlight = true,
-    minimum = 300000,
-    normal = 300000,
-    --infinite_depletion_amount = 10,
+    infinite = true,
+    minimum = 40000,
+    normal = 100000,
+    infinite_depletion_amount = 1,
     resource_patch_search_radius = 12,
-    --tree_removal_probability = 0.7,
-    --tree_removal_max_distance = 32 * 32,
     minable =
     {
       mining_time = 1,
@@ -41,7 +38,6 @@ data:extend{
         }
       }
     },
-    walking_sound = sounds.oil,
     collision_box = {{-5.4, -5.4}, {5.4, 5.4}},
     selection_box = {{-5.5, -5.5}, {5.5, 5.5}},
     --[[autoplace = resource_autoplace.resource_autoplace_settings

@@ -11,18 +11,17 @@ data:extend({
     flags = { "placeable-neutral" },
     order = "a-b-a",
     subgroup = "raw-resource",
-    infinite = false,
     highlight = true,
-    minimum = 50,
-    normal = 350,
-    infinite_depletion_amount = 10,
+    infinite = true,
+    minimum = 40000,
+    normal = 100000,  -- At 100% yield, it will give 1/s at start, and 0.25/s after 60000 resources
+    infinite_depletion_amount = 1,  -- Takes 1 from `normal` each time
     resource_patch_search_radius = 12,
-    tree_removal_probability = 1,
-    tree_removal_max_distance = 32 * 32,
     minable = {
-      hardness = 1,
       mining_time = 2,
       result = "ll-astrocrystals",
+      required_fluid = "lubricant",
+      fluid_amount = 2,
     },
     collision_box = {{-5.4, -5.4}, {5.4, 5.4}},
     selection_box = {{-5.5, -5.5}, {5.5, 5.5}},
@@ -171,7 +170,7 @@ data:extend({
     energy_required = 12,
     enabled = false,
     category = "crafting-with-fluid",  -- TODO centrifuge? get pink tint
-    ingredients = {{"ll-astrocrystals", 4}},
+    ingredients = {{"ll-astrocrystals", 4}, {type="fluid", name="steam", amount="10"}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
