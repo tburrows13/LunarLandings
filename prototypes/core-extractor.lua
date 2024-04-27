@@ -58,32 +58,20 @@ data:extend({
     circuit_wire_connection_points = circuit_connector_definitions["electric-mining-drill"].points,
 		circuit_connector_sprites = circuit_connector_definitions["electric-mining-drill"].sprites,
 		circuit_wire_max_distance = default_circuit_wire_max_distance,
-    --[[fluid_boxes = {
-      {   
-        filter = "water",
-        base_area = 1,
-        base_level = -1,
-        height = 2,
-        pipe_covers = pipecoverspictures(),
-        pipe_picture = ei_pipe_big_round,
-        pipe_connections = {
-            {type = "input", position = {6, 0}},
-        },
-        production_type = "input",
+    input_fluid_box = {   
+      base_area = 1,
+      base_level = -1,
+      height = 2,
+      pipe_covers = pipecoverspictures(),
+      --pipe_picture = ei_pipe_big_round, TODO
+      pipe_connections =
+      {
+        { position = {-6, 0} },
+        { position = {6, 0} },
+        { position = {0, 6} }
       },
-      {   
-        filter = "ei_dirty-water",
-        base_area = 1,
-        base_level = 1,
-        height = 2,
-        pipe_covers = pipecoverspictures(),
-        pipe_picture = ei_pipe_big_round,
-        pipe_connections = {
-            {type = "output", position = {-6, 0}},
-        },
-        production_type = "output",
-      },
-    },]]
+      production_type = "input-output",
+    },
     graphics_set = {
       circuit_connector_layer = "object",
 		  circuit_connector_secondary_draw_order = { north = 14, east = 30, south = 30, west = 30 },
