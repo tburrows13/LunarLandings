@@ -9,6 +9,7 @@
   "dependencies": [
     "base",
     "alien-biomes",
+    "alien-biomes-hr-terrain",
     "SpidertronPatrols",
     "se-space-trains",
     "space-exploration-graphics",
