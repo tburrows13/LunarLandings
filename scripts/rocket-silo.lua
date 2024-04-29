@@ -45,6 +45,7 @@ local function build_gui(player, silo)
             style = "inset_frame_container_vertical_flow",
             children = {
               {type = "label", caption = {"gui-rocket-silo.parts-required", silo.prototype.rocket_parts_required}},
+              {type = "label", caption = {"gui-rocket-silo.steam-requirement"}, visible = silo.name == "ll-rocket-silo-down"},
               {type = "flow", direction = "vertical", children = {
                 {
                   type = "radiobutton", name = "ll-auto-launch-none", caption = {"gui-rocket-silo.auto-launch-none"}, state = silo_data.auto_launch == "none",
