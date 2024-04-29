@@ -44,18 +44,18 @@ local function build_gui(player, silo)
             direction = "vertical",
             style = "inset_frame_container_vertical_flow",
             children = {
-              --{type = "label", caption = "My label"},
+              {type = "label", caption = {"gui-rocket-silo.parts-required", silo.prototype.rocket_parts_required}},
               {type = "flow", direction = "vertical", children = {
                 {
-                  type = "radiobutton", name = "ll-auto-launch-none", caption = "No auto-launch", state = silo_data.auto_launch == "none",
+                  type = "radiobutton", name = "ll-auto-launch-none", caption = {"gui-rocket-silo.auto-launch-none"}, state = silo_data.auto_launch == "none",
                   handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                 },
                 {
-                  type = "radiobutton", name = "ll-auto-launch-any", caption = "Auto-launch with any cargo", state = silo_data.auto_launch == "any",
+                  type = "radiobutton", name = "ll-auto-launch-any", caption = {"gui-rocket-silo.auto-launch-any"}, state = silo_data.auto_launch == "any",
                   handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                 },
                 {
-                  type = "radiobutton", name = "ll-auto-launch-full", caption = "Auto-launch when cargo full", state = silo_data.auto_launch == "full",
+                  type = "radiobutton", name = "ll-auto-launch-full", caption = {"gui-rocket-silo.auto-launch-full"}, state = silo_data.auto_launch == "full",
                   handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                 },
               }},
@@ -66,8 +66,8 @@ local function build_gui(player, silo)
                   {
                     type = "label",
                     style = "heading_2_label",
-                    caption = "Destination [img=info]",
-                    tooltip = "Space: Send satellites to explore Luna.\nLuna/Nauvis surface: Dump items onto that surface\nIf multiple landing pads share a name, only one will be delived to (in the current version)."
+                    caption = {"", {"gui-rocket-silo.destination"}, " [img=info]"},
+                    tooltip = {"gui-rocket-silo.destination-tooltip"}
                   },
                   {
                     type = "drop-down", name = "ll-destination-dropdown", caption = "Destination",
