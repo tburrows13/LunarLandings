@@ -130,8 +130,18 @@ data:extend{
   {
     type = "recipe",
     name = "ll-used-rocket-part-recycling",
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/rocket-part.png",
+        icon_size = 64, icon_mipmaps = 4,
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/recycle.png",
+        icon_size = 64, icon_mipmaps = 1,
+        scale = 0.3,
+        shift = {-8, 8},
+      }
+    },
     energy_required = 30,
     enabled = false,
     subgroup = "intermediate-product",

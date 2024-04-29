@@ -94,6 +94,18 @@ data:extend{
   {
     type = "recipe",
     name = "ll-red-mud-recovery",  -- TODO set fluid tint
+    icons = {
+      {
+        icon = "__LunarLandings__/graphics/icons/red-mud.png",
+        icon_size = 64, icon_mipmaps = 4,
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/recycle.png",
+        icon_size = 64, icon_mipmaps = 1,
+        scale = 0.3,
+        shift = {-8, 8},
+      }
+    },
     category = "chemistry",
     enabled = false,
     allow_decomposition = false,
@@ -107,8 +119,6 @@ data:extend{
       {type="item", name="stone-brick", amount_min=0, amount_max = 4},
       {type="item", name="iron-ore", amount_min=0, amount_max = 4},
     },
-    icon = "__LunarLandings__/graphics/icons/red-mud.png",
-    icon_size = 64, icon_mipmaps = 4,
     subgroup = "ll-raw-material-moon",
     order = "h[red-mud]"
   },

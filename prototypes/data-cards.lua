@@ -107,8 +107,18 @@ data:extend{
   {
     type = "recipe",
     name = "ll-broken-data-card-recycling",
-    icon = "__space-exploration-graphics__/graphics/icons/data/broken.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icons = {
+      {
+        icon = "__space-exploration-graphics__/graphics/icons/data/broken.png",
+        icon_size = 64, icon_mipmaps = 1,
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/recycle.png",
+        icon_size = 64, icon_mipmaps = 1,
+        scale = 0.3,
+        shift = {-8, 8},
+      }
+    },
     subgroup = "ll-data-cards",
     enabled = false,
     allow_decomposition = false,
