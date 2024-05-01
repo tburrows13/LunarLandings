@@ -16,7 +16,7 @@ local function build_gui(player, name)
       anchor = anchor,
       style_mods = {width = 300},
       children = {
-        {type = "label", style = "frame_title", caption = "Name", ignored_by_interaction = true},
+        {type = "label", style = "frame_title", caption = {"description.name"}, ignored_by_interaction = true},
         {type = "flow", direction = "vertical", style = "inset_frame_container_vertical_flow", children = {
           {type = "frame", style = "inside_shallow_frame_with_padding", children = {
             {
@@ -58,6 +58,9 @@ gui.add_handlers(LandingPad,
 
 function LandingPad.name_added(name, unit_number)
   names = global.landing_pad_names
+  if name ~= "Default" and names[name] and next(names[name]) then
+    game.print("Landing pad " .. name .. " already exists. Landing pads with duplicate names are ignored by rockets.")
+  end
   if names[name] then
     names[name][unit_number] = true
   else

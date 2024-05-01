@@ -12,7 +12,8 @@ local function build_gui(player, silo)
   local anchor = {gui = defines.relative_gui_type.rocket_silo_gui, position = defines.relative_gui_position.right}
 
   local landing_pad_names = {[1] = "Space"}
-  if global.satellites_launched[silo.force.name] then
+  local surfaces_unlocked = global.satellites_launched[silo.force.name]
+  if surfaces_unlocked then
     if silo.surface.name == "luna" then
       landing_pad_names[2] = "Nauvis Surface"
     else
@@ -24,7 +25,7 @@ local function build_gui(player, silo)
   for name, _ in pairs(global.landing_pad_names) do
     table.insert(landing_pad_names, name)
     if name == silo_data.destination then
-      dropdown_index = i + 2
+      dropdown_index = i + (surfaces_unlocked and 2 or 1)
     end
     i = i + 1
   end
@@ -46,20 +47,29 @@ local function build_gui(player, silo)
             children = {
               {type = "label", caption = {"gui-rocket-silo.parts-required", silo.prototype.rocket_parts_required}},
               {type = "label", caption = {"gui-rocket-silo.steam-requirement"}, visible = silo.name == "ll-rocket-silo-down"},
-              {type = "flow", direction = "vertical", children = {
-                {
-                  type = "radiobutton", name = "ll-auto-launch-none", caption = {"gui-rocket-silo.auto-launch-none"}, state = silo_data.auto_launch == "none",
-                  handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
-                },
-                {
-                  type = "radiobutton", name = "ll-auto-launch-any", caption = {"gui-rocket-silo.auto-launch-any"}, state = silo_data.auto_launch == "any",
-                  handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
-                },
-                {
-                  type = "radiobutton", name = "ll-auto-launch-full", caption = {"gui-rocket-silo.auto-launch-full"}, state = silo_data.auto_launch == "full",
-                  handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
-                },
-              }},
+              {
+                type = "flow", direction = "vertical",
+                children = {
+                  {
+                    type = "label",
+                    style = "heading_2_label",
+                    caption = {"", {"gui-rocket-silo.auto-launch-title"}, " [img=info]"},
+                    tooltip = {"gui-rocket-silo.auto-launch-tooltip"}
+                  },
+                  {
+                    type = "radiobutton", name = "ll-auto-launch-none", caption = {"gui-rocket-silo.auto-launch-none"}, state = silo_data.auto_launch == "none",
+                    handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
+                  },
+                  {
+                    type = "radiobutton", name = "ll-auto-launch-any", caption = {"gui-rocket-silo.auto-launch-any"}, state = silo_data.auto_launch == "any",
+                    handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
+                  },
+                  {
+                    type = "radiobutton", name = "ll-auto-launch-full", caption = {"gui-rocket-silo.auto-launch-full"}, state = silo_data.auto_launch == "full",
+                    handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
+                  },
+                }
+              },
               {
                 type = "flow", direction = "vertical", 
                 visible = silo.name ~= "ll-rocket-silo-interstellar",
@@ -71,7 +81,7 @@ local function build_gui(player, silo)
                     tooltip = {"gui-rocket-silo.destination-tooltip"}
                   },
                   {
-                    type = "drop-down", name = "ll-destination-dropdown", caption = "Destination",
+                    type = "drop-down", name = "ll-destination-dropdown",
                     items = landing_pad_names,
                     selected_index = dropdown_index,
                     handler = {[defines.events.on_gui_selection_state_changed] = RocketSilo.destination_changed},
@@ -189,6 +199,35 @@ local function on_rocket_silo_built(event)
   }
 end
 
+local function get_destination_landing_pad(landing_pad_name)
+  local landing_pads = global.landing_pad_names[landing_pad_name]
+  if not landing_pads then return end
+
+  local landing_pad_unit_number, _ = next(landing_pads)
+  local landing_pad = global.landing_pads[landing_pad_unit_number]
+  if not (landing_pad and landing_pad.entity.valid) then
+    return
+  end
+  return landing_pad.entity
+end
+
+local function launch_if_destination_has_space(silo_data, ready_stacks)
+  local silo = silo_data.entity
+  local destination_name = silo_data.destination
+  if silo_data.destination == "Space" or silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
+    silo.launch_rocket()
+  else
+    local destination = get_destination_landing_pad(destination_name)
+    if not destination then
+      return  -- Destination landing pad doesn't exist, so don't autolaunch
+    end
+    local inventory = destination.get_inventory(defines.inventory.chest)
+    if inventory.count_empty_stacks(false, false) >= ready_stacks then
+      silo.launch_rocket()
+    end
+  end
+end
+
 local function on_tick()
   for unit_number, silo_data in pairs(global.rocket_silos) do
     local silo = silo_data.entity
@@ -199,12 +238,12 @@ local function on_tick()
         if silo_data.auto_launch == "any" then
           local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
           if not inventory.is_empty() then
-            silo.launch_rocket()
+            launch_if_destination_has_space(silo_data, #inventory - inventory.count_empty_stacks(true, true))
           end
         elseif silo_data.auto_launch == "full" then
           local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
           if inventory.is_full() then
-            silo.launch_rocket()
+            launch_if_destination_has_space(silo_data, #inventory)
           end
         end
       end
@@ -256,22 +295,16 @@ local function spill_rocket(surface, inventory, rocket_parts)
   if rocket_parts and rocket_parts > 0 then
     surface.spill_item_stack({0, 0}, {name = "ll-used-rocket-part", count = rocket_parts}, false, nil, false)
   end
-
 end
 
+
 local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
-  local landing_pads = global.landing_pad_names[landing_pad_name]
-  if not landing_pads then
+  local landing_pad = get_destination_landing_pad(landing_pad_name)
+  if not landing_pad then
     spill_rocket(surface, inventory, rocket_parts)
     return
   end
-  local landing_pad_unit_number, _ = next(landing_pads)
-  local landing_pad = global.landing_pads[landing_pad_unit_number]
-  if not (landing_pad and landing_pad.entity.valid) then
-    spill_rocket(surface, inventory, rocket_parts)
-    return
-  end
-  local pad_inventory = landing_pad.entity.get_inventory(defines.inventory.chest)
+  local pad_inventory = landing_pad.get_inventory(defines.inventory.chest)
   for i = 1, #inventory do
     local stack = inventory[i]
     if stack and stack.valid_for_read then
@@ -281,7 +314,6 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
   if rocket_parts and rocket_parts > 0 then
     pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
   end
-
 end
 
 local function on_rocket_launched(event)
@@ -347,7 +379,7 @@ local function on_rocket_launched(event)
     local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
     spill_rocket(surface, inventory, silo.name == "ll-rocket-silo-down" and 2 or 0)
   else
-    local rocket_surface = silo.surface.name  -- Todo improve
+    local rocket_surface = silo.surface.name
     local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
     land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and 2 or 0)
   end
