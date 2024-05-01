@@ -14,28 +14,33 @@ local function switch_filenames(pictures)
 end
 
 local current_bucket = 0  -- Persists across all make_buckets calls
+local current_lowland_bucket = 0
 local function make_buckets(frequencies)
   local buckets = {}
   for name, frequency in pairs(frequencies) do
-    buckets[name] = {current_bucket, current_bucket + frequency}
-    current_bucket = current_bucket + frequency
+    buckets[name] = {current_bucket, current_bucket + frequency[1]}
+    current_bucket = current_bucket + frequency[1]
   end
-  return buckets
+  local lowland_buckets = {}
+  for name, frequency in pairs(frequencies) do
+    lowland_buckets[name] = {current_lowland_bucket, current_lowland_bucket + frequency[2]}
+    current_lowland_bucket = current_lowland_bucket + frequency[2]
+  end
+  return buckets, lowland_buckets
 end
 
 local elevation = noise.var("elevation")
-local function moon_probability_expression(bucket, increase_in_lowland)
+local function moon_probability_expression(bucket, lowland_bucket)
   return noise.define_noise_function( function(x, y, tile, map)
     local selection = noise.random(100)
-    local elevation_multiplier = 1
-    if increase_in_lowland then
-      elevation_multiplier = noise.if_else_chain(
-        noise.less_than(elevation, -0.5), 20,
-        1
-      )
-    end
-
-    local selection_min, selection_max = tne(bucket[1]) * elevation_multiplier, tne(bucket[2]) * elevation_multiplier
+    selection_min = noise.if_else_chain(
+      noise.less_than(elevation, -0.5), lowland_bucket[1],
+      bucket[1]
+    )
+    selection_max = noise.if_else_chain(
+      noise.less_than(elevation, -0.5), lowland_bucket[2],
+      bucket[2]
+    )
     local probability = noise.if_else_chain(
       noise.less_or_equal(selection_min, selection), noise.if_else_chain(
         noise.less_than(selection, selection_max), 1,
@@ -48,14 +53,15 @@ local function moon_probability_expression(bucket, increase_in_lowland)
 end
 
 -- Percentage of tiles that should have this decorative
+-- First number is on plain, second number is on lowland
 local craters = {
-  ["crater3-huge"] = 0.0005,
-  ["crater1-large"] = 0.06,
-  ["crater1-large-rare"] = 0.0005,
-  ["crater2-medium"] = 0.3,
-  ["crater4-small"] = 1.2,
+  ["crater3-huge"] = {0.0005, 0.0005},
+  ["crater1-large"] = {0.06, 0.06},
+  ["crater1-large-rare"] = {0.0005, 0.0005},
+  ["crater2-medium"] = {0.3, 0.3},
+  ["crater4-small"] = {1.2, 1.2},
 }
-local crater_buckets = make_buckets(craters)
+local crater_buckets, lowland_crater_buckets = make_buckets(craters)
 for name, bucket in pairs(crater_buckets) do
   local decorative = table.deepcopy(data.raw["optimized-decorative"][name])
   decorative.name = "ll-moon-" .. name
@@ -65,20 +71,20 @@ for name, bucket in pairs(crater_buckets) do
     order = "b",
     tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
     default_enabled = false,
-    probability_expression = moon_probability_expression(bucket, false),
+    probability_expression = moon_probability_expression(bucket, lowland_crater_buckets[name]),
   },
   --decorative.autoplace.tile_restriction = {"ll-luna-plain"}
   data:extend{decorative}
 end
 
 local decorative_rocks = {
-  ["rock-medium"] = 0.1,
-  ["sand-rock-medium"] = 0.06,
-  ["sand-rock-small"] = 0.4,
-  ["rock-small"] = 0.7,
-  ["rock-tiny"] = 1,
+  ["rock-medium"] = {0.1, 2},
+  ["sand-rock-medium"] = {0.06, 0.6},
+  ["sand-rock-small"] = {0.4, 4},
+  ["rock-small"] = {0.7, 7},
+  ["rock-tiny"] = {1, 5},
 }
-local decorative_rock_buckets = make_buckets(decorative_rocks)
+local decorative_rock_buckets, lowland_decorative_rock_buckets = make_buckets(decorative_rocks)
 for name, bucket in pairs(decorative_rock_buckets) do
   local rock = table.deepcopy(data.raw["optimized-decorative"][name])
   rock.name = "ll-moon-" .. name
@@ -87,20 +93,20 @@ for name, bucket in pairs(decorative_rock_buckets) do
     order = "b",
     tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
     default_enabled = false,
-    probability_expression = moon_probability_expression(bucket, true),
+    probability_expression = moon_probability_expression(bucket, lowland_decorative_rock_buckets[name]),
   },
   --rock.autoplace.tile_restriction = {"ll-luna-plain", "ll-luna-lowland"}
   switch_filenames(rock.pictures)
   data:extend{rock}
 end
 
-
 local entity_rocks = {
-  ["rock-huge"] = 0.03,
-  ["rock-big"] = 0.01,
-  ["sand-rock-big"] = 0.05,
+  ["rock-huge"] = {0.03, 2},
+  ["rock-big"] = {0.01, 4},
+  ["sand-rock-big"] = {0.05, 2},
 }
-local entity_rock_buckets = make_buckets(entity_rocks)
+local entity_rock_buckets, lowland_entity_rock_buckets = make_buckets(entity_rocks)
+log(serpent.block(lowland_entity_rock_buckets))
 for name, bucket in pairs(entity_rock_buckets) do
   local rock = table.deepcopy(data.raw["simple-entity"][name])
   rock.name = "ll-moon-" .. name
@@ -117,7 +123,7 @@ for name, bucket in pairs(entity_rock_buckets) do
     order = "b",
     tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
     default_enabled = false,
-    probability_expression = moon_probability_expression(bucket, true),
+    probability_expression = moon_probability_expression(bucket, lowland_entity_rock_buckets[name]),
   },
   --rock.autoplace.tile_restriction = {"ll-luna-plain", "ll-luna-lowland"}
   switch_filenames(rock.pictures)
