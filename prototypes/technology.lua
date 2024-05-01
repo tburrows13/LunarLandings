@@ -46,7 +46,7 @@ data:extend{
         recipe = "ll-used-rocket-part-recycling"
       },
     },
-    prerequisites = {"rocket-silo"},
+    prerequisites = {"ll-luna-exploration"},
     unit =
     {
       count = 500,

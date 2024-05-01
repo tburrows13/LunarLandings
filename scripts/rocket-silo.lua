@@ -257,7 +257,7 @@ local function on_rocket_launch_ordered(event)
   -- Remove interstellar satellite from rocket if it isn't an interstellar rocket
   if silo.name == "ll-rocket-silo-interstellar" then return end
   local inventory = event.rocket.get_inventory(defines.inventory.rocket)
-  local rocket_stack = inventory[1]
+  local rocket_stack = inventory[1]  -- TODO check all slots
   if not (rocket_stack and rocket_stack.valid_for_read) then return end
 
   if rocket_stack.name == "ll-interstellar-satellite" then
@@ -311,14 +311,15 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
       pad_inventory.insert(stack)
     end
   end
-  if rocket_parts and rocket_parts > 0 then
+  if rocket_parts and rocket_parts > 0 and landing_pad.force.technologies["ll-used-rocket-part-recycling"].researched then
+    -- TODO stop auto-launch if no space for rocket parts
     pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
   end
 end
 
 local function on_rocket_launched(event)
   local silo = event.rocket_silo
-  if silo.name == "rocket-silo" then
+  if silo.name == "rocket-silo" and silo.force.technologies["ll-used-rocket-part-recycling"].researched then
     local result_inventory = silo.get_inventory(defines.inventory.rocket_silo_result)
     result_inventory.insert{name = "ll-used-rocket-part", count = 10}
   elseif silo.name == "ll-rocket-silo-interstellar" then
