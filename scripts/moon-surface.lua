@@ -48,7 +48,6 @@ local function on_init()
           ["ll-moon-rock-tiny"] = decorative_controls,
           ["ll-moon-sand-rock-medium"] = decorative_controls,
           ["ll-moon-sand-rock-small"] = decorative_controls,
-
         }},
         entity = { treat_missing_as_default = false, settings = {
           ["ll-moon-rock"] = moon_rock_controls,
