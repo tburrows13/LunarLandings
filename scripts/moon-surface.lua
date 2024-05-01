@@ -1,14 +1,15 @@
+local default_controls = {
+  frequency = "regular",
+  size = "regular",
+}
+
+local decorative_controls = {
+  frequency = 1,
+  size = 1,
+  richness = 1,
+}
+
 local function on_init()
-  --local default_map_gen_settings = table.deepcopy(game.default_map_gen_settings)
-  tile_settings = {
-    ["ll-moon"] = {
-      frequency = "regular",
-      size = "regular",
-    }
-  }
-  local crater_names = {
-    "crater3-huge", "crater1-large-rare", "crater1-large", "crater2-medium", "crater4-small"
-  }
   local nauvis = game.get_surface("nauvis")
   local nauvis_map_gen_settings = nauvis.map_gen_settings
   local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"]
@@ -20,9 +21,14 @@ local function on_init()
     "luna",
     {
       seed = nauvis_map_gen_settings.seed + 1,
-      starting_area = "none",
-      water = "none",
-      cliff_settings = { cliff_elevation_0 = 1024 },
+      starting_area = "regular",
+      water = "regular",
+      --[[cliff_settings = {
+        name = "ll-luna-cliff",
+        cliff_elevation_0 = 10,
+        cliff_elevation_interval = 40 / 4,  -- frequency 40 divided by from 1/6 to 6
+        richness = 4,  -- continuity from 1/6 to 6
+      },]]
       default_enable_all_autoplace_controls = false,
       autoplace_controls = {
         ["ll-moon-rock"] = moon_rock_controls,
@@ -31,18 +37,33 @@ local function on_init()
         ["ll-astrocrystals"] = astrocrystals_controls,
       },
       autoplace_settings = {
-        decorative = { treat_missing_as_default = false },
+        decorative = { treat_missing_as_default = false, settings = {
+          ["ll-moon-crater1-large"] = decorative_controls,
+          ["ll-moon-crater1-large-rare"] = decorative_controls,
+          ["ll-moon-crater2-medium"] = decorative_controls,
+          ["ll-moon-crater3-huge"] = decorative_controls,
+          ["ll-moon-crater4-small"] = decorative_controls,
+          ["ll-moon-rock-medium"] = decorative_controls,
+          ["ll-moon-rock-small"] = decorative_controls,
+          ["ll-moon-rock-tiny"] = decorative_controls,
+          ["ll-moon-sand-rock-medium"] = decorative_controls,
+          ["ll-moon-sand-rock-small"] = decorative_controls,
+
+        }},
         entity = { treat_missing_as_default = false, settings = {
           ["ll-moon-rock"] = moon_rock_controls,
           ["ll-rich-moon-rock"] = rich_moon_rock_controls,
           ["ll-ice"] = ice_controls,
-          --[[["crater3-huge"] = moon_rock_controls,
-          ["crater1-large-rare"] = moon_rock_controls,
-          ["crater1-large"] = moon_rock_controls,
-          ["crater2-medium"] = moon_rock_controls,
-          ["crater4-small"] = moon_rock_controls,]]
+          ["ll-astrocrystals"] = astrocrystals_controls,
+          ["ll-moon-rock-huge"] = decorative_controls,
+          ["ll-moon-rock-big"] = decorative_controls,
+          ["ll-moon-sand-rock-big"] = decorative_controls,
         }},
-        tile = { treat_missing_as_default = false, settings = tile_settings },
+        tile = { treat_missing_as_default = false, settings = {
+          ["ll-luna-plain"] = default_controls,
+          ["ll-luna-lowland"] = default_controls,
+          ["ll-luna-mountain"] = default_controls,
+        }},
       },
       property_expression_names = {
         elevation = "ll-luna-elevation",
