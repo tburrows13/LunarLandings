@@ -6,6 +6,20 @@ local rocket_silos = {
   ["ll-rocket-silo-down"] = true,
 }
 
+local function is_rocket_launching(entity)
+  local status = entity.rocket_silo_status
+  local status_lookup = {
+    [defines.rocket_silo_status.launch_starting] = true,
+    [defines.rocket_silo_status.engine_starting] = true,
+    [defines.rocket_silo_status.arms_retract] = true,
+    [defines.rocket_silo_status.rocket_flying] = true,
+    [defines.rocket_silo_status.lights_blinking_close] = true,
+    [defines.rocket_silo_status.doors_closing] = true,
+    [defines.rocket_silo_status.launch_started] = true,
+  }
+  return status_lookup[status]
+end
+
 local function build_gui(player, silo)
   local silo_data = global.rocket_silos[silo.unit_number]
 
@@ -89,6 +103,7 @@ local function build_gui(player, silo)
                     selected_index = dropdown_index,
                     handler = {[defines.events.on_gui_selection_state_changed] = RocketSilo.destination_changed},
                     visible = silo.name ~= "ll-rocket-silo-interstellar",
+                    enabled = not is_rocket_launching(silo),
                   }, 
                 } 
               },
@@ -133,6 +148,7 @@ gui.add_handlers(RocketSilo,
 )
 
 local function update_gui(player, silo)
+  -- Currently out of date and unused
   local silo_data = global.rocket_silos[silo.unit_number]
   local gui_elements = global.rocket_silo_guis[player.index]
   gui_elements["ll-auto-launch-none"].state = silo_data.auto_launch == "none"
@@ -263,6 +279,13 @@ local function on_rocket_launch_ordered(event)
   if removed > 0 then
     game.print({"ll-console-info.interstellar-satellite-removed"})
   end
+
+  for player_index, _ in pairs(game.players) do
+    local gui_elements = global.rocket_silo_guis[player_index]
+    if gui_elements then
+      gui_elements["ll-destination-dropdown"].enabled = false
+    end
+  end
 end
 
 local function spiral_next(input)
@@ -379,7 +402,6 @@ local function on_rocket_launched(event)
         end
         global.satellite_cursors[silo.force.name] = position
       end
-      return
     end
   elseif silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
     local rocket_surface = silo.surface.name
@@ -389,6 +411,12 @@ local function on_rocket_launched(event)
     local rocket_surface = silo.surface.name
     local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
     land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and 2 or 0)
+  end
+  for player_index, _ in pairs(game.players) do
+    local gui_elements = global.rocket_silo_guis[player_index]
+    if gui_elements then
+      gui_elements["ll-destination-dropdown"].enabled = true
+    end
   end
 end
 
