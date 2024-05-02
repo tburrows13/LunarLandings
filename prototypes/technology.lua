@@ -7,6 +7,11 @@ bzutil.add_unlock("nuclear-power", "ll-rtg")
 
 data_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
 data_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
+bzutil.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
+bzutil.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
+
+bzutil.add_unlock("low-density-structure", "ll-pack-low-density-structure")
+bzutil.add_unlock("low-density-structure", "ll-unpack-low-density-structure")
 
 data_util.remove_prerequisite("advanced-electronics-2", "chemical-science-pack")
 data_util.add_prerequisite("advanced-electronics-2", "ll-luna-automation")
@@ -137,6 +142,14 @@ data:extend{
       {
         type = "unlock-recipe",
         recipe = "ll-heat-shielding"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-pack-heat-shielding"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-unpack-heat-shielding"
       },
     },
     prerequisites = {"ll-moon-rock-processing"},

@@ -3,7 +3,7 @@ data:extend{
     type = "item-subgroup",
     name = "ll-data-cards",
     group = "intermediate-products",
-    order = "g-a"
+    order = "g-b"
   },
   {
     type = "item",

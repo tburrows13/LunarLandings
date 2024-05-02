@@ -3,7 +3,7 @@ data:extend{
     type = "item-subgroup",
     name = "ll-polaritons",
     group = "intermediate-products",
-    order = "g-b"
+    order = "g-c"
   },
   {
     type = "item",
