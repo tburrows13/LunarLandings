@@ -71,7 +71,7 @@ local function on_init()
   )
   -- Nauvis is 25000 ticks per day
   local ticks_per_day = 100000
-  luna.daytime = (game.tick / ticks_per_day) % 1
+  luna.daytime = (game.tick / ticks_per_day) % 1  -- TODO review sola
   luna.ticks_per_day = ticks_per_day
   luna.solar_power_multiplier = 2
   luna.freeze_daytime = false

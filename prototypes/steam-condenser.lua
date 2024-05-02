@@ -11,7 +11,7 @@ data:extend{
     subgroup = "fluid-recipes",
     energy_required = 5,
     ingredients = {
-      {type = "fluid", name = "water", amount = 20},
+      {type = "fluid", name = "water", amount = 20},  -- TODO add ice?
       {type = "fluid", name = "steam", amount = 80, temperature = 500},
     },
     results = {

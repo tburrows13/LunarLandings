@@ -31,7 +31,6 @@ data_util.remove_prerequisite("space-science-pack", "rocket-silo")
 data_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 bzutil.remove_recipe_effect("space-science-pack", "satellite")
 bzutil.add_unlock("space-science-pack", "ll-interstellar-satellite")
--- bzutil.add_unlock("space-science-pack", "ll-interstellar-satellite")  -- TODO
 
 data:extend{
   {
