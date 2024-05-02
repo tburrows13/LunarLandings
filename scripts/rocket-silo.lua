@@ -259,11 +259,9 @@ local function on_rocket_launch_ordered(event)
   -- Remove interstellar satellite from rocket if it isn't an interstellar rocket
   if silo.name == "ll-rocket-silo-interstellar" then return end
   local inventory = event.rocket.get_inventory(defines.inventory.rocket)
-  local rocket_stack = inventory[1]  -- TODO check all slots
-  if not (rocket_stack and rocket_stack.valid_for_read) then return end
-
-  if rocket_stack.name == "ll-interstellar-satellite" then
-    rocket_stack.clear()
+  local removed = inventory.remove({name = "ll-interstellar-satellite", count = 100})
+  if removed > 0 then
+    game.print({"ll-console-info.interstellar-satellite-removed"})
   end
 end
 
