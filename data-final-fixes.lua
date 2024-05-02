@@ -1,14 +1,10 @@
 require "__LunarLandings__.prototypes.surface-conditions"
 require "__LunarLandings__.prototypes.heat-recipes"
 
-local collision_mask_util = require "__core__.lualib.collision-mask-util"
-
 -- Set tile layer because Alien Biomes overwrites it in data-final-fixes
 data.raw.tile["ll-luna-plain"].layer = 10
 data.raw.tile["ll-luna-lowland"].layer = 9
 data.raw.tile["ll-luna-mountain"].layer = 11
-
-
 
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then

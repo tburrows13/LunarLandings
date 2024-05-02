@@ -176,3 +176,20 @@ data.raw["item"]["ll-lunar-foundation"].place_as_tile.condition = {
   luna_mountain_layer,
   luna_foundation_layer,
 }
+
+for _, type in pairs({"artillery-wagon", "cargo-wagon", "fluid-wagon", "locomotive", "car"}) do
+  for _, prototype in pairs(data.raw[type]) do
+    if not prototype.selection_priority or prototype.selection_priority == 50 then
+      prototype.selection_priority = 51
+    end
+  end
+end
+
+-- Now that vehicles have selection_priority = 51, bump up all spidertrons to 52
+for _, type in pairs({"spider-vehicle"}) do
+  for _, prototype in pairs(data.raw[type]) do
+    if prototype.selection_priority and prototype.selection_priority == 51 then
+      prototype.selection_priority = 52
+    end
+  end
+end
