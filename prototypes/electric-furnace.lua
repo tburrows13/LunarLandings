@@ -55,21 +55,28 @@ data:extend{
   {
     type = "recipe",
     name = "ll-melt-ice",
+    icon = "__base__/graphics/icons/fluid/water.png",
+    icon_size = 64, icon_mipmaps = 4,
     enabled = false,
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
+    order = "a[fluid]-a[water]",
     energy_required = 5,
     ingredients = {{"ll-ice", 1}},
     results = {
       {type = "fluid", name = "water", amount = 100, fluidbox_index = 1},
     },
+    main_product = ""
   },
   {
     type = "recipe",
     name = "ll-boil-water",
+    icon = "__base__/graphics/icons/fluid/steam.png",
+    icon_size = 64, icon_mipmaps = 4,
     enabled = false,
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
+    order = "a[fluid]-b[steam]",
     energy_required = 5,
     ingredients = {
       {type = "fluid", name = "water", amount = 100},
@@ -77,6 +84,7 @@ data:extend{
     results = {
       {type = "fluid", name = "steam", amount = 100, temperature = 500, fluidbox_index = 1},
     },
+    main_product = ""
   },
 }
 
