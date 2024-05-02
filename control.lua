@@ -11,5 +11,6 @@ handler.add_libraries{
   require "scripts.oxygen-diffuser",
   require "scripts.steam-condenser",
   require "scripts.arc-furnace",
+  require "scripts.collision-test",
 }
 
