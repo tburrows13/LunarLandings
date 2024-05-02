@@ -20,6 +20,17 @@ function MoonView.toggle_moon_view(event)
   local moon_view_data = MoonView.get_data(event.player_index)
   if player.surface.name == "luna" then
     moon_view_data.luna_character = player.character
+    moon_view_data.luna_character = player.character
+    local nauvis_character = moon_view_data.nauvis_character
+    if not nauvis_character or not nauvis_character.valid then
+      nauvis_character = game.get_surface("nauvis").create_entity{
+        name = "character",
+        position = {0, 0},
+        force = player.force,
+        create_build_effect_smoke = false,
+      }
+      moon_view_data.nauvis_character = nauvis_character
+    end
     -- Player is on moon
     -- Can't set controller to character on another surface, and teleporting the player also teleports the character
     player.set_controller{
@@ -30,7 +41,7 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = moon_view_data.nauvis_character
     }
-    moon_view_data.luna_character.associated_player = player
+    --moon_view_data.luna_character.associated_player = player
     player.set_shortcut_toggled(SHORTCUT_NAME, false)
   elseif player.surface.name == "nauvis" then
     moon_view_data.nauvis_character = player.character
@@ -52,7 +63,7 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = luna_character,
     }
-    moon_view_data.nauvis_character.associated_player = player
+    --moon_view_data.nauvis_character.associated_player = player
     player.set_shortcut_toggled(SHORTCUT_NAME, true)
   end
 end
