@@ -22,6 +22,9 @@ local function build_gui(player, silo)
   end
   local i = 1
   local dropdown_index = 1
+  if silo_data.destination == "Luna Surface" or silo_data.destination == "Nauvis Surface" then
+    dropdown_index = 2
+  end
   for name, _ in pairs(global.landing_pad_names) do
     table.insert(landing_pad_names, name)
     if name == silo_data.destination then
