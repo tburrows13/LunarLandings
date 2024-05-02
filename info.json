@@ -18,6 +18,8 @@
 
     "? better-victory-screen >= 0.2.14",
 
+    "! wret-beacon-rebalance-mod",
+    "! beacon-overhaul",
     "! bzaluminum",
     "! bzsilicon",
     "! rso-mod",
