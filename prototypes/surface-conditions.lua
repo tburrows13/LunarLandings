@@ -1,15 +1,20 @@
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 local luna_plain_layer = collision_mask_util.get_first_unused_layer()
+log("Created layer luna_plain_layer: " .. luna_plain_layer)
 collision_mask_util.add_layer(data.raw.tile["ll-luna-plain"].collision_mask, luna_plain_layer)
 
 local luna_lowland_layer = collision_mask_util.get_first_unused_layer()
+log("Created layer luna_lowland_layer: " .. luna_lowland_layer)
 collision_mask_util.add_layer(data.raw.tile["ll-luna-lowland"].collision_mask, luna_lowland_layer)
 
 local luna_mountain_layer = collision_mask_util.get_first_unused_layer()
+log("Created layer luna_mountain_layer: " .. luna_mountain_layer)
 collision_mask_util.add_layer(data.raw.tile["ll-luna-mountain"].collision_mask, luna_mountain_layer)
 
 local luna_foundation_layer = collision_mask_util.get_first_unused_layer()
+log("Created layer luna_foundation_layer: " .. luna_foundation_layer
+)
 collision_mask_util.add_layer(data.raw.tile["ll-lunar-foundation"].collision_mask, luna_foundation_layer)
 
 local luna_tiles = {
@@ -27,6 +32,7 @@ local whitelist_tiles = {
 }
 
 local nauvis_layer = collision_mask_util.get_first_unused_layer()
+log("Created layer nauvis_layer: " .. nauvis_layer)
 for _, tile in pairs(data.raw.tile) do
   if not luna_tiles[tile.name] and not whitelist_tiles[tile.name] then
     collision_mask_util.add_layer(tile.collision_mask, nauvis_layer)
@@ -34,6 +40,7 @@ for _, tile in pairs(data.raw.tile) do
 end
 
 local luna_layer = collision_mask_util.get_first_unused_layer()
+log("Created layer luna_layer: " .. luna_layer)
 for _, tile in pairs(data.raw.tile) do
   if luna_tiles[tile.name] then
     collision_mask_util.add_layer(tile.collision_mask, luna_layer)
@@ -50,7 +57,7 @@ local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmeti
   Defaults:
   lab, radar: {nauvis = true, luna = false}
   logistic-container (active-provider, requester, buffer): {nauvis = true, luna = false}
-  straight-rail, curved-rail, rail-signal, rail-chain-signal, spider-vehicle, spider-leg, electric-pole, simple-entity: {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
+  straight-rail, curved-rail, rail-signal, rail-chain-signal, car, spider-vehicle, spider-leg, electric-pole, simple-entity: {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   everything else: {nauvis = true, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
 
   `luna = true` is the same as `luna = {plain = true, lowland = false, mountain = true, foundation = true}`
@@ -62,7 +69,7 @@ local function get_default_surface_conditions(prototype)
     return {nauvis = true, luna = false}
   elseif type == "logistic-container" and (prototype.logistic_mode == "active-provider" or prototype.logistic_mode == "requester" or prototype.logistic_mode == "buffer") then
     return {nauvis = true, luna = false}
-  elseif type == "straight-rail" or type == "curved-rail" or type == "rail-signal" or type == "rail-chain-signal" or type == "spider-vehicle" or type == "spider-leg" or type == "electric-pole" or type == "simple-entity" then
+  elseif type == "straight-rail" or type == "curved-rail" or type == "rail-signal" or type == "rail-chain-signal" or type == "car" or type == "spider-vehicle" or type == "spider-leg" or type == "electric-pole" or type == "simple-entity" then
     return {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   else
     return {nauvis = true, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
