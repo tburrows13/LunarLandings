@@ -74,7 +74,7 @@ data:extend({
       input_flow_limit = "0kW",
       output_flow_limit = "600kW",
     },
-    energy_production = "6000kW",
+    energy_production = "600kW",
     energy_usage = "0kW",
     picture =
     {
