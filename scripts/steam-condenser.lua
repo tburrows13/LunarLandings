@@ -40,7 +40,6 @@ local function on_script_trigger_effect(event)
     area = condenser_position_to_area(position),
     name = "steam-turbine",  -- TODO make work with any type = "generator"
   }
-  game.print("Found " .. #turbines .. " turbines")
 
   local turbines_by_unit_number = {}
   for _, turbine in pairs(turbines) do
@@ -48,7 +47,7 @@ local function on_script_trigger_effect(event)
     if not turbine_data.condenser then
       turbine_data.condenser = entity.unit_number
       turbines_by_unit_number[turbine.unit_number] = turbine
-      game.print("Turbine found but already attached to a different condenser")
+      --game.print("Turbine found but already attached to a different condenser")
     end
   end
 
@@ -73,7 +72,7 @@ local function on_entity_built(event)
       area = turbine_position_to_area(entity.position),
       name = "ll-steam-condenser",
     }
-    game.players[1].print("Found " .. #condensers .. " condensers")
+    --game.players[1].print("Found " .. #condensers .. " condensers")
     if next(condensers) then
       local condenser_unit_number = condensers[1].unit_number
       local condenser_data = global.steam_condensers[condenser_unit_number]
@@ -82,7 +81,7 @@ local function on_entity_built(event)
         turbine_data.condenser = condenser_unit_number
       end
     elseif entity.surface.name == "luna" then
-      game.print("No condenser found for turbine")
+      --game.print("No condenser found for turbine")
     end
     global.turbines[entity.unit_number] = turbine_data
     script.register_on_entity_destroyed(entity)

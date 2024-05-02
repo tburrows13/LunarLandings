@@ -59,7 +59,7 @@ gui.add_handlers(LandingPad,
 function LandingPad.name_added(name, unit_number)
   names = global.landing_pad_names
   if name ~= "Default" and names[name] and next(names[name]) then
-    game.print("Landing pad " .. name .. " already exists. Landing pads with duplicate names are ignored by rockets.")
+    game.print({"ll-console-info.landing-pad-name-exists", name})
   end
   if names[name] then
     names[name][unit_number] = true

@@ -115,7 +115,6 @@ end
 
 function RocketSilo.destination_changed(player, element, silo, silo_data)
   silo_data.destination = element.get_item(element.selected_index)
-  game.print("Changed destination to " .. silo_data.destination)
 end
 
 
@@ -350,7 +349,7 @@ local function on_rocket_launched(event)
         local force_name = silo.force.name
         local satellites_launched = global.satellites_launched[force_name] or 0
         if satellites_launched == 0 then
-          game.print("First satellite launched!\nA large moon called Luna was found orbiting Nauvis. It looks like a robot from the crashed ship landed on it - research Luna Exploration to re-establish a connection with it.\nSubsequent satellite launches will explore more of Luna's surface")
+          game.print({"ll-console-info.first-satellite-launched"})
           silo.force.technologies["ll-luna-exploration"].enabled = true
         end
         global.satellites_launched[silo.force.name] = satellites_launched + 1
