@@ -169,9 +169,9 @@ for _, prototype_type in pairs(types) do
         add_comma(restrictions_list)
         table.insert(restrictions_list, "Lunar foundations")
         end
-      if #restrictions_list > 1 then
-        add_to_description(prototype, {"ll-surface-conditions.cannot-be-placed-on", restrictions_list})
       end
+    if #restrictions_list > 1 then
+      add_to_description(prototype, {"ll-surface-conditions.cannot-be-placed-on", restrictions_list})
     end
 
     ::continue::
