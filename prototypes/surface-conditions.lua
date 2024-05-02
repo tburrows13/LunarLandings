@@ -137,7 +137,7 @@ for _, prototype_type in pairs(types) do
         goto continue
       end
       if not surface_conditions.nauvis and luna_conditions.foundation and not luna_conditions.plain and not luna_conditions.lowland and not luna_conditions.mountain then
-        add_to_description(prototype, "Can only be placed on Luna foundations")
+        add_to_description(prototype, "Can only be placed on Lunar foundations")
         goto continue
       end
     end
@@ -167,7 +167,7 @@ for _, prototype_type in pairs(types) do
         end
       if not luna_conditions.foundation then
         add_comma(restrictions_list)
-        table.insert(restrictions_list, "Luna foundations")
+        table.insert(restrictions_list, "Lunar foundations")
         end
       if #restrictions_list > 1 then
         add_to_description(prototype, {"ll-surface-conditions.cannot-be-placed-on", restrictions_list})
