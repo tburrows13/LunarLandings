@@ -3,7 +3,7 @@ for i, recipe in pairs({"copper-cable", "electronic-circuit", "advanced-circuit"
 end
 
 local function add_to_crafting_categories(prototype)
-  local crafting_categories = prototype.crafting_categories
+  local crafting_categories = prototype.crafting_categories or {}
   for i, category in pairs(crafting_categories) do
     if category == "crafting" then
       table.insert(crafting_categories, "circuit-crafting")
