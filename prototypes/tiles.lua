@@ -126,6 +126,7 @@ data:extend{
     layer = 64,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
     decorative_removal_probability = 0.25,
+    check_collision_with_entities = true,
     variants =
     {
       main = {
