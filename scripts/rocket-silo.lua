@@ -308,12 +308,18 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
   for i = 1, #inventory do
     local stack = inventory[i]
     if stack and stack.valid_for_read then
-      pad_inventory.insert(stack)
+      local inserted = pad_inventory.insert(stack)
+      if inserted < stack.count then
+        surface.spill_item_stack(landing_pad.position, {name = stack.name, count = stack.count - inserted}, false, nil, false)
+      end
     end
   end
   if rocket_parts and rocket_parts > 0 and landing_pad.force.technologies["ll-used-rocket-part-recycling"].researched then
     -- TODO stop auto-launch if no space for rocket parts
-    pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
+    local inserted = pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
+    if inserted < stack.count then
+      surface.spill_item_stack(landing_pad.position, {name = stack.name, count = stack.count - inserted}, false, nil, false)
+    end
   end
 end
 
