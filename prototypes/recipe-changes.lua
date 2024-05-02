@@ -9,7 +9,7 @@ data.raw.recipe["satellite"].ingredients =
   {"accumulator", 50},
   {"radar", 5},
   {"advanced-circuit", 100},
-  {"rocket-fuel", 25}
+  {"solid-fuel", 25}
 }
 
 bzutil.add_ingredient("processing-unit", "ll-silicon", 5)
