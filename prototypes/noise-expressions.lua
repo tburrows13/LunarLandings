@@ -198,19 +198,19 @@ local function luna_elevation(elevation, map)
     function_name = "spot-noise",
     arguments =
     {
-      x = noise.var("x"),
-      y = noise.var("y"),
+      x = noise.var("x") / 4,  -- Increase 4 to make mountains further apart
+      y = noise.var("y") / 4,
       seed0 = map.seed,
       seed1 = tne(199),
       region_size = tne(1024),
       candidate_spot_count = tne(21),
-      suggested_minimum_candidate_point_spacing = tne(45.254833995939045), -- Magic number to match 0.17.50 spot placement, when candidate_point_count was always 128
+      suggested_minimum_candidate_point_spacing = tne(40),
       --skip_span = noise.var("regular-resource-patch-set-count"),
       --skip_offset = tne(regular_patch_metaset:get_patch_set_index(patch_set_name)),
       density_expression = litexp(2), -- low-frequency noise evaluate for an entire region
       spot_quantity_expression = litexp(1), -- used to figure out where spots go
       hard_region_target_quantity = tne(false), -- it's fine for large spots to push region quantity past the target
-      spot_radius_expression = litexp(3),
+      spot_radius_expression = litexp(1.9),  -- Increase this to make mountains larger
       spot_favorability_expression = litexp(1),
       basement_value = tne(-2),
       maximum_spot_basement_radius = tne(128)
@@ -259,9 +259,9 @@ local function luna_elevation(elevation, map)
   }
   local blobs1f = blobs1 - onethird -- attempt to remove positive bias
 
-  local blobby_spots = regular_spots -- + blobs1f * (1/8)
+  local blobby_spots = regular_spots + blobs0f * (1/8)
   local mountains = noise.max(blobby_spots + 1, 0) * 20
-  --elevation = elevation + mountains
+  elevation = elevation + mountains
   --elevation = noise.max(regular_spots, 0)
   return elevation
 end

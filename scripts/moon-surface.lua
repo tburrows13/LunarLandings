@@ -23,12 +23,12 @@ local function on_init()
       seed = nauvis_map_gen_settings.seed + 1,
       starting_area = "regular",
       water = "regular",
-      --[[cliff_settings = {
+      cliff_settings = {
         name = "ll-luna-cliff",
         cliff_elevation_0 = 10,
-        cliff_elevation_interval = 40 / 4,  -- frequency 40 divided by from 1/6 to 6
+        cliff_elevation_interval = 10,  -- frequency 40 divided by from 1/6 to 6
         richness = 4,  -- continuity from 1/6 to 6
-      },]]
+      },
       default_enable_all_autoplace_controls = false,
       autoplace_controls = {
         ["ll-moon-rock"] = moon_rock_controls,
