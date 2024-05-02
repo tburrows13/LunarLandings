@@ -89,6 +89,7 @@ local function on_entity_built(event)
 end
 
 local function on_entity_destroyed(event)
+  if not event.unit_number then return end  -- entity was tree/rock
   -- Condenser destroyed
   local condenser_data = global.steam_condensers[event.unit_number]
   if condenser_data then
