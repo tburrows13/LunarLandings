@@ -377,14 +377,14 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 400,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
         {"production-science-pack", 1},
       },
-      time = 5
+      time = 30
     },
     order = "c-a"
   },
@@ -431,7 +431,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 300,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -439,7 +439,7 @@ data:extend{
         {"production-science-pack", 1},
         --{"utility-science-pack", 1},
       },
-      time = 5
+      time = 30
     },
     order = "c-a"
   },
@@ -458,7 +458,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 500,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -466,7 +466,7 @@ data:extend{
         {"production-science-pack", 1},
         --{"utility-science-pack", 1},
       },
-      time = 5
+      time = 30
     },
     order = "c-a"
   },
@@ -510,7 +510,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 300,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -518,7 +518,7 @@ data:extend{
         {"production-science-pack", 1},
         {"utility-science-pack", 1},
       },
-      time = 5
+      time = 30
     },
     order = "c-a"
   },
@@ -537,7 +537,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 400,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -545,7 +545,7 @@ data:extend{
         {"production-science-pack", 1},
         {"utility-science-pack", 1},
       },
-      time = 5
+      time = 30
     },
     order = "c-a"
   },
@@ -564,7 +564,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 1500,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -572,7 +572,7 @@ data:extend{
         {"production-science-pack", 1},
         {"utility-science-pack", 1},
       },
-      time = 5
+      time = 45
     },
     order = "c-a"
   },
@@ -591,7 +591,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 1500,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -599,7 +599,7 @@ data:extend{
         {"production-science-pack", 1},
         {"utility-science-pack", 1},
       },
-      time = 5
+      time = 45
     },
     order = "c-a"
   },
@@ -618,7 +618,7 @@ data:extend{
     },
     unit =
     {
-      count = 75,
+      count = 2000,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -627,7 +627,7 @@ data:extend{
         {"utility-science-pack", 1},
         {"ll-space-science-pack", 1}
       },
-      time = 5
+      time = 60
     },
     order = "c-a"
   },
