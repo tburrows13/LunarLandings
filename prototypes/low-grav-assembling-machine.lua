@@ -2,7 +2,7 @@ for i, recipe in pairs({"copper-cable", "electronic-circuit", "advanced-circuit"
   data.raw.recipe[recipe].category = "circuit-crafting"
 end
 
-for _, prototype in pairs(data.raw["assembling-machine"]) do
+local function add_to_crafting_categories(prototype)
   local crafting_categories = prototype.crafting_categories
   for i, category in pairs(crafting_categories) do
     if category == "crafting" then
@@ -10,6 +10,13 @@ for _, prototype in pairs(data.raw["assembling-machine"]) do
       break
     end
   end
+end
+
+for _, prototype in pairs(data.raw["assembling-machine"]) do
+  add_to_crafting_categories(prototype)
+end
+for _, prototype in pairs(data.raw["character"]) do
+  add_to_crafting_categories(prototype)
 end
 
 data.raw.recipe["processing-unit"].category = "advanced-circuit-crafting"
