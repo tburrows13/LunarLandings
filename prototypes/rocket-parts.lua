@@ -22,6 +22,8 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
+data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
+
 --data.raw.recipe["rocket-part"].ingredients = {
 --  {"rocket-control-unit", 10},
 --  {"low-density-structure", 10},
