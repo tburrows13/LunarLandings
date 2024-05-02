@@ -30,6 +30,7 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = moon_view_data.nauvis_character
     }
+    moon_view_data.luna_character.associated_player = player
     player.set_shortcut_toggled(SHORTCUT_NAME, false)
   elseif player.surface.name == "nauvis" then
     moon_view_data.nauvis_character = player.character
@@ -51,6 +52,7 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = luna_character,
     }
+    moon_view_data.nauvis_character.associated_player = player
     player.set_shortcut_toggled(SHORTCUT_NAME, true)
   end
 end
