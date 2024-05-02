@@ -47,7 +47,7 @@ for _, tile in pairs(data.raw.tile) do
   end
 end
 
-local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmetic-combinator", "decider-combinator", "constant-combinator", "container", "logistic-container", "infinity-container", "assembling-machine", "rocket-silo", "furnace", "electric-energy-interface", "electric-pole", "unit-spawner", "gate", "generator", "heat-interface", "heat-pipe", "inserter", "lab", "lamp", "land-mine", "linked-container", "market", "mining-drill", "offshore-pump", "pipe", "infinity-pipe", "pipe-to-ground", "power-switch", "programmable-speaker", "pump", "radar", "curved-rail", "straight-rail", "rail-chain-signal", "rail-signal", "reactor", "roboport", "simple-entity-with-owner", "simple-entity-with-force", "solar-panel", "storage-tank", "train-stop", "linked-belt", "loader-1x1", "loader", "splitter", "transport-belt", "underground-belt", "turret", "ammo-turret", "electric-turret", "fluid-turret", "unit", "car", "artillery-wagon", "cargo-wagon", "fluid-wagon", "locomotive", "spider-vehicle", "spider-leg", "wall", "fish", "simple-entity", "tree"}
+local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmetic-combinator", "decider-combinator", "constant-combinator", "container", "logistic-container", "infinity-container", "assembling-machine", "rocket-silo", "furnace", "electric-energy-interface", "electric-pole", "unit-spawner", "gate", "generator", "heat-interface", "heat-pipe", "inserter", "lab", "lamp", "land-mine", "linked-container", "market", "mining-drill", "offshore-pump", "pipe", "infinity-pipe", "pipe-to-ground", "power-switch", "programmable-speaker", "pump", "radar", "curved-rail", "straight-rail", "rail-chain-signal", "rail-signal", "reactor", "roboport", "simple-entity-with-owner", "simple-entity-with-force", "solar-panel", "storage-tank", "train-stop", "linked-belt", "loader-1x1", "loader", "splitter", "transport-belt", "underground-belt", "turret", "ammo-turret", "electric-turret", "fluid-turret", "unit", "car", "spider-vehicle", "spider-leg", "wall", "fish", "simple-entity", "tree"}
 
 --[[
   surface_conditions examples:
@@ -92,6 +92,11 @@ end
 
 for _, prototype_type in pairs(types) do
   for name, prototype in pairs(data.raw[prototype_type]) do
+    for _, flag in pairs(prototype.flags or {}) do
+      if flag == "hidden" then
+        goto continue
+      end
+    end
     local surface_conditions = prototype.surface_conditions
     prototype.surface_conditions = nil
     if not surface_conditions then

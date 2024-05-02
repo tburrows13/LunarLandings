@@ -182,13 +182,14 @@ data:extend{
     name = "ll-oxygen-diffuser-fluidbox",
     icon = "__base__/graphics/icons/storage-tank.png",
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"placeable-player", "player-creation"},
+    flags = {"placeable-player", "player-creation", "hidden"},
     --minable = {mining_time = 0.5, result = "storage-tank"},
     max_health = 500,
     corpse = "storage-tank-remnants",
     --dying_explosion = "storage-tank-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     --selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    collision_mask = {},
     --damaged_trigger_effect = hit_effects.entity(),
     fluid_box =
     {
