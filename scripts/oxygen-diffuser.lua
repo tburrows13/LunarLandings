@@ -112,6 +112,14 @@ local function update_diffuser(entity, fluidbox)
     end
   end
 
+  -- Diffuser has no power
+  if entity.energy == 0 then 
+    for _, assembler in pairs(assemblers) do
+      assembler.active = false
+    end
+    return
+  end
+
   local oxygen_required = machines_working * 0.05
   local oxygen_in_fluidbox = fluidbox.get_fluid_count("ll-oxygen")
   if oxygen_in_fluidbox >= oxygen_required then
