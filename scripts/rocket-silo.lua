@@ -341,7 +341,7 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
     -- TODO stop auto-launch if no space for rocket parts
     local inserted = pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
     if inserted < stack.count then
-      surface.spill_item_stack(landing_pad.position, {name = stack.name, count = stack.count - inserted}, false, nil, false)
+      surface.spill_item_stack(landing_pad.position, {name = "ll-used-rocket-part", count = rocket_parts - inserted}, false, nil, false)
     end
   end
 end
