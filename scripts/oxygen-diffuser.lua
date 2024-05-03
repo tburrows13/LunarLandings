@@ -59,7 +59,12 @@ local function on_entity_built(event)
 
   elseif entity.type == "assembling-machine" and oxygen_machines[entity.name] then
     if not affected_by_oxygen_diffuser(entity) then
+
       entity.active = false
+      if event.name == defines.events.on_built_entity then
+        local player = game.get_player(event.player_index)
+        player.create_local_flying_text{text = {"ll-console-info.requires-oxygen"}, position = entity.position}
+      end
     end
   end
 end
