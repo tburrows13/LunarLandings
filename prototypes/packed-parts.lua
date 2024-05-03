@@ -48,7 +48,7 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"rocket-control-unit", 10},
+      {"rocket-control-unit", 5},
     },
     results = {{type="item", name="ll-packed-rocket-control-unit", amount=1}},
     main_product = "",
@@ -68,7 +68,7 @@ data:extend{
     {
       {"ll-packed-rocket-control-unit", 1},
     },
-    results = {{type="item", name="rocket-control-unit", amount=10}},
+    results = {{type="item", name="rocket-control-unit", amount=5}},
     main_product = "",
   },
   {
@@ -95,7 +95,7 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"low-density-structure", 10},
+      {"low-density-structure", 5},
     },
     results = {{type="item", name="ll-packed-low-density-structure", amount=1}},
     main_product = "",
@@ -115,7 +115,7 @@ data:extend{
     {
       {"ll-packed-low-density-structure", 1},
     },
-    results = {{type="item", name="low-density-structure", amount=10}},
+    results = {{type="item", name="low-density-structure", amount=5}},
     main_product = "",
   },
   {
@@ -142,7 +142,7 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"ll-heat-shielding", 10},
+      {"ll-heat-shielding", 5},
     },
     results = {{type="item", name="ll-packed-heat-shielding", amount=1}},
     main_product = "",
@@ -162,7 +162,7 @@ data:extend{
     {
       {"ll-packed-heat-shielding", 1},
     },
-    results = {{type="item", name="ll-heat-shielding", amount=10}},
+    results = {{type="item", name="ll-heat-shielding", amount=5}},
     main_product = "",
   },
 }
