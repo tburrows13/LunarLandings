@@ -346,7 +346,7 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
   end
   if rocket_parts and rocket_parts > 0 and landing_pad.force.technologies["ll-used-rocket-part-recycling"].researched then
     local inserted = pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
-    if inserted < stack.count then
+    if inserted < rocket_parts then
       surface.spill_item_stack(landing_pad.position, {name = "ll-used-rocket-part", count = rocket_parts - inserted}, false, nil, false)
     end
   end
