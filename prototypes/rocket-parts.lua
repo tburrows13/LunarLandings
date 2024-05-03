@@ -30,6 +30,9 @@ data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
 --  {type = "fluid", name = "ll-rocket-fuel", amount = 100},
 --}
 
+data.raw["item"]["rocket-control-unit"].stack_size = 20
+data.raw["item"]["low-density-structure"].stack_size = 20
+
 data:extend{
   {
     type = "fluid",
@@ -49,7 +52,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "intermediate-product",
     order = "q[low-density-structure]",
-    stack_size = 10
+    stack_size = 20
   },
   {
     type = "recipe",
@@ -88,6 +91,7 @@ data:extend{
     {
       {"ll-heat-shielding", 10},
       {"low-density-structure", 10},
+      {"rocket-control-unit", 10},
       {type = "fluid", name = "steam", amount = 100, temperature = 500}
     },
     result = "rocket-part-down"
@@ -127,7 +131,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
     order = "q[rocket-part]",
-    stack_size = 10
+    stack_size = 1
   },
   {
     type = "recipe",
@@ -144,17 +148,19 @@ data:extend{
         shift = {-8, 8},
       }
     },
-    energy_required = 30,
+    energy_required = 60,
     enabled = false,
     subgroup = "intermediate-product",
     category = "crafting",
     ingredients =
     {
       {"ll-used-rocket-part", 1},
+      {"steel-plate", 1},
+      {"copper-plate", 5}
     },
     results = {
-      {type = "item", name = "rocket-control-unit", amount_min = 7, amount_max = 10},
-      {type = "item", name = "low-density-structure", amount_min = 7, amount_max = 10},
+      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 10},
+      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 10},
     }
   },
 }

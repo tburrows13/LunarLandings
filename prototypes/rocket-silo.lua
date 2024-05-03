@@ -2,7 +2,7 @@ local rocket = data.raw["rocket-silo-rocket"]["rocket-silo-rocket"]
 rocket.inventory_size = 20
 
 local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
-rocket_silo.rocket_result_inventory_size = 5
+rocket_silo.rocket_result_inventory_size = 20
 rocket_silo.fluid_boxes = {
   {
     production_type = "input",
