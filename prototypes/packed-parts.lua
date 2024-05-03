@@ -33,7 +33,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "ll-packed-rocket-parts",
     order = "n[rocket-control-unit]",
-    stack_size = 1
+    stack_size = 4
   },
   {
     type = "recipe",
@@ -80,7 +80,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "ll-packed-rocket-parts",
     order = "o[low-density-structure]",
-    stack_size = 1
+    stack_size = 4
   },
   {
     type = "recipe",
@@ -127,7 +127,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-packed-rocket-parts",
     order = "q[low-density-structure]",
-    stack_size = 1
+    stack_size = 4
   },
   {
     type = "recipe",
