@@ -6,6 +6,9 @@ local rocket_silos = {
   ["ll-rocket-silo-down"] = true,
 }
 
+NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
+LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
+
 local function is_rocket_launching(entity)
   local status = entity.rocket_silo_status
   local status_lookup = {
@@ -239,6 +242,10 @@ local function launch_if_destination_has_space(silo_data, ready_stacks)
     if not destination then
       return  -- Destination landing pad doesn't exist, so don't autolaunch
     end
+    if silo.surface.name == "luna" then
+      -- Rockets from Luna deposit rocket parts too
+      ready_stacks = ready_stacks + LUNA_ROCKET_SILO_PARTS_REQUIRED
+    end
     local inventory = destination.get_inventory(defines.inventory.chest)
     if inventory.count_empty_stacks(false, false) >= ready_stacks then
       silo.launch_rocket()
@@ -338,7 +345,6 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
     end
   end
   if rocket_parts and rocket_parts > 0 and landing_pad.force.technologies["ll-used-rocket-part-recycling"].researched then
-    -- TODO stop auto-launch if no space for rocket parts
     local inserted = pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
     if inserted < stack.count then
       surface.spill_item_stack(landing_pad.position, {name = "ll-used-rocket-part", count = rocket_parts - inserted}, false, nil, false)
@@ -350,7 +356,7 @@ local function on_rocket_launched(event)
   local silo = event.rocket_silo
   if silo.name == "rocket-silo" and silo.force.technologies["ll-used-rocket-part-recycling"].researched then
     local result_inventory = silo.get_inventory(defines.inventory.rocket_silo_result)
-    result_inventory.insert{name = "ll-used-rocket-part", count = 10}
+    result_inventory.insert{name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED}
   elseif silo.name == "ll-rocket-silo-interstellar" then
     local rocket = event.rocket
     if not (rocket and rocket.valid) then return end
@@ -406,11 +412,11 @@ local function on_rocket_launched(event)
   elseif silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
     local rocket_surface = silo.surface.name
     local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
-    spill_rocket(surface, inventory, silo.name == "ll-rocket-silo-down" and 2 or 0)
+    spill_rocket(surface, inventory, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
   else
     local rocket_surface = silo.surface.name
     local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
-    land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and 2 or 0)
+    land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
   end
   for player_index, _ in pairs(game.players) do
     local gui_elements = global.rocket_silo_guis[player_index]
