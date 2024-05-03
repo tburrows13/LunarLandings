@@ -299,7 +299,7 @@ data:extend{
       {"steel-plate", 1},
       {type="fluid", name="water", amount=5}
     },
-    results = {type="item", name="ll-lunar-foundation", amount=5},
+    results = {{type="item", name="ll-lunar-foundation", amount=5}},
   },
 }
 
