@@ -42,7 +42,7 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"ll-lunar-foundation", 50},
+      {"ll-lunar-foundation", 20},
       {"advanced-circuit", 50},
       {"steel-plate", 20},
       {"iron-gear-wheel", 20},

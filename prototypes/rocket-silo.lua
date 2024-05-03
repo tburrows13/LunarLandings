@@ -64,7 +64,7 @@ data:extend{
     ingredients =
     {
       {"steel-plate", 1000},
-      {"ll-lunar-foundation", 1000},
+      {"ll-lunar-foundation", 500},
       {"pipe", 100},
       {"ll-quantum-processor", 200},
       {"electric-engine-unit", 200}
