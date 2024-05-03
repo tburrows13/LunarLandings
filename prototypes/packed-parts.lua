@@ -74,6 +74,7 @@ data:extend{
   {
     type = "item",
     name = "ll-packed-low-density-structure",
+    localised_name = {"item-name.ll-packed-rocket-part", {"item-name.low-density-structure"}},
     localised_description = {"item-description.ll-packed-rocket-part"},
     icons = stacked_icons("__base__/graphics/icons/low-density-structure.png"),
     icon_size = 64, icon_mipmaps = 4,
@@ -84,6 +85,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-pack-low-density-structure",
+    localised_name = {"recipe-name.ll-pack-rocket-part", {"item-name.low-density-structure"}},
     icons = stacked_icons("__base__/graphics/icons/low-density-structure.png"),
     icon_size = 64, icon_mipmaps = 4,
     category = "crafting",
@@ -101,6 +103,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-unpack-low-density-structure",
+    localised_name = {"recipe-name.ll-unpack-rocket-part", {"item-name.low-density-structure"}},
     icons = stacked_icons("__base__/graphics/icons/low-density-structure.png"),
     icon_size = 64, icon_mipmaps = 4,
     category = "crafting",
@@ -110,7 +113,7 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"ll-packed-rocket-control-unit", 1},
+      {"ll-packed-low-density-structure", 1},
     },
     results = {{type="item", name="low-density-structure", amount=10}},
     main_product = "",
@@ -118,6 +121,7 @@ data:extend{
   {
     type = "item",
     name = "ll-packed-heat-shielding",
+    localised_name = {"item-name.ll-packed-rocket-part", {"item-name.ll-heat-shielding"}},
     localised_description = {"item-description.ll-packed-rocket-part"},
     icons = stacked_icons("__space-exploration-graphics__/graphics/icons/heat-shielding.png"),
     icon_size = 64, icon_mipmaps = 1,
@@ -128,6 +132,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-pack-heat-shielding",
+    localised_name = {"recipe-name.ll-pack-rocket-part", {"item-name.ll-heat-shielding"}},
     icons = stacked_icons("__space-exploration-graphics__/graphics/icons/heat-shielding.png"),
     icon_size = 64, icon_mipmaps = 1,
     category = "crafting",
@@ -145,6 +150,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-unpack-heat-shielding",
+    localised_name = {"recipe-name.ll-unpack-rocket-part", {"item-name.ll-heat-shielding"}},
     icons = stacked_icons("__space-exploration-graphics__/graphics/icons/heat-shielding.png"),
     icon_size = 64, icon_mipmaps = 1,
     category = "crafting",
