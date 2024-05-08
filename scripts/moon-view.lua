@@ -74,9 +74,25 @@ local function on_lua_shortcut(event)
   end
 end
 
+local function on_chunk_generated(event)
+  local surface = event.surface
+  if surface.name ~= "luna" then return end
+  local position = event.position
+  if position.x % 3 ~= 0 or position.y % 3 ~= 0 then return end  -- Place radars in the middle of each 3x3
+  local chunk_area = event.area
+  local chunk_center = {x = (chunk_area.left_top.x + chunk_area.right_bottom.x) / 2, y = (chunk_area.left_top.y + chunk_area.right_bottom.y) / 2}
+  local radar = surface.create_entity({
+    name = "ll-hidden-radar",
+    position = chunk_center,
+    force = game.forces.player,
+  })
+  radar.destructible = false
+end
+
 MoonView.events = {
   [SHORTCUT_NAME] = MoonView.toggle_moon_view,
   [defines.events.on_lua_shortcut] = on_lua_shortcut,
+  [defines.events.on_chunk_generated] = on_chunk_generated,
 }
 
 MoonView.on_init = function ()
@@ -86,11 +102,5 @@ end
 MoonView.on_configuration_changed = function(changed_data)
   global.moon_view_data = global.moon_view_data or {}
 end
-
-MoonView.on_nth_tick = {
-  [360] = function()
-    game.forces["player"].rechart("luna")
-  end
-}
 
 return MoonView
