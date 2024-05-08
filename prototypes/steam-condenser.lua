@@ -7,16 +7,16 @@ data:extend{
     type = "recipe",
     name = "ll-condense-steam",
 		icon = "__LunarLandings__/graphics/icons/condense-steam.png",
-		icon_size =64, icon_mipmaps = 1,
+		icon_size = 64, icon_mipmaps = 1,
     enabled = false,
     category = "ll-steam-condensing",
     subgroup = "fluid-recipes",
-    energy_required = 5,
+    energy_required = 0.1,
     ingredients = {
-      {type = "fluid", name = "water", amount = 20},  -- TODO add ice?
-      {type = "fluid", name = "steam", amount = 80, temperature = 500},
+      {type = "fluid", name = "water", amount = 40},
+      {type = "fluid", name = "steam", amount = 160, temperature = 500},
     },
-    results = {{type = "fluid", name = "water", amount = 100}},
+    results = {{type = "fluid", name = "water", amount = 180}},
 		order = "a[fluid]-c[water]",
 		main_product = ""
   },
@@ -65,7 +65,7 @@ data:extend{
 		energy_source =
 		{
 			type = "electric",
-			usage_priority = "secondary-input",
+			usage_priority = "primary-input",
 		},				
 		energy_usage = "300kW",
 
