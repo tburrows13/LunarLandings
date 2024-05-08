@@ -47,7 +47,11 @@ local function on_script_trigger_effect(event)
     if not turbine_data.condenser then
       turbine_data.condenser = entity.unit_number
       turbines_by_unit_number[turbine.unit_number] = turbine
-      --game.print("Turbine found but already attached to a different condenser")
+    else
+      local player = entity.last_user
+      if player then
+        player.print({"ll-console-info.too-many-condensers-in-range"})
+      end
     end
   end
 
@@ -72,7 +76,12 @@ local function on_entity_built(event)
       area = turbine_position_to_area(entity.position),
       name = "ll-steam-condenser",
     }
-    --game.players[1].print("Found " .. #condensers .. " condensers")
+    if #condensers > 1 then
+      local player = entity.last_user
+      if player then
+        player.print({"ll-console-info.too-many-condensers-in-range"})
+      end
+    end
     if next(condensers) then
       local condenser_unit_number = condensers[1].unit_number
       local condenser_data = global.steam_condensers[condenser_unit_number]

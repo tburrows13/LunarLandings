@@ -151,4 +151,13 @@ data:extend{
     order = "d",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
   },
+  {
+    type = "tips-and-tricks-item",
+    name = "ll-steam-condenser",
+    tag = "[entity=ll-steam-condenser]",
+    category = "lunar-landings",
+    indent = 1,
+    order = "e",
+    --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
+  },
 }
