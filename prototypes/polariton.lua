@@ -11,7 +11,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
-    order = "a[transport-belt]-a[transport-belt]",
+    order = "a[superposed-polariton]",
     stack_size = 1
   },
   {
@@ -20,7 +20,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-right.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
-    order = "a[transport-belt]-a[transport-belt]",
+    order = "b[polariton]-b[right]",
     stack_size = 1
   },
   {
@@ -29,7 +29,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-left.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
-    order = "a[transport-belt]-a[transport-belt]",
+    order = "b[polariton]-d[left]",
     stack_size = 1
   },
   {
@@ -38,7 +38,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-up.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
-    order = "a[transport-belt]-a[transport-belt]",
+    order = "b[polariton]-a[up]",
     stack_size = 1
   },
   {
@@ -47,7 +47,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-down.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
-    order = "a[transport-belt]-a[transport-belt]",
+    order = "b[polariton]-c[down]",
     stack_size = 1
   },
   {
