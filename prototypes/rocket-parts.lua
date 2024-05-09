@@ -35,6 +35,8 @@ data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
 data.raw["item"]["rocket-control-unit"].stack_size = 20
 data.raw["item"]["low-density-structure"].stack_size = 20
 
+data.raw["item"]["rocket-part"].order = "o[rocket-part]-b"
+
 data:extend{
   {
     type = "fluid",
@@ -53,7 +55,7 @@ data:extend{
     icon = "__space-exploration-graphics__/graphics/icons/heat-shielding.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "intermediate-product",
-    order = "q[low-density-structure]",
+    order = "o[rocket-part]-a",
     stack_size = 20
   },
   {
@@ -74,12 +76,12 @@ data:extend{
   {
     type = "item",
     name = "rocket-part-down",
+    localised_name = {"item-name.rocket-part-down"},
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64, icon_mipmaps = 4,
-    localised_name = {"item-name.rocket-part"},
     flags = {"hidden"},
     subgroup = "intermediate-product",
-    order = "q[rocket-part]",
+    order = "o[rocket-part]-c",
     stack_size = 5
   },
   {
@@ -101,12 +103,12 @@ data:extend{
   {
     type = "item",
     name = "rocket-part-interstellar",
+    localised_name = {"item-name.rocket-part-interstellar"},
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64, icon_mipmaps = 4,
-    localised_name = {"item-name.rocket-part"},
     flags = {"hidden"},
     subgroup = "intermediate-product",
-    order = "q[rocket-part]",
+    order = "o[rocket-part]-d",
     stack_size = 5
   },
   {
@@ -132,7 +134,7 @@ data:extend{
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "intermediate-product",
-    order = "q[rocket-part]",
+    order = "o[rocket-part]-e",
     stack_size = 1
   },
   {
@@ -154,6 +156,7 @@ data:extend{
     enabled = false,
     subgroup = "intermediate-product",
     category = "crafting",
+    order = "o[rocket-part]-b",
     ingredients =
     {
       {"ll-used-rocket-part", 1},

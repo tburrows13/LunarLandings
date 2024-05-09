@@ -75,6 +75,10 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-landing-pad"
       },
+      {
+        type = "unlock-recipe",
+        recipe = "rocket-part-down"
+      }
     },
     prerequisites = {"rocket-silo"},
     unit =
@@ -626,6 +630,10 @@ data:extend{
       {
         type = "unlock-recipe",
         recipe = "ll-rocket-silo-interstellar"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "rocket-part-interstellar"
       },
     },
     unit =

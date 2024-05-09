@@ -1,7 +1,10 @@
 local rocket = data.raw["rocket-silo-rocket"]["rocket-silo-rocket"]
 rocket.inventory_size = 20
 
+data.raw["item"]["rocket-silo"].localised_name = {"entity-name.rocket-silo"}
+
 local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
+rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}
 rocket_silo.rocket_result_inventory_size = 20
 rocket_silo.fluid_boxes = {
   {
@@ -43,7 +46,6 @@ rocket_silo.fluid_boxes = {
 
   off_when_no_fluid_recipe = true
 }
-
 
 
 data:extend{
@@ -102,7 +104,7 @@ data.raw.recipe["rocket-silo"].ingredients =
 
 local rocket_down = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_down.name = "ll-rocket-silo-down"
-rocket_down.localised_name = {"entity-name.rocket-silo"}
+rocket_down.localised_name = {"entity-name.ll-rocket-silo-down"}
 rocket_down.minable.result = "rocket-silo"
 rocket_down.placeable_by = {item = "rocket-silo", count = 1}
 rocket_down.rocket_parts_required = 5
@@ -152,6 +154,7 @@ rocket_down.fluid_boxes =
 
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
 rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.rocket_parts_required = 50
 rocket_silo_interstellar.fixed_recipe = "rocket-part-interstellar"
