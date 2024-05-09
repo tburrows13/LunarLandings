@@ -14,12 +14,14 @@ function Buckets.add(bucket, id, data)
 end
 
 function Buckets.get(bucket, id)
+  if not id then return end
   local bucket_id = id % bucket.interval
   local bucket_data = bucket.list[bucket_id]
   return bucket_data and bucket_data[id]
 end
 
 function Buckets.remove(bucket, id)
+  if not id then return end
   local bucket_id = id % bucket.interval
   if bucket.list[bucket_id] then
     bucket.list[bucket_id][id] = nil
@@ -30,21 +32,6 @@ function Buckets.get_bucket(bucket, id)
   local bucket_id = id % bucket.interval
   bucket.list[bucket_id] = bucket.list[bucket_id] or {}
   return bucket.list[bucket_id]
-end
-
-function Buckets.update(bucket, callback, tick)
-  local bucket_id = (tick or game.tick) % bucket.interval
-  local bucket_data = bucket.list[bucket_id]
-  for _, data in pairs(bucket_data or {}) do
-    callback(data)
-  end
-end
-
-function Buckets.update_unit(bucket, callback, id)
-  local data = Buckets.get(bucket, id)
-  if data then
-    callback(data)
-  end
 end
 
 function Buckets.reallocate(bucket, new_interval)

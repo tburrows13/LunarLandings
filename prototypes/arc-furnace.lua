@@ -51,8 +51,8 @@ data:extend{
     default_temperature = 25,
     fuel_value = "1MJ",
     --heat_capacity = "0.1KJ",
-    base_color = {r=0.15, g=0.32, b=0.03},  -- TODO set
-    flow_color = {r=0.43, g=0.75, b=0.31},
+    base_color = {r = 75, g = 0, b = 130},
+    flow_color = {r = 75, g = 0, b = 130},
     icon = "__core__/graphics/arrows/heat-exchange-indication.png",
     icon_size = 48, icon_mipmaps = 1,
     order = "e[lubricant]",
