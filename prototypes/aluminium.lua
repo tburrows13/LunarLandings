@@ -126,7 +126,21 @@ data:extend{
     type = "recipe",
     name = "ll-low-density-structure-aluminium",
     localised_name = {"recipe-name.ll-low-density-structure-aluminium"},
+    icons = {
+      {
+        icon = "__base__/graphics/icons/low-density-structure.png",
+        icon_size = 64, icon_mipmaps = 4,    
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/aluminium-plate.png",
+        icon_size = 128, icon_mipmaps = 1,
+        scale = 0.125,
+        shift = {-8, -8},
+      }
+    },
     category = "crafting",
+    subgroup = "intermediate-product",
+    order = "o[low-density-structure]-a",
     energy_required = 20,
     enabled = false,
     ingredients =
@@ -136,7 +150,8 @@ data:extend{
       {"ll-aluminium-plate", 5},
       {"plastic-bar", 5}
     },
-    result = "low-density-structure",
+    results = {{type="item", name="low-density-structure", amount=1}},
+    main_product = "",
     order = "o[low-density-structure]-a"
   },
 }
