@@ -116,7 +116,7 @@ local function on_entity_destroyed(event)
   global.turbines[event.unit_number] = nil
 end
 
--- All this code does it to show turbine/condenser connection where hovering
+-- Show turbine/condenser connection where hovering
 -- the mouse over either entity, similar to how beacons/machines work.
 local function on_selected_entity_changed (event)
   local player = game.get_player(event.player_index) --[[@cast player -? ]]
@@ -126,14 +126,14 @@ local function on_selected_entity_changed (event)
   global.players = global.players or { }
   local player_data = global.players[event.player_index]
   if not player_data then
-      global.players[event.player_index] = { }
-      player_data = global.players[event.player_index]
+    global.players[event.player_index] = { }
+    player_data = global.players[event.player_index]
   end
 
   -- Always destroy all current highlight boxes, if any, to keep logic simple.
   -- Regardless of which entity is now selected.
   if player_data.highlight_boxes then
-      for _, box in pairs(player_data.highlight_boxes) do box.destroy() end
+    for _, box in pairs(player_data.highlight_boxes) do box.destroy() end
   end
   player_data.highlight_boxes = { }
 
@@ -151,7 +151,7 @@ local function on_selected_entity_changed (event)
             name = "highlight-box",
             position = turbine.position,
             source = turbine,
-            box_type = "electricity", -- For the light blue box
+            box_type = "train-visualization", -- White box
             render_player_index = event.player_index,
           })
         end
@@ -161,12 +161,12 @@ local function on_selected_entity_changed (event)
     local turbine_data = global.turbines[entity.unit_number]
     if turbine_data then
       local condenser = Buckets.get(global.steam_condensers, turbine_data.condenser)
-      if condenser and condenser.valid then
+      if condenser and condenser.entity.valid then
         table.insert(player_data.highlight_boxes, condenser.entity.surface.create_entity{
           name = "highlight-box",
           position = condenser.position,
           source = condenser.entity,
-          box_type = "electricity", -- For the light blue box
+          box_type = "train-visualization", -- White box
           render_player_index = event.player_index,
         })
       end
