@@ -241,6 +241,7 @@ data:extend{
     collision_box = {{-2.1, -2.1}, {2.1, 2.1}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     collision_mask = {"not-colliding-with-itself"},
+    surface_conditions = {nauvis = true, luna = true},
     damaged_trigger_effect = hit_effects.entity(),
     lower_layer_picture =
     {
