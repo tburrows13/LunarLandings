@@ -41,8 +41,8 @@ data:extend{
     name = "ll-rocket-fuel",
     default_temperature = 25,
     heat_capacity = "0.1KJ",
-    base_color = {r=0.53, g=0.1, b=0},
-    flow_color = {r=0.93, g=0.68, b=0.2},
+    base_color = {r = 255, g = 191, b = 0},
+    flow_color = {r = 255, g = 191, b = 0},
     icon = "__space-exploration-graphics__/graphics/icons/fluid/liquid-rocket-fuel.png",
     icon_size = 64, icon_mipmaps = 1,
     order = "f[rocket-fuel]"
