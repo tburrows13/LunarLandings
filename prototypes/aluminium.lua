@@ -41,8 +41,8 @@ data:extend{
     name = "ll-red-mud",
     default_temperature = 25,
     --heat_capacity = "0.1KJ",
-    base_color = {r=0.15, g=0.32, b=0.03},  -- TODO set
-    flow_color = {r=0.43, g=0.75, b=0.31},
+    base_color = {r = 53, g = 0, b = 0}, --153
+    flow_color = {r = 53, g = 0, b = 0},
     icon = "__LunarLandings__/graphics/icons/red-mud.png",
     icon_size = 64, icon_mipmaps = 4,
     order = "e[lubricant]"

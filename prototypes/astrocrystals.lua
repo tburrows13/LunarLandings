@@ -158,8 +158,8 @@ data:extend({
     name = "ll-astroflux",
     default_temperature = 25,
     heat_capacity = "0.1KJ",
-    base_color = {r=0, g=0, b=0},  -- TODO
-    flow_color = {r=0.5, g=0.5, b=0.5},  -- TODO
+    base_color = { r = 238, g = 130, b = 238},
+    flow_color = { r = 238, g = 130, b = 238},
     icon = "__LunarLandings__/graphics/fluid/neodym-solution.png",
     icon_size = 64, icon_mipmaps = 4,
     order = "a[fluid]-b[crude-oil]"
