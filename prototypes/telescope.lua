@@ -3,6 +3,7 @@ data:extend{
     type = "recipe",
     name = "ll-telescope",
     enabled = false,
+    energy_required = 8,
     ingredients =
     {
       {"iron-gear-wheel", 30},

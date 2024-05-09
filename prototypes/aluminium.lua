@@ -30,8 +30,7 @@ data:extend{
     type = "item",
     name = "ll-aluminium-plate",
     icon = "__LunarLandings__/graphics/icons/aluminium-plate.png",
-    icon_size = 128,
-    icon_mipmaps = 1,
+    icon_size = 128, icon_mipmaps = 1,
     subgroup = "ll-raw-material-moon",
     order = "d[aluminium-plate]",
     stack_size = 100
@@ -62,7 +61,7 @@ data:extend{
     results =
     {
       {type="item", name="ll-alumina", amount=5},
-      {type="fluid", name="ll-red-mud", amount=4, fluidbox_index = 1},
+      {type="fluid", name="ll-red-mud", amount_min=5, amount_max=15, fluidbox_index=1},
     },
     main_product = "ll-alumina",
     --[[icon = "__LunarLandings__/graphics/icons/moon-rock.png",
@@ -112,12 +111,12 @@ data:extend{
     energy_required = 20,
     ingredients =
     {
-      {type="fluid", name="ll-red-mud", amount=10},
+      {type="fluid", name="ll-red-mud", amount=20},
     },
     results=
     {
-      {type="item", name="stone-brick", amount_min=0, amount_max = 4},
-      {type="item", name="iron-ore", amount_min=0, amount_max = 4},
+      {type="item", name="stone-brick", amount_min=0, amount_max=20},
+      {type="item", name="iron-ore", amount_min=0, amount_max=20},
     },
     subgroup = "ll-raw-material-moon",
     order = "h[red-mud]"
@@ -146,8 +145,7 @@ data:extend{
     ingredients =
     {
       {"steel-plate", 2},
-      {"copper-plate", 5},
-      {"ll-aluminium-plate", 5},
+      {"ll-aluminium-plate", 15},
       {"plastic-bar", 5}
     },
     results = {{type="item", name="low-density-structure", amount=1}},

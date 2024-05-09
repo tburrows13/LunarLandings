@@ -22,9 +22,9 @@ data:extend({
 		enabled = false,
     energy_required = 10,
 		ingredients = {
-			{"steel-plate", 75},
-			{"stone-brick", 100},
-			{"iron-gear-wheel", 200},
+			{"steel-plate", 50},
+			{"stone-brick", 200},
+			{"iron-gear-wheel", 125},
 		},
 		results = {{type="item", name="ll-core-extractor", amount=1}}
 	},

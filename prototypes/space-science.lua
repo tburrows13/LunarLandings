@@ -20,13 +20,13 @@ data:extend{
     ingredients =
     {
       {type = "item", name = "ll-data-card", amount = 1, catalyst_amount = 1},
-      {"ll-low-grav-assembling-machine", 1}, -- TODO consider core extractor?
-      {"ll-aluminium-plate", 5}  -- TODO replace with aluminium product, LDS?
+      {"ll-low-grav-assembling-machine", 1},
+      {"ll-aluminium-plate", 60}  -- TODO replace with aluminium product, LDS?
     },
     main_product = "ll-space-science-pack",
     results = {
-      {"ll-space-science-pack", 4},
-      {type = "item", name = "ll-blank-data-card", amount = 1, probability = 0.9, catalyst_amount = 1},  -- TODO check if this works properly
+      {"ll-space-science-pack", 6},
+      {type = "item", name = "ll-blank-data-card", amount = 1, probability = 0.9, catalyst_amount = 1},
       {type = "item", name = "ll-broken-data-card", amount = 1, probability = 0.1, catalyst_amount = 1},
     },
   },

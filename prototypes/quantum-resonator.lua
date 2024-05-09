@@ -57,7 +57,7 @@ data:extend{
     name = "ll-quantum-resonator",
     type = "recipe",
     category = "crafting",
-    energy_required = 1,
+    energy_required = 20,
     ingredients =
     {
       {"lab", 5},

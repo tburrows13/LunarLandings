@@ -40,10 +40,11 @@ data:extend{
     type = "recipe",
     name = "ll-low-grav-assembling-machine",
     enabled = false,
+    energy_required = 10,
     ingredients =
     {
       {"ll-lunar-foundation", 20},
-      {"advanced-circuit", 50},
+      {"advanced-circuit", 20},
       {"steel-plate", 20},
       {"iron-gear-wheel", 20},
     },
