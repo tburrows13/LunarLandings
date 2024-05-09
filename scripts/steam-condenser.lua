@@ -116,6 +116,64 @@ local function on_entity_destroyed(event)
   global.turbines[event.unit_number] = nil
 end
 
+-- All this code does it to show turbine/condenser connection where hovering
+-- the mouse over either entity, similar to how beacons/machines work.
+local function on_selected_entity_changed (event)
+  local player = game.get_player(event.player_index) --[[@cast player -? ]]
+
+  -- Don't want to set up all the plumbing to create this data.
+  -- This is a slow event, so it might be okay for now.
+  global.players = global.players or { }
+  local player_data = global.players[event.player_index]
+  if not player_data then
+      global.players[event.player_index] = { }
+      player_data = global.players[event.player_index]
+  end
+
+  -- Always destroy all current highlight boxes, if any, to keep logic simple.
+  -- Regardless of which entity is now selected.
+  if player_data.highlight_boxes then
+      for _, box in pairs(player_data.highlight_boxes) do box.destroy() end
+  end
+  player_data.highlight_boxes = { }
+
+  -- Draw new custom selection if we need to 
+  local entity = player.selected
+  if not entity or not entity.valid then return end
+
+  if entity.name == "ll-steam-condenser" then
+    local condenser_data = Buckets.get(global.steam_condensers, entity.unit_number)
+    if condenser_data and condenser_data.turbines then
+      local surface = entity.surface
+      for _, turbine in pairs(condenser_data.turbines) do
+        if turbine.valid then
+          table.insert(player_data.highlight_boxes, surface.create_entity{
+            name = "highlight-box",
+            position = turbine.position,
+            source = turbine,
+            box_type = "electricity", -- For the light blue box
+            render_player_index = event.player_index,
+          })
+        end
+      end
+    end
+  elseif entity.name == "steam-turbine" then
+    local turbine_data = global.turbines[entity.unit_number]
+    if turbine_data then
+      local condenser = Buckets.get(global.steam_condensers, turbine_data.condenser)
+      if condenser and condenser.valid then
+        table.insert(player_data.highlight_boxes, condenser.entity.surface.create_entity{
+          name = "highlight-box",
+          position = condenser.position,
+          source = condenser.entity,
+          box_type = "electricity", -- For the light blue box
+          render_player_index = event.player_index,
+        })
+      end
+    end
+  end
+end
+
 local function update_condenser(entity, turbines)
   if not next(turbines) then return end
 
@@ -176,6 +234,7 @@ SteamCondenser.events = {
   [defines.events.on_marked_for_deconstruction] = on_entity_removed,
   ]]
   [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_selected_entity_changed] = on_selected_entity_changed,
 }
 
 function SteamCondenser.on_init()
