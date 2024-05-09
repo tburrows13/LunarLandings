@@ -157,6 +157,7 @@ data:extend{
     subgroup = "intermediate-product",
     category = "crafting",
     order = "o[rocket-part]-b",
+    allow_decomposition = false,
     ingredients =
     {
       {"ll-used-rocket-part", 1},
