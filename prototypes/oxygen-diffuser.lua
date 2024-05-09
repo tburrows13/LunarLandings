@@ -194,6 +194,7 @@ data:extend{
     fluid_box =
     {
       base_area = 2,
+      height = 2,
       base_level = -1,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
