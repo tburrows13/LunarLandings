@@ -143,7 +143,6 @@ local function on_entity_destroyed(event)
 end
 
 LandingPad.events = {
-  [defines.events.on_tick] = on_tick,
   [defines.events.on_gui_opened] = on_gui_opened,
   [defines.events.on_gui_closed] = on_gui_closed,
   [defines.events.on_built_entity] = on_built_entity,
