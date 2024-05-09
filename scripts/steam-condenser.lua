@@ -6,12 +6,12 @@ local SteamCondenser = {}
 local function condenser_position_to_area(position)
   return {
     left_top = {
-      x = position.x - 5.5,
-      y = position.y - 5.5,
+      x = position.x - 6,
+      y = position.y - 6,
     },
     right_bottom = {
-      x = position.x + 5.5,
-      y = position.y + 5.5,
+      x = position.x + 6,
+      y = position.y + 6,
     },
   }
 end
