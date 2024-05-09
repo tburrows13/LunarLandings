@@ -10,6 +10,15 @@ function MoonView.get_data(player_index)
   return global.moon_view_data[player_index]
 end
 
+function MoonView.get_associated_character(player)
+  local associated_characters = player.get_associated_characters()
+  if next(associated_characters) then
+    return associated_characters[1]
+  else
+    return nil
+  end
+end
+
 function MoonView.toggle_moon_view(event)
   local player = game.players[event.player_index]
   if not player.force.technologies["ll-luna-exploration"].researched then
@@ -19,9 +28,12 @@ function MoonView.toggle_moon_view(event)
   if player.controller_type ~= defines.controllers.character then return end
   local moon_view_data = MoonView.get_data(event.player_index)
   if player.surface.name == "luna" then
-    moon_view_data.luna_character = player.character
-    moon_view_data.luna_character = player.character
-    local nauvis_character = moon_view_data.nauvis_character
+    local luna_character = player.character
+    local nauvis_character = MoonView.get_associated_character(player)
+    if not nauvis_character then
+      -- Check old method
+      nauvis_character = moon_view_data.nauvis_character
+    end
     if not nauvis_character or not nauvis_character.valid then
       nauvis_character = game.get_surface("nauvis").create_entity{
         name = "character",
@@ -29,7 +41,6 @@ function MoonView.toggle_moon_view(event)
         force = player.force,
         create_build_effect_smoke = false,
       }
-      moon_view_data.nauvis_character = nauvis_character
     end
     -- Player is on moon
     -- Can't set controller to character on another surface, and teleporting the player also teleports the character
@@ -39,13 +50,22 @@ function MoonView.toggle_moon_view(event)
     player.teleport({0, 0}, "nauvis")
     player.set_controller{
       type = defines.controllers.character,
-      character = moon_view_data.nauvis_character
+      character = nauvis_character
     }
-    moon_view_data.luna_character.color = player.color
+    luna_character.color = player.color
+    luna_character.walking_state = {walking = false}
+    luna_character.associated_player = player
     player.set_shortcut_toggled(SHORTCUT_NAME, false)
+
+    moon_view_data.nauvis_character = nil  -- Clear info from old method
+    moon_view_data.luna_character = nil
   elseif player.surface.name == "nauvis" then
-    moon_view_data.nauvis_character = player.character
-    local luna_character = moon_view_data.luna_character
+    local nauvis_character = player.character
+    local luna_character = MoonView.get_associated_character(player)
+    if not luna_character then
+      -- Check old method
+      luna_character = moon_view_data.luna_character
+    end
     if not luna_character or not luna_character.valid then
       luna_character = game.get_surface("luna").create_entity{
         name = "ll-remote-drone",
@@ -53,7 +73,6 @@ function MoonView.toggle_moon_view(event)
         force = player.force,
         create_build_effect_smoke = false,
       }
-      moon_view_data.luna_character = luna_character
     end
     player.set_controller{
       type = defines.controllers.spectator,
@@ -63,8 +82,13 @@ function MoonView.toggle_moon_view(event)
       type = defines.controllers.character,
       character = luna_character,
     }
-    moon_view_data.nauvis_character.color = player.color
+    nauvis_character.color = player.color
+    nauvis_character.walking_state = {walking = false}
+    nauvis_character.associated_player = player
     player.set_shortcut_toggled(SHORTCUT_NAME, true)
+
+    moon_view_data.nauvis_character = nil  -- Clear info from old method
+    moon_view_data.luna_character = nil
   end
 end
 
