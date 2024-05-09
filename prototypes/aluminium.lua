@@ -45,7 +45,7 @@ data:extend{
     flow_color = {r = 53, g = 0, b = 0},
     icon = "__LunarLandings__/graphics/icons/red-mud.png",
     icon_size = 64, icon_mipmaps = 4,
-    order = "e[lubricant]"
+    order = "g[red-mud]"
   },
   -- Heat outputs will be added to recipes in heat-recipes.lua (data-final-fixes)
   {

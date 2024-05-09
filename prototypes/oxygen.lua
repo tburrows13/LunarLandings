@@ -9,7 +9,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     base_color = {r = 200, g = 200, b = 200},
     flow_color = {r = 200, g = 200, b = 200},
-    order = "g[gas]-a[oxygen]",
+    order = "i[gas]-a[oxygen]",
     --gas_temperature = 15,
     auto_barrel = false
   },

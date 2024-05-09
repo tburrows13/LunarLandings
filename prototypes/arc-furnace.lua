@@ -55,7 +55,7 @@ data:extend{
     flow_color = {r = 75, g = 0, b = 130},
     icon = "__core__/graphics/arrows/heat-exchange-indication.png",
     icon_size = 48, icon_mipmaps = 1,
-    order = "e[lubricant]",
+    order = "z[heat]",
     auto_barrel = false,
   },
   {

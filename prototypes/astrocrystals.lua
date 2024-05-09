@@ -149,7 +149,7 @@ data:extend({
       },
     },
     subgroup = "raw-resource",
-    order = "g[uranium-ore]",
+    order = "h[moon]-e[astrocrystals]",
     stack_size = 50,
     surface_conditions = {nauvis = false, luna = true},
   },
@@ -162,7 +162,7 @@ data:extend({
     flow_color = { r = 238, g = 130, b = 238},
     icon = "__LunarLandings__/graphics/fluid/neodym-solution.png",
     icon_size = 64, icon_mipmaps = 4,
-    order = "a[fluid]-b[crude-oil]"
+    order = "h[astroflux]"
   },
   {
     type = "recipe",
@@ -173,7 +173,7 @@ data:extend({
     ingredients = {{"ll-astrocrystals", 4}, {type="fluid", name="steam", amount="10"}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "raw-material",
+    subgroup = "ll-raw-material-moon",
     order = "l[exotic-mineral-processing]",
     results =
     {
