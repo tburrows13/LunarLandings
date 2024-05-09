@@ -38,6 +38,7 @@ local function on_script_trigger_effect(event)
   Buckets.add(global.oxygen_diffusers, entity.unit_number, {
     entity = entity,
     fluidbox = fluidbox,
+    fluid_production_statistics = entity.force.fluid_production_statistics,
     position = position,
   })
 
@@ -98,7 +99,7 @@ local function on_entity_destroyed(event)
   end
 end
 
-local function update_diffuser(entity, fluidbox)
+local function update_diffuser(entity, fluidbox, fluid_production_statistics)
   -- Check activity of machines in range, then remove the appropriate amount of oxygen
   local assemblers = entity.get_beacon_effect_receivers()
 
@@ -129,26 +130,25 @@ local function update_diffuser(entity, fluidbox)
     return
   end
 
-  local oxygen_required = machines_working * 0.05 * global.oxygen_diffusers.interval
+  local oxygen_required = machines_working * 0.005 * global.oxygen_diffusers.interval  -- 0.3 oxygen per second per machine
   local oxygen_in_fluidbox = fluidbox.get_fluid_count("ll-oxygen")
   if oxygen_in_fluidbox >= oxygen_required then
     for _, assembler in pairs(assemblers) do
       assembler.active = true
     end
     fluidbox.remove_fluid{name = "ll-oxygen", amount = oxygen_required}
-    -- TODO production stats
+    fluid_production_statistics.on_flow("ll-oxygen", -oxygen_required)
   else
     for _, assembler in pairs(assemblers) do
       assembler.active = false
     end
   end
-
 end
 
 local function on_tick(event)
   for unit_number, diffuser_data in pairs(Buckets.get_bucket(global.oxygen_diffusers, event.tick)) do
-    if diffuser_data.entity.valid and diffuser_data.fluidbox.valid then
-      update_diffuser(diffuser_data.entity, diffuser_data.fluidbox)
+    if diffuser_data.entity.valid and diffuser_data.fluidbox.valid and diffuser_data.fluid_production_statistics.valid then
+      update_diffuser(diffuser_data.entity, diffuser_data.fluidbox, diffuser_data.fluid_production_statistics)
     else
       if diffuser_data.entity.valid then
         diffuser_data.entity.destroy()
