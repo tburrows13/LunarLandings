@@ -1,3 +1,6 @@
+local Buckets = require "scripts.buckets"
+
+---@type ScriptLib
 local SteamCondenser = {}
 
 local function condenser_position_to_area(position)
@@ -55,12 +58,12 @@ local function on_script_trigger_effect(event)
     end
   end
 
-  global.steam_condensers[entity.unit_number] = {
+  Buckets.add(global.steam_condensers, entity.unit_number, {
     entity = entity,
     --fluidbox = entity.fluidbox[2],
     position = position,
     turbines = turbines_by_unit_number,
-  }
+  })
 
   script.register_on_entity_destroyed(entity)
 end
@@ -84,7 +87,7 @@ local function on_entity_built(event)
     end
     if next(condensers) then
       local condenser_unit_number = condensers[1].unit_number
-      local condenser_data = global.steam_condensers[condenser_unit_number]
+      local condenser_data = Buckets.get(global.steam_condensers, condenser_unit_number)
       if condenser_data then
         condenser_data.turbines[entity.unit_number] = entity
         turbine_data.condenser = condenser_unit_number
@@ -100,13 +103,13 @@ end
 local function on_entity_destroyed(event)
   if not event.unit_number then return end  -- entity was tree/rock
   -- Condenser destroyed
-  local condenser_data = global.steam_condensers[event.unit_number]
+  local condenser_data = Buckets.get(global.steam_condensers, event.unit_number)
   if condenser_data then
     for unit_number, turbine in pairs(condenser_data.turbines) do
       local turbine = condenser_data.turbines[unit_number]
       on_entity_built{created_entity = turbine}  -- send the turbine off to check for another condenser
     end
-    global.steam_condensers[event.unit_number] = nil
+    Buckets.remove(global.steam_condensers, event.unit_number)
   end
 
   -- Turbine destroyed, turbine will get removed from condenser data when the condenser updates
@@ -120,7 +123,7 @@ local function update_condenser(entity, turbines)
   local to_remove = {}
   for unit_number, turbine in pairs(turbines) do
     if turbine.valid then
-      total_energy = total_energy + turbine.energy_generated_last_tick
+      total_energy = total_energy + turbine.energy_generated_last_tick * global.steam_condensers.interval
     else
       table.insert(to_remove, unit_number) 
     end
@@ -151,11 +154,11 @@ local function update_condenser(entity, turbines)
 end
 
 local function on_tick(event)
-  for unit_number, condenser_data in pairs(global.steam_condensers) do
+  for unit_number, condenser_data in pairs(Buckets.get_bucket(global.steam_condensers, event.tick)) do
     if condenser_data.entity.valid then
       update_condenser(condenser_data.entity, condenser_data.turbines)
     else
-      global.steam_condensers[unit_number] = nil
+      Buckets.remove(global.steam_condensers, unit_number)
     end
   end
 end
@@ -176,7 +179,7 @@ SteamCondenser.events = {
 }
 
 function SteamCondenser.on_init()
-  global.steam_condensers = {}
+  global.steam_condensers = Buckets.new()
   global.turbines = {}
 end
 
