@@ -1,3 +1,5 @@
+local Buckets = require "scripts.buckets"
+
 ---@type ScriptLib
 local RocketSilo = {}
 
@@ -24,7 +26,7 @@ local function is_rocket_launching(entity)
 end
 
 local function build_gui(player, silo)
-  local silo_data = global.rocket_silos[silo.unit_number]
+  local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
 
   local anchor = {gui = defines.relative_gui_type.rocket_silo_gui, position = defines.relative_gui_position.right}
 
@@ -144,7 +146,7 @@ gui.add_handlers(RocketSilo,
     local player = game.players[event.player_index]
     local silo = player.opened
     if not silo or not silo.valid then return end
-    local silo_data = global.rocket_silos[silo.unit_number]
+    local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
     local silo_gui_data = global.rocket_silo_guis[player.index]
     handler(player, event.element, silo, silo_data, silo_gui_data)
   end
@@ -152,7 +154,7 @@ gui.add_handlers(RocketSilo,
 
 local function update_gui(player, silo)
   -- Currently out of date and unused
-  local silo_data = global.rocket_silos[silo.unit_number]
+  local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
   local gui_elements = global.rocket_silo_guis[player.index]
   gui_elements["ll-auto-launch-none"].state = silo_data.auto_launch == "none"
   gui_elements["ll-auto-launch-any"].state = silo_data.auto_launch == "any"
@@ -212,12 +214,11 @@ local function on_rocket_silo_built(event)
     entity = new_entity
   end
 
-
-  global.rocket_silos[entity.unit_number] = {
+  Buckets.add(global.rocket_silos, entity.unit_number, {
     entity = entity,
     auto_launch = "none",  -- "none", "any", "full"
     destination = "Space",
-  }
+  })
 end
 
 local function get_destination_landing_pad(landing_pad_name)
@@ -253,11 +254,11 @@ local function launch_if_destination_has_space(silo_data, ready_stacks)
   end
 end
 
-local function on_tick()
-  for unit_number, silo_data in pairs(global.rocket_silos) do
+local function on_tick(event)
+  for unit_number, silo_data in pairs(Buckets.get_bucket(global.rocket_silos, event.tick)) do
     local silo = silo_data.entity
     if not silo.valid then
-      global.rocket_silos[unit_number] = nil
+      Buckets.remove(global.rocket_silos, unit_number)
     else
       if silo.rocket_silo_status == defines.rocket_silo_status.rocket_ready then
         if silo_data.auto_launch == "any" then
@@ -368,17 +369,17 @@ local function on_rocket_launched(event)
       remote.call("better-victory-screen", "trigger_victory", rocket.force)
     else
       game.set_game_state{
-        game_finished=true,
-        player_won=true,
-	      can_continue=true,
-        victorious_force=rocket.force
+        game_finished = true,
+        player_won = true,
+        can_continue = true,
+        victorious_force = rocket.force
       }
     end
   end
 
   local inventory = event.rocket.get_inventory(defines.inventory.rocket)
 
-  local silo_data = global.rocket_silos[silo.unit_number]
+  local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
   if silo_data.destination == "Space" then
     if inventory.get_item_count("satellite") >= 1 then
       if silo.name == "rocket-silo" then
@@ -463,7 +464,7 @@ local function disable_luna_exploration_tech()
 end
 
 RocketSilo.on_init = function ()
-  global.rocket_silos = {}
+  global.rocket_silos = Buckets.new()
   global.rocket_silo_guis = {}
   global.satellites_launched = {}
   global.satellite_cursors = {}
