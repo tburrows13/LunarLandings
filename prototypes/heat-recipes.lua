@@ -1,15 +1,16 @@
+local heat_recipes = {}
+
 -- Add heat to arc smelting recipes and make alternate recipes with heat for other smelting recipes
-for _, recipe in pairs(data.raw.recipe) do
-  if recipe.category == "ll-arc-smelting" and recipe.name:sub(-5, -1) ~= "-heat" then
+for name, recipe in pairs(data.raw.recipe) do
+  if recipe.category == "ll-arc-smelting" and name:sub(-5, -1) ~= "-heat" then
     table.insert(recipe.results, {type = "fluid", name = "ll-heat", amount = recipe.energy_required, fluidbox_index = 2})
+    table.insert(heat_recipes, name)
   elseif recipe.category == "smelting" or recipe.category == "ll-electric-smelting" and recipe.name:sub(-5, -1) ~= "-heat" then
-    log(recipe.name)
-    --log(serpent.block(recipe))
     local heat_recipe = table.deepcopy(recipe)
-    heat_recipe.name = recipe.name .. "-heat"
+    heat_recipe.name = name .. "-heat"
     heat_recipe.category = "ll-arc-smelting"
-    heat_recipe.localised_name = recipe.localised_name or {"?", {"item-name." .. recipe.name}, {"recipe-name." .. recipe.name}}
-    heat_recipe.localised_description = recipe.localised_description or {"?", {"item-description." .. recipe.name}, {"?", {"recipe-description." .. recipe.name}, ""}}
+    heat_recipe.localised_name = recipe.localised_name or {"?", {"item-name." .. name}, {"recipe-name." .. name}}
+    heat_recipe.localised_description = recipe.localised_description or {"?", {"item-description." .. name}, {"?", {"recipe-description." .. name}, ""}}
 
     -- Remove normal/expensive
     if heat_recipe.normal then
@@ -38,5 +39,12 @@ for _, recipe in pairs(data.raw.recipe) do
       data:extend{heat_recipe}
       data_util.allow_productivity(heat_recipe.name)
     end
+    table.insert(heat_recipes, heat_recipe.name)
   end
+end
+
+local efficiency_modules = {"effectivity-module", "effectivity-module-2", "effectivity-module-3"}
+for _, module in pairs(efficiency_modules) do
+  data.raw.module[module].limitation_blacklist = heat_recipes
+  data.raw.module[module].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
 end
