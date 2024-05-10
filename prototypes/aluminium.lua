@@ -92,7 +92,7 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ll-red-mud-recovery",  -- TODO set fluid tint
+    name = "ll-red-mud-recovery",
     icons = {
       {
         icon = "__LunarLandings__/graphics/icons/red-mud.png",
@@ -119,7 +119,13 @@ data:extend{
       {type="item", name="iron-ore", amount_min=0, amount_max=20},
     },
     subgroup = "ll-raw-material-moon",
-    order = "h[red-mud]"
+    order = "h[red-mud]",
+    crafting_machine_tint = {
+      primary    = {r = 53, g = 0, b = 0},
+      secondary  = {r = 53, g = 0, b = 0},
+      tertiary   = {r = 53, g = 0, b = 0},
+      quaternary = {r = 53, g = 0, b = 0},
+    },
   },
   {
     type = "recipe",

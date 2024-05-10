@@ -16,3 +16,12 @@ space_train_tech.icon_mipmaps = 1
 
 data_util.remove_prerequisite("tech-space-trains", "battery")
 data_util.remove_prerequisite("tech-space-trains", "steel-processing")
+
+local space_train_refurbish = data.raw.recipe["space-train-battery-pack-refurbish"]
+if space_train_refurbish then
+  space_train_refurbish.crafting_machine_tint = space_train_refurbish.crafting_machine_tint or {}
+  space_train_refurbish.crafting_machine_tint.primary    = { r = 174, g = 139, b = 12 }
+  space_train_refurbish.crafting_machine_tint.secondary  = { r = 174, g = 139, b = 12 }
+  space_train_refurbish.crafting_machine_tint.tertiary   = { r = 174, g = 139, b = 12 }
+  space_train_refurbish.crafting_machine_tint.quaternary = { r = 174, g = 139, b = 12 }
+end
