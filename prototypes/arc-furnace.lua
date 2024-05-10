@@ -101,9 +101,10 @@ data:extend{
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions_per_minute = 1
+      emissions_per_minute = 1,
+      drain = "300kW",
     },
-    energy_usage = "20MW",
+    energy_usage = "11MW",
     --result_inventory_size = 1,
     --source_inventory_size = 1,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
