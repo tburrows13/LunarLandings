@@ -322,3 +322,6 @@ data.raw["curved-rail"]["curved-rail"].surface_conditions = {nauvis = true, luna
 data.raw["assembling-machine"]["assembling-machine-1"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
 data.raw["assembling-machine"]["assembling-machine-2"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
 data.raw["assembling-machine"]["assembling-machine-3"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["chemical-plant"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["oil-refinery"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["centrifuge"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}

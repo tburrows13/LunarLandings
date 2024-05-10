@@ -10,6 +10,9 @@ local oxygen_machines = {
   ["assembling-machine-2"] = true,
   ["assembling-machine-3"] = true,
   ["ll-low-grav-assembling-machine"] = true,
+  ["chemical-plant"] = true,
+  ["oil-refinery"] = true,
+  ["centrifuge"] = true,
 }
 
 local function affected_by_oxygen_diffuser(entity, ignore_unit_number)
@@ -63,7 +66,6 @@ local function on_entity_built(event)
 
   elseif entity.type == "assembling-machine" and oxygen_machines[entity.name] then
     if not affected_by_oxygen_diffuser(entity) then
-
       entity.active = false
       if event.name == defines.events.on_built_entity then
         local player = game.get_player(event.player_index)
