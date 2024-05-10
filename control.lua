@@ -1,6 +1,9 @@
 local handler = require "__core__.lualib.event_handler"
 gui = require "__LunarLandings__.scripts.gui-lite"
 
+local compatibility = require "scripts.compatibility"
+compatibility.preload_remote_interface()
+
 handler.add_libraries{
   gui,
   require "scripts.moon-surface",
