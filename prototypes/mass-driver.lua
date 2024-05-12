@@ -161,6 +161,7 @@ data:extend{
     fast_replaceable_group = "container",
     inventory_size = 48,
     logistic_mode = "requester",
+    use_exact_mode = true,
     inventory_type = "with_filters_and_bar",
     open_sound = sounds.artillery_open,
     close_sound = sounds.artillery_close,
