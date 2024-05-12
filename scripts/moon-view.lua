@@ -71,6 +71,7 @@ function MoonView.toggle_moon_view(event)
         name = "ll-remote-drone",
         position = {0, 0},
         force = player.force,
+        direction = defines.direction.east,
         create_build_effect_smoke = false,
       }
     end
@@ -98,6 +99,24 @@ local function on_lua_shortcut(event)
   end
 end
 
+local function on_player_respawned(event)
+  local player = game.get_player(event.player_index)
+  if player.surface.name ~= "luna" then return end
+  local old_character = player.character
+  local luna_character = game.get_surface("luna").create_entity{
+    name = "ll-remote-drone",
+    position = old_character.position,
+    force = player.force,
+    direction = defines.direction.east,
+    create_build_effect_smoke = false,
+  }
+  player.set_controller{
+    type = defines.controllers.character,
+    character = luna_character,
+  }
+  old_character.destroy()
+end
+
 local function on_chunk_generated(event)
   local surface = event.surface
   if surface.name ~= "luna" then return end
@@ -116,6 +135,7 @@ end
 MoonView.events = {
   [SHORTCUT_NAME] = MoonView.toggle_moon_view,
   [defines.events.on_lua_shortcut] = on_lua_shortcut,
+  [defines.events.on_player_respawned] = on_player_respawned,
   [defines.events.on_chunk_generated] = on_chunk_generated,
 }
 
