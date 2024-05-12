@@ -2,8 +2,6 @@
 local LandingPad = {}
 
 
-local DockGui = {}
-
 local function build_gui(player, name)
   local anchor = {gui = defines.relative_gui_type.container_gui, position = defines.relative_gui_position.right, name = "ll-landing-pad"}
 
@@ -80,8 +78,6 @@ end
 
 
 local function update_gui(player, name)
-  --gui_elements["ll-auto-launch"].state = silo.auto_launch
-
   local text_field = player.gui.relative["ll-landing-pad-relative-frame"].children[2].children[1].children[1]
   text_field.text = name
 end
@@ -114,14 +110,13 @@ local function on_gui_closed(event)
   local landing_pad_gui = global.landing_pad_guis[player.index]
   local element = landing_pad_gui["ll-landing-pad-name-entry"]
   LandingPad.dock_renamed(nil, element, entity, entity_data)
-  do return end
-  if entity and (entity.type == "container" or entity.type == "logistic-container") then
+  --[[if entity and (entity.type == "container" or entity.type == "logistic-container") then
     local relative_frame = player.gui.relative["sp-relative-frame"]
     if relative_frame then
       relative_frame.destroy()
     end
     global.landing_pad_guis[player.index] = nil
-  end
+  end]]
 end
 
 local function on_built_entity(event)

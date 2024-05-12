@@ -56,7 +56,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-a",
-    stack_size = 20
+    stack_size = 20,
   },
   {
     type = "recipe",

@@ -435,6 +435,42 @@ data:extend{
   },
   {
     type = "technology",
+    name = "ll-mass-driver",
+    icon = "__base__/graphics/technology/artillery.png",
+    icon_size = 256, icon_mipmaps = 4,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-mass-driver"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-mass-driver-requester"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-mass-driver-capsule"
+      },
+    },
+    prerequisites = {"ll-space-science-pack", "artillery", "logistic-system"},
+    unit =
+    {
+      count = 1000,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"utility-science-pack", 1},
+        {"ll-space-science-pack", 1},
+      },
+      time = 60
+    },
+    order = "d-e-f"
+  },
+  {
+    type = "technology",
     name = "ll-quantum-resource-processing",
     icon = "__LunarLandings__/graphics/technology/neodym-refining.png",
     icon_size = 128, icon_mipmaps = 1,

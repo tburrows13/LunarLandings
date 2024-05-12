@@ -26,7 +26,7 @@ data:extend{
       },
     },
     subgroup = "space-related",
-    order = "q[interstellar-satellite]",
+    order = "y[interstellar-satellite]",
     stack_size = 1,
     rocket_launch_product = {"space-science-pack", 1000}
   },

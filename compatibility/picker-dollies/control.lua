@@ -12,6 +12,8 @@ local function blacklist_entities()
   remote.call("PickerDollies", "add_blacklist_name", "ll-landing-pad")
   remote.call("PickerDollies", "add_blacklist_name", "steam-turbine")
   remote.call("PickerDollies", "add_blacklist_name", "ll-steam-condenser")
+  remote.call("PickerDollies", "add_blacklist_name", "ll-mass-driver")
+  remote.call("PickerDollies", "add_blacklist_name", "ll-mass-driver-requester")
 end
 
 return
