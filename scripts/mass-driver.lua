@@ -293,7 +293,7 @@ MassDriver.on_init = function ()
 end
 
 MassDriver.on_configuration_changed = function(changed_data)
-  global.mass_drivers = global.mass_drivers or {}
+  global.mass_drivers = global.mass_drivers or Buckets.new(180)
   global.mass_driver_guis = global.mass_driver_guis or {}
 end
 
