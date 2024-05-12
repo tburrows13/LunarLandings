@@ -25,3 +25,20 @@ if space_train_refurbish then
   space_train_refurbish.crafting_machine_tint.tertiary   = { r = 174, g = 139, b = 12 }
   space_train_refurbish.crafting_machine_tint.quaternary = { r = 174, g = 139, b = 12 }
 end
+
+
+data.raw.recipe["recipe-space-locomotive"].ingredients = {
+  {"low-density-structure", 4},
+  {"processing-unit", 10},
+  {"electric-engine-unit", 20},
+}
+data.raw.recipe["recipe-space-cargo-wagon"].ingredients = {
+  {"low-density-structure", 4},
+  {"processing-unit", 5},
+}
+data.raw.recipe["recipe-space-fluid-wagon"].ingredients = {
+  {"low-density-structure", 4},
+  {"processing-unit", 5},
+  {"storage-tank", 1},
+  {"pipe", 8},
+}
