@@ -29,12 +29,14 @@ Lunar Landings is not compatible with any other overhaul mods. It will probably 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
 ### Attributions
-Thank you to [Earendel](https://mods.factorio.com/user/Earendel) for all the graphics from SE and AB.
+Thank you to [Earendel](https://mods.factorio.com/user/Earendel) for all the various graphics from SE and AB (used with permission, and only included by requiring the graphics mods).
 Thank you to [PreLeyZero](https://mods.factorio.com/user/PreLeyZero) for the core extractor, arc furnace, and quantum resonator from [Exotic Industries](https://mods.factorio.com/mod/exotic-industries).
-Thank you to [brevven](https://mods.factorio.com/user/brevven) for the silicon and aluminium graphics from [Very BZ](https://mods.factorio.com/mod/bzvery)
-K2 item icons, imersite
-Steam condenser
-SE SPace trains
-RedRafe and Stringweasel for code
+Thank you to [brevven](https://mods.factorio.com/user/brevven) for the silicon and aluminium icons from [Very BZ](https://mods.factorio.com/mod/bzvery).
+Thank you to the [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) team for the astrocrystals graphics and various icons.
+Thank you to [Bery0za](https://mods.factorio.com/user/Bery0za) for the steam condenser graphics from [Bery0za's Pure It](https://mods.factorio.com/mod/bery0zas-pure-it).
+Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the maglev train graphics from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains).
+Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon) for the mass driver requester graphics from [Spidertron Logistics System](https://mods.factorio.com/mod/spidertron-logistics).
+Thank you to RedRafe and Stringweasel for various code contributions.
+Thank you to all who have playtested this mod on my discord!
 ---
 If anyone would like to contribute better graphics, please get in touch!
