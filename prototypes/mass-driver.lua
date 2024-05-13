@@ -7,6 +7,7 @@ data:extend{
     name = "ll-mass-driver-capsule",
     enabled = false,
     category = "crafting-with-fluid",
+    energy_required = 1,
     ingredients =
     {
       {"rocket-control-unit", 1},
@@ -29,6 +30,7 @@ data:extend{
     type = "recipe",
     name = "ll-mass-driver-requester",
     enabled = false,
+    energy_required = 10,
     ingredients =
     {
       {"logistic-chest-requester", 1},
@@ -126,6 +128,7 @@ data:extend{
     type = "recipe",
     name = "ll-mass-driver",
     enabled = false,
+    energy_required = 30,
     ingredients =
     {
       {"copper-cable", 200},
