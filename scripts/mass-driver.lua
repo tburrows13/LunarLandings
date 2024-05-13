@@ -151,7 +151,7 @@ end
 
 local function on_mass_driver_built(event)
   local entity = event.created_entity or event.entity
-  if entity.name ~= "ll-mass-driver" then return end
+  if not entity.valid or entity.name ~= "ll-mass-driver" then return end
 
   entity.get_inventory(defines.inventory.chest).set_filter(1, "ll-mass-driver-capsule")
   entity.set_request_slot({name="ll-mass-driver-capsule", count=50}, 1)
