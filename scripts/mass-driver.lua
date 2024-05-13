@@ -154,6 +154,7 @@ local function on_mass_driver_built(event)
   if entity.name ~= "ll-mass-driver" then return end
 
   entity.get_inventory(defines.inventory.chest).set_filter(1, "ll-mass-driver-capsule")
+  entity.set_request_slot({name="ll-mass-driver-capsule", count=50}, 1)
 
   local energy_source = entity.surface.create_entity{
     name = "ll-mass-driver-energy-source",
@@ -210,7 +211,7 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     -- Clear requests
     local sender_request_count = mass_driver.request_slot_count
     for i = 1, sender_request_count do
-      mass_driver.clear_request_slot(i)
+      mass_driver.clear_request_slot(i+1)
     end
   else
     -- Send complete stacks to destination
@@ -250,15 +251,15 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
         local delivered_count = requester_contents[item_name] or 0
         local needed_count = requested_count - delivered_count
         if needed_count > 0 then
-          local existing_request = mass_driver.get_request_slot(i)
+          local existing_request = mass_driver.get_request_slot(i+1)  -- i+1 because capsule will be in slot 1
           if not existing_request or existing_request.count ~= needed_count then
-            mass_driver.set_request_slot({name=item_name, count=needed_count}, i)
+            mass_driver.set_request_slot({name=item_name, count=needed_count}, i+1)
           end
         else
-          mass_driver.clear_request_slot(i)
+          mass_driver.clear_request_slot(i+1)
         end
       else
-        mass_driver.clear_request_slot(i)
+        mass_driver.clear_request_slot(i+1)
       end
     end
   end
