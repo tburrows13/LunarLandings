@@ -186,6 +186,7 @@ end
 data.raw["item"]["ll-lunar-foundation"].place_as_tile.condition = {
   nauvis_layer,
   luna_mountain_layer,
+  luna_lowland_layer,
   luna_foundation_layer,
 }
 
