@@ -170,7 +170,7 @@ local function on_mass_driver_built(event)
 end
 
 local function on_entity_destroyed(event)
-  local entity_data = global.landing_pads[event.unit_number]
+  local entity_data = Buckets.get(global.mass_drivers, event.unit_number)
   if not entity_data then return end
 
   if entity_data.energy_source.valid then
@@ -230,13 +230,12 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
               local sent = requester_inventory.insert(stack)
               sender_inventory.remove(stack)
               sender_inventory.remove({name="ll-mass-driver-capsule", count=1})
-              goto mass_driver_fired
+              break
             end
           end
         end
       end
     end
-    ::mass_driver_fired::
 
     -- Update requests
     local requester_request_count = requester.request_slot_count

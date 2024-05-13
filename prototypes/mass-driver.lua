@@ -99,7 +99,7 @@ data:extend{
           width = 112,
           height = 46,
           repeat_count = 7,
-          shift = util.by_pixel(12*4,5, 4.5*4,5),
+          shift = util.by_pixel(12*4,5, 4.5*4,5),  -- TODO tweak shadow shift
           draw_as_shadow = true,
           scale = 0.5 * 4.5
         }
