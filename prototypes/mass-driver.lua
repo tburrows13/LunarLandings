@@ -42,8 +42,8 @@ data:extend{
   {
     type = "item",
     name = "ll-mass-driver-requester",
-    icon = "__base__/graphics/icons/logistic-chest-requester.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__LunarLandings__/graphics/icons/mass-driver-requester.png",
+    icon_size = 64, icon_mipmaps = 1,
     subgroup = "space-related",
     order = "r[mass-driver-requester]",
     place_result = "ll-mass-driver-requester",
@@ -52,8 +52,8 @@ data:extend{
   {
     type = "logistic-container",
     name = "ll-mass-driver-requester",
-    icon = "__base__/graphics/icons/logistic-chest-requester.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__LunarLandings__/graphics/icons/mass-driver-requester.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "ll-mass-driver-requester"},
     max_health = 350,
@@ -81,32 +81,24 @@ data:extend{
     animation_sound = sounds.logistics_chest_open,
     vehicle_impact_sound = sounds.generic_impact,
     opened_duration = logistic_chest_opened_duration,
-    animation =
-    {
-      layers =
-      {
-        {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-requester.png",
-          priority = "extra-high",
-          width = 66,
-          height = 74,
-          frame_count = 7,
-          shift = util.by_pixel(0, -2),
-          scale = 0.5 * 4.5,
-          
-        },
-        {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 112,
-          height = 46,
-          repeat_count = 7,
-          shift = util.by_pixel(12*4,5, 4.5*4,5),  -- TODO tweak shadow shift
-          draw_as_shadow = true,
-          scale = 0.5 * 4.5
-        }
-      }
-    },
+		picture = {layers = {
+			{
+				filename = '__LunarLandings__/graphics/entities/mass-driver-requester.png',
+				height = 199,
+				priority = 'high',
+				scale = 0.8,
+				width = 207
+			},
+			{
+					draw_as_shadow = true,
+					filename = '__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png',
+					height = 149,
+					priority = 'high',
+					scale = 0.8,
+					shift = {0.5625*1.6, 0.5*1.6},
+					width = 277,
+			},
+		}},
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
