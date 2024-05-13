@@ -221,12 +221,11 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     if requester_inventory.count_empty_stacks(false, false) > 0 then
       if sender_content["ll-mass-driver-capsule"] then
         for name, count in pairs(sender_content) do
-          local max_items_per_send = math.min(game.item_prototypes[name].stack_size, 50)
-          if count >= max_items_per_send and is_allowed(name) then
+          if count >= game.item_prototypes[name].stack_size and is_allowed(name) then
             local energy_source_entity = mass_driver_data.energy_source
             if energy_source_entity.valid and energy_source_entity.energy >= (200000000) then
               energy_source_entity.energy = 0
-              local stack = {name=name, count=max_items_per_send}
+              local stack = {name=name, count=game.item_prototypes[name].stack_size}
               local sent = requester_inventory.insert(stack)
               sender_inventory.remove(stack)
               sender_inventory.remove({name="ll-mass-driver-capsule", count=1})
