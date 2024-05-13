@@ -3,7 +3,6 @@
 bzutil.add_unlock("advanced-material-processing-2", "ll-boil-water")
 
 bzutil.add_unlock("nuclear-power", "ll-rtg")
---bzutil.add_unlock("nuclear-power", "ll-rtg-from-depleted")
 
 data_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
 data_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
@@ -688,4 +687,64 @@ data:extend{
     },
     order = "c-a"
   },
+  {
+    type = "technology",
+    name = "ll-research-productivity-1",
+    icons = util.technology_icon_constant_productivity("__base__/graphics/technology/research-speed.png"),
+    icon_size = 256, icon_mipmaps = 4,
+    prerequisites = {"ll-space-science-pack"},
+    effects =
+    {
+      {
+        type = "laboratory-productivity",
+        modifier = 0.1
+      }
+    },
+    unit =
+    {
+      count = 1000,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+        {"ll-space-science-pack", 1}
+      },
+      time = 60
+    },
+    upgrade = true,
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "ll-research-productivity-2",
+    icons = util.technology_icon_constant_productivity("__base__/graphics/technology/research-speed.png"),
+    icon_size = 256, icon_mipmaps = 4,
+    prerequisites = {"ll-research-productivity-1"},
+    effects =
+    {
+      {
+        type = "laboratory-productivity",
+        modifier = 0.1
+      }
+    },
+    unit =
+    {
+      count = 2000,
+      ingredients = {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+        {"ll-space-science-pack", 1},
+        {"ll-quantum-science-pack", 1}
+      },
+      time = 60
+    },
+    upgrade = true,
+    order = "c-a"
+  },
+
 }
