@@ -90,7 +90,7 @@ data:extend{
     energy_required = 3,
     enabled = false,
     hidden = true,
-    category = "rocket-building",
+    category = "rocket-building-luna",
     ingredients =
     {
       {"ll-heat-shielding", 10},
@@ -117,7 +117,7 @@ data:extend{
     energy_required = 3,
     enabled = false,
     hidden = true,
-    category = "rocket-building",
+    category = "rocket-building-interstellar",
     ingredients =
     {
       {"ll-heat-shielding", 10},

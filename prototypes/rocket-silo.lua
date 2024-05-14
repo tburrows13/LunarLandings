@@ -50,6 +50,14 @@ rocket_silo.fluid_boxes = {
 
 data:extend{
   {
+    type = "recipe-category",
+    name = "rocket-building-luna"
+  },
+  {
+    type = "recipe-category",
+    name = "rocket-building-interstellar"
+  },
+  {
     type = "item",
     name = "ll-rocket-silo-interstellar",
     icon = "__base__/graphics/icons/rocket-silo.png",
@@ -107,6 +115,7 @@ rocket_down.name = "ll-rocket-silo-down"
 rocket_down.localised_name = {"entity-name.ll-rocket-silo-down"}
 rocket_down.minable.result = "rocket-silo"
 rocket_down.placeable_by = {item = "rocket-silo", count = 1}
+rocket_down.crafting_categories = {"rocket-building-luna"}
 rocket_down.rocket_parts_required = 5
 rocket_down.fixed_recipe = "rocket-part-down"
 table.insert(rocket_down.flags, "not-in-made-in")
@@ -158,6 +167,7 @@ rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/p
 rocket_silo_interstellar.icon_mipmaps = 1
 rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
 rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
 rocket_silo_interstellar.rocket_parts_required = 50
 rocket_silo_interstellar.fixed_recipe = "rocket-part-interstellar"
 rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
