@@ -4,6 +4,12 @@ gui = require "__LunarLandings__.scripts.gui-lite"
 local compatibility = require "scripts.compatibility"
 compatibility.preload_remote_interface()
 
+local function on_init()
+  if game.tick ~= 0 then
+    game.print({"ll-console-info.added-to-existing-save"})
+  end
+end
+
 handler.add_libraries{
   gui,
   require "scripts.moon-surface",
@@ -17,5 +23,6 @@ handler.add_libraries{
   require "scripts.mass-driver",
   require "scripts.mass-driver-requester",
   require "scripts.collision-test",
+  {on_init = on_init},
 }
 
