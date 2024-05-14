@@ -22,8 +22,6 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
-data.raw.recipe["nuclear-fuel"].category = "chemistry"
-
 data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
 
 --data.raw.recipe["rocket-part"].ingredients = {

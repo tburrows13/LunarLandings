@@ -169,7 +169,7 @@ data:extend({
     name = "ll-astrocrystal-processing",
     energy_required = 12,
     enabled = false,
-    category = "crafting-with-fluid",  -- TODO centrifuge? get pink tint
+    category = "centrifuging",
     ingredients = {{"ll-astrocrystals", 4}, {type="fluid", name="steam", amount="10"}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64, icon_mipmaps = 4,
