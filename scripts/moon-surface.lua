@@ -72,17 +72,28 @@ local function on_init()
     }
   )
   -- Nauvis is 25000 ticks per day
-  local ticks_per_day = 100000
-  luna.daytime = (game.tick / ticks_per_day) % 1  -- TODO review sola
+  local ticks_per_day = 216000
+  luna.daytime = (game.tick / ticks_per_day) % 1
   luna.ticks_per_day = ticks_per_day
-  luna.solar_power_multiplier = 2
+  luna.solar_power_multiplier = 1.5
   luna.freeze_daytime = false
   luna.show_clouds = false
 
   log("LunarLandings: on_init() done")
 end
 
+local function on_configuration_changed()
+  local luna = game.get_surface("luna")
+  if luna then
+    local ticks_per_day = 216000
+    luna.daytime = (game.tick / ticks_per_day) % 1
+    luna.ticks_per_day = ticks_per_day
+    luna.solar_power_multiplier = 1.5
+  end
+end
+
 local MoonSurface = {}
 
 MoonSurface.on_init = on_init
+MoonSurface.on_configuration_changed = on_configuration_changed
 return MoonSurface
