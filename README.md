@@ -11,6 +11,9 @@ Lunar Landings shares a similar design philosophy to the upcoming Space Age expa
 
 # Information
 
+## Development status
+Lunar Landings has been in testing on [my discord](https://discord.gg/pkJc4v9nfT) for 2 weeks, so is relatively stable. Over the next few weeks I will be further polishing it, particularly focusing on usability, graphics, and visual/audio feedback for things like rockets landing. There are likely to be some recipe changes as well.
+
 ## Features
 - Cheaper rocket silo, with reusable rocket parts
 - Moon rock, processed into silicon, stone, and oxygen
