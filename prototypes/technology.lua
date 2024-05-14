@@ -435,8 +435,8 @@ data:extend{
   {
     type = "technology",
     name = "ll-mass-driver",
-    icon = "__base__/graphics/technology/artillery.png",
-    icon_size = 256, icon_mipmaps = 4,
+    icon = "__LunarLandings__/graphics/technology/mass-driver.png",
+    icon_size = 286, icon_mipmaps = 1,
     effects =
     {
       {
