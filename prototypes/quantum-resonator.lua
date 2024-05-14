@@ -62,8 +62,8 @@ data:extend{
     {
       {"lab", 5},
       {"concrete", 100},
-      {"steel-plate", 50},
-      {"processing-unit", 25},
+      {"ll-aluminium-plate", 100},
+      {"processing-unit", 20},
     },
     result = "ll-quantum-resonator",
     result_count = 1,

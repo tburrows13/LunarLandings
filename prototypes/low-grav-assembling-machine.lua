@@ -45,7 +45,7 @@ data:extend{
     {
       {"ll-lunar-foundation", 20},
       {"advanced-circuit", 20},
-      {"steel-plate", 20},
+      {"steel-plate", 10},
       {"iron-gear-wheel", 20},
     },
     result = "ll-low-grav-assembling-machine"

@@ -62,7 +62,7 @@ data:extend{
     energy_required = 10,
     ingredients = {
       {"advanced-circuit", 5},
-      {"ll-silicon", 5},
+      {"ll-silicon", 20},
       {"stone-brick", 1}
     },
     result = "ll-blank-data-card",
@@ -138,7 +138,7 @@ data:extend{
     enabled = false,
     category = "ll-telescope-data",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 5,
     ingredients = {
       {"ll-blank-data-card", 1},
       {"processing-unit", 1},
@@ -158,7 +158,7 @@ data:extend{
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"ll-blank-data-card", 1},
+      {"ll-data-card", 1},
       {"ll-quantum-processor", 1},
       {"ll-superposed-polariton", 1},
       {type = "fluid", name = "ll-oxygen", amount = 10}
