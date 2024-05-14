@@ -8,33 +8,32 @@ resource_autoplace.initialize_patch_set("ll-rich-moon-rock", false)
 resource_autoplace.initialize_patch_set("ll-ice", true)
 resource_autoplace.initialize_patch_set("ll-astrocrystals", false)
 
-data.raw.resource["ll-moon-rock"].autoplace = resource_autoplace.resource_autoplace_settings
-{
+data.raw.resource["ll-moon-rock"].autoplace = resource_autoplace.resource_autoplace_settings({
   name = "ll-moon-rock",
   order = "b",
   base_density = 5,
+  base_spots_per_km2 = 1.3,
   has_starting_area_placement = true,
   regular_rq_factor_multiplier = 1.0,
   starting_rq_factor_multiplier = 1.1,
-}
+})
 
-data.raw.resource["ll-rich-moon-rock"].autoplace = resource_autoplace.resource_autoplace_settings
-{
+data.raw.resource["ll-rich-moon-rock"].autoplace = resource_autoplace.resource_autoplace_settings({
   name = "ll-rich-moon-rock",
   order = "b",
   base_density = 4,
+  base_spots_per_km2 = 1,
   has_starting_area_placement = false,
   regular_rq_factor_multiplier = 1.0,
   starting_rq_factor_multiplier = 1.1,
-}
+})
 
 data.raw.resource["ll-ice"].autoplace = resource_autoplace.resource_autoplace_settings({
   name = "ll-ice",
   order = "b",
   base_density = 5,
   richness_multiplier = 1,
-  richness_multiplier_distance_bonus = 1.3,
-  base_spots_per_km2 = 0.06,
+  base_spots_per_km2 = 0.02,
   has_starting_area_placement = true,
   random_spot_size_minimum = 0.01,
   random_spot_size_maximum = 0.1,
@@ -51,8 +50,7 @@ data.raw.resource["ll-astrocrystals"].autoplace = resource_autoplace.resource_au
   order = "b",
   base_density = 4,
   richness_multiplier = 1,
-  richness_multiplier_distance_bonus = 1.5,
-  base_spots_per_km2 = 0.04,
+  base_spots_per_km2 = 0.005,
   has_starting_area_placement = false,
   random_spot_size_minimum = 0.01,
   random_spot_size_maximum = 0.1,
