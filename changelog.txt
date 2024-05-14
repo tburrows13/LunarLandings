@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 14 May 2024
+  Features:
+    - New astroflux icon (thanks to Galdoc!)
+  Changes:
+    - Nuclear fuel production and astrocrystal processing are now done in centrifuges
+  Bugfixes:
+    - Fixed crash on load with Cheese's Concentrated Solar
+    - Fixed crash when adding to an existing save (although this is still not recommended)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 14 May 2024
   Bugfixes:
