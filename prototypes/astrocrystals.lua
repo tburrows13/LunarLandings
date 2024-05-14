@@ -160,7 +160,7 @@ data:extend({
     heat_capacity = "0.1KJ",
     base_color = { r = 238, g = 130, b = 238},
     flow_color = { r = 238, g = 130, b = 238},
-    icon = "__LunarLandings__/graphics/fluid/neodym-solution.png",
+    icon = "__LunarLandings__/graphics/fluid/astroflux.png",
     icon_size = 64, icon_mipmaps = 4,
     order = "h[astroflux]"
   },
