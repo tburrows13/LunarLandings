@@ -48,6 +48,7 @@ function data_util.contains_research_ingredient(tech_name, ingredient)
   return false
 end
 
+
 function data_util.is_descendant_of(tech_name, ancestor)
   --if tech_name == ancestor then return true end
   --log(ancestor .. "  -->  "..tech_name)
