@@ -22,12 +22,15 @@ Lunar Landings has been in testing on [my discord](https://discord.gg/pkJc4v9nfT
 - Rich moon rock, processed into aluminium, iron, and moon rock
 - Arc furnaces, required for aluminium processing and output heat as a byproduct
 - Mass driver, used to deliver construction items to Luna based on requests
+- Steam condenser, for recovering water from steam turbines
 - Astrocrystals, processed into quantum things...
 
 ## Other mods
 Alien Biomes is a required mod because it contains some decoratives that Lunar Landings uses for the Luna surface. Feel free to customise its settings as much as you like, such as disabling certain tilesets or turning off tile-based movement penalties.
 
 Lunar Landings is not compatible with any other overhaul mods. It will probably be compatible with [Freight Forwarding](https://mods.factorio.com/mod/FreightForwarding) and Space Age in the future. If you would like to contribute compatibility with another mod, please get in touch.
+
+Also incompatible with beacon overhaul mods such as [Beacon Rebalance](https://mods.factorio.com/mod/wret-beacon-rebalance-mod) for technical reasons, due to the implementation of LL's oxygen diffusers. This may be possible to resolve in the future, but on the other hand I might not bother due to 2.0's upcoming beacon rebalance anyway.
 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
