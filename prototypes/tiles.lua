@@ -306,17 +306,6 @@ data:extend{
 data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 
--- Add craters to tile
-local crater_names = {
-  "crater3-huge", "crater1-large-rare", "crater1-large", "crater2-medium", "crater4-small"
-}
-
-for _, crater_name in pairs(crater_names) do
-  local crater = data.raw["optimized-decorative"][crater_name]
-  table.insert(crater.autoplace.tile_restriction, "ll-luna-plain")
-  --crater.autoplace = nil
-end
-
 data.raw["straight-rail"]["straight-rail"].surface_conditions = {nauvis = true, luna = false}
 data.raw["curved-rail"]["curved-rail"].surface_conditions = {nauvis = true, luna = false}
 data.raw["assembling-machine"]["assembling-machine-1"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}

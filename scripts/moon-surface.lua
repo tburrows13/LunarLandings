@@ -43,6 +43,8 @@ local function on_init()
           ["ll-moon-crater2-medium"] = decorative_controls,
           ["ll-moon-crater3-huge"] = decorative_controls,
           ["ll-moon-crater4-small"] = decorative_controls,
+          ["ll-moon-stone-decal-white"] = decorative_controls,
+          ["ll-moon-sand-decal-white"] = decorative_controls,
           ["ll-moon-rock-medium"] = decorative_controls,
           ["ll-moon-rock-small"] = decorative_controls,
           ["ll-moon-rock-tiny"] = decorative_controls,

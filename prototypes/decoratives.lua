@@ -1,5 +1,6 @@
 local noise = require "noise"
 local tne = noise.to_noise_expression
+local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 local function switch_filenames(pictures)
   --[[
@@ -23,8 +24,13 @@ local function make_buckets(frequencies)
   end
   local lowland_buckets = {}
   for name, frequency in pairs(frequencies) do
-    lowland_buckets[name] = {current_lowland_bucket, current_lowland_bucket + frequency[2]}
-    current_lowland_bucket = current_lowland_bucket + frequency[2]
+    local next_lowland_bucket = current_lowland_bucket + frequency[2]
+    lowland_buckets[name] = {current_lowland_bucket, next_lowland_bucket}
+    current_lowland_bucket = next_lowland_bucket
+    if next_lowland_bucket > 100 then
+      log(serpent.block(lowland_buckets))
+      error("Lowland bucket exceeds 100")
+    end
   end
   return buckets, lowland_buckets
 end
@@ -60,20 +66,22 @@ local craters = {
   ["crater1-large-rare"] = {0.0005, 0.0005},
   ["crater2-medium"] = {0.3, 0.3},
   ["crater4-small"] = {1.2, 1.2},
+  ["stone-decal-white"] = {0.02, 0.01},
+  ["sand-decal-white"] = {0.005, 0.002},
 }
 local crater_buckets, lowland_crater_buckets = make_buckets(craters)
 for name, bucket in pairs(crater_buckets) do
   local decorative = table.deepcopy(data.raw["optimized-decorative"][name])
   decorative.name = "ll-moon-" .. name
-
+  decorative.order = "x-a"
   decorative.autoplace = {
     name = name,
     order = "b",
     tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
     default_enabled = false,
     probability_expression = moon_probability_expression(bucket, lowland_crater_buckets[name]),
-  },
-  --decorative.autoplace.tile_restriction = {"ll-luna-plain"}
+  }
+  collision_mask_util.remove_layer(decorative.collision_mask, "water-tile")  -- stone/sand-decal have water-tile for some reason
   data:extend{decorative}
 end
 
@@ -88,14 +96,14 @@ local decorative_rock_buckets, lowland_decorative_rock_buckets = make_buckets(de
 for name, bucket in pairs(decorative_rock_buckets) do
   local rock = table.deepcopy(data.raw["optimized-decorative"][name])
   rock.name = "ll-moon-" .. name
+  rock.order = "x-b"
   rock.autoplace = {
     name = name,
     order = "b",
     tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
     default_enabled = false,
     probability_expression = moon_probability_expression(bucket, lowland_decorative_rock_buckets[name]),
-  },
-  --rock.autoplace.tile_restriction = {"ll-luna-plain", "ll-luna-lowland"}
+  }
   switch_filenames(rock.pictures)
   data:extend{rock}
 end
@@ -110,6 +118,7 @@ log(serpent.block(lowland_entity_rock_buckets))
 for name, bucket in pairs(entity_rock_buckets) do
   local rock = table.deepcopy(data.raw["simple-entity"][name])
   rock.name = "ll-moon-" .. name
+  rock.order = "x-c"
   rock.map_color={r=45, g=45, b=45}
   if rock.minable.result then
     rock.minable.result = "ll-moon-rock"
@@ -124,9 +133,8 @@ for name, bucket in pairs(entity_rock_buckets) do
     tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
     default_enabled = false,
     probability_expression = moon_probability_expression(bucket, lowland_entity_rock_buckets[name]),
-  },
-  --rock.autoplace.tile_restriction = {"ll-luna-plain", "ll-luna-lowland"}
+  }
+  --rock.surface_conditions = {nauvis = false, luna = {}}
   switch_filenames(rock.pictures)
-  -- TODO surface_conditions
   data:extend{rock}
 end
