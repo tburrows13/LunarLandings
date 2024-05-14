@@ -471,6 +471,13 @@ RocketSilo.on_init = function ()
   global.satellite_cursors = {}
   disable_rocket_victory()
   disable_luna_exploration_tech()
+
+  for _, surface in pairs(game.surfaces) do
+    for _, silo in pairs(surface.find_entities_filtered{type = "rocket-silo"}) do
+      on_rocket_silo_built({created_entity = silo})
+      silo.auto_launch = false
+    end
+  end
 end
 
 RocketSilo.on_configuration_changed = function(changed_data)
