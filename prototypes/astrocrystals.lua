@@ -158,8 +158,8 @@ data:extend({
     name = "ll-astroflux",
     default_temperature = 25,
     heat_capacity = "0.1KJ",
-    base_color = { r = 238, g = 130, b = 238},
-    flow_color = { r = 238, g = 130, b = 238},
+    base_color = { r = 180, g = 40, b = 180},
+    flow_color = { r = 180, g = 40, b = 180},
     icon = "__LunarLandings__/graphics/fluid/astroflux.png",
     icon_size = 64, icon_mipmaps = 4,
     order = "h[astroflux]"
