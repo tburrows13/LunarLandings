@@ -391,7 +391,7 @@ local function on_rocket_launched(event)
         end
         global.satellites_launched[silo.force.name] = satellites_launched + 1
         local position = global.satellite_cursors[silo.force.name] or {x = 0, y = 0}
-        for i = 1, 27 do
+        for i = 1, 300 do
           while silo.force.is_chunk_charted("luna", position) do
             position = spiral_next(position)
           end
@@ -405,6 +405,7 @@ local function on_rocket_launched(event)
               y = (position.y + 0.5) * 32,
             }
           })
+          game.print("Charting")
           position = spiral_next(position)
         end
         global.satellite_cursors[silo.force.name] = position
