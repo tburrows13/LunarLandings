@@ -698,7 +698,7 @@ data:extend{
     {
       {
         type = "laboratory-productivity",
-        modifier = 0.1
+        modifier = 0.05
       }
     },
     unit =
@@ -727,7 +727,7 @@ data:extend{
     {
       {
         type = "laboratory-productivity",
-        modifier = 0.1
+        modifier = 0.05
       }
     },
     unit =
