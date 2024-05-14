@@ -160,6 +160,6 @@ data:extend{
   },
 }
 
-data_util.allow_productivity("ll-alumina")
-data_util.allow_productivity("ll-aluminium-plate")
-data_util.allow_productivity("ll-low-density-structure-aluminium")
+x_util.allow_productivity("ll-alumina")
+x_util.allow_productivity("ll-aluminium-plate")
+x_util.allow_productivity("ll-low-density-structure-aluminium")

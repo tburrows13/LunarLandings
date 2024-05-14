@@ -56,5 +56,5 @@ data:extend{
   },
 }
 
---data_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
-data_util.allow_productivity("ll-rich-moon-rock-processing")
+--x_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
+x_util.allow_productivity("ll-rich-moon-rock-processing")

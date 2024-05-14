@@ -33,4 +33,4 @@ data:extend{
 }
 
 table.insert(data.raw.lab.lab.inputs, 8, "ll-quantum-science-pack")
-data_util.allow_productivity("ll-quantum-science-pack")
+x_util.allow_productivity("ll-quantum-science-pack")

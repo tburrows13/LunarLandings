@@ -150,7 +150,7 @@ data:extend{
   },
 }
 
---data_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
-data_util.allow_productivity("ll-moon-rock-processing-with-oxygen")
---data_util.allow_productivity("ll-moon-rock-processing-with-helium")
-data_util.allow_productivity("ll-moon-rock-processing")
+--x_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
+x_util.allow_productivity("ll-moon-rock-processing-with-oxygen")
+--x_util.allow_productivity("ll-moon-rock-processing-with-helium")
+x_util.allow_productivity("ll-moon-rock-processing")

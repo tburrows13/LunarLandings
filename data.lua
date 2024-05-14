@@ -1,5 +1,4 @@
-bzutil = require("__LunarLandings__.bzutil")
-data_util = require("__LunarLandings__.data-util")
+x_util = require("__LunarLandings__.x-util")
 
 require "__LunarLandings__.prototypes.signal"
 require "__LunarLandings__.prototypes.quantum-module"

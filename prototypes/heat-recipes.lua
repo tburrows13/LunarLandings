@@ -37,7 +37,7 @@ for name, recipe in pairs(data.raw.recipe) do
     if heat_recipe.results then
       table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = heat_recipe.energy_required or 0.5, fluidbox_index = 2})
       data:extend{heat_recipe}
-      data_util.allow_productivity(heat_recipe.name)
+      x_util.allow_productivity(heat_recipe.name)
     end
     table.insert(heat_recipes, heat_recipe.name)
   end

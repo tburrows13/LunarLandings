@@ -24,4 +24,4 @@ data:extend{
   },
 }
 
-data_util.allow_productivity("ll-quantum-processor")
+x_util.allow_productivity("ll-quantum-processor")

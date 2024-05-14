@@ -85,4 +85,4 @@ data:extend{
   },
 }
 
-data_util.allow_productivity("ll-fusion-fuel")  -- TODO check vanilla nuclear fuel
+x_util.allow_productivity("ll-fusion-fuel")  -- TODO check vanilla nuclear fuel

@@ -176,4 +176,4 @@ data:extend{
 
 }
 
-data_util.allow_productivity("ll-blank-data-card")
+x_util.allow_productivity("ll-blank-data-card")

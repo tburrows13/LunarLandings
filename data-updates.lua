@@ -1,9 +1,9 @@
 -- SE Space Trains adds the tech in data-updates...
-bzutil.remove_recipe_effect("tech-space-trains", "space-train-battery-charging-station")
-bzutil.remove_recipe_effect("tech-space-trains", "space-train-battery-pack")
-bzutil.remove_recipe_effect("tech-space-trains", "space-train-destroyed-battery-pack")
-bzutil.remove_recipe_effect("tech-space-trains", "space-train-battery-pack-refurbish")
-bzutil.remove_recipe_effect("tech-space-trains", "space-train-battery-pack-recharge")
+x_util.remove_recipe_effect("tech-space-trains", "space-train-battery-charging-station")
+x_util.remove_recipe_effect("tech-space-trains", "space-train-battery-pack")
+x_util.remove_recipe_effect("tech-space-trains", "space-train-destroyed-battery-pack")
+x_util.remove_recipe_effect("tech-space-trains", "space-train-battery-pack-refurbish")
+x_util.remove_recipe_effect("tech-space-trains", "space-train-battery-pack-recharge")
 
 -- Insert into position 1
 local space_train_tech = data.raw["technology"]["tech-space-trains"]
@@ -14,8 +14,8 @@ space_train_tech.icon = "__space-exploration-graphics__/graphics/technology/spac
 space_train_tech.icon_size = 128
 space_train_tech.icon_mipmaps = 1
 
-data_util.remove_prerequisite("tech-space-trains", "battery")
-data_util.remove_prerequisite("tech-space-trains", "steel-processing")
+x_util.remove_prerequisite("tech-space-trains", "battery")
+x_util.remove_prerequisite("tech-space-trains", "steel-processing")
 
 
 data.raw.recipe["recipe-space-locomotive"].ingredients = {

@@ -1,41 +1,41 @@
 -- TODO tech orders
 
-bzutil.add_unlock("advanced-material-processing-2", "ll-boil-water")
+x_util.add_unlock("advanced-material-processing-2", "ll-boil-water")
 
-bzutil.add_unlock("nuclear-power", "ll-rtg")
+x_util.add_unlock("nuclear-power", "ll-rtg")
 
-data_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
-data_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
-bzutil.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
-bzutil.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
+x_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
+x_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
+x_util.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
+x_util.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
 
-bzutil.add_unlock("low-density-structure", "ll-pack-low-density-structure")
-bzutil.add_unlock("low-density-structure", "ll-unpack-low-density-structure")
+x_util.add_unlock("low-density-structure", "ll-pack-low-density-structure")
+x_util.add_unlock("low-density-structure", "ll-unpack-low-density-structure")
 
-data_util.remove_prerequisite("advanced-electronics-2", "chemical-science-pack")
-data_util.add_prerequisite("advanced-electronics-2", "ll-luna-automation")
-data_util.add_prerequisite("advanced-electronics-2", "ll-moon-rock-processing")
+x_util.remove_prerequisite("advanced-electronics-2", "chemical-science-pack")
+x_util.add_prerequisite("advanced-electronics-2", "ll-luna-automation")
+x_util.add_prerequisite("advanced-electronics-2", "ll-moon-rock-processing")
 
-data_util.remove_prerequisite("rocket-silo", "speed-module-3")
-data_util.remove_prerequisite("rocket-silo", "productivity-module-3")
-data_util.add_prerequisite("rocket-silo", "low-density-structure")
-data_util.add_prerequisite("rocket-silo", "electric-engine")
-data_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
-data_util.remove_research_ingredient("rocket-silo", "production-science-pack")
-bzutil.add_unlock("rocket-silo", "satellite")
+x_util.remove_prerequisite("rocket-silo", "speed-module-3")
+x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
+x_util.add_prerequisite("rocket-silo", "low-density-structure")
+x_util.add_prerequisite("rocket-silo", "electric-engine")
+x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
+x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
+x_util.add_unlock("rocket-silo", "satellite")
 
-data_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
+x_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
 
-data_util.add_prerequisite("power-armor-mk2", "ll-quantum-computing")
-data_util.add_research_ingredient("power-armor-mk2", "production-science-pack")
-data_util.add_research_ingredient("power-armor-mk2", "ll-space-science-pack")
+x_util.add_prerequisite("power-armor-mk2", "ll-quantum-computing")
+x_util.add_research_ingredient("power-armor-mk2", "production-science-pack")
+x_util.add_research_ingredient("power-armor-mk2", "ll-space-science-pack")
 
-data_util.add_prerequisite("spidertron", "ll-space-science-pack")
+x_util.add_prerequisite("spidertron", "ll-space-science-pack")
 
-data_util.remove_prerequisite("space-science-pack", "rocket-silo")
-data_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
-bzutil.remove_recipe_effect("space-science-pack", "satellite")
-bzutil.add_unlock("space-science-pack", "ll-interstellar-satellite")
+x_util.remove_prerequisite("space-science-pack", "rocket-silo")
+x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
+x_util.remove_recipe_effect("space-science-pack", "satellite")
+x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
 
 data:extend{
   {

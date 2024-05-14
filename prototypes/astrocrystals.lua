@@ -208,4 +208,4 @@ data:extend({
 
 })
 
-data_util.allow_productivity("ll-astrocrystal-processing")
+x_util.allow_productivity("ll-astrocrystal-processing")
