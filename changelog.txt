@@ -1,6 +1,15 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.0.2
+Version: 1.0.3
 Date: 14 May 2024
+  Features:
+    - New mass driver technology icon (thanks to Frontrider!)
+    - Added more information for the player when unlocking Luna
+  Bugfixes:
+    - Fixed crash on load with Transport Drones
+    - Fixed crash on load when some Alien Biomes mod settings are disabled
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 15 May 2024
   Features:
     - New astroflux icon (thanks to Galdoc!)
   Changes:
