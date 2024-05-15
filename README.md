@@ -42,6 +42,7 @@ Thank you to the [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) team fo
 Thank you to [Bery0za](https://mods.factorio.com/user/Bery0za) for the steam condenser graphics from [Bery0za's Pure It](https://mods.factorio.com/mod/bery0zas-pure-it).
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the maglev train graphics from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains).
 Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon) for the mass driver requester graphics from [Spidertron Logistics System](https://mods.factorio.com/mod/spidertron-logistics).
+Thank you to [Frontrider](https://mods.factorio.com/user/Frontrider) for the mass driver technology icon.
 Thank you to [RedRafe](https://mods.factorio.com/user/RedRafe) and [Stringweasel](https://mods.factorio.com/user/Stringweasel) for various code contributions.
 Thank you to all who have playtested this mod on my discord, especially [fgardt](https://mods.factorio.com/user/fgardt)!
 ---
