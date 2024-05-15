@@ -321,6 +321,7 @@ local function spill_rocket(surface, inventory, rocket_parts)
     local stack = inventory[i]
     if stack and stack.valid_for_read then
       surface.spill_item_stack({0, 0}, stack, false, nil, false)
+      game.print({"ll-console-info.rocket-contents-landed", "[gps=0,0," .. surface.name .. "]"})
     end
   end
   if rocket_parts and rocket_parts > 0 then
