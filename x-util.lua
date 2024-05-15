@@ -200,6 +200,21 @@ function x_util.disallow_productivity(recipe_name)
   end
 end
 
+function x_util.disallow_efficiency(recipe_name)
+  for _, module in pairs(data.raw.module) do
+    if module.category == "effectivity" then
+      module.limitation = module.limitation or {}
+      for i, name in pairs(module.limitation) do
+        if name == recipe_name then
+          table.remove(module.limitation, i)
+        end
+      end
+      -- Also add to limitation_blacklist
+      module.limitation_blacklist = module.limitation_blacklist or {}
+      table.insert(module.limitation_blacklist, recipe_name)
+    end
+  end
+end
 
 function x_util.debug_technology(tech_name)
   local tech = data.raw.technology[tech_name]

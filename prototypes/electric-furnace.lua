@@ -7,7 +7,7 @@ furnace.fluid_boxes =
 {
   {
     production_type = "input",
-    pipe_picture = assembler3pipepictures(),
+    pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     base_area = 10,
     base_level = -1,
@@ -25,7 +25,7 @@ furnace.fluid_boxes =
   },]]
   {
     production_type = "output",
-    pipe_picture = assembler3pipepictures(),
+    pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     base_area = 10,
     base_level = 1,
@@ -61,8 +61,8 @@ data:extend{
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
     order = "a[fluid]-a[water]",
-    energy_required = 5,
-    ingredients = {{"ll-ice", 1}},
+    energy_required = 20,
+    ingredients = {{"ll-ice", 10}},
     results = {
       {type = "fluid", name = "water", amount = 100, fluidbox_index = 1},
     },
@@ -77,12 +77,12 @@ data:extend{
     category = "ll-electric-smelting",
     subgroup = "fluid-recipes",
     order = "a[fluid]-b[steam]",
-    energy_required = 5,
+    energy_required = 30,
     ingredients = {
-      {type = "fluid", name = "water", amount = 100},
+      {type = "fluid", name = "water", amount = 20},
     },
     results = {
-      {type = "fluid", name = "steam", amount = 100, temperature = 500, fluidbox_index = 1},
+      {type = "fluid", name = "steam", amount = 20, temperature = 500, fluidbox_index = 1},
     },
     main_product = ""
   },
@@ -90,3 +90,5 @@ data:extend{
 
 x_util.allow_productivity("ll-melt-ice")
 x_util.allow_productivity("ll-boil-water")
+x_util.disallow_efficiency("ll-melt-ice")
+x_util.disallow_efficiency("ll-boil-water")

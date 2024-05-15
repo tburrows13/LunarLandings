@@ -43,8 +43,10 @@ for name, recipe in pairs(data.raw.recipe) do
   end
 end
 
+for _, heat_recipe_name in pairs(heat_recipes) do
+  x_util.disallow_efficiency(heat_recipe_name)
+end
 local efficiency_modules = {"effectivity-module", "effectivity-module-2", "effectivity-module-3"}
-for _, module in pairs(efficiency_modules) do
-  data.raw.module[module].limitation_blacklist = heat_recipes
-  data.raw.module[module].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
+for _, module_name in pairs(efficiency_modules) do
+  data.raw.module[module_name].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
 end
