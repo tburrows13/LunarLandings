@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 16 May 2024
+  Features:
+    - Added support for viewing cross-surface GPS tags
+    - Added console print with GPS tag when items are spilled on the ground
+  Changes:
+    - Significantly nerfed electric furnace's melt ice and boil water recipes, and disallowed efficiency modules on them
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 14 May 2024
   Features:
