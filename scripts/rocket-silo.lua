@@ -386,29 +386,35 @@ local function on_rocket_launched(event)
         local force_name = silo.force.name
         local satellites_launched = global.satellites_launched[force_name] or 0
         if satellites_launched == 0 then
-          game.print({"ll-console-info.first-satellite-launched"})
+          if game.is_multiplayer() then
+            game.print({"ll-console-info.first-satellite-launched"})
+          else
+            game.show_message_dialog{text = {"ll-console-info.first-satellite-launched"}}
+          end
+          game.print({"ll-console-info.new-destination-unlocked"})
           silo.force.technologies["ll-luna-exploration"].enabled = true
         end
         global.satellites_launched[silo.force.name] = satellites_launched + 1
-        local position = global.satellite_cursors[silo.force.name] or {x = 0, y = 0}
-        for i = 1, 300 do
-          while silo.force.is_chunk_charted("luna", position) do
+        if satellites_launched > 0 then
+          local position = global.satellite_cursors[silo.force.name] or {x = 0, y = 0}
+          for i = 1, 300 do
+            while silo.force.is_chunk_charted("luna", position) do
+              position = spiral_next(position)
+            end
+            silo.force.chart("luna", {
+              {
+                x = position.x * 32,
+                y = position.y * 32
+              },
+              {
+                x = (position.x + 0.5) * 32,
+                y = (position.y + 0.5) * 32,
+              }
+            })
             position = spiral_next(position)
+            global.satellite_cursors[silo.force.name] = position
           end
-          silo.force.chart("luna", {
-            {
-              x = position.x * 32,
-              y = position.y * 32
-            },
-            {
-              x = (position.x + 0.5) * 32,
-              y = (position.y + 0.5) * 32,
-            }
-          })
-          game.print("Charting")
-          position = spiral_next(position)
         end
-        global.satellite_cursors[silo.force.name] = position
       end
     end
   elseif silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
@@ -428,6 +434,17 @@ local function on_rocket_launched(event)
   end
 end
 
+local function on_research_finished(event)
+  if event.by_script then return end
+  local technology = event.research
+  if technology.name == "ll-luna-exploration" then
+    if game.is_multiplayer() then
+      game.print({"ll-console-info.luna-exploration-researched"})
+    else
+      game.show_message_dialog{text = {"ll-console-info.luna-exploration-researched"}}
+    end
+  end
+end
 
 RocketSilo.events = {
   [defines.events.on_tick] = on_tick,
@@ -439,6 +456,7 @@ RocketSilo.events = {
   [defines.events.script_raised_revive] = on_rocket_silo_built,
   [defines.events.on_rocket_launch_ordered] = on_rocket_launch_ordered,
   [defines.events.on_rocket_launched] = on_rocket_launched,
+  [defines.events.on_research_finished] = on_research_finished,
   --[defines.events.on_script_trigger_effect] = on_rocket_silo_created,
 }
 
