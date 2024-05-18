@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 18 May 2024
+  Features:
+    - Added simulations for oxygen diffuser and steam condenser tips and tricks entries
+  Bugfixes:
+    - Fixed productivity being allowed when melting ice and boiling water
+    - Fixed productivity on science pack recipes affecting data card output
+    - Fixed steam condensers not correctly connecting to turbines near the edge of their range
+---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 16 May 2024
   Features:
