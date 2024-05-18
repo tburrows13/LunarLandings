@@ -8,10 +8,16 @@ local function on_init()
   if game.tick ~= 0 then
     game.print({"ll-console-info.added-to-existing-save"})
   end
+  global.migrations = {}
+end
+
+local function on_configuration_changed(event)
+  global.migrations = global.migrations or {}
 end
 
 handler.add_libraries{
   gui,
+  {on_init = on_init, on_configuration_changed = on_configuration_changed},
   require "scripts.moon-surface",
   require "scripts.moon-view",
   require "scripts.rocket-silo",
@@ -23,6 +29,5 @@ handler.add_libraries{
   require "scripts.mass-driver",
   require "scripts.mass-driver-requester",
   require "scripts.collision-test",
-  {on_init = on_init},
 }
 

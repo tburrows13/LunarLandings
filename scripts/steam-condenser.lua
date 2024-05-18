@@ -6,25 +6,25 @@ local SteamCondenser = {}
 local function condenser_position_to_area(position)
   return {
     left_top = {
-      x = position.x - 6,
-      y = position.y - 6,
+      x = position.x - 5.5,
+      y = position.y - 5.5,
     },
     right_bottom = {
-      x = position.x + 6,
-      y = position.y + 6,
+      x = position.x + 5.5,
+      y = position.y + 5.5,
     },
   }
 end
 
-local function turbine_position_to_area(position)
+local function turbine_bounding_box_to_area(bounding_box)
   return {
     left_top = {
-      x = position.x - 5.5,
-      y = position.y - 1 - 5.5,
+      x = bounding_box.left_top.x - 4,
+      y = bounding_box.left_top.y - 4,
     },
     right_bottom = {
-      x = position.x + 5.5,
-      y = position.y + 1 + 5.5,
+      x = bounding_box.right_bottom.x + 4,
+      y = bounding_box.right_bottom.y + 4,
     },
   }
 end
@@ -76,7 +76,7 @@ local function on_entity_built(event)
   if entity.name == "steam-turbine" then
     local turbine_data = {}
     local condensers = entity.surface.find_entities_filtered{
-      area = turbine_position_to_area(entity.position),
+      area = turbine_bounding_box_to_area(entity.bounding_box),
       name = "ll-steam-condenser",
     }
     if #condensers > 1 then
@@ -106,7 +106,6 @@ local function on_entity_destroyed(event)
   local condenser_data = Buckets.get(global.steam_condensers, event.unit_number)
   if condenser_data then
     for unit_number, turbine in pairs(condenser_data.turbines) do
-      local turbine = condenser_data.turbines[unit_number]
       on_entity_built{created_entity = turbine}  -- send the turbine off to check for another condenser
     end
     Buckets.remove(global.steam_condensers, event.unit_number)
@@ -221,6 +220,27 @@ local function on_tick(event)
   end
 end
 
+function SteamCondenser.reset_condenser_connections()
+  local steam_condensers = global.steam_condensers
+  global.steam_condensers = Buckets.new()
+  global.turbines = {}
+
+  for _, surface in pairs(game.surfaces) do
+    local turbines = surface.find_entities_filtered{type = "generator", name = "steam-turbine"}
+    for _, turbine in pairs(turbines) do
+      on_entity_built{created_entity = turbine}
+    end
+  end
+  for _, condenser_list in pairs(steam_condensers.list) do
+    for _, condenser_data in pairs(condenser_list) do
+      on_script_trigger_effect({
+        effect_id = "ll-steam-condenser-created",
+        target_entity = condenser_data.entity,
+      })
+    end
+  end
+end
+
 SteamCondenser.events = {
   [defines.events.on_tick] = on_tick,
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
@@ -245,6 +265,12 @@ end
 function SteamCondenser.on_configuration_changed()
   global.steam_condensers = global.steam_condensers or {}
   global.turbines = global.turbines or {}
+
+  -- Trigger reset for all condenser-turbine connections when connection logic has changed
+  if not global.migrations.reset_steam_condensers then
+    global.migrations.reset_steam_condensers = true
+    SteamCondenser.reset_condenser_connections()
+  end
 end
 
 return SteamCondenser
