@@ -88,7 +88,5 @@ data:extend{
   },
 }
 
-x_util.allow_productivity("ll-melt-ice")
-x_util.allow_productivity("ll-boil-water")
 x_util.disallow_efficiency("ll-melt-ice")
 x_util.disallow_efficiency("ll-boil-water")

@@ -37,6 +37,7 @@ for name, recipe in pairs(data.raw.recipe) do
     if heat_recipe.results then
       table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = heat_recipe.energy_required or 0.5, fluidbox_index = 2})
       data:extend{heat_recipe}
+
       x_util.allow_productivity(heat_recipe.name)
     end
     table.insert(heat_recipes, heat_recipe.name)
@@ -50,3 +51,6 @@ local efficiency_modules = {"effectivity-module", "effectivity-module-2", "effec
 for _, module_name in pairs(efficiency_modules) do
   data.raw.module[module_name].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
 end
+
+x_util.disallow_productivity("ll-melt-ice-heat")
+x_util.disallow_productivity("ll-boil-water-heat")
