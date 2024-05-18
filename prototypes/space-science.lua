@@ -19,15 +19,15 @@ data:extend{
     energy_required = 35,
     ingredients =
     {
-      {type = "item", name = "ll-data-card", amount = 5, catalyst_amount = 1},
+      {type = "item", name = "ll-data-card", amount = 5, catalyst_amount = 5},
       {"ll-low-grav-assembling-machine", 1},
       {"ll-aluminium-plate", 60}
     },
     main_product = "ll-space-science-pack",
     results = {
       {"ll-space-science-pack", 5},
-      {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, catalyst_amount = 1},
-      {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, catalyst_amount = 1},
+      {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, catalyst_amount = 5},
+      {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, catalyst_amount = 5},
     },
   },
 }

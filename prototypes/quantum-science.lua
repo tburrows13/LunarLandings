@@ -19,15 +19,15 @@ data:extend{
     energy_required = 50,
     ingredients =
     {
-      {type = "item", name = "ll-quantum-data-card", amount = 5, catalyst_amount = 1},
+      {type = "item", name = "ll-quantum-data-card", amount = 5, catalyst_amount = 5},
       {type = "item", name = "ll-quantum-resonator", amount = 1},
       {type = "item", name = "uranium-235", amount = 1},
     },
     main_product = "ll-quantum-science-pack",
     results = {
       {"ll-quantum-science-pack", 5},
-      {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, catalyst_amount = 1},
-      {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, catalyst_amount = 1},
+      {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, catalyst_amount = 5},
+      {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, catalyst_amount = 5},
     },
   },
 }
