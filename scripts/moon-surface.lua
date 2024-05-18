@@ -12,6 +12,7 @@ local decorative_controls = {
 local function on_init()
   local nauvis = game.get_surface("nauvis")
   local nauvis_map_gen_settings = nauvis.map_gen_settings
+  if not nauvis_map_gen_settings.autoplace_controls then return end  -- We are in a simulation
   local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"]
   local rich_moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-rich-moon-rock"]
   local ice_controls = nauvis_map_gen_settings.autoplace_controls["ll-ice"]

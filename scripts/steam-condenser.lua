@@ -35,7 +35,6 @@ end
 
 local function on_script_trigger_effect(event)
   if event.effect_id ~= "ll-steam-condenser-created" then return end
-
   local entity = event.target_entity
   local position = entity.position
 
@@ -47,6 +46,11 @@ local function on_script_trigger_effect(event)
   local turbines_by_unit_number = {}
   for _, turbine in pairs(turbines) do
     local turbine_data = global.turbines[turbine.unit_number]
+    if not turbine_data then
+      -- Happens in tips and tricks simulations at least
+      turbine_data = {}
+      global.turbines[turbine.unit_number] = turbine_data
+    end
     if not turbine_data.condenser then
       turbine_data.condenser = entity.unit_number
       turbines_by_unit_number[turbine.unit_number] = turbine
