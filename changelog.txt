@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 20 May 2024
+  Changes:
+    - Recipes that consume superposed polaritons now return uneven amounts of directional polaritons
+    - Replace polariton polarisation with polariton rotation
+---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 18 May 2024
   Features:
