@@ -96,8 +96,10 @@ data:extend{
       {"ll-up-polariton", 1},
     },
     results = {
-      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.5},
-      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.5},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.60},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.1},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.05},
     },
   },
   {
@@ -114,8 +116,10 @@ data:extend{
       {"ll-right-polariton", 1},
     },
     results = {
-      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.5},
-      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.5},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.60},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.1},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.05},
     },
   },
   {
@@ -132,8 +136,10 @@ data:extend{
       {"ll-down-polariton", 1},
     },
     results = {
-      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.5},
-      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.5},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.60},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.1},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.05},
     },
   },
   {
@@ -150,8 +156,10 @@ data:extend{
       {"ll-left-polariton", 1},
     },
     results = {
-      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.5},
-      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.5},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.60},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.1},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.05},
     },
   },
 }

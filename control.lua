@@ -13,6 +13,9 @@ end
 
 local function on_configuration_changed(event)
   global.migrations = global.migrations or {}
+  for _, force in pairs(game.forces) do
+    force.reset_technology_effects()
+  end
 end
 
 handler.add_libraries{

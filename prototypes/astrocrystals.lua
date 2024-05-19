@@ -177,32 +177,11 @@ data:extend({
     order = "l[exotic-mineral-processing]",
     results =
     {
-      {
-        type = "fluid",
-        name = "ll-astroflux",
-        amount = 10,
-      },
-      {
-        name = "ll-right-polariton",
-        probability = 0.0025,
-        amount = 1
-      },
-      {
-        name = "ll-left-polariton",
-        probability = 0.0025,
-        amount = 1
-      },
-      {
-        name = "ll-up-polariton",
-        probability = 0.0025,
-        amount = 1
-      },
-      {
-        name = "ll-down-polariton",
-        probability = 0.0025,
-        amount = 1
-      },
-
+      {type = "fluid", name = "ll-astroflux", amount = 10},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.0025},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.0025},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.0025},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.0025},
     }
   },
 

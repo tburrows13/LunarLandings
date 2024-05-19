@@ -166,10 +166,10 @@ data:extend{
     results = {
       {type = "item", name = "ll-quantum-data-card", amount = 1, probability = 0.7},
       {type = "item", name = "ll-junk-data-card", amount = 1, probability = 0.3},
-      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.25},
-      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.25},
-      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.25},
-      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.25},
+      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.10},
+      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.40},
+      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.35},
+      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.15},
     },
     main_product = "ll-quantum-data-card"
   },
