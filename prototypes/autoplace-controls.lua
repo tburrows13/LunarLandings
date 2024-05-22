@@ -16,16 +16,16 @@ data:extend(
   },
   {
     type = "autoplace-control",
-    name = "ll-rich-moon-rock",
-    localised_name = {"", "[virtual-signal=ll-luna] [entity=ll-rich-moon-rock] ", {"entity-name.ll-rich-moon-rock"}},
+    name = "ll-ice",
+    localised_name = {"", "[virtual-signal=ll-luna] [entity=ll-ice] ", {"entity-name.ll-ice"}},
     richness = true,
     order = "d-b",
     category = "resource"
   },
   {
     type = "autoplace-control",
-    name = "ll-ice",
-    localised_name = {"", "[virtual-signal=ll-luna] [entity=ll-ice] ", {"entity-name.ll-ice"}},
+    name = "ll-rich-moon-rock",
+    localised_name = {"", "[virtual-signal=ll-luna] [entity=ll-rich-moon-rock] ", {"entity-name.ll-rich-moon-rock"}},
     richness = true,
     order = "d-c",
     category = "resource"
