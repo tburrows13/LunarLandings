@@ -118,7 +118,7 @@ data:extend{
   {
     type = "tips-and-tricks-item",
     name = "ll-introduction",
-    tag = "[entity=rocket-silo]",
+    --tag = "[entity=rocket-silo]",
     category = "lunar-landings",
     is_title = true,
     order = "a",
@@ -144,11 +144,20 @@ data:extend{
   },
   {
     type = "tips-and-tricks-item",
+    name = "ll-lunar-logistics",
+    tag = "[entity=rocket-silo]",
+    category = "lunar-landings",
+    indent = 1,
+    order = "d",
+    --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
+  },
+  {
+    type = "tips-and-tricks-item",
     name = "ll-oxygen",
     tag = "[fluid=ll-oxygen]",
     category = "lunar-landings",
     indent = 1,
-    order = "d",
+    order = "e",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
     simulation = {
       mods = {"LunarLandings"},
@@ -185,7 +194,7 @@ data:extend{
     tag = "[entity=ll-steam-condenser]",
     category = "lunar-landings",
     indent = 1,
-    order = "e",
+    order = "f",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
     simulation = {
       mods = {"LunarLandings"},
