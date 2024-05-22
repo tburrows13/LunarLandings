@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 22 May 2024
+  Features:
+    - Much expanded tips and tricks entries
+    - New rich moon rock graphics
+  Changes:
+    - Quantum resonator recipe changed from processing units to quantum processors
+    - Improved luna cliff map color
+---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 20 May 2024
   Changes:
