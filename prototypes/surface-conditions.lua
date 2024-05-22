@@ -78,9 +78,9 @@ end
 
 local function add_to_description(prototype, localised_string)
   if prototype.localised_description then
-    prototype.localised_description = {"", prototype.localised_description, "\n\n", localised_string}
+    prototype.localised_description = {"", prototype.localised_description, "\n", localised_string}
   else
-    prototype.localised_description = {"", {"?", {"", {"entity-description." .. prototype.name}, "\n\n"}, ""}, localised_string}
+    prototype.localised_description = {"", {"?", {"", {"entity-description." .. prototype.name}, "\n"}, ""}, localised_string}
   end
 end
 
@@ -138,11 +138,11 @@ for _, prototype_type in pairs(types) do
     if type(surface_conditions.luna) == "table" then
       local luna_conditions = surface_conditions.luna
       if not surface_conditions.nauvis and luna_conditions.mountain and not luna_conditions.plain and not luna_conditions.lowland and not luna_conditions.foundation then
-        add_to_description(prototype, "Can only be placed on Luna mountains")
+        add_to_description(prototype, {"ll-surface-conditions.must-be-placed-on", "Luna mountains"})
         goto continue
       end
       if not surface_conditions.nauvis and luna_conditions.foundation and not luna_conditions.plain and not luna_conditions.lowland and not luna_conditions.mountain then
-        add_to_description(prototype, "Can only be placed on Lunar foundations")
+        add_to_description(prototype, {"ll-surface-conditions.must-be-placed-on", "Luna foundations"})
         goto continue
       end
     end
