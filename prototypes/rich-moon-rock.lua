@@ -3,9 +3,18 @@ local rich_moon_rock = table.deepcopy(data.raw.resource["stone"])
 rich_moon_rock.name = "ll-rich-moon-rock"
 rich_moon_rock.minable.result = "ll-rich-moon-rock"
 
-rich_moon_rock.icon = "__LunarLandings__/graphics/icons/moon-rock.png"
-rich_moon_rock.stages.sheet.filename = "__LunarLandings__/graphics/moon-rock/aluminium-ore.png"
-rich_moon_rock.stages.sheet.hr_version.filename = "__LunarLandings__/graphics/moon-rock/hr-aluminium-ore.png"
+rich_moon_rock.icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png"
+rich_moon_rock.stages = {
+  sheet =
+  {
+    filename = "__LunarLandings__/graphics/moon-rock/rich-moon-rock.png",
+    priority = "extra-high",
+    size = 128,
+    frame_count = 8,
+    variation_count = 8,
+    scale = 0.5
+  }
+}
 
 rich_moon_rock.map_color = {r=0.9, g=0.9, b=1}
 
@@ -18,15 +27,15 @@ data:extend{
   {
     type = "item",
     name = "ll-rich-moon-rock",
-    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
+    icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png",
     icon_size = 64,
     icon_mipmaps = 4,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-1.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/moon-rock-3.png", scale = 0.25, mipmap_count = 4 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25, mipmap_count = 4 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-b[rich-moon-rock]",

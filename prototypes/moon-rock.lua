@@ -4,8 +4,18 @@ moon_rock.name = "ll-moon-rock"
 moon_rock.minable.result = "ll-moon-rock"
 
 moon_rock.icon = "__LunarLandings__/graphics/icons/moon-rock.png"
-moon_rock.stages.sheet.filename = "__LunarLandings__/graphics/moon-rock/moon-rock.png"
-moon_rock.stages.sheet.hr_version.filename = "__LunarLandings__/graphics/moon-rock/hr-moon-rock.png"
+moon_rock.stages = {
+  sheet =
+  {
+    filename = "__LunarLandings__/graphics/moon-rock/moon-rock.png",
+    priority = "extra-high",
+    size = 128,
+    frame_count = 8,
+    variation_count = 8,
+    scale = 0.5
+  }
+}
+
 
 moon_rock.map_color = {r=0.8, g=0.8, b=0.8}
 
