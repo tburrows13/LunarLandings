@@ -63,7 +63,7 @@ data:extend{
       {"lab", 5},
       {"concrete", 100},
       {"ll-aluminium-plate", 100},
-      {"processing-unit", 20},
+      {"ll-quantum-processor", 20},
     },
     result = "ll-quantum-resonator",
     result_count = 1,
