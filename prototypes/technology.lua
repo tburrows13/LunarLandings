@@ -16,6 +16,7 @@ x_util.remove_prerequisite("advanced-electronics-2", "chemical-science-pack")
 x_util.add_prerequisite("advanced-electronics-2", "ll-luna-automation")
 x_util.add_prerequisite("advanced-electronics-2", "ll-moon-rock-processing")
 
+data.raw.technology["rocket-silo"].unit.count = 500
 x_util.remove_prerequisite("rocket-silo", "speed-module-3")
 x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
 x_util.add_prerequisite("rocket-silo", "low-density-structure")
@@ -36,6 +37,7 @@ x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 x_util.remove_recipe_effect("space-science-pack", "satellite")
 x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
+data.raw.technology["space-science-pack"].unit.count = 3000
 
 data:extend{
   {
@@ -83,7 +85,7 @@ data:extend{
     prerequisites = {"rocket-silo"},
     unit =
     {
-      count = 150,
+      count = 200,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -159,7 +161,7 @@ data:extend{
     prerequisites = {"ll-moon-rock-processing"},
     unit =
     {
-      count = 150,
+      count = 300,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -511,7 +513,7 @@ data:extend{
     },
     unit =
     {
-      count = 500,
+      count = 600,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -563,7 +565,7 @@ data:extend{
     },
     unit =
     {
-      count = 300,
+      count = 500,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -590,7 +592,7 @@ data:extend{
     },
     unit =
     {
-      count = 400,
+      count = 500,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
@@ -675,7 +677,7 @@ data:extend{
     },
     unit =
     {
-      count = 2000,
+      count = 3000,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
