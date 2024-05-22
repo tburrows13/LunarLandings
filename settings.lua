@@ -13,3 +13,9 @@ local function force_setting(setting_type, setting_name, value)
 end
 
 force_setting("string", "alien-biomes-include-dirt-grey", "Enabled")
+
+force_setting("bool", "space-battery-decay-enable-setting", true)
+force_setting("string", "space-battery-pack-energy-density-setting", "50 MJ (Default)")
+force_setting("string", "space-fluid-wagon-capacity-setting", "30.000 (Default)")
+force_setting("string", "space-cargo-wagon-capacity-setting", "50 Slots (Default)")
+force_setting("string", "space-locomotive-speed-setting", "518 km/h (Default)")
