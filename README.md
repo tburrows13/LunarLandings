@@ -30,7 +30,7 @@ Alien Biomes is a required mod because it contains some decoratives that Lunar L
 
 Lunar Landings is not compatible with any other overhaul mods. It will probably be compatible with [Freight Forwarding](https://mods.factorio.com/mod/FreightForwarding) and Space Age in the future. If you would like to contribute compatibility with another mod, please get in touch.
 
-Compatible with [Planetfall's ores and intermediates mods](https://mods.factorio.com/user/planetfall).
+If you want additional complexity, consider adding [AAI Industry](https://mods.factorio.com/mod/aai-industry) or [Planetfall's ores and intermediates mods](https://mods.factorio.com/user/planetfall). These mods are compatible, but may not have been as thoroughly tested for bugs and balance.
 
 Also incompatible with beacon overhaul mods such as [Beacon Rebalance](https://mods.factorio.com/mod/wret-beacon-rebalance-mod) for technical reasons, due to the implementation of LL's oxygen diffusers. This may be possible to resolve in the future, but on the other hand I might not bother due to 2.0's upcoming beacon rebalance anyway. If you want to try a beacon overhaul, (Alternative Beacons)[https://mods.factorio.com/mod/alternative-beacons] is compatible.
 

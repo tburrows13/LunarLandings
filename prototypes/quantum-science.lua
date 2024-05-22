@@ -17,6 +17,7 @@ data:extend{
     name = "ll-quantum-science-pack",
     enabled = false,
     energy_required = 50,
+    category = "advanced-crafting",
     ingredients =
     {
       {type = "item", name = "ll-quantum-data-card", amount = 5, catalyst_amount = 5},
