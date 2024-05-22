@@ -60,8 +60,8 @@ data:extend{
   {
     type = "item",
     name = "ll-rocket-silo-interstellar",
-    icon = "__base__/graphics/icons/rocket-silo.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
+    icon_size = 64, icon_mipmaps = 1,
     subgroup = "space-related",
     order = "x[interstellar-rocket-silo]",
     place_result = "ll-rocket-silo-interstellar",
