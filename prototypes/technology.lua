@@ -220,7 +220,7 @@ data:extend{
         recipe = "ll-melt-ice"
       },
     },
-    prerequisites = {"ll-luna-exploration"},
+    prerequisites = {"advanced-material-processing-2", "ll-luna-exploration"},
     unit =
     {
       count = 150,
