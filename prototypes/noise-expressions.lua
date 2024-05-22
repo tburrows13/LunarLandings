@@ -271,7 +271,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "ll-luna-elevation",
-    intended_property = "elevation",
+    --intended_property = "elevation",
     expression = noise.define_noise_function( function(x,y,tile,map)
       x = x * map.segmentation_multiplier + 10000 -- Move the point where 'fractal similarity' is obvious off into the boonies
       y = y * map.segmentation_multiplier
