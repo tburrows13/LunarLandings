@@ -98,6 +98,7 @@ data:extend{
     grid_offset = grid_offset,
     mined_sound = sounds.deconstruct_bricks(0.8),
     vehicle_impact_sound = sounds.car_stone_impact,
+    map_color = {r=180, g=180, b=180},
     orientations =
     {
       -- Since removing a cliff also causes neighboring cliffs to be removed,
