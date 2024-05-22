@@ -11,6 +11,10 @@ local rocket_silos = {
 NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
 LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
 
+local function get_other_surface_name(surface_name)
+  return surface_name == "nauvis" and "luna" or "nauvis"
+end
+
 local function is_rocket_launching(entity)
   local status = entity.rocket_silo_status
   local status_lookup = {
@@ -44,7 +48,7 @@ local function build_gui(player, silo)
   if silo_data.destination == "Luna Surface" or silo_data.destination == "Nauvis Surface" then
     dropdown_index = 2
   end
-  for name, _ in pairs(global.landing_pad_names) do
+  for name, _ in pairs(global.landing_pad_names[get_other_surface_name(silo.surface.name)]) do
     table.insert(landing_pad_names, name)
     if name == silo_data.destination then
       dropdown_index = i + (surfaces_unlocked and 2 or 1)
@@ -221,8 +225,8 @@ local function on_rocket_silo_built(event)
   })
 end
 
-local function get_destination_landing_pad(landing_pad_name)
-  local landing_pads = global.landing_pad_names[landing_pad_name]
+local function get_destination_landing_pad(landing_pad_name, landing_pad_surface_name)
+  local landing_pads = global.landing_pad_names[landing_pad_surface_name][landing_pad_name]
   if not landing_pads then return end
 
   local landing_pad_unit_number, _ = next(landing_pads)
@@ -239,7 +243,7 @@ local function launch_if_destination_has_space(silo_data, ready_stacks)
   if silo_data.destination == "Space" or silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
     silo.launch_rocket()
   else
-    local destination = get_destination_landing_pad(destination_name)
+    local destination = get_destination_landing_pad(destination_name, get_other_surface_name(silo.surface.name))
     if not destination then
       return  -- Destination landing pad doesn't exist, so don't autolaunch
     end
@@ -331,7 +335,7 @@ end
 
 
 local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
-  local landing_pad = get_destination_landing_pad(landing_pad_name)
+  local landing_pad = get_destination_landing_pad(landing_pad_name, surface.name)
   if not landing_pad then
     spill_rocket(surface, inventory, rocket_parts)
     return
@@ -420,11 +424,11 @@ local function on_rocket_launched(event)
     end
   elseif silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
     local rocket_surface = silo.surface.name
-    local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
+    local surface = game.get_surface(get_other_surface_name(rocket_surface))
     spill_rocket(surface, inventory, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
   else
     local rocket_surface = silo.surface.name
-    local surface = game.get_surface(rocket_surface == "nauvis" and "luna" or "nauvis")
+    local surface = game.get_surface(get_other_surface_name(rocket_surface))
     land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
   end
   for player_index, _ in pairs(game.players) do

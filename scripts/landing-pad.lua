@@ -37,10 +37,10 @@ function LandingPad.dock_renamed(player, element, landing_pad, landing_pad_data)
   if text then
     local old_name = landing_pad_data.name
     if old_name then
-      LandingPad.name_removed(old_name, landing_pad.unit_number)
+      LandingPad.name_removed(old_name, landing_pad.unit_number, landing_pad_data.surface_name)
     end
     landing_pad_data.name = text
-    LandingPad.name_added(text, landing_pad.unit_number)
+    LandingPad.name_added(text, landing_pad.unit_number, landing_pad_data.surface_name)
   end
 end
 
@@ -54,8 +54,8 @@ gui.add_handlers(LandingPad,
   end
 )
 
-function LandingPad.name_added(name, unit_number)
-  names = global.landing_pad_names
+function LandingPad.name_added(name, unit_number, surface_name)
+  local names = global.landing_pad_names[surface_name]
   if name ~= "Default" and names[name] and next(names[name]) then
     game.print({"ll-console-info.landing-pad-name-exists", name})
   end
@@ -66,8 +66,8 @@ function LandingPad.name_added(name, unit_number)
   end
 end
 
-function LandingPad.name_removed(name, unit_number)
-  names = global.landing_pad_names
+function LandingPad.name_removed(name, unit_number, surface_name)
+  local names = global.landing_pad_names[surface_name]
   if names[name] then
     names[name][unit_number] = nil
     if not next(names[name]) then
@@ -125,8 +125,9 @@ local function on_built_entity(event)
   global.landing_pads[entity.unit_number] = {
     entity = entity,
     name = "Default",
+    surface_name = entity.surface.name
   }
-  LandingPad.name_added("Default", entity.unit_number)
+  LandingPad.name_added("Default", entity.unit_number, entity.surface.name)
   script.register_on_entity_destroyed(entity)
 end
 
@@ -134,7 +135,8 @@ local function on_entity_destroyed(event)
   local entity_data = global.landing_pads[event.unit_number]
   if not entity_data then return end
 
-  LandingPad.name_removed(entity_data.name, event.unit_number)
+  LandingPad.name_removed(entity_data.name, event.unit_number, entity_data.surface_name)
+  global.landings_pads[event.unit_number] = nil
 end
 
 LandingPad.events = {
@@ -149,13 +151,13 @@ LandingPad.events = {
 
 LandingPad.on_init = function ()
   global.landing_pads = {}
-  global.landing_pad_names = {}
+  global.landing_pad_names = {nauvis = {}, luna = {}}
   global.landing_pad_guis = {}
 end
 
 LandingPad.on_configuration_changed = function(changed_data)
   global.landing_pads = global.landing_pads or {}
-  global.landing_pad_names = global.landing_pad_names or {}
+  global.landing_pad_names = global.landing_pad_names or {nauvis = {}, luna = {}}
   global.landing_pad_guis = global.landing_pad_guis or {}
 end
 

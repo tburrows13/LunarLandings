@@ -138,6 +138,7 @@ local function on_entity_destroyed(event)
   if not entity_data then return end
 
   MassDriverRequester.name_removed(entity_data.name, event.unit_number)
+  global.mass_driver_requesters[event.unit_number] = nil
 end
 
 local function check_requester_slots(entity)
