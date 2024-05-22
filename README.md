@@ -30,7 +30,9 @@ Alien Biomes is a required mod because it contains some decoratives that Lunar L
 
 Lunar Landings is not compatible with any other overhaul mods. It will probably be compatible with [Freight Forwarding](https://mods.factorio.com/mod/FreightForwarding) and Space Age in the future. If you would like to contribute compatibility with another mod, please get in touch.
 
-Also incompatible with beacon overhaul mods such as [Beacon Rebalance](https://mods.factorio.com/mod/wret-beacon-rebalance-mod) for technical reasons, due to the implementation of LL's oxygen diffusers. This may be possible to resolve in the future, but on the other hand I might not bother due to 2.0's upcoming beacon rebalance anyway.
+Compatible with [Planetfall's ores and intermediates mods](https://mods.factorio.com/user/planetfall).
+
+Also incompatible with beacon overhaul mods such as [Beacon Rebalance](https://mods.factorio.com/mod/wret-beacon-rebalance-mod) for technical reasons, due to the implementation of LL's oxygen diffusers. This may be possible to resolve in the future, but on the other hand I might not bother due to 2.0's upcoming beacon rebalance anyway. If you want to try a beacon overhaul, (Alternative Beacons)[https://mods.factorio.com/mod/alternative-beacons] is compatible.
 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
@@ -41,6 +43,8 @@ Thank you to [brevven](https://mods.factorio.com/user/brevven) for the silicon a
 Thank you to the [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) team for the astrocrystals graphics and various icons.
 Thank you to [Bery0za](https://mods.factorio.com/user/Bery0za) for the steam condenser graphics from [Bery0za's Pure It](https://mods.factorio.com/mod/bery0zas-pure-it).
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the maglev train graphics from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains).
+Thank you to [Sigma1](https://mods.factorio.com/user/Sigma1) for the RTG graphics from [SigmaOne's Nuclear](https://mods.factorio.com/mods/Sigma1/SigmaOne_Nuclear).
+Thank you to [Galdoc](https://mods.factorio.com/user/Galdoc) for the rich moon rock ore graphics from [Galdoc's manufacturing](https://mods.factorio.com/mod/galdocs-manufacturing).
 Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon) for the mass driver requester graphics from [Spidertron Logistics System](https://mods.factorio.com/mod/spidertron-logistics).
 Thank you to [Frontrider](https://mods.factorio.com/user/Frontrider) for the mass driver technology icon.
 Thank you to [RedRafe](https://mods.factorio.com/user/RedRafe) and [Stringweasel](https://mods.factorio.com/user/Stringweasel) for various code contributions.
