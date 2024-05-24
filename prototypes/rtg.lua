@@ -73,6 +73,7 @@ data:extend({
       usage_priority = "primary-output",
       input_flow_limit = "0kW",
       output_flow_limit = "600kW",
+      render_no_power_icon = false,
     },
     energy_production = "600kW",
     energy_usage = "0kW",
