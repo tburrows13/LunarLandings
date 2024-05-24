@@ -63,7 +63,7 @@ local function build_gui(player, mass_driver)
                     type = "label",
                     style = "heading_2_label",
                     caption = {"", {"gui-rocket-silo.destination"}, " [img=info]"},
-                    tooltip = {"gui-rocket-silo.destination-tooltip"}
+                    --tooltip = {"gui-rocket-silo.destination-tooltip"}
                   },
                   {
                     type = "drop-down", name = "ll-destination-dropdown",
