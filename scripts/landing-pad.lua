@@ -136,7 +136,7 @@ local function on_entity_destroyed(event)
   if not entity_data then return end
 
   LandingPad.name_removed(entity_data.name, event.unit_number, entity_data.surface_name)
-  global.landings_pads[event.unit_number] = nil
+  global.landing_pads[event.unit_number] = nil
 end
 
 LandingPad.events = {
