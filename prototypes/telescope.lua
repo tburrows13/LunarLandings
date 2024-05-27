@@ -134,8 +134,6 @@ data:extend{
     },
     crafting_categories = {"ll-telescope-data"},
     crafting_speed = 1,
-    --fixed_recipe = "ll-data-card",
-    show_recipe_icon = false,
     energy_source =
     {
       type = "electric",
