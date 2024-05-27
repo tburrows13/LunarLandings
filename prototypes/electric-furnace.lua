@@ -62,9 +62,9 @@ data:extend{
     subgroup = "fluid-recipes",
     order = "a[fluid]-a[water]",
     energy_required = 20,
-    ingredients = {{"ll-ice", 10}},
+    ingredients = {{"ll-ice", 1}},
     results = {
-      {type = "fluid", name = "water", amount = 100, fluidbox_index = 1},
+      {type = "fluid", name = "water", amount = 200, fluidbox_index = 1},
     },
     main_product = ""
   },
