@@ -18,7 +18,7 @@ end
 
 local function on_built_entity(event)
   local entity = event.created_entity or event.entity
-  if not is_train[entity.type] then return end
+  if not entity.valid or not is_train[entity.type] then return end
   if entity.surface.name == "luna" then
     if not maglev_trains[entity.name] then
       if event.name == defines.events.on_built_entity then
