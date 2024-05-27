@@ -184,6 +184,13 @@ for _, prototype_type in pairs(types) do
   end
 end
 
+-- TODO respect surface_conditions, add to tooltip
+for name, prototype in pairs(data.raw.item) do
+  if name ~= "ll-lunar-foundation" and prototype.place_as_tile then
+    table.insert(prototype.place_as_tile.condition, luna_layer)
+  end
+end
+
 data.raw["item"]["ll-lunar-foundation"].place_as_tile.condition = {
   nauvis_layer,
   luna_mountain_layer,
