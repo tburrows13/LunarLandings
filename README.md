@@ -49,5 +49,11 @@ Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon) for the m
 Thank you to [Frontrider](https://mods.factorio.com/user/Frontrider) for the mass driver technology icon.
 Thank you to [RedRafe](https://mods.factorio.com/user/RedRafe) and [Stringweasel](https://mods.factorio.com/user/Stringweasel) for various code contributions.
 Thank you to all who have playtested this mod on my discord, especially [fgardt](https://mods.factorio.com/user/fgardt)!
+
+"Equatorial Complex", "Lightless Dawn", "Mesmerizing Galaxy Loop"
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0
+http://creativecommons.org/licenses/by/3.0/
+
 ---
 If anyone would like to contribute better graphics, please get in touch!
