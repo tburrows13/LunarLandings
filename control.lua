@@ -31,6 +31,7 @@ handler.add_libraries{
   require "scripts.arc-furnace",
   require "scripts.mass-driver",
   require "scripts.mass-driver-requester",
+  require "scripts.surface-conditions",
   require "scripts.collision-test",
 }
 

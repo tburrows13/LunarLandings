@@ -5,6 +5,10 @@ data.raw["locomotive"]["space-locomotive"].burner = {
   fuel_category = "nuclear",
 }
 
+data.raw["locomotive"]["space-locomotive"].surface_conditions = {nauvis = false, luna = true}
+data.raw["cargo-wagon"]["space-cargo-wagon"].surface_conditions = {nauvis = false, luna = true}
+data.raw["fluid-wagon"]["space-fluid-wagon"].surface_conditions = {nauvis = false, luna = true}
+
 data:extend{
   {
     type = "recipe",

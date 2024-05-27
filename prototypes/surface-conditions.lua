@@ -47,7 +47,8 @@ for _, tile in pairs(data.raw.tile) do
   end
 end
 
-local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmetic-combinator", "decider-combinator", "constant-combinator", "container", "logistic-container", "infinity-container", "assembling-machine", "rocket-silo", "furnace", "electric-energy-interface", "electric-pole", "unit-spawner", "gate", "generator", "heat-interface", "heat-pipe", "inserter", "lab", "lamp", "land-mine", "linked-container", "market", "mining-drill", "offshore-pump", "pipe", "infinity-pipe", "pipe-to-ground", "power-switch", "programmable-speaker", "pump", "radar", "curved-rail", "straight-rail", "rail-chain-signal", "rail-signal", "reactor", "roboport", "simple-entity-with-owner", "simple-entity-with-force", "solar-panel", "storage-tank", "train-stop", "linked-belt", "loader-1x1", "loader", "splitter", "transport-belt", "underground-belt", "turret", "ammo-turret", "electric-turret", "fluid-turret", "car", "spider-vehicle", "spider-leg", "wall", "fish", "simple-entity", "tree"}
+local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmetic-combinator", "decider-combinator", "constant-combinator", "container", "logistic-container", "infinity-container", "assembling-machine", "rocket-silo", "furnace", "electric-energy-interface", "electric-pole", "unit-spawner", "gate", "generator", "heat-interface", "heat-pipe", "inserter", "lab", "lamp", "land-mine", "linked-container", "market", "mining-drill", "offshore-pump", "pipe", "infinity-pipe", "pipe-to-ground", "power-switch", "programmable-speaker", "pump", "radar", "curved-rail", "straight-rail", "rail-chain-signal", "rail-signal", "reactor", "roboport", "simple-entity-with-owner", "simple-entity-with-force", "solar-panel", "storage-tank", "train-stop", "linked-belt", "loader-1x1", "loader", "splitter", "transport-belt", "underground-belt", "turret", "ammo-turret", "electric-turret", "fluid-turret", "car", "spider-vehicle", "spider-leg", "wall", "fish", "simple-entity", "tree", "locomotive", "cargo-wagon", "fluid-wagon", "artillery-wagon"}
+local train_types = {["locomotive"] = true, ["cargo-wagon"] = true, ["fluid-wagon"] = true, ["artillery-wagon"] = true}
 
 --[[
   surface_conditions examples:
@@ -65,7 +66,7 @@ local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmeti
 
 local function get_default_surface_conditions(prototype)
   local type = prototype.type
-  if type == "lab" or type == "radar" then
+  if type == "lab" or type == "radar" or train_types[type] then
     return {nauvis = true, luna = false}
   elseif type == "logistic-container" and (prototype.logistic_mode == "active-provider" or prototype.logistic_mode == "requester" or prototype.logistic_mode == "buffer") then
     return {nauvis = true, luna = false}
@@ -103,36 +104,36 @@ for _, prototype_type in pairs(types) do
       surface_conditions = get_default_surface_conditions(prototype)
     end
 
-
     -- Set collision masks
-    local mask = collision_mask_util.get_mask(prototype)
-    if surface_conditions.luna == false then
-      collision_mask_util.add_layer(mask, luna_layer)
-    elseif surface_conditions.luna == true then
-      -- Set default
-      surface_conditions.lua = {plain = true, lowland = false, mountain = true, foundation = true}
+    if not train_types[prototype_type] then
+      -- Train 'collision' is done at runtime
+      local mask = collision_mask_util.get_mask(prototype)
+      if surface_conditions.luna == false then
+        collision_mask_util.add_layer(mask, luna_layer)
+      elseif surface_conditions.luna == true then
+        -- Set default
+        surface_conditions.lua = {plain = true, lowland = false, mountain = true, foundation = true}
+      end
+      if surface_conditions.nauvis == false then
+        collision_mask_util.add_layer(mask, nauvis_layer)
+      end
+      if type(surface_conditions.luna) == "table" then
+        local luna_conditions = surface_conditions.luna
+        if not luna_conditions.plain then
+          collision_mask_util.add_layer(mask, luna_plain_layer)
+        end
+        if not luna_conditions.lowland then
+          collision_mask_util.add_layer(mask, luna_lowland_layer)
+        end
+        if not luna_conditions.mountain then
+          collision_mask_util.add_layer(mask, luna_mountain_layer)
+        end
+        if not luna_conditions.foundation then
+          collision_mask_util.add_layer(mask, luna_foundation_layer)
+        end
+      end
+      prototype.collision_mask = mask
     end
-    if surface_conditions.nauvis == false then
-      collision_mask_util.add_layer(mask, nauvis_layer)
-    end
-    if type(surface_conditions.luna) == "table" then
-      local luna_conditions = surface_conditions.luna
-      if not luna_conditions.plain then
-        collision_mask_util.add_layer(mask, luna_plain_layer)
-      end
-      if not luna_conditions.lowland then
-        collision_mask_util.add_layer(mask, luna_lowland_layer)
-      end
-      if not luna_conditions.mountain then
-        collision_mask_util.add_layer(mask, luna_mountain_layer)
-      end
-      if not luna_conditions.foundation then
-        collision_mask_util.add_layer(mask, luna_foundation_layer)
-      end
-    end
-    prototype.collision_mask = mask
-
-
     -- Add to descriptions
     -- First check mountain-only and foundation-only
     if type(surface_conditions.luna) == "table" then
