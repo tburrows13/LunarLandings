@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 27 May 2024
+  Bugfixes:
+    - Fixed crash when placing rocket silo on Luna
+    - Fixed oxygen diffusers not providing oxygen to assembling machine 1s
+---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 27 May 2024
   Features:
