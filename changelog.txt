@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 28 May 2024
+  Bugfixes:
+    - Fixed resources not spawning on Luna when added to an existing save (use Delete Chunk Tool mod to respawn resources)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.10
 Date: 27 May 2024
   Bugfixes:
