@@ -9,14 +9,20 @@ local decorative_controls = {
   richness = 1,
 }
 
+local default_resource_controls = {
+  frequency = 1,
+  size = 1,
+  richness = 1,
+}
+
 local function on_init()
   local nauvis = game.get_surface("nauvis")
   local nauvis_map_gen_settings = nauvis.map_gen_settings
   if not nauvis_map_gen_settings.autoplace_controls then return end  -- We are in a simulation
-  local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"]
-  local rich_moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-rich-moon-rock"]
-  local ice_controls = nauvis_map_gen_settings.autoplace_controls["ll-ice"]
-  local astrocrystals_controls = nauvis_map_gen_settings.autoplace_controls["ll-astrocrystals"]
+  local moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-moon-rock"] or default_resource_controls
+  local rich_moon_rock_controls = nauvis_map_gen_settings.autoplace_controls["ll-rich-moon-rock"] or default_resource_controls
+  local ice_controls = nauvis_map_gen_settings.autoplace_controls["ll-ice"] or default_resource_controls
+  local astrocrystals_controls = nauvis_map_gen_settings.autoplace_controls["ll-astrocrystals"] or default_resource_controls
 
   local luna = game.create_surface(
     "luna",
