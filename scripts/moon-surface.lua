@@ -96,6 +96,22 @@ local function on_configuration_changed()
     luna.daytime = (game.tick / ticks_per_day) % 1
     luna.ticks_per_day = ticks_per_day
     luna.solar_power_multiplier = 1.5
+
+    local map_gen_settings = luna.map_gen_settings
+    if not map_gen_settings.autoplace_controls then
+      -- Fix pre-1.0.11 save
+      map_gen_settings.autoplace_controls = {
+        ["ll-moon-rock"] = default_resource_controls,
+        ["ll-rich-moon-rock"] = default_resource_controls,
+        ["ll-ice"] = default_resource_controls,
+        ["ll-astrocrystals"] = default_resource_controls,
+      }
+      map_gen_settings.autoplace_settings.entity.settings["ll-moon-rock"] = default_resource_controls
+      map_gen_settings.autoplace_settings.entity.settings["ll-rich-moon-rock"] = default_resource_controls
+      map_gen_settings.autoplace_settings.entity.settings["ll-ice"] = default_resource_controls
+      map_gen_settings.autoplace_settings.entity.settings["ll-astrocrystals"] = default_resource_controls
+      luna.map_gen_settings = map_gen_settings
+    end
   end
 end
 
