@@ -62,7 +62,8 @@ local function build_gui(player, mass_driver)
                   {
                     type = "label",
                     style = "heading_2_label",
-                    caption = {"", {"gui-rocket-silo.destination"}, " [img=info]"},
+                    caption = {"gui-rocket-silo.destination"},
+                    --caption = {"", {"gui-rocket-silo.destination"}, " [img=info]"},
                     --tooltip = {"gui-rocket-silo.destination-tooltip"}
                   },
                   {
