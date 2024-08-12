@@ -132,13 +132,13 @@ function RocketSilo.auto_launch_changed(player, element, silo, silo_data, silo_g
   if element.name == "ll-auto-launch-none" then
     silo_data.auto_launch = "none"
     silo_gui_data["ll-auto-launch-any"].state = false
-    silo_gui_data["ll-auto-launch-full"].state = false
     silo_gui_data["ll-auto-launch-filled"].state = false
+    silo_gui_data["ll-auto-launch-full"].state = false
   elseif element.name == "ll-auto-launch-any" then
     silo_data.auto_launch = "any"
     silo_gui_data["ll-auto-launch-none"].state = false
-    silo_gui_data["ll-auto-launch-full"].state = false
     silo_gui_data["ll-auto-launch-filled"].state = false
+    silo_gui_data["ll-auto-launch-full"].state = false
   elseif element.name == "ll-auto-launch-filled" then
     silo_data.auto_launch = "filled"
     silo_gui_data["ll-auto-launch-none"].state = false
