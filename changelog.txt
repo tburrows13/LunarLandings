@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+Date: 12 Aug 2024
+  Features:
+    - Added "launch when filled" option to the rocket silo, launches when no empty slots are left
+---------------------------------------------------------------------------------------------------
 Version: 1.0.11
 Date: 28 May 2024
   Bugfixes:
