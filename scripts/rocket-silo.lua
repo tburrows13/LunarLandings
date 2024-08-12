@@ -91,6 +91,10 @@ local function build_gui(player, silo)
                     handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                   },
                   {
+                    type = "radiobutton", name = "ll-auto-launch-filled", caption = {"gui-rocket-silo.auto-launch-filled"}, state = silo_data.auto_launch == "filled",
+                    handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
+                  },
+                  {
                     type = "radiobutton", name = "ll-auto-launch-full", caption = {"gui-rocket-silo.auto-launch-full"}, state = silo_data.auto_launch == "full",
                     handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                   },
@@ -129,14 +133,22 @@ function RocketSilo.auto_launch_changed(player, element, silo, silo_data, silo_g
     silo_data.auto_launch = "none"
     silo_gui_data["ll-auto-launch-any"].state = false
     silo_gui_data["ll-auto-launch-full"].state = false
+    silo_gui_data["ll-auto-launch-filled"].state = false
   elseif element.name == "ll-auto-launch-any" then
     silo_data.auto_launch = "any"
     silo_gui_data["ll-auto-launch-none"].state = false
+    silo_gui_data["ll-auto-launch-full"].state = false
+    silo_gui_data["ll-auto-launch-filled"].state = false
+  elseif element.name == "ll-auto-launch-filled" then
+    silo_data.auto_launch = "filled"
+    silo_gui_data["ll-auto-launch-none"].state = false
+    silo_gui_data["ll-auto-launch-any"].state = false
     silo_gui_data["ll-auto-launch-full"].state = false
   elseif element.name == "ll-auto-launch-full" then
     silo_data.auto_launch = "full"
     silo_gui_data["ll-auto-launch-none"].state = false
     silo_gui_data["ll-auto-launch-any"].state = false
+    silo_gui_data["ll-auto-launch-filled"].state = false
   end
 end
 
@@ -163,6 +175,7 @@ local function update_gui(player, silo)
   gui_elements["ll-auto-launch-none"].state = silo_data.auto_launch == "none"
   gui_elements["ll-auto-launch-any"].state = silo_data.auto_launch == "any"
   gui_elements["ll-auto-launch-full"].state = silo_data.auto_launch == "full"
+  gui_elements["ll-auto-launch-filled"].state = silo_data.auto_launch == "filled"
   gui_elements["ll-destination-dropdown"].visible = silo.name ~= "ll-rocket-silo-interstellar"
 end
 
@@ -220,7 +233,7 @@ local function on_rocket_silo_built(event)
 
   Buckets.add(global.rocket_silos, entity.unit_number, {
     entity = entity,
-    auto_launch = "none",  -- "none", "any", "full"
+    auto_launch = "none",  -- "none", "any", "filled", "full"
     destination = "Space",
   })
 end
@@ -269,6 +282,11 @@ local function on_tick(event)
           local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
           if not inventory.is_empty() then
             launch_if_destination_has_space(silo_data, #inventory - inventory.count_empty_stacks(true, true))
+          end
+        elseif silo_data.auto_launch == "filled" then
+          local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
+          if inventory.count_empty_stacks(true, true) == 0 then
+            launch_if_destination_has_space(silo_data, #inventory)
           end
         elseif silo_data.auto_launch == "full" then
           local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
