@@ -49,7 +49,7 @@ data:extend({
 		  emissions_per_minute = 0
 		},
     allowed_effects = {"consumption", "pollution"},
-    module_specification = {module_slots = 4},
+    module_specification = {module_slots = 3},
     mining_speed = 1,
     resource_categories = {"ll-core"},
     energy_usage = "3MW",
