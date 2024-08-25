@@ -24,11 +24,11 @@ end
 
 data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
 
---data.raw.recipe["rocket-part"].ingredients = {
---  {"rocket-control-unit", 10},
---  {"low-density-structure", 10},
---  {type = "fluid", name = "ll-rocket-fuel", amount = 100},
---}
+data.raw.recipe["rocket-part"].ingredients = {
+  {"rocket-control-unit", 10},
+  {"low-density-structure", 10},
+  {type = "fluid", name = "ll-rocket-fuel", amount = 30},
+}
 
 data.raw["item"]["rocket-control-unit"].stack_size = 20
 data.raw["item"]["low-density-structure"].stack_size = 20
