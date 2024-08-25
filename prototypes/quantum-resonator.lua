@@ -95,19 +95,6 @@ data:extend{
     energy_usage = "15MW",
     allowed_effects = {"consumption", "pollution", "speed"},
     module_specification = {module_slots = 3},
-    fluid_boxes = {
-      {
-        base_area = 1,
-        base_level = 1,
-        height = 2,
-        pipe_covers = pipecoverspictures(),
-        pipe_picture = ei_pipe_big_data,
-        pipe_connections = {
-          {type = "output", position = {3, 0}},
-        },
-        production_type = "output",
-      },
-    },
     animation = {
       filename = "__LunarLandings__/graphics/entities/computer-core.png",
       size = {512,512},
