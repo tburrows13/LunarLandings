@@ -395,7 +395,7 @@ data:extend{
         }
       },
 
-      heat_picture = apply_heat_pipe_glow
+      --[[heat_picture = apply_heat_pipe_glow
       {
         filename = "__base__/graphics/entity/nuclear-reactor/reactor-heated.png",
         width = 108,
@@ -409,7 +409,7 @@ data:extend{
           scale = 0.5,
           shift = util.by_pixel(3, -6.5)
         }
-      },
+      },]]
     },
 
     connection_patches_connected =
