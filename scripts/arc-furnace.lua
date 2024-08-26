@@ -112,20 +112,89 @@ local function on_selected_entity_changed(event)
   end
 end
 
+local function build_gui(player, furnace, reactor)
+  local anchor = {gui = defines.relative_gui_type.assembling_machine_gui, position = defines.relative_gui_position.right}
+
+  global.arc_furnace_guis[player.index] = gui.add(player.gui.relative, {
+    {
+      type = "frame",
+      --style = "sp_relative_stretchable_frame",
+      name = "ll-arc-furnace-relative-frame",
+      direction = "vertical",
+      anchor = anchor,
+      children = {
+        {type = "label", style = "frame_title", caption = {"gui-arc-furnace.information"}, ignored_by_interaction = true},
+        {type = "frame", direction = "vertical", style = "inside_shallow_frame_with_padding", children = {
+          {
+            type = "flow",
+            direction = "vertical",
+            style = "inset_frame_container_vertical_flow",
+            children = {
+              {
+                type = "progressbar",
+                name = "ll-arc-furnace-progressbar",
+                style = "heat_progressbar",
+                value = reactor.temperature / 1000,
+                caption = {"", {"description.temperature"}, ": ", {"format-degrees-c", reactor.temperature}},  -- TODO format temp to 2dp
+              },
+              {type = "label", caption = {"gui-arc-furnace.temperature-overload"}},
+            }
+          }
+        }}
+      }
+    }
+  })
+end
+
+local function update_gui(player, reactor)
+  local gui_elements = global.arc_furnace_guis[player.index]
+  gui_elements["ll-arc-furnace-progressbar"].value = reactor.temperature / 1000
+  gui_elements["ll-arc-furnace-progressbar"].caption = {"", {"description.temperature"}, ": ", {"format-degrees-c", reactor.temperature}}
+end
+
+local function on_gui_opened(event)
+  local entity = event.entity
+  if not entity or not entity.valid then return end
+  if entity.type ~= "assembling-machine" then return end
+
+  local player = game.get_player(event.player_index)
+
+  if player.gui.relative["ll-arc-furnace-relative-frame"] then
+    player.gui.relative["ll-arc-furnace-relative-frame"].destroy()
+  end
+  local furnace_data = global.arc_furnaces[player.opened.unit_number]
+  if furnace_data then
+    build_gui(player, furnace_data.entity, furnace_data.reactor)
+  end
+end
+
+local function on_tick()
+  for _, player in pairs(game.connected_players) do
+    if player.opened and player.opened.name == "ll-arc-furnace" then
+      local furnace_data = global.arc_furnaces[player.opened.unit_number]
+      update_gui(player, furnace_data.reactor)
+    end
+  end
+end
+
 ArcFurnace.events = {
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
   [defines.events.on_entity_destroyed] = on_entity_destroyed,
   [defines.events.on_selected_entity_changed] = on_selected_entity_changed,
+  [defines.events.on_gui_opened] = on_gui_opened,
+  [defines.events.on_tick] = on_tick,
 }
 
 function ArcFurnace.on_init()
   global.arc_furnaces = {}
   global.arc_furnace_heat_renders = {}
+  global.arc_furnace_guis = {}
 end
 
 function ArcFurnace.on_configuration_changed()
   global.arc_furnaces = global.arc_furnaces or {}
   global.arc_furnace_heat_renders = global.arc_furnace_heat_renders or {}
+  global.arc_furnace_guis = global.arc_furnace_guis or {}
 end
 
 return ArcFurnace
