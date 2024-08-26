@@ -203,6 +203,7 @@ function is_allowed(item_name)
   if prototype.place_result then return true end
   if prototype.module_effects then return true end
   if prototype.capsule_action and prototype.capsule_action.type == "destroy-cliffs" then return true end
+  if item_name == "red-wire" or item_name == "green-wire" then return true end
   return false
 end
 
