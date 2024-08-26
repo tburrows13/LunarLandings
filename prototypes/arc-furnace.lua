@@ -93,7 +93,7 @@ data:extend{
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
     collision_box = {{-2.1, -2.1}, {2.1, 2.1}},
-    selection_box = {{-2.2, -2.2}, {2.2, 2.2}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     --map_color = ei_data.colors.assembler,
     crafting_categories = {"ll-arc-smelting"},
     crafting_speed = 3,
@@ -240,7 +240,7 @@ data:extend{
     scale_energy_usage = true,  -- Stop when temperature is at max
     neighbour_bonus = 0,
     collision_box = {{-2.1, -2.1}, {2.1, 2.1}},
-    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    --selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     collision_mask = {"not-colliding-with-itself"},
     surface_conditions = {nauvis = true, luna = true},
     damaged_trigger_effect = hit_effects.entity(),
