@@ -33,5 +33,6 @@ handler.add_libraries{
   require "scripts.mass-driver-requester",
   require "scripts.surface-conditions",
   require "scripts.collision-test",
+  compatibility,
 }
 

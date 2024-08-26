@@ -12,6 +12,7 @@ end
 
 Compatibility.on_init = function()
   disco_science.init()
+  picker_dollies.load()
 end
 
 Compatibility.preload_remote_interface = function()
