@@ -11,8 +11,8 @@ data:extend{
   {
     type = "item",
     name = "ll-heat-furnace",
-    icon = "__base__/graphics/icons/steel-furnace.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__LunarLandings__/graphics/icons/heat-furnace.png",
+    icon_size = 64, icon_mipmaps = 1,
     subgroup = "smelting-machine",
     order = "d[heat-furnace]",
     place_result = "ll-heat-furnace",
@@ -21,8 +21,8 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ll-heat-furnace",
-    icon = "__base__/graphics/icons/steel-furnace.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__LunarLandings__/graphics/icons/heat-furnace.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "ll-heat-furnace"},
     max_health = 200,
