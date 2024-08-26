@@ -75,7 +75,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/icons/arc-furnace.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "smelting-machine",
-    order = "d[arc-furnace]",
+    order = "e[arc-furnace]",
     place_result = "ll-arc-furnace",
     stack_size = 50
   },

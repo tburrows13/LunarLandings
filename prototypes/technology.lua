@@ -265,6 +265,33 @@ data:extend{
   },
   {
     type = "technology",
+    name = "ll-heat-furnace",
+    icon_size = 256, icon_mipmaps = 4,
+    icon = "__base__/graphics/technology/advanced-material-processing.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-heat-furnace"
+      }
+    },
+    prerequisites = {"ll-arc-furnace"},
+    unit =
+    {
+      count = 400,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-c-a"
+  },
+  {
+    type = "technology",
     name = "ll-steam-condenser",
     icon = "__LunarLandings__/graphics/technology/steam-condenser.png",
     icon_size = 256, icon_mipmaps = 1,
