@@ -104,13 +104,14 @@ data:extend{
       emissions_per_minute = 1,
       drain = "300kW",
     },
-    energy_usage = "11MW",
+    energy_usage = "10MW",  -- 9MW will be output as heat, which the player can turn back into electricity
     --result_inventory_size = 1,
     --source_inventory_size = 1,
-    allowed_effects = {"consumption", "speed", "productivity", "pollution"},
+    --allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     module_specification = {
-        module_slots = 4
+        module_slots = 0
     },
+    base_productivity = 0.5,
     fluid_boxes = {
       {
         base_area = 1,

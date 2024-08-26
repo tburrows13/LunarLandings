@@ -35,7 +35,11 @@ for name, recipe in pairs(data.raw.recipe) do
       heat_recipe.main_product = heat_recipe.results[1].name or heat_recipe.results[1][1]
     end
     if heat_recipe.results then
-      table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = heat_recipe.energy_required or 0.5, fluidbox_index = 2})
+      -- Every second, arc furnace consumes 10MJ, of which 9MJ needs to be output in heat
+      -- 1 heat = 1MJ
+      -- Arc furnace has crafting speed 3 and base productity +50%
+      -- So each second, needs to output 9 heat / 3 / 1.5 = 2
+      table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = 2*(heat_recipe.energy_required or 0.5), fluidbox_index = 2})
       data:extend{heat_recipe}
 
       x_util.allow_productivity(heat_recipe.name)
