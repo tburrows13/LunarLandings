@@ -76,18 +76,56 @@ local function on_entity_destroyed(event)
   end
 end
 
+local function draw_heat_outputs(player, entity)
+  local render_ids = {}
+  for i = -2, 2, 2 do
+    for j = -2, 2, 2 do
+      if not (i == 0 and j == 0) then
+        local id = rendering.draw_sprite{
+          sprite="utility/heat_exchange_indication",
+          target=entity,
+          target_offset={i, j},
+          surface=entity.surface,
+          players={player},
+        }
+        table.insert(render_ids, id)
+      end
+    end
+  end
+  global.arc_furnace_heat_renders[player.index] = render_ids
+end
+
+local function delete_heat_outputs(player)
+  local heat_render_ids = global.arc_furnace_heat_renders[player.index]
+  if heat_render_ids then
+    for _, render_id in pairs(heat_render_ids) do
+      rendering.destroy(render_id)
+    end
+  end
+end
+
+local function on_selected_entity_changed(event)
+  local player = game.get_player(event.player_index)
+  delete_heat_outputs(player)
+  if player.selected and player.selected.name == "ll-arc-furnace" then
+    draw_heat_outputs(player, player.selected)
+  end
+end
 
 ArcFurnace.events = {
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
   [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_selected_entity_changed] = on_selected_entity_changed,
 }
 
 function ArcFurnace.on_init()
   global.arc_furnaces = {}
+  global.arc_furnace_heat_renders = {}
 end
 
 function ArcFurnace.on_configuration_changed()
   global.arc_furnaces = global.arc_furnaces or {}
+  global.arc_furnace_heat_renders = global.arc_furnace_heat_renders or {}
 end
 
 return ArcFurnace
