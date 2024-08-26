@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+Date: 26 August 2024
+  Features:
+    - Added heat-powered furnace
+    - Added more tiers of infinite techs at space and quantum science levels
+    - Arc furnace temperature is now shown in its GUI
+    - Red and green wire can now be sent using the mass driver
+  Changes:
+    - Rocket parts now require 30 rocket fuel rather than 100
+    - Arc furnace now has a base +50% productivity
+    - Arc furnace no longer allows any modules
+    - Core extractor module slots reduced from 4 to 2
+    - Quantum resonator now allows speed modules
+    - Steam condensers no longer require power
+  Bugfixes:
+    - Arc furnace heat output fixed so that the correct amount of electricity can be recovered using heat exchangers
+  Compatibility:
+    - Added compatibility with Disco Science
+    - Added compatibility with Picker Dollies
+---------------------------------------------------------------------------------------------------
 Version: 1.0.11
 Date: 28 May 2024
   Bugfixes:
