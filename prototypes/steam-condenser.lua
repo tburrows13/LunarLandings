@@ -27,7 +27,7 @@ data:extend{
 		minable = { mining_time = 0.5, result = "ll-steam-condenser" },				
 		max_health = 150,
 		corpse = "medium-remnants",
-		
+
 		collision_box = {{ -1.3, -1.3 }, { 1.3, 1.3 }},
 		selection_box = {{ -1.5, -1.5 }, { 1.5, 1.5 }},
 		fluid_boxes =
@@ -58,15 +58,15 @@ data:extend{
 				pipe_connections = {{ type = "output", position = { -1, -2 } }},
 			}
 		},
-		
+
 		crafting_categories = { "ll-steam-condensing" },
     crafting_speed = 1,
     fixed_recipe = "ll-condense-steam",
 		energy_source =
 		{
-			type = "electric",
-			usage_priority = "primary-input",
-		},				
+			type = "void",
+			--usage_priority = "primary-input",
+		},
 		energy_usage = "300kW",
 
 		--module_specification = { module_slots = 2 },

@@ -186,7 +186,7 @@ local function update_condenser(entity, turbines)
     if turbine.valid then
       total_energy = total_energy + turbine.energy_generated_last_tick * global.steam_condensers.interval
     else
-      table.insert(to_remove, unit_number) 
+      table.insert(to_remove, unit_number)
     end
   end
   for _, unit_number in pairs(to_remove) do
