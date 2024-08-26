@@ -112,6 +112,10 @@ local function on_selected_entity_changed(event)
   end
 end
 
+local function build_caption(temperature)
+  return {"", {"description.temperature"}, ": ", {"format-degrees-c", string.format("%.2f", temperature)}}
+end
+
 local function build_gui(player, furnace, reactor)
   local anchor = {gui = defines.relative_gui_type.assembling_machine_gui, position = defines.relative_gui_position.right}
 
@@ -135,7 +139,7 @@ local function build_gui(player, furnace, reactor)
                 name = "ll-arc-furnace-progressbar",
                 style = "heat_progressbar",
                 value = reactor.temperature / 1000,
-                caption = {"", {"description.temperature"}, ": ", {"format-degrees-c", reactor.temperature}},  -- TODO format temp to 2dp
+                caption = build_caption(reactor.temperature)
               },
               {type = "label", caption = {"gui-arc-furnace.temperature-overload"}},
             }
@@ -149,7 +153,7 @@ end
 local function update_gui(player, reactor)
   local gui_elements = global.arc_furnace_guis[player.index]
   gui_elements["ll-arc-furnace-progressbar"].value = reactor.temperature / 1000
-  gui_elements["ll-arc-furnace-progressbar"].caption = {"", {"description.temperature"}, ": ", {"format-degrees-c", reactor.temperature}}
+  gui_elements["ll-arc-furnace-progressbar"].caption = build_caption(reactor.temperature)
 end
 
 local function on_gui_opened(event)
