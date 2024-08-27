@@ -6,6 +6,7 @@ x_util.add_unlock("nuclear-power", "ll-rtg")
 
 x_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
+x_util.add_prerequisite("rocket-control-unit", "chemical-science-pack")
 x_util.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
 x_util.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
 
@@ -32,6 +33,9 @@ x_util.add_research_ingredient("power-armor-mk2", "production-science-pack")
 x_util.add_research_ingredient("power-armor-mk2", "ll-space-science-pack")
 
 x_util.add_prerequisite("spidertron", "ll-space-science-pack")
+x_util.remove_prerequisite("spidertron", "rocket-control-unit")
+
+x_util.remove_prerequisite("atomic-bomb", "rocket-control-unit")
 
 x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
