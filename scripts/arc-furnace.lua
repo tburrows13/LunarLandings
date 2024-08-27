@@ -174,7 +174,7 @@ end
 
 local function on_tick()
   for _, player in pairs(game.connected_players) do
-    if player.opened and player.opened.name == "ll-arc-furnace" then
+    if player.opened and player.opened_gui_type == defines.gui_type.entity and player.opened.name == "ll-arc-furnace" then
       local furnace_data = global.arc_furnaces[player.opened.unit_number]
       update_gui(player, furnace_data.reactor)
     end
