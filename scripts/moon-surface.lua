@@ -112,11 +112,41 @@ local function on_configuration_changed()
       map_gen_settings.autoplace_settings.entity.settings["ll-astrocrystals"] = default_resource_controls
       luna.map_gen_settings = map_gen_settings
     end
+
+    if not global.migrations.luna_cliffs_made_indestructable then
+      global.migrations.luna_cliffs_made_indestructable = true
+
+      local cliffs = luna.find_entities_filtered{
+        name = "ll-luna-cliff",
+      }
+
+      for _, cliff in ipairs(cliffs) do
+        cliff.destructible = false
+      end
+    end
+  end
+end
+
+local function on_chunk_generated(event)
+  if event.surface.name ~= 'luna' then return end
+
+  local cliffs = event.surface.find_entities_filtered{
+    area = event.area,
+    name = "ll-luna-cliff",
+  }
+
+  for _, cliff in ipairs(cliffs) do
+    cliff.destructible = false
   end
 end
 
 local MoonSurface = {}
 
+MoonSurface.events = {
+  [defines.events.on_chunk_generated] = on_chunk_generated,
+}
+
 MoonSurface.on_init = on_init
 MoonSurface.on_configuration_changed = on_configuration_changed
+
 return MoonSurface
