@@ -86,6 +86,8 @@ local function on_init()
   luna.freeze_daytime = false
   luna.show_clouds = false
 
+  luna.request_to_generate_chunks({0, 0}, 1)
+
   log("LunarLandings: on_init() done")
 end
 
