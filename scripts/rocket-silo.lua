@@ -396,7 +396,9 @@ local function on_rocket_launched(event)
           else
             game.show_message_dialog{text = {"ll-console-info.first-satellite-launched"}}
           end
-          game.print({"ll-console-info.first-satellite-launched-urq-hint"})
+          if script.active_mods["UltimateResearchQueue"] or script.active_mods["UltimateResearchQueueFiltered"] then
+            game.print({"ll-console-info.first-satellite-launched-urq-hint"})
+          end
           game.print({"ll-console-info.new-destination-unlocked"})
           silo.force.technologies["ll-luna-exploration"].enabled = true
         end
