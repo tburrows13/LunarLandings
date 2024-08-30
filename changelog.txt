@@ -1,8 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.14
-Date: ????
+Date: 30 August 2024
+  Graphics:
+    - Updated red mud icon
   Bugfixes:
     - Cliffs on Luna can no longer be removed with cliff explosives
+    - Fixed being unable to switch surfaces with N when in god mode
+    - Fixed crash when launching items to Luna surface before going there
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.13
 Date: 27 August 2024

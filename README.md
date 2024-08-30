@@ -46,8 +46,9 @@ Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the mag
 Thank you to [Sigma1](https://mods.factorio.com/user/Sigma1) for the RTG graphics from [SigmaOne's Nuclear](https://mods.factorio.com/mods/Sigma1/SigmaOne_Nuclear).
 Thank you to [Galdoc](https://mods.factorio.com/user/Galdoc) for the rich moon rock ore graphics from [Galdoc's manufacturing](https://mods.factorio.com/mod/galdocs-manufacturing).
 Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon) for the mass driver requester graphics from [Spidertron Logistics System](https://mods.factorio.com/mod/spidertron-logistics).
+Thank you to [Malcolm Riley](https://github.com/malcolmriley/unused-renders) for the red mud icon.
 Thank you to [Frontrider](https://mods.factorio.com/user/Frontrider) for the mass driver technology icon.
-Thank you to [RedRafe](https://mods.factorio.com/user/RedRafe) and [Stringweasel](https://mods.factorio.com/user/Stringweasel) for various code contributions.
+Thank you to [RedRafe](https://mods.factorio.com/user/RedRafe), [Stringweasel](https://mods.factorio.com/user/Stringweasel) and [Quezler](https://mods.factorio.com/user/Quezler) for various code contributions.
 Thank you to all who have playtested this mod on my discord, especially [fgardt](https://mods.factorio.com/user/fgardt)!
 
 "Equatorial Complex", "Lightless Dawn", "Mesmerizing Galaxy Loop"
