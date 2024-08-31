@@ -12,7 +12,7 @@ NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
 LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
 
 local function get_other_surface_name(surface_name)
-  return surface_name == "nauvis" and "luna" or "nauvis"
+  return surface_name == "oarc" and "luna" or "oarc"
 end
 
 local function is_rocket_launching(entity)
@@ -207,7 +207,7 @@ local function on_rocket_silo_built(event)
     }
     entity.destroy()
     entity = new_entity
-  elseif entity.name == "ll-rocket-silo-down" and entity.surface.name == "nauvis" then
+  elseif entity.name == "ll-rocket-silo-down" and entity.surface.name == "oarc" then
     local new_entity = entity.surface.create_entity{
       name = "rocket-silo",
       position = entity.position,

@@ -30,9 +30,9 @@ function MoonView.toggle_moon_view(event)
     if player.surface.name == "luna" then
       moon_view_data.luna_position = player.position
       local position = moon_view_data.nauvis_position or {0, 0}
-      player.teleport(position, "nauvis")
+      player.teleport(position, "oarc")
       player.set_shortcut_toggled(SHORTCUT_NAME, false)
-    elseif player.surface.name == "nauvis" then
+    elseif player.surface.name == "oarc" then
       moon_view_data.nauvis_position = player.position
       local position = moon_view_data.luna_position or {0, 0}
       player.teleport(position, "luna")
@@ -48,7 +48,7 @@ function MoonView.toggle_moon_view(event)
       nauvis_character = moon_view_data.nauvis_character
     end
     if not nauvis_character or not nauvis_character.valid then
-      nauvis_character = game.get_surface("nauvis").create_entity{
+      nauvis_character = game.get_surface("oarc").create_entity{
         name = "character",
         position = {0, 0},
         force = player.force,
@@ -60,7 +60,7 @@ function MoonView.toggle_moon_view(event)
     player.set_controller{
       type = defines.controllers.spectator,
     }
-    player.teleport({0, 0}, "nauvis")
+    player.teleport({0, 0}, "oarc")
     player.set_controller{
       type = defines.controllers.character,
       character = nauvis_character
@@ -72,7 +72,7 @@ function MoonView.toggle_moon_view(event)
 
     moon_view_data.nauvis_character = nil  -- Clear info from old method
     moon_view_data.luna_character = nil
-  elseif player.surface.name == "nauvis" then
+  elseif player.surface.name == "oarc" then
     local nauvis_character = player.character
     local luna_character = MoonView.get_associated_character(player)
     if not luna_character then
@@ -117,8 +117,8 @@ local function on_player_clicked_gps_tag(event)
   local destination_surface = game.surfaces[event.surface]
   if not destination_surface then return end
 
-  if player.surface.name == "luna" and destination_surface.name == "nauvis" 
-    or player.surface.name == "nauvis" and destination_surface.name == "luna"
+  if player.surface.name == "luna" and destination_surface.name == "oarc"
+    or player.surface.name == "oarc" and destination_surface.name == "luna"
   then
     MoonView.toggle_moon_view(event)
     global.open_map_requests[event.player_index] = {tick = event.tick, position = event.position}
