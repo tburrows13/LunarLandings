@@ -25,17 +25,21 @@ function MoonView.toggle_moon_view(event)
     player.print({"ll-console-info.luna-connection-not-established"})
     return
   end
+  local moon_view_data = MoonView.get_data(event.player_index)
   if player.controller_type == defines.controllers.god then
     if player.surface.name == "luna" then
-      player.teleport({0, 0}, "nauvis")
+      moon_view_data.luna_position = player.position
+      local position = moon_view_data.nauvis_position or {0, 0}
+      player.teleport(position, "nauvis")
       player.set_shortcut_toggled(SHORTCUT_NAME, false)
     elseif player.surface.name == "nauvis" then
-      player.teleport({0, 0}, "luna")
+      moon_view_data.nauvis_position = player.position
+      local position = moon_view_data.luna_position or {0, 0}
+      player.teleport(position, "luna")
       player.set_shortcut_toggled(SHORTCUT_NAME, true)
     end
   end
   if player.controller_type ~= defines.controllers.character then return end
-  local moon_view_data = MoonView.get_data(event.player_index)
   if player.surface.name == "luna" then
     local luna_character = player.character
     local nauvis_character = MoonView.get_associated_character(player)

@@ -48,7 +48,7 @@ local function on_built_entity(event)
         entity.mine{inventory = inventory, force = true, raise_destroyed = true}
         inventory.destroy()
       end
-    end  
+    end
   end
 end
 
