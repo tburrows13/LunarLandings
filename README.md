@@ -57,4 +57,4 @@ Licensed under Creative Commons: By Attribution 3.0
 http://creativecommons.org/licenses/by/3.0/
 
 ---
-If anyone would like to contribute better graphics, please get in touch!
+If anyone would like to contribute better graphics, please get in touch! See [this spreadsheet](https://docs.google.com/spreadsheets/d/1FhgrZ515K0LOmLnjiVnLSTErVAsyBAdzu2bxaOg-TPY/edit?usp=sharing) for a current list of assets that could do with replacing.

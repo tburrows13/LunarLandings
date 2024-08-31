@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.15
+Date: 31 August 2024
+  Bugfixes:
+    - Fixed player position resetting to {0, 0} every time N is pressed when in god mode
+---------------------------------------------------------------------------------------------------
 Version: 1.0.14
 Date: 30 August 2024
   Graphics:
