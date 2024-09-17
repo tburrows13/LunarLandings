@@ -5,6 +5,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-heat-furnace",
+    enabled = false,
     ingredients = {{"stone-brick", 20}, {"heat-pipe", 4}},
     results = {{type="item", name="ll-heat-furnace", amount=1}},
   },
