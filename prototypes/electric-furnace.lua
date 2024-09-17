@@ -56,8 +56,8 @@ data:extend{
   {
     type = "recipe",
     name = "ll-melt-ice",
-    icon = "__base__/graphics/icons/fluid/water.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__LunarLandings__/graphics/icons/melt-ice.png",
+    icon_size = 64, icon_mipmaps = 1,
     enabled = false,
     category = "ll-fluid-smelting",
     subgroup = "fluid-recipes",
