@@ -2,6 +2,7 @@
 
 local furnace = data.raw.furnace["electric-furnace"]
 furnace.type = "assembling-machine"
+table.insert(furnace.crafting_categories, "ll-fluid-smelting")
 table.insert(furnace.crafting_categories, "ll-electric-smelting")
 furnace.fluid_boxes =
 {
@@ -50,7 +51,7 @@ data.raw["furnace"]["electric-furnace"] = nil --disable original furnace
 data:extend{
   {
     type = "recipe-category",
-    name = "ll-electric-smelting"
+    name = "ll-fluid-smelting"
   },
   {
     type = "recipe",
@@ -58,7 +59,7 @@ data:extend{
     icon = "__base__/graphics/icons/fluid/water.png",
     icon_size = 64, icon_mipmaps = 4,
     enabled = false,
-    category = "ll-electric-smelting",
+    category = "ll-fluid-smelting",
     subgroup = "fluid-recipes",
     order = "a[fluid]-a[water]",
     energy_required = 20,
@@ -74,7 +75,7 @@ data:extend{
     icon = "__base__/graphics/icons/fluid/steam.png",
     icon_size = 64, icon_mipmaps = 4,
     enabled = false,
-    category = "ll-electric-smelting",
+    category = "ll-fluid-smelting",
     subgroup = "fluid-recipes",
     order = "a[fluid]-b[steam]",
     energy_required = 30,

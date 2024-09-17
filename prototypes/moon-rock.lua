@@ -26,6 +26,10 @@ moon_rock.surface_conditions = {nauvis = false, luna = true}
 data:extend{
   moon_rock,
   {
+    type = "recipe-category",
+    name = "ll-electric-smelting"
+  },
+  {
     type = "item",
     name = "ll-moon-rock",
     icon = "__LunarLandings__/graphics/icons/moon-rock.png",

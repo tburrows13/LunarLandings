@@ -55,7 +55,7 @@ data:extend{
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
-    crafting_categories = {"smelting", "ll-electric-smelting"},
+    crafting_categories = {"smelting", "ll-fluid-smelting"},
     result_inventory_size = 1,
     energy_usage = "200kW",
     crafting_speed = 2,
