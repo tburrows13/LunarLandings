@@ -4,8 +4,14 @@ data:extend{
   {
     type = "item",
     name = "ll-ice",
-    icon = "__space-exploration-graphics__/graphics/icons/water-ice.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon = "__LunarLandings__/graphics/icons/ice.png",
+    icon_size = 64, icon_mipmaps = 4,
+    pictures =
+    {
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.25, mipmap_count = 4 },
+    },
     subgroup = "raw-resource",
     order = "h[moon]-d[ice]",
     stack_size = 50
