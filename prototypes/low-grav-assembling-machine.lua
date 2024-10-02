@@ -21,11 +21,6 @@ end
 
 data.raw.recipe["processing-unit"].category = "advanced-circuit-crafting"
 
--- SE Space Manufactory is 9x9 - too big
--- This one needs scaling down: 5x5
-
-local scale = 5 / 9
-
 local animation_speed = 0.3
 data:extend{
   {
@@ -53,7 +48,7 @@ data:extend{
   {
     type = "item",
     name = "ll-low-grav-assembling-machine",
-    icon = "__space-exploration-graphics__/graphics/icons/manufactory.png",
+    icon = "__LunarLandings__/graphics/icons/low-gravity-assembling-machine.png",
     icon_size = 64,
     subgroup = "production-machine",
     order = "c[assembling-machine-3]",
@@ -63,14 +58,15 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ll-low-grav-assembling-machine",
-    icon = "__space-exploration-graphics__/graphics/icons/manufactory.png",
+    icon = "__LunarLandings__/graphics/icons/low-gravity-assembling-machine.png",
     icon_size = 64,
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "ll-low-grav-assembling-machine"},
     max_health = 900,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, -12),
+    alert_icon_shift = util.by_pixel(0, 8),
+    entity_info_icon_shift = util.by_pixel(0, 8),
     resistances =
     {
       {
@@ -82,7 +78,7 @@ data:extend{
     {
       {
         production_type = "input",
-        pipe_picture = pipe_pics,
+        pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -91,7 +87,7 @@ data:extend{
       },
       {
         production_type = "input",
-        pipe_picture = pipe_pics,
+        pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -100,7 +96,7 @@ data:extend{
       },
       {
         production_type = "input",
-        pipe_picture = pipe_pics,
+        pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -109,7 +105,7 @@ data:extend{
       },
       {
         production_type = "input",
-        pipe_picture = pipe_pics,
+        pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -151,104 +147,72 @@ data:extend{
       layers =
       {
         {
-          filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/base.png",
+          draw_as_shadow = true,
+          filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-shadow.png",
           priority = "high",
-          width = 577,
-          height = 605,
+          width = 520,
+          height = 500,
           frame_count = 1,
           line_length = 1,
-          repeat_count = 128,
-          shift = util.by_pixel(0, -8 * scale),
+          repeat_count = 99,
           animation_speed = animation_speed,
-          scale = 0.5 * scale,
+          shift = util.by_pixel_hr(0, -12),
+          scale = 0.5,
         },
         {
           priority = "high",
-          width = 512,
-          height = 422,
-          frame_count = 128,
-          shift = util.by_pixel(-0, -51 * scale),
+          width = 320,
+          height = 320,
+          frame_count = 99,
+          shift = util.by_pixel_hr(0, -12),
           animation_speed = animation_speed,
-          scale = 0.5 * scale,
+          scale = 0.5,
           stripes =
           {
             {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-1.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
+              filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-1.png",
+              width_in_frames = 8,
+              height_in_frames = 8,
             },
             {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-2.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
+              filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-2.png",
+              width_in_frames = 8,
+              height_in_frames = 8,
             },
-            {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-3.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
-            },
-            {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-4.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
-            },
-            {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-5.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
-            },
-            {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-6.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
-            },
-            {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-7.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
-            },
-            {
-             filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/top-8.png",
-             width_in_frames = 4,
-             height_in_frames = 4,
-            },
-          }
-        },
-        {
-          filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/middle.png",
-          priority = "high",
-          width = 40,
-          height = 82,
-          frame_count = 128,
-          line_length = 16,
-          shift = util.by_pixel(51 * scale, 79 * scale),
-          animation_speed = animation_speed,
-          scale = 0.5 * scale,
-        },
-        --[[{
-          filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/lower.png",
-          priority = "high",
-          width = 80,
-          height = 22,
-          frame_count = 128,
-          line_length = 8,
-          shift = util.by_pixel(62, 137),
-          scale = 0.5,
-        },]]--
-        {
-          draw_as_shadow = true,
-          filename = "__space-exploration-graphics-5__/graphics/entity/space-manufactory/hr/shadow.png",
-          priority = "high",
-          width = 795,
-          height = 430,
-          frame_count = 1,
-          line_length = 1,
-          repeat_count = 128,
-          shift = util.by_pixel(67 * scale, 38 * scale),
-          scale = 0.5 * scale,
+          },
         },
       },
     },
+    working_visualisations = {{
+      fadeout = true,
+      secondary_draw_order = 1,
+      animation = {
+        layers = {
+          {
+            size = {320, 320},
+            shift = util.by_pixel_hr(0, -12),
+            scale = 0.5,
+            frame_count = 99,
+            draw_as_glow = true,
+            blend_mode = "additive",
+            animation_speed = animation_speed,
+            stripes =
+            {
+              {
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-1.png",
+                width_in_frames = 8,
+                height_in_frames = 8,
+              },
+              {
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-2.png",
+                width_in_frames = 8,
+                height_in_frames = 8,
+              },
+            },
+          },
+        },
+      },
+    }},
     crafting_categories = {"circuit-crafting", "advanced-circuit-crafting"},
     crafting_speed = 2,
     energy_source =

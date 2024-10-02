@@ -179,8 +179,8 @@ data:extend{
   {
     type = "technology",
     name = "ll-luna-automation",
-    icon = "__space-exploration-graphics__/graphics/technology/space-manufactory.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon = "__LunarLandings__/graphics/technology/low-gravity-assembling-machine.png",
+    icon_size = 256, icon_mipmaps = 1,
     effects =
     {
       {
