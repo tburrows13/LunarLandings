@@ -58,12 +58,12 @@ data:extend({
     circuit_wire_connection_points = circuit_connector_definitions["electric-mining-drill"].points,
 		circuit_connector_sprites = circuit_connector_definitions["electric-mining-drill"].sprites,
 		circuit_wire_max_distance = default_circuit_wire_max_distance,
-    input_fluid_box = {   
+    input_fluid_box = {
       base_area = 1,
       base_level = -1,
       height = 2,
       pipe_covers = pipecoverspictures(),
-      --pipe_picture = ei_pipe_big_round, TODO
+      pipe_picture = assembler3pipepictures(),  -- TODO does nothing
       pipe_connections =
       {
         { position = {-6, 0} },
@@ -75,8 +75,74 @@ data:extend({
     graphics_set = {
       circuit_connector_layer = "object",
 		  circuit_connector_secondary_draw_order = { north = 14, east = 30, south = 30, west = 30 },
-      always_draw_idle_animation = true,
-		  idle_animation = {
+      animation = {
+        layers = {
+          {
+            filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-shadow.png",
+            priority = "high",
+            width = 1400,
+            height = 1400,
+            frame_count = 1,
+            repeat_count = 120,
+            animation_speed = 0.5,
+            --shift = {2 + 3/32, 1 + 22/32},
+            draw_as_shadow = true,
+            scale = 0.5,
+          },
+          {
+            priority = "high",
+            width = 704,
+            height = 704,
+            frame_count = 120,
+            animation_speed = 0.5,
+            --shift = {0, -8/32},
+            scale = 0.5,
+            stripes =
+            {
+              {
+                filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-1.png",
+                width_in_frames = 8,
+                height_in_frames = 8,
+              },
+              {
+                filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-2.png",
+                width_in_frames = 8,
+                height_in_frames = 8,
+              },
+            },
+          },
+        }
+      },
+      working_visualisations = {{
+        fadeout = true,
+        animation = {
+          priority = "high",
+          width = 704,
+          height = 400,
+          shift = util.by_pixel_hr(0, 92),
+          frame_count = 120,
+          animation_speed = 0.5,
+          --shift = {0, -8/32},
+          scale = 0.5,
+          draw_as_light = true,
+          blend_mode = "additive",
+          stripes =
+          {
+            {
+              filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-emission-1.png",
+              width_in_frames = 8,
+              height_in_frames = 8,
+            },
+            {
+              filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-emission-2.png",
+              width_in_frames = 8,
+              height_in_frames = 8,
+            },
+          },
+        },
+      }},
+      --always_draw_idle_animation = true,
+		  --[[idle_animation = {
         filename = "__LunarLandings__/graphics/entities/core-extractor.png",
         size = {512*2,512*2},
         shift = {0, 0},
@@ -85,8 +151,8 @@ data:extend({
         --lines_per_file = 2,
         frame_count = 1,
         -- animation_speed = 0.2,
-      },
-      working_visualisations = {
+      },]]
+      --[[working_visualisations = {
         {
           animation = {
             filename = "__LunarLandings__/graphics/entities/core-extractor-animation.png",
@@ -105,7 +171,7 @@ data:extend({
             size = 15
           }
         },
-      },
+      },]]
     },
     working_sound =
     {

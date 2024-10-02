@@ -213,8 +213,8 @@ data:extend{
   {
     type = "technology",
     name = "ll-ice-extraction",
-    icon = "__space-exploration-graphics__/graphics/icons/water-ice.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon = "__LunarLandings__/graphics/technology/core-extractor.png",
+    icon_size = 256, icon_mipmaps = 1,
     effects =
     {
       {
