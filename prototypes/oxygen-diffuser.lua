@@ -3,6 +3,9 @@ local sounds = require("__base__.prototypes.entity.sounds")
 
 data.raw["assembling-machine"]["assembling-machine-1"].allowed_effects = {"productivity"}
 
+local diffuser_pipe_pictures = assembler3pipepictures()
+diffuser_pipe_pictures.north = util.empty_sprite()
+
 data:extend{
   {
     type = "recipe",
@@ -178,7 +181,6 @@ data:extend{
     },
     surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
   },
-
   {
     type = "storage-tank",
     name = "ll-oxygen-diffuser-fluidbox",
@@ -198,6 +200,7 @@ data:extend{
       base_area = 2,
       height = 2,
       base_level = -1,
+      pipe_picture = diffuser_pipe_pictures,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
