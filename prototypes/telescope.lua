@@ -10,7 +10,7 @@ data:extend{
       {"processing-unit", 10},
       {"lab", 2},
     },
-    result = "ll-telescope"
+    results = {{type="item", name="ll-telescope", amount=1}}
   },
   {
     type = "item",

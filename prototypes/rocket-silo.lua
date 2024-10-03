@@ -81,7 +81,7 @@ data:extend{
       {"electric-engine-unit", 200}
     },
     energy_required = 30,
-    result = "ll-rocket-silo-interstellar",
+    results = {{type="item", name="ll-rocket-silo-interstellar", amount=1}},
     requester_paste_multiplier = 1
   },
 }

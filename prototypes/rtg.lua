@@ -36,7 +36,7 @@ data:extend({
       {"electronic-circuit", 10},
       {"uranium-fuel-cell", 5}, -- 5x 8 GJ!
     },
-    result = "ll-rtg",
+    results = {{type="item", name="ll-rtg", amount=1}},
   },
   --[[{
     type = "recipe",
@@ -47,7 +47,7 @@ data:extend({
       {"ll-rtg-depleted", 1},
       {"uranium-fuel-cell", 5}, -- 5x 8 GJ!
     },
-    result = "ll-rtg",
+    results = {{type="item", name="ll-rtg", amount=1}},
   },]]
   {
     type = "electric-energy-interface",

@@ -44,7 +44,7 @@ data:extend{
       {"nuclear-fuel", 10},
       {"ll-quantum-processor", 100},
     },
-    result = "ll-interstellar-satellite",
+    results = {{type="item", name="ll-interstellar-satellite", amount=1}},
     requester_paste_multiplier = 1
   },
 

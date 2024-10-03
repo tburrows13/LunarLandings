@@ -343,6 +343,6 @@ data:extend{
 			{ "engine-unit", 4 },			
 			{ "electronic-circuit", 10 },
 		},
-    result = "ll-steam-condenser"
+    results = {{type="item", name="ll-steam-condenser", amount=1}}
 	},
 }

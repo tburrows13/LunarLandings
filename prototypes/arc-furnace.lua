@@ -26,7 +26,7 @@ data:extend{
       {"steel-plate", 25},
       {"processing-unit", 5},
       {"concrete", 50}},
-    result = "ll-arc-furnace",
+    results = {{type="item", name="ll-arc-furnace", amount=1}},
     energy_required = 5,
     enabled = false
   },
@@ -48,7 +48,7 @@ data:extend{
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
       mining_time = 0.5,
-      result = "ll-arc-furnace"
+      results = {{type="item", name="ll-arc-furnace", amount=1}}
     },
     max_health = 300,
     corpse = "big-remnants",

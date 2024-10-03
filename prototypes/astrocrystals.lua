@@ -18,7 +18,7 @@ data:extend({
     resource_patch_search_radius = 12,
     minable = {
       mining_time = 2,
-      result = "ll-astrocrystals",
+      results = {{type="item", name="ll-astrocrystals", amount=1}},
       required_fluid = "lubricant",
       fluid_amount = 2,
     },

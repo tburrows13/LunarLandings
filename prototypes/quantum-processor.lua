@@ -11,7 +11,7 @@ data:extend{
       {"ll-alumina", 5},
       {type = "fluid", name = "ll-astroflux", amount = 5}
     },
-    result = "ll-quantum-processor"
+    results = {{type="item", name="ll-quantum-processor", amount=1}}
   },
   {
     type = "item",

@@ -69,7 +69,7 @@ data:extend{
       {"plastic-bar", 2},
       {"ll-silica", 5},
     },
-    result = "ll-heat-shielding"
+    results = {{type="item", name="ll-heat-shielding", amount=1}}
   },
   {
     type = "item",
@@ -96,7 +96,7 @@ data:extend{
       {"rocket-control-unit", 10},
       {type = "fluid", name = "steam", amount = 100, temperature = 500}
     },
-    result = "rocket-part-down"
+    results = {{type="item", name="rocket-part-down", amount=1}}
   },
   {
     type = "item",
@@ -124,7 +124,7 @@ data:extend{
       {"ll-quantum-processor", 1},
       {"nuclear-fuel", 1},
     },
-    result = "rocket-part-interstellar"
+    results = {{type="item", name="rocket-part-interstellar", amount=1}}
   },
   {
     type = "item",

@@ -65,7 +65,7 @@ data:extend{
       {"ll-silicon", 20},
       {"stone-brick", 1}
     },
-    result = "ll-blank-data-card",
+    results = {{type="item", name="ll-blank-data-card", amount=1}},
   },
   {
     type = "recipe",

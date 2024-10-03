@@ -19,7 +19,7 @@ data:extend{
       {"copper-cable", 10},
       {"pump", 2}
     },
-    result = "ll-oxygen-diffuser"
+    results = {{type="item", name="ll-oxygen-diffuser", amount=1}}
   },
   {
     type = "item",

@@ -282,7 +282,7 @@ data:extend{
     stack_size = 100,
     place_as_tile =
     {
-      result = "ll-lunar-foundation",
+      results = {{type="item", name="ll-lunar-foundation", amount=1}},
       condition_size = 1,
       condition = { "water-tile" }  -- Will be overwritten in data-final-fixes
     }

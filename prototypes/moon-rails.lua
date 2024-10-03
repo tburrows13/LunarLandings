@@ -20,8 +20,7 @@ data:extend{
       {"iron-stick", 1},
       {"plastic-bar", 1},
     },
-    result = "ll-moon-rail",
-    result_count = 2
+    results = {{type="item", name="ll-moon-rail", amount=2}},
   },
   {
     type = "rail-planner",

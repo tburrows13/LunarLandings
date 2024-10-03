@@ -65,8 +65,7 @@ data:extend{
       {"ll-aluminium-plate", 100},
       {"ll-quantum-processor", 20},
     },
-    result = "ll-quantum-resonator",
-    result_count = 1,
+    results = {{type="item", name="ll-quantum-resonator", amount=1}},
     enabled = false,
     main_product = "ll-quantum-resonator",
   },
@@ -78,7 +77,7 @@ data:extend{
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
       mining_time = 1,
-      result = "ll-quantum-resonator"
+      results = {{type="item", name="ll-quantum-resonator", amount=1}}
     },
     max_health = 300,
     corpse = "big-remnants",

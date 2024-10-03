@@ -43,7 +43,7 @@ data:extend{
       {"steel-plate", 10},
       {"iron-gear-wheel", 20},
     },
-    result = "ll-low-grav-assembling-machine"
+    results = {{type="item", name="ll-low-grav-assembling-machine", amount=1}}
   },
   {
     type = "item",

@@ -37,7 +37,7 @@ data:extend{
       {"flying-robot-frame", 1},
       {"electronic-circuit", 2}
     },
-    result = "construction-robot"
+    results = {{type="item", name="construction-robot", amount=1}}
   },
 
 }

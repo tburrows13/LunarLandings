@@ -152,7 +152,7 @@ data:extend{
 			{"rocket-control-unit", 1},
     },
     energy_required = 4,
-    result = "ll-landing-pad",
+    results = {{type="item", name="ll-landing-pad", amount=1}},
     enabled = false
   },
   {
