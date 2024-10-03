@@ -44,8 +44,8 @@ local function test_collision(mask1, mask2, name1, name2, should_collide)
 end
 
 local function test_tile_collisions()
-  local tiles = game.tile_prototypes
-  local entities = game.entity_prototypes
+  local tiles = prototypes.tile
+  local entities = prototypes.entity
 
   local grass_mask = tiles["grass-1"].collision_mask
   local water_mask = tiles["water"].collision_mask
@@ -70,7 +70,7 @@ local function test_tile_collisions()
 end
 
 local function test_entity_collisions()
-  local entities = game.entity_prototypes
+  local entities = prototypes.entity
 
   for _, test_case in pairs(entity_tests) do
     local entity_name = test_case[1]
