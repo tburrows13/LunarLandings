@@ -131,8 +131,6 @@ function x_util.add_ingredient(recipe_name, ingredient, quantity, options)
   local is_fluid = not not data.raw.fluid[ingredient]
   if data.raw.recipe[recipe_name] and (data.raw.item[ingredient] or is_fluid) then
     add_ingredient(data.raw.recipe[recipe_name], ingredient, quantity, is_fluid)
-    add_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity, is_fluid)
-    add_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity, is_fluid)
   end
 end
 
@@ -175,8 +173,6 @@ end
 function x_util.replace_ingredient(recipe_name, old, new, amount, multiply, options)
   if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
     replace_ingredient(data.raw.recipe[recipe_name], old, new, amount, multiply)
-    replace_ingredient(data.raw.recipe[recipe_name].normal, old, new, amount, multiply)
-    replace_ingredient(data.raw.recipe[recipe_name].expensive, old, new, amount, multiply)
   end
 end
 

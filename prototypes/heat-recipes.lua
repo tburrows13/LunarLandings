@@ -12,27 +12,15 @@ for name, recipe in pairs(data.raw.recipe) do
     heat_recipe.localised_name = recipe.localised_name or {"?", {"item-name." .. name}, {"recipe-name." .. name}}
     heat_recipe.localised_description = recipe.localised_description or {"?", {"item-description." .. name}, {"?", {"recipe-description." .. name}, ""}}
 
-    -- Remove normal/expensive
-    if heat_recipe.normal then
-      for key, value in pairs(heat_recipe.normal) do
-        heat_recipe[key] = value
-      end
-      heat_recipe.normal = nil
-      heat_recipe.expensive = nil
-    end
     heat_recipe.enabled = true
     heat_recipe.hide_from_player_crafting = true
 
     -- Doesn't account for fluids
+    -- TODO 2.0 order should be doable now
     --heat_recipe.order = tostring(recipe.order or data.raw["item"][heat_recipe.result or heat_recipe.results[1][1]].order) .. "-heat"
 
-    if heat_recipe.result and not heat_recipe.results then
-      heat_recipe.results = {{type = "item", name = heat_recipe.result, amount = heat_recipe.result_count or 1}}
-      heat_recipe.result = nil
-      heat_recipe.result_count = nil
-    end
     if not heat_recipe.main_product and #heat_recipe.results == 1 then
-      heat_recipe.main_product = heat_recipe.results[1].name or heat_recipe.results[1][1]
+      heat_recipe.main_product = heat_recipe.results[1].name
     end
     if heat_recipe.results then
       -- Every second, arc furnace consumes 10MJ, of which 9MJ needs to be output in heat

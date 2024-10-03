@@ -8,7 +8,6 @@ rocket_fuel_recipe.results = {
 rocket_fuel_recipe.subgroup = "fluid-recipes"
 
 -- Replace all rocket-fuel with ll-rocket-fuel (fluid)
--- Doesn't handle normal/expensive, etc
 for _, recipe in pairs(data.raw.recipe) do
   if recipe.ingredients then
     for i, ingredient in pairs(recipe.ingredients) do
