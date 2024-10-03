@@ -4,7 +4,7 @@ local Buckets = require "scripts.buckets"
 local RTG = {}
 local ln_2 = 0.69314718
 
-local initial_energy = 40*10^9  -- 40 GJ
+local initial_energy = 80*10^9  -- 80 GJ
 local initial_power = 600*10^3  -- 600 kW
 local half_life = 0.1 * initial_energy * ln_2 / initial_power  -- 600 kW
 
