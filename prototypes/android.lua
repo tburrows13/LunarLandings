@@ -6,7 +6,7 @@
     type = "character",
     name = "ll-andoid",
     icon = "__core__/graphics/icons/entity/character.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"placeable-off-grid", "not-repairable", "not-on-map", "not-flammable"},
     max_health = 250,
     alert_when_damaged = false,

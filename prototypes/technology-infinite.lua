@@ -8,7 +8,7 @@ data:extend{
   {
     type = "technology",
     name = "mining-productivity-4",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/mining-productivity.png"),
     effects =
     {
@@ -38,7 +38,7 @@ data:extend{
   {
     type = "technology",
     name = "mining-productivity-5",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/mining-productivity.png"),
     effects =
     {
@@ -77,7 +77,7 @@ data:extend{
   {
     type = "technology",
     name = "worker-robots-speed-6",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/worker-robots-speed.png"),
     effects =
     {
@@ -107,7 +107,7 @@ data:extend{
   {
     type = "technology",
     name = "worker-robots-speed-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/worker-robots-speed.png"),
     effects =
     {
@@ -147,7 +147,7 @@ data:extend{
   {
     type = "technology",
     name = "physical-projectile-damage-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(physical_projectile_damage_2_icon),
     effects =
     {
@@ -183,7 +183,7 @@ data:extend{
   {
     type = "technology",
     name = "physical-projectile-damage-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(physical_projectile_damage_2_icon),
     effects =
     {
@@ -239,7 +239,7 @@ data:extend{
   {
     type = "technology",
     name = "energy-weapons-damage-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
     effects =
     {
@@ -280,7 +280,7 @@ data:extend{
   {
     type = "technology",
     name = "energy-weapons-damage-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
     effects =
     {
@@ -331,7 +331,7 @@ data:extend{
   {
     type = "technology",
     name = "stronger-explosives-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(stronger_explosives_3_icon),
     effects =
     {
@@ -372,7 +372,7 @@ data:extend{
   {
     type = "technology",
     name = "stronger-explosives-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(stronger_explosives_3_icon),
     effects =
     {
@@ -424,7 +424,7 @@ data:extend{
   {
     type = "technology",
     name = "refined-flammables-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(refined_flammables_icon),
     effects =
     {
@@ -460,7 +460,7 @@ data:extend{
   {
     type = "technology",
     name = "refined-flammables-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(refined_flammables_icon),
     effects =
     {
@@ -506,7 +506,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-range-1",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_range("__base__/graphics/technology/artillery-range.png"),
     effects =
     {
@@ -536,7 +536,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-range-2",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_range("__base__/graphics/technology/artillery-range.png"),
     effects =
     {
@@ -576,7 +576,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-speed-1",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/artillery-speed.png"),
     effects =
     {
@@ -585,7 +585,6 @@ data:extend{
         ammo_category = "artillery-shell",
         icon = "__base__/graphics/icons/artillery-shell.png",
         icon_size = 64,
-        icon_mipmaps = 2,
         modifier = 1
       }
     },
@@ -610,7 +609,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-speed-2",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/artillery-speed.png"),
     effects =
     {
@@ -619,7 +618,6 @@ data:extend{
         ammo_category = "artillery-shell",
         icon = "__base__/graphics/icons/artillery-shell.png",
         icon_size = 64,
-        icon_mipmaps = 2,
         modifier = 1
       }
     },

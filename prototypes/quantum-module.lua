@@ -4,7 +4,7 @@ data:extend{
     name = "ll-quantum-module",
     localised_description = {"item-description.productivity-module"},
     icon = "__LunarLandings__/graphics/icons/quantum-module.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "module",
     category = "productivity",
     tier = 4,

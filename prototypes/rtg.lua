@@ -10,7 +10,7 @@ data:extend({
     type = "item",
     name = "ll-rtg",
     icon = "__LunarLandings__/graphics/icons/rtg.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     order = "f[nuclear-energy]-1[rtg]",
     place_result = "ll-rtg",
     stack_size = 10,
@@ -20,7 +20,7 @@ data:extend({
     type = "item",
     name = "ll-rtg-depleted",
     icon = "__LunarLandings__/graphics/icons/rtg-depleted.png",
-    icon_size = 32, icon_mipmaps = 1,
+    icon_size = 32,
     order = "f[nuclear-energy]-2[depleted-rtg]",
     -- place_result = RTG,
     stack_size = 5,
@@ -53,7 +53,7 @@ data:extend({
     type = "electric-energy-interface",
     name = "ll-rtg",
     icon = "__LunarLandings__/graphics/icons/rtg.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     minable = {
       mining_time = 1,
       --results = {{"ll-rtg-depleted", 1}, {"used-up-uranium-fuel-cell", 5}}

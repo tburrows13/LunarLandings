@@ -6,7 +6,7 @@ data:extend{
     type = "item",
     name = "ll-interstellar-satellite",
     icon = "__LunarLandings__/graphics/item/interstellar-satellite.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures = {
       layers = {
         {

@@ -4,7 +4,6 @@ data:extend{
     name = "ll-aluminium-ore",
     icon = "__LunarLandings__/graphics/icons/aluminium-ore.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     pictures =
     {
       { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.25, mipmap_count = 4 },
@@ -21,7 +20,6 @@ data:extend{
     name = "ll-alumina",
     icon = "__LunarLandings__/graphics/icons/alumina.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "ll-raw-material-moon",
     order = "c[alumina]",
     stack_size = 50
@@ -30,7 +28,7 @@ data:extend{
     type = "item",
     name = "ll-aluminium-plate",
     icon = "__LunarLandings__/graphics/icons/aluminium-plate.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     subgroup = "ll-raw-material-moon",
     order = "d[aluminium-plate]",
     stack_size = 100
@@ -43,7 +41,7 @@ data:extend{
     base_color = {r = 53, g = 0, b = 0}, --153
     flow_color = {r = 53, g = 0, b = 0},
     icon = "__LunarLandings__/graphics/icons/red-mud.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     order = "g[red-mud]"
   },
   -- Heat outputs will be added to recipes in heat-recipes.lua (data-final-fixes)
@@ -65,7 +63,7 @@ data:extend{
     },
     main_product = "ll-alumina",
     --[[icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "raw-material",
     order = "a[oil-processing]-c[advanced-oil-processing]"]]
   },
@@ -86,7 +84,7 @@ data:extend{
     },
     main_product = "ll-aluminium-plate",
     --[[icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "raw-material",
     order = "a[oil-processing]-c[advanced-oil-processing]"]]
   },
@@ -96,11 +94,11 @@ data:extend{
     icons = {
       {
         icon = "__LunarLandings__/graphics/icons/red-mud.png",
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
       },
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
-        icon_size = 64, icon_mipmaps = 1,
+        icon_size = 64,
         scale = 0.3,
         shift = {-8, 8},
       }
@@ -134,11 +132,11 @@ data:extend{
     icons = {
       {
         icon = "__base__/graphics/icons/low-density-structure.png",
-        icon_size = 64, icon_mipmaps = 4,    
+        icon_size = 64,
       },
       {
         icon = "__LunarLandings__/graphics/icons/aluminium-plate.png",
-        icon_size = 128, icon_mipmaps = 1,
+        icon_size = 128,
         scale = 0.125,
         shift = {-8, -8},
       }

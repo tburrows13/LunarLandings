@@ -17,7 +17,7 @@ data:extend{
     type = "item",
     name = "ll-quantum-processor",
     icon = "__LunarLandings__/graphics/icons/quantum-processor.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "g[processing-unit]-a[quantum]",
     stack_size = 100

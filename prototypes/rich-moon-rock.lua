@@ -29,7 +29,6 @@ data:extend{
     name = "ll-rich-moon-rock",
     icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     pictures =
     {
       { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25, mipmap_count = 4 },
@@ -59,7 +58,7 @@ data:extend{
       {type="item", name="ll-moon-rock", amount_min = 0, amount_max = 2},
     },
     icon = "__LunarLandings__/graphics/icons/aluminium-ore.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "b[rich-moon-rock]"
   },

@@ -4,7 +4,7 @@ data:extend{
     name = "ll-quantum-science-pack",
     localised_description = {"item-description.science-pack"},
     icon = "__LunarLandings__/graphics/icons/quantum-science-pack.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "science-pack",
     order = "g-b[quantum-science-pack]",
     stack_size = 200,

@@ -22,7 +22,7 @@ data:extend{
     type = "item",
     name = "ll-construction-drone",
     icon = "__base__/graphics/icons/construction-robot.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "logistic-network",
     order = "a[robot]-b[construction-robot]",
     place_result = "construction-robot",

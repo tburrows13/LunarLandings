@@ -7,7 +7,6 @@ data:extend({
     category = "ll-core",
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = { "placeable-neutral" },
     order = "a-b-a",
     subgroup = "raw-resource",
@@ -64,7 +63,7 @@ data:extend({
     type = "item",
     name = "ll-astrocrystals",
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
       {
@@ -161,7 +160,7 @@ data:extend({
     base_color = { r = 180, g = 40, b = 180},
     flow_color = { r = 180, g = 40, b = 180},
     icon = "__LunarLandings__/graphics/fluid/astroflux.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     order = "h[astroflux]"
   },
   {
@@ -172,7 +171,7 @@ data:extend({
     category = "centrifuging",
     ingredients = {{"ll-astrocrystals", 4}, {type="fluid", name="steam", amount="10"}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "l[exotic-mineral-processing]",
     results =

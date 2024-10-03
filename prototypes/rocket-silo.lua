@@ -62,7 +62,7 @@ data:extend{
     type = "item",
     name = "ll-rocket-silo-interstellar",
     icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "space-related",
     order = "x[interstellar-rocket-silo]",
     place_result = "ll-rocket-silo-interstellar",
@@ -165,7 +165,6 @@ rocket_down.fluid_boxes =
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png"
-rocket_silo_interstellar.icon_mipmaps = 1
 rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
 rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}

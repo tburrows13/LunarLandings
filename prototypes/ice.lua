@@ -5,7 +5,7 @@ data:extend{
     type = "item",
     name = "ll-ice",
     icon = "__LunarLandings__/graphics/icons/ice.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
       { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25, mipmap_count = 4 },
@@ -20,7 +20,7 @@ data:extend{
     type = "resource",
     name = "ll-ice",
     icon = "__space-exploration-graphics__/graphics/icons/water-ice.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     flags = {"placeable-neutral"},
     category = "ll-core",
     subgroup = "raw-resource",

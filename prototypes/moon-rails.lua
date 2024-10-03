@@ -27,7 +27,7 @@ data:extend{
     type = "rail-planner",
     name = "ll-moon-rail",
     icon = "__space-exploration-graphics__/graphics/icons/space-rail.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     localised_name = {"item-name.ll-moon-rail"},
     subgroup = "train-transport",
     order = "a[train-system]-b[moon-rail]",
@@ -60,7 +60,6 @@ local straight_rail = table.deepcopy(data.raw["straight-rail"]["straight-rail"])
 straight_rail.name = "ll-straight-moon-rail"
 straight_rail.icon = "__space-exploration-graphics__/graphics/icons/space-rail.png"
 straight_rail.icon_size = 64
-straight_rail.icon_mipmaps = 1
 straight_rail.minable.result = "ll-moon-rail"
 --straight_rail.placeable_by.item = "ll-moon-rail"
 straight_rail.map_color = {r = 255, g = 0, b = 0, a = 0}  -- Seems to be ignored, TODO check in 2.0
@@ -76,7 +75,6 @@ local curved_rail = table.deepcopy(data.raw["curved-rail"]["curved-rail"])
 curved_rail.name = "ll-curved-moon-rail"
 curved_rail.icon = "__space-exploration-graphics__/graphics/icons/space-rail.png"
 curved_rail.icon_size = 64
-curved_rail.icon_mipmaps = 1
 curved_rail.minable.result = "ll-moon-rail"
 curved_rail.placeable_by.item = "ll-moon-rail"
 curved_rail.map_color = {r = 0, g = 0, b = 0}

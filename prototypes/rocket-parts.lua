@@ -44,14 +44,14 @@ data:extend{
     base_color = {r = 255, g = 191, b = 0},
     flow_color = {r = 255, g = 191, b = 0},
     icon = "__space-exploration-graphics__/graphics/icons/fluid/liquid-rocket-fuel.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     order = "f[rocket-fuel]"
   },
   {
     type = "item",
     name = "ll-heat-shielding",
     icon = "__space-exploration-graphics__/graphics/icons/heat-shielding.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-a",
     stack_size = 20,
@@ -76,7 +76,7 @@ data:extend{
     name = "rocket-part-down",
     localised_name = {"item-name.rocket-part-down"},
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"hidden"},
     subgroup = "intermediate-product",
     order = "o[rocket-part]-c",
@@ -103,7 +103,7 @@ data:extend{
     name = "rocket-part-interstellar",
     localised_name = {"item-name.rocket-part-interstellar"},
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"hidden"},
     subgroup = "intermediate-product",
     order = "o[rocket-part]-d",
@@ -130,7 +130,7 @@ data:extend{
     type = "item",
     name = "ll-used-rocket-part",
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-e",
     stack_size = 1
@@ -141,11 +141,11 @@ data:extend{
     icons = {
       {
         icon = "__base__/graphics/icons/rocket-part.png",
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
       },
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
-        icon_size = 64, icon_mipmaps = 1,
+        icon_size = 64,
         scale = 0.3,
         shift = {-8, 8},
       }

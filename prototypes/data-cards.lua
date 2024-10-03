@@ -91,7 +91,7 @@ data:extend{
         shift = {2, 1},
       }
     },
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "ll-data-cards",
     enabled = false,
     category = "advanced-crafting",
@@ -110,11 +110,11 @@ data:extend{
     icons = {
       {
         icon = "__space-exploration-graphics__/graphics/icons/data/broken.png",
-        icon_size = 64, icon_mipmaps = 1,
+        icon_size = 64,
       },
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
-        icon_size = 64, icon_mipmaps = 1,
+        icon_size = 64,
         scale = 0.3,
         shift = {-8, 8},
       }

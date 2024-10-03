@@ -25,7 +25,7 @@ data:extend{
     max_temperature = 1000,
     heat_capacity = "0.2KJ",
     icon = "__LunarLandings__/graphics/fluids/helium-3.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     base_color = {r = 173, g = 216, b = 230},
     flow_color = {r = 173, g = 216, b = 230},
     order = "g[gas]-b[helium-3]",
@@ -36,7 +36,7 @@ data:extend{
     type = "item",
     name = "ll-fusion-fuel",
     icon = "__LunarLandings__/graphics/icons/fusion-fuel.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
       layers =

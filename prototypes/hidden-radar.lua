@@ -3,7 +3,7 @@ data:extend{
     type = "radar",
     name = "ll-hidden-radar",
     icon = "__base__/graphics/icons/radar.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     max_health = 250,
     collision_mask = {},
     energy_per_sector = "10MJ",

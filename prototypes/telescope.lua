@@ -16,7 +16,7 @@ data:extend{
     type = "item",
     name = "ll-telescope",
     icon = "__space-exploration-graphics__/graphics/icons/telescope.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "production-machine",
     order = "h[telescope]",
     place_result = "ll-telescope",

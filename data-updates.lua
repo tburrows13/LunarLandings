@@ -12,7 +12,6 @@ table.insert(space_train_tech.effects, 1, {type = "unlock-recipe", recipe = "ll-
 space_train_tech.effects[3], space_train_tech.effects[4] = space_train_tech.effects[4], space_train_tech.effects[3]
 space_train_tech.icon = "__space-exploration-graphics__/graphics/technology/space-rail.png"
 space_train_tech.icon_size = 128
-space_train_tech.icon_mipmaps = 1
 space_train_tech.unit.count = 300
 
 x_util.remove_prerequisite("tech-space-trains", "battery")

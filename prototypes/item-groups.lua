@@ -5,7 +5,6 @@
     order = "b",
     icon = "__base__/graphics/item-group/production.png",
     icon_size = 128,
-    icon_mipmaps = 2
   },
   {
     type = "item-subgroup",
