@@ -1,45 +1,6 @@
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 
-local ei_pipe_big_insulated = {
-  north = util.empty_sprite(),
-  south = {
-      layers = {
-          {
-            filename = "__LunarLandings__/graphics/pipe-covers/electricity_south_covers.png",
-            width = 512,
-            height = 512,
-            shift = {0,-2.15},
-            scale = 0.44/2,
-          },
-          {
-            filename = "__LunarLandings__/graphics/pipe-covers/south_basic_covers.png",  -- south_basic_covers_insulated.png
-            priority = "high",
-            width = 55,
-            height = 50,
-            shift = {0.01, -0.58},
-            scale = 0.5
-          }
-      }
-  },
-  west = {
-    filename = "__LunarLandings__/graphics/pipe-covers/big_west_covers.png",
-    priority = "high",
-    width = 512,
-    height = 512,
-    scale = 0.35,
-    shift = util.by_pixel(96, 0),        
-  },
-  east = {
-    filename = "__LunarLandings__/graphics/pipe-covers/big_east_covers.png",
-    priority = "high",
-    width = 512,
-    height = 512,
-    scale = 0.35,
-    shift = util.by_pixel(-96, 0),
-  }
-}
-
 data:extend{
   {
     type = "recipe-category",
@@ -117,8 +78,8 @@ data:extend{
         base_area = 1,
         base_level = -1,
         height = 2,
+        pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-        pipe_picture = ei_pipe_big_insulated,
         pipe_connections = {
           {type = "input", position = {3, 0}},
         },
@@ -128,8 +89,8 @@ data:extend{
         base_area = 1,
         base_level = 1,
         height = 2,
+        pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-        pipe_picture = ei_pipe_big_insulated,
         pipe_connections = {
           {type = "output", position = {-3, 0}},
         },
@@ -150,39 +111,62 @@ data:extend{
       },
       off_when_no_fluid_recipe = true
     },
-    animation = {
-      filename = "__LunarLandings__/graphics/entities/arc-furnace.png",
-      size = {512,512},
-      shift = {0, 0},
-      scale = 0.35,
-      line_length = 1,
-      --lines_per_file = 2,
-      frame_count = 1,
-      -- animation_speed = 0.2,
-    },
-    working_visualisations = {
-      {
-        animation =
+    always_draw_idle_animation = true,
+    idle_animation = {
+      layers = {
         {
-          filename = "__LunarLandings__/graphics/entities/arc-furnace-animation.png",
-          size = {512,512},
+          filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-shadow.png",
+          size = {600, 400},
           shift = {0, 0},
-          scale = 0.35,
-          line_length = 4,
-          lines_per_file = 4,
-          frame_count = 16,
-          animation_speed = 0.4 / 3,
-          run_mode = "backward",
-        }
+          scale = 0.5,
+          line_length = 1,
+          frame_count = 1,
+          repeat_count = 40,
+          draw_as_shadow = true,
+          animation_speed = 0.25,
+        },
+        {
+          filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-structure.png",
+          size = {320, 320},
+          shift = {0, 0},
+          scale = 0.5,
+          line_length = 1,
+          frame_count = 1,
+          repeat_count = 40,
+          animation_speed = 0.25,
+        },
       },
-      {
+    },
+    working_visualisations = {{
+      fadeout = true,
+      secondary_draw_order = 1,
+      animation = {
+        layers = {
+          {
+            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-animation-emission-1.png",
+            size = {320, 320},
+            shift = {0, 0},
+            scale = 0.5,
+            line_length = 8,
+            lines_per_file = 8,
+            frame_count = 40,
+            --draw_as_light = true,
+            draw_as_glow = true,
+            blend_mode = "additive",
+            animation_speed = 0.25,
+            --run_mode = "backward",
+          },
+        },
+      },
+    }},
+      --[[{
         light = {
           type = "basic",
           intensity = 1,
           size = 15
         }
-      }
-    },
+      }]]
+    --},
     working_sound =
     {
       sound = {filename = "__base__/sound/electric-furnace.ogg", volume = 0.6},
@@ -247,91 +231,23 @@ data:extend{
     damaged_trigger_effect = hit_effects.entity(),
     lower_layer_picture =
     {
-      filename = "__base__/graphics/entity/nuclear-reactor/reactor-pipes.png",
-      width = 156,
-      height = 156,
-      shift = util.by_pixel(-2, -4),
-      hr_version =
-      {
-        filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor-pipes.png",
-        width = 320,
-        height = 316,
-        scale = 0.5,
-        shift = util.by_pixel(-1, -5)
-      }
+      filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-heatpipes.png",
+      --filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor-pipes.png",
+      width = 320,
+      height = 320,  -- 316
+      scale = 0.5,
+      shift = util.by_pixel(-1, -5)
     },
     heat_lower_layer_picture = apply_heat_pipe_glow
     {
-      filename = "__base__/graphics/entity/nuclear-reactor/reactor-pipes-heated.png",
-      width = 156,
-      height = 156,
-      shift = util.by_pixel(-3, -4),
-      hr_version =
-      {
-        filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor-pipes-heated.png",
-        width = 320,
-        height = 316,
-        scale = 0.5,
-        shift = util.by_pixel(-0.5, -4.5)
-      }
+      filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor-pipes-heated.png",
+      width = 320,
+      height = 316,
+      scale = 0.5,
+      shift = util.by_pixel(-0.5, -4.5)
     },
 
-    --[[picture =
-    {
-      layers =
-      {
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor.png",
-          width = 154,
-          height = 158,
-          shift = util.by_pixel(-6, -6),
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor.png",
-            width = 302,
-            height = 318,
-            scale = 0.5,
-            shift = util.by_pixel(-5, -7)
-          }
-        },
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor-shadow.png",
-          width = 263,
-          height = 162,
-          shift = { 1.625 , 0 },
-          draw_as_shadow = true,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor-shadow.png",
-            width = 525,
-            height = 323,
-            scale = 0.5,
-            shift = { 1.625, 0 },
-            draw_as_shadow = true
-          }
-        }
-      }
-    },]]
-
-    working_light_picture =
-    {
-      filename = "__base__/graphics/entity/nuclear-reactor/reactor-lights-color.png",
-      blend_mode = "additive",
-      draw_as_glow = true,
-      width = 160,
-      height = 160,
-      shift = { -0.03125, -0.1875 },
-      hr_version =
-      {
-        filename = "__base__/graphics/entity/nuclear-reactor/hr-reactor-lights-color.png",
-        blend_mode = "additive",
-        draw_as_glow = true,
-        width = 320,
-        height = 320,
-        scale = 0.5,
-        shift = { -0.03125, -0.1875 },
-      }
-    },
+    working_light_picture = util.empty_sprite(),
 
     --light = {intensity = 0.6, size = 9.9, shift = {0.0, 0.0}, color = {r = 0.0, g = 1.0, b = 0.0}},
     -- use_fuel_glow_color = false, -- should use glow color from fuel item prototype as light color and tint for working_light_picture
