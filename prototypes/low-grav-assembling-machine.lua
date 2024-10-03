@@ -65,8 +65,8 @@ data:extend{
     max_health = 900,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, 8),
-    entity_info_icon_shift = util.by_pixel(0, 8),
+    alert_icon_shift = util.by_pixel(0, 6),
+    entity_info_icon_shift = util.by_pixel(0, 6),
     resistances =
     {
       {
@@ -156,7 +156,7 @@ data:extend{
           line_length = 1,
           repeat_count = 99,
           animation_speed = animation_speed,
-          shift = util.by_pixel_hr(0, -12),
+          shift = util.by_pixel_hr(0, -16),
           scale = 0.5,
         },
         {
@@ -164,7 +164,7 @@ data:extend{
           width = 320,
           height = 320,
           frame_count = 99,
-          shift = util.by_pixel_hr(0, -12),
+          shift = util.by_pixel_hr(0, -16),
           animation_speed = animation_speed,
           scale = 0.5,
           stripes =
@@ -190,7 +190,7 @@ data:extend{
         layers = {
           {
             size = {320, 320},
-            shift = util.by_pixel_hr(0, -12),
+            shift = util.by_pixel_hr(0, -16),
             scale = 0.5,
             frame_count = 99,
             draw_as_glow = true,
@@ -224,7 +224,8 @@ data:extend{
     energy_usage = "750kW",
     module_specification =
     {
-      module_slots = 6
+      module_slots = 6,
+      module_info_icon_shift = util.by_pixel_hr(0, 32 + (0.7*64)),  -- default is {0, 0.7}
     },
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     --scale_entity_info_icon = true,
