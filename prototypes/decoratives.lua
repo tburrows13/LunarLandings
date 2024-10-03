@@ -108,6 +108,11 @@ for name, bucket in pairs(decorative_rock_buckets) do
   data:extend{rock}
 end
 
+local entity_rock_results = {  -- Between how many moon rocks gained when mined
+  ["ll-moon-rock-huge"] = {6, 12},
+  ["ll-moon-rock-big"] = {3, 7},
+  ["ll-moon-sand-rock-big"] = {3, 7},
+}
 local entity_rocks = {
   ["rock-huge"] = {0.03, 2},
   ["rock-big"] = {0.01, 4},
@@ -120,13 +125,10 @@ for name, bucket in pairs(entity_rock_buckets) do
   rock.name = "ll-moon-" .. name
   rock.order = "x-c"
   rock.map_color={r=45, g=45, b=45}
-  if rock.minable.result then
-    rock.minable.result = "ll-moon-rock"
-  else
-    rock.minable.results[1].name = "ll-moon-rock"
-    rock.minable.results[2] = nil  -- Remove coal from rock-huge
-  end
-  rock.loot[1].item = "ll-moon-rock"
+  rock.minable.result = nil
+  rock.minable.count = nil
+  rock.minable.results = {{name = "ll-moon-rock", amount_min = entity_rock_results[rock.name][1], amount_max = entity_rock_results[rock.name][2]}}
+  rock.loot = nil
   rock.autoplace = {
     name = name,
     order = "b",
