@@ -295,9 +295,9 @@ data:extend{
     category = "crafting-with-fluid",
     ingredients =
     {
-      {"stone-brick", 20},
-      {"steel-plate", 1},
-      {type="fluid", name="water", amount=5}
+      {"stone-brick", 40},
+      {"steel-plate", 4},
+      {type="fluid", name="water", amount=10}
     },
     results = {{type="item", name="ll-lunar-foundation", amount=5}},
   },
