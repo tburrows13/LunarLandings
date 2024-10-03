@@ -8,8 +8,14 @@ data:extend{
   {
     type = "item",
     name = "ll-superposed-polariton",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton.png",
     icon_size = 64, icon_mipmaps = 1,
+    pictures = {
+      filename = "__LunarLandings__/graphics/icons/polariton/polariton.png",
+      scale = 0.25,
+      size = 64,
+      draw_as_glow = true
+    },
     subgroup = "ll-polaritons",
     order = "a[superposed-polariton]",
     stack_size = 1
@@ -17,8 +23,14 @@ data:extend{
   {
     type = "item",
     name = "ll-right-polariton",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-right.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-right.png",
     icon_size = 64, icon_mipmaps = 1,
+    pictures = {
+      filename = "__LunarLandings__/graphics/icons/polariton/polariton-right.png",
+      scale = 0.25,
+      size = 64,
+      draw_as_glow = true
+    },
     subgroup = "ll-polaritons",
     order = "b[polariton]-b[right]",
     stack_size = 1
@@ -26,8 +38,14 @@ data:extend{
   {
     type = "item",
     name = "ll-left-polariton",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-left.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-left.png",
     icon_size = 64, icon_mipmaps = 1,
+    pictures = {
+      filename = "__LunarLandings__/graphics/icons/polariton/polariton-left.png",
+      scale = 0.25,
+      size = 64,
+      draw_as_glow = true
+    },
     subgroup = "ll-polaritons",
     order = "b[polariton]-d[left]",
     stack_size = 1
@@ -35,8 +53,14 @@ data:extend{
   {
     type = "item",
     name = "ll-up-polariton",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-up.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-up.png",
     icon_size = 64, icon_mipmaps = 1,
+    pictures = {
+      filename = "__LunarLandings__/graphics/icons/polariton/polariton-up.png",
+      scale = 0.25,
+      size = 64,
+      draw_as_glow = true
+    },
     subgroup = "ll-polaritons",
     order = "b[polariton]-a[up]",
     stack_size = 1
@@ -44,8 +68,14 @@ data:extend{
   {
     type = "item",
     name = "ll-down-polariton",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-down.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-down.png",
     icon_size = 64, icon_mipmaps = 1,
+    pictures = {
+      filename = "__LunarLandings__/graphics/icons/polariton/polariton-down.png",
+      scale = 0.25,
+      size = 64,
+      draw_as_glow = true
+    },
     subgroup = "ll-polaritons",
     order = "b[polariton]-c[down]",
     stack_size = 1
@@ -85,7 +115,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-polarisation-up",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-up.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-up.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
     order = "b[polarisation]-a[up]",
@@ -105,7 +135,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-polarisation-right",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-right.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-right.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
     order = "b[polarisation]-b[right]",
@@ -125,7 +155,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-polarisation-down",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-down.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-down.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
     order = "b[polarisation]-c[down]",
@@ -145,7 +175,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-polarisation-left",
-    icon = "__LunarLandings__/graphics/item/matter-cube/matter-cube-left.png",
+    icon = "__LunarLandings__/graphics/icons/polariton/polariton-left.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "ll-polaritons",
     order = "b[polarisation]-d[left]",

@@ -559,7 +559,9 @@ data:extend{
   {
     type = "technology",
     name = "ll-quantum-resonation",
-    icon = "__LunarLandings__/graphics/technology/computer-core.png",
+    --icon = "__LunarLandings__/graphics/technology/computer-core.png",
+    --icon_size = 256, icon_mipmaps = 1,
+    icon = "__LunarLandings__/graphics/technology/polariton.png",
     icon_size = 256, icon_mipmaps = 1,
     prerequisites = {"ll-quantum-computing", "utility-science-pack"},
     effects =
