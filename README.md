@@ -38,7 +38,8 @@ For quality of life, you are free to choose your own. You can see my general rec
 
 ### Attributions
 Thank you to [Earendel](https://mods.factorio.com/user/Earendel) for all the various graphics from SE and AB (used with permission, and only included by requiring the graphics mods).
-Thank you to [PreLeyZero](https://mods.factorio.com/user/PreLeyZero) for the core extractor, arc furnace, and quantum resonator from [Exotic Industries](https://mods.factorio.com/mod/exotic-industries).
+Thank you to [Hurricane](https://mods.factorio.com/user/Hurricane046) for the incredible custom graphics made for LL: core extractor, low gravity assembling machine, and arc furnace.
+Thank you to [PreLeyZero](https://mods.factorio.com/user/PreLeyZero) for the quantum resonator from [Exotic Industries](https://mods.factorio.com/mod/exotic-industries).
 Thank you to [brevven](https://mods.factorio.com/user/brevven) for the silicon and aluminium icons from [Very BZ](https://mods.factorio.com/mod/bzvery).
 Thank you to the [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) team for the astrocrystals graphics and various icons.
 Thank you to [Bery0za](https://mods.factorio.com/user/Bery0za) for the steam condenser graphics from [Bery0za's Pure It](https://mods.factorio.com/mod/bery0zas-pure-it).
