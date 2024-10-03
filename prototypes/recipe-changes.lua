@@ -9,6 +9,10 @@ data.raw.recipe["satellite"].ingredients =
   {"solid-fuel", 25}
 }
 
+-- Buff solid fuel because no rocket fuel
+local solid_fuel = data.raw.item["solid-fuel"]
+solid_fuel.fuel_acceleration_multiplier = 1.5
+
 x_util.add_ingredient("processing-unit", "ll-silicon", 5)
 
 x_util.add_ingredient("production-science-pack", "ll-heat-shielding", 2)
