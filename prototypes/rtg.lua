@@ -13,7 +13,7 @@ data:extend({
     icon_size = 64, icon_mipmaps = 1,
     order = "f[nuclear-energy]-1[rtg]",
     place_result = "ll-rtg",
-    stack_size = 5,
+    stack_size = 10,
     subgroup = "energy",
   },
   --[[{

@@ -47,7 +47,7 @@ data:extend{
     subgroup = "space-related",
     order = "r[mass-driver-requester]",
     place_result = "ll-mass-driver-requester",
-    stack_size = 50
+    stack_size = 10
   },
   {
     type = "logistic-container",
@@ -137,7 +137,7 @@ data:extend{
     subgroup = "space-related",
     order = "q[mass-driver]",
     place_result = "ll-mass-driver",
-    stack_size = 50
+    stack_size = 10
   },
   {
     type = "logistic-container",

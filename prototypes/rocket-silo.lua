@@ -2,6 +2,7 @@ local rocket = data.raw["rocket-silo-rocket"]["rocket-silo-rocket"]
 rocket.inventory_size = 20
 
 data.raw["item"]["rocket-silo"].localised_name = {"entity-name.rocket-silo"}
+data.raw["item"]["rocket-silo"].stack_size = 5
 
 local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
 rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}

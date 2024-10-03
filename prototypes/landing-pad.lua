@@ -139,7 +139,7 @@ data:extend{
     name = "ll-landing-pad",
     icon = "__LunarLandings__/graphics/landing-pad.png",
     icon_size = 64,
-    stack_size = 50,
+    stack_size = 10,
     place_result = "ll-landing-pad",
 		order = "n[landing-pad]",
     subgroup = "space-related",
