@@ -17,8 +17,6 @@ data:extend{
       --pollution = {bonus = 0.1},
       --speed = {bonus = -0.15}
     },
-    limitation = productivity_module_limitation(),
-    limitation_message_key = "production-module-usable-only-on-intermediates"
   },
   {
     type = "recipe",
