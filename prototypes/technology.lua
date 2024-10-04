@@ -4,18 +4,19 @@ x_util.add_unlock("advanced-material-processing-2", "ll-boil-water")
 
 x_util.add_unlock("nuclear-power", "ll-rtg")
 
-x_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
-x_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
-x_util.add_prerequisite("rocket-control-unit", "chemical-science-pack")
-x_util.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
-x_util.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
+-- TODO 2.0
+--x_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
+--x_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
+--x_util.add_prerequisite("rocket-control-unit", "chemical-science-pack")
+--x_util.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
+--x_util.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
 
 x_util.add_unlock("low-density-structure", "ll-pack-low-density-structure")
 x_util.add_unlock("low-density-structure", "ll-unpack-low-density-structure")
 
-x_util.remove_prerequisite("advanced-electronics-2", "chemical-science-pack")
-x_util.add_prerequisite("advanced-electronics-2", "ll-luna-automation")
-x_util.add_prerequisite("advanced-electronics-2", "ll-moon-rock-processing")
+x_util.remove_prerequisite("processing-unit", "chemical-science-pack")
+x_util.add_prerequisite("processing-unit", "ll-luna-automation")
+x_util.add_prerequisite("processing-unit", "ll-moon-rock-processing")
 
 data.raw.technology["rocket-silo"].unit.count = 500
 x_util.remove_prerequisite("rocket-silo", "speed-module-3")
@@ -41,7 +42,7 @@ x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 x_util.remove_recipe_effect("space-science-pack", "satellite")
 x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
-data.raw.technology["space-science-pack"].unit.count = 3000
+--data.raw.technology["space-science-pack"].unit.count = 3000  -- TODO 2.0
 
 data:extend{
   {
