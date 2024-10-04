@@ -60,10 +60,10 @@ data:extend{
     energy_required = 20,
     ingredients =
     {
-      {"lab", 5},
-      {"concrete", 100},
-      {"ll-aluminium-plate", 100},
-      {"ll-quantum-processor", 20},
+      {type="item", name="lab", amount=5},
+      {type="item", name="concrete", amount=100},
+      {type="item", name="ll-aluminium-plate", amount=100},
+      {type="item", name="ll-quantum-processor", amount=20},
     },
     results = {{type="item", name="ll-quantum-resonator", amount=1}},
     enabled = false,

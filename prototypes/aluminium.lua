@@ -148,9 +148,9 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"steel-plate", 2},
-      {"ll-aluminium-plate", 15},
-      {"plastic-bar", 5}
+      {type="item", name="steel-plate", amount=2},
+      {type="item", name="ll-aluminium-plate", amount=15},
+      {type="item", name="plastic-bar", amount=5}
     },
     results = {{type="item", name="low-density-structure", amount=1}},
     main_product = "",

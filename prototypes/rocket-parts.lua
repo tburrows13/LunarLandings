@@ -24,8 +24,8 @@ end
 data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
 
 data.raw.recipe["rocket-part"].ingredients = {
-  {"rocket-control-unit", 10},
-  {"low-density-structure", 10},
+  {type="item", name="rocket-control-unit", amount=10},
+  {type="item", name="low-density-structure", amount=10},
   {type = "fluid", name = "ll-rocket-fuel", amount = 30},
 }
 
@@ -63,10 +63,10 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"steel-plate", 2},
-      {"stone-brick", 10},
-      {"plastic-bar", 2},
-      {"ll-silica", 5},
+      {type="item", name="steel-plate", amount=2},
+      {type="item", name="stone-brick", amount=10},
+      {type="item", name="plastic-bar", amount=2},
+      {type="item", name="ll-silica", amount=5},
     },
     results = {{type="item", name="ll-heat-shielding", amount=1}}
   },
@@ -90,9 +90,9 @@ data:extend{
     category = "rocket-building-luna",
     ingredients =
     {
-      {"ll-heat-shielding", 10},
-      {"low-density-structure", 10},
-      {"rocket-control-unit", 10},
+      {type="item", name="ll-heat-shielding", amount=10},
+      {type="item", name="low-density-structure", amount=10},
+      {type="item", name="rocket-control-unit", amount=10},
       {type = "fluid", name = "steam", amount = 100, temperature = 500}
     },
     results = {{type="item", name="rocket-part-down", amount=1}}
@@ -117,11 +117,11 @@ data:extend{
     category = "rocket-building-interstellar",
     ingredients =
     {
-      {"ll-heat-shielding", 10},
-      {"low-density-structure", 10},
-      {"rocket-control-unit", 10},
-      {"ll-quantum-processor", 1},
-      {"nuclear-fuel", 1},
+      {type="item", name="ll-heat-shielding", amount=10},
+      {type="item", name="low-density-structure", amount=10},
+      {type="item", name="rocket-control-unit", amount=10},
+      {type="item", name="ll-quantum-processor", amount=1},
+      {type="item", name="nuclear-fuel", amount=1},
     },
     results = {{type="item", name="rocket-part-interstellar", amount=1}}
   },
@@ -157,9 +157,9 @@ data:extend{
     allow_decomposition = false,
     ingredients =
     {
-      {"ll-used-rocket-part", 1},
-      {"steel-plate", 1},
-      {"copper-plate", 5}
+      {type="item", name="ll-used-rocket-part", amount=1},
+      {type="item", name="steel-plate", amount=1},
+      {type="item", name="copper-plate", amount=5}
     },
     results = {
       {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 10},

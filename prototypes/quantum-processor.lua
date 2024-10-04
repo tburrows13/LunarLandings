@@ -7,8 +7,8 @@ data:extend{
     energy_required = 10,
     ingredients =
     {
-      {"processing-unit", 1},
-      {"ll-alumina", 5},
+      {type="item", name="processing-unit", amount=1},
+      {type="item", name="ll-alumina", amount=5},
       {type = "fluid", name = "ll-astroflux", amount = 5}
     },
     results = {{type="item", name="ll-quantum-processor", amount=1}}

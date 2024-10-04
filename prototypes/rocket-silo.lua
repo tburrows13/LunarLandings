@@ -74,11 +74,11 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"steel-plate", 1000},
-      {"ll-lunar-foundation", 500},
-      {"pipe", 100},
-      {"ll-quantum-processor", 200},
-      {"electric-engine-unit", 200}
+      {type="item", name="steel-plate", amount=1000},
+      {type="item", name="ll-lunar-foundation", amount=500},
+      {type="item", name="pipe", amount=100},
+      {type="item", name="ll-quantum-processor", amount=200},
+      {type="item", name="electric-engine-unit", amount=200}
     },
     energy_required = 30,
     results = {{type="item", name="ll-rocket-silo-interstellar", amount=1}},
@@ -103,11 +103,11 @@ rocket_silo.rocket_parts_required = 20
 
 data.raw.recipe["rocket-silo"].ingredients =
 {
-  {"steel-plate", 200},
-  {"concrete", 200},
-  {"pipe", 20},
-  {"advanced-circuit", 100},
-  {"electric-engine-unit", 40}
+  {type="item", name="steel-plate", amount=200},
+  {type="item", name="concrete", amount=200},
+  {type="item", name="pipe", amount=20},
+  {type="item", name="advanced-circuit", amount=100},
+  {type="item", name="electric-engine-unit", amount=40}
 }
 
 

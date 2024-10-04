@@ -16,9 +16,9 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"stone-brick", 1},
-      {"iron-stick", 1},
-      {"plastic-bar", 1},
+      {type="item", name="stone-brick", amount=1},
+      {type="item", name="iron-stick", amount=1},
+      {type="item", name="plastic-bar", amount=1},
     },
     results = {{type="item", name="ll-moon-rail", amount=2}},
   },

@@ -6,9 +6,9 @@ data:extend{
     energy_required = 8,
     ingredients =
     {
-      {"iron-gear-wheel", 30},
-      {"processing-unit", 10},
-      {"lab", 2},
+      {type="item", name="iron-gear-wheel", amount=30},
+      {type="item", name="processing-unit", amount=10},
+      {type="item", name="lab", amount=2},
     },
     results = {{type="item", name="ll-telescope", amount=1}}
   },

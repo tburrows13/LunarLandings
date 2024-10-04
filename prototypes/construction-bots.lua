@@ -34,8 +34,8 @@ data:extend{
     enabled = true,
     ingredients =
     {
-      {"flying-robot-frame", 1},
-      {"electronic-circuit", 2}
+      {type="item", name="flying-robot-frame", amount=1},
+      {type="item", name="electronic-circuit", amount=2}
     },
     results = {{type="item", name="construction-robot", amount=1}}
   },

@@ -24,11 +24,11 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"speed-module-3", 1},
-      {"effectivity-module-3", 1},
-      {"productivity-module-3", 1},
-      {"ll-quantum-processor", 5},
-      {"ll-superposed-polariton", 1},
+      {type="item", name="speed-module-3", amount=1},
+      {type="item", name="effectivity-module-3", amount=1},
+      {type="item", name="productivity-module-3", amount=1},
+      {type="item", name="ll-quantum-processor", amount=5},
+      {type="item", name="ll-superposed-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-quantum-module", amount = 1},

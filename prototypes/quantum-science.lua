@@ -26,7 +26,7 @@ data:extend{
     },
     main_product = "ll-quantum-science-pack",
     results = {
-      {"ll-quantum-science-pack", 5},
+      {type="item", name="ll-quantum-science-pack", amount=5},
       {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, catalyst_amount = 5},
       {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, catalyst_amount = 5},
     },

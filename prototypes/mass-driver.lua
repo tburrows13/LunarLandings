@@ -10,9 +10,9 @@ data:extend{
     energy_required = 1,
     ingredients =
     {
-      {"rocket-control-unit", 1},
-      {"ll-heat-shielding", 1},
-      {"ll-aluminium-plate", 3},
+      {type="item", name="rocket-control-unit", amount=1},
+      {type="item", name="ll-heat-shielding", amount=1},
+      {type="item", name="ll-aluminium-plate", amount=3},
       {type="fluid", name="ll-rocket-fuel", amount=5}
     },
     results = {{type="item", name="ll-mass-driver-capsule", amount=1}},
@@ -33,9 +33,9 @@ data:extend{
     energy_required = 10,
     ingredients =
     {
-      {"logistic-chest-requester", 1},
-      {"processing-unit", 5},
-      {"steel-plate", 20}
+      {type="item", name="logistic-chest-requester", amount=1},
+      {type="item", name="processing-unit", amount=5},
+      {type="item", name="steel-plate", amount=20}
     },
     results = {{type="item", name="ll-mass-driver-requester", amount=1}},
   },
@@ -123,9 +123,9 @@ data:extend{
     energy_required = 30,
     ingredients =
     {
-      {"copper-cable", 200},
-      {"processing-unit", 20},
-      {"steel-plate", 100}
+      {type="item", name="copper-cable", amount=200},
+      {type="item", name="processing-unit", amount=20},
+      {type="item", name="steel-plate", amount=100}
     },
     results = {{type="item", name="ll-mass-driver", amount=1}},
   },

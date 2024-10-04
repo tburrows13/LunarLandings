@@ -14,10 +14,10 @@ data:extend{
     energy_required = 15,
     ingredients =
     {
-      {"advanced-circuit", 20},
-      {"steel-plate", 10},
-      {"copper-cable", 10},
-      {"pump", 2}
+      {type="item", name="advanced-circuit", amount=20},
+      {type="item", name="steel-plate", amount=10},
+      {type="item", name="copper-cable", amount=10},
+      {type="item", name="pump", amount=2}
     },
     results = {{type="item", name="ll-oxygen-diffuser", amount=1}}
   },

@@ -75,11 +75,11 @@ data:extend{
     subgroup = "intermediate-product",
     ingredients = {
       {type = "fluid", name = "ll-helium-3", amount = 1000},
-      {"steel-plate", 1},
+      {type="item", name="steel-plate", amount=1},
     },
     main_product = "ll-fusion-fuel",
     results = {
-      {"ll-fusion-fuel", 1},
+      {type="item", name="ll-fusion-fuel", amount=1},
       {type = "fluid", name = "ll-helium-3", amount = 900},
     }
   },

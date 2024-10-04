@@ -1,12 +1,12 @@
 x_util.replace_ingredient("rocket-control-unit", "processing-unit", "advanced-circuit")
 data.raw.recipe["satellite"].ingredients =
 {
-  {"low-density-structure", 50},
-  {"solar-panel", 50},
-  {"accumulator", 50},
-  {"radar", 5},
-  {"advanced-circuit", 100},
-  {"solid-fuel", 25}
+  {type="item", name="low-density-structure", amount=50},
+  {type="item", name="solar-panel", amount=50},
+  {type="item", name="accumulator", amount=50},
+  {type="item", name="radar", amount=5},
+  {type="item", name="advanced-circuit", amount=100},
+  {type="item", name="solid-fuel", amount=25}
 }
 
 -- Buff solid fuel because no rocket fuel

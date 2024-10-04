@@ -87,8 +87,8 @@ data:extend{
     category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
-      {"ll-right-polariton", 1},
-      {"ll-left-polariton", 1},
+      {type="item", name="ll-right-polariton", amount=1},
+      {type="item", name="ll-left-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-superposed-polariton", amount = 2, probability = 0.99},
@@ -103,8 +103,8 @@ data:extend{
     category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
-      {"ll-up-polariton", 1},
-      {"ll-down-polariton", 1},
+      {type="item", name="ll-up-polariton", amount=1},
+      {type="item", name="ll-down-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-superposed-polariton", amount = 2, probability = 0.99},
@@ -123,7 +123,7 @@ data:extend{
     category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
-      {"ll-up-polariton", 1},
+      {type="item", name="ll-up-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.60},
@@ -143,7 +143,7 @@ data:extend{
     category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
-      {"ll-right-polariton", 1},
+      {type="item", name="ll-right-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.60},
@@ -163,7 +163,7 @@ data:extend{
     category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
-      {"ll-down-polariton", 1},
+      {type="item", name="ll-down-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.60},
@@ -183,7 +183,7 @@ data:extend{
     category = "ll-quantum-resonating",
     energy_required = 10,
     ingredients = {
-      {"ll-left-polariton", 1},
+      {type="item", name="ll-left-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.60},

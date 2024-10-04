@@ -19,19 +19,19 @@ x_util.remove_prerequisite("tech-space-trains", "steel-processing")
 
 
 data.raw.recipe["recipe-space-locomotive"].ingredients = {
-  {"low-density-structure", 4},
-  {"processing-unit", 10},
-  {"electric-engine-unit", 20},
+  {type="item", name="low-density-structure", amount=4},
+  {type="item", name="processing-unit", amount=10},
+  {type="item", name="electric-engine-unit", amount=20},
 }
 data.raw.recipe["recipe-space-cargo-wagon"].ingredients = {
-  {"low-density-structure", 4},
-  {"processing-unit", 5},
+  {type="item", name="low-density-structure", amount=4},
+  {type="item", name="processing-unit", amount=5},
 }
 data.raw.recipe["recipe-space-fluid-wagon"].ingredients = {
-  {"low-density-structure", 4},
-  {"processing-unit", 5},
-  {"storage-tank", 1},
-  {"pipe", 8},
+  {type="item", name="low-density-structure", amount=4},
+  {type="item", name="processing-unit", amount=5},
+  {type="item", name="storage-tank", amount=1},
+  {type="item", name="pipe", amount=8},
 }
 
 require "__LunarLandings__.compatibility.aai-industry.data-updates"

@@ -148,8 +148,8 @@ data:extend{
     type = "recipe",
     name = "ll-landing-pad",
     ingredients = {
-      {"steel-chest", 4},
-			{"rocket-control-unit", 1},
+      {type="item", name="steel-chest", amount=4},
+			{type="item", name="rocket-control-unit", amount=1},
     },
     energy_required = 4,
     results = {{type="item", name="ll-landing-pad", amount=1}},

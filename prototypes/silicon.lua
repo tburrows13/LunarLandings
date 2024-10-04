@@ -29,8 +29,8 @@ data:extend{
     category = "ll-electric-smelting",
     enabled = false,
     energy_required = 8,
-    ingredients = {{"coal", 1}, {"ll-silica", 2}},
-    results = {{"ll-silicon", 5}}
+    ingredients = {{type="item", name="coal", 1}, {"ll-silica", amount=2}},
+    results = {{type="item", name="ll-silicon", amount=5}}
   },
 }
 

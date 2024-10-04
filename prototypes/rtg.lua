@@ -32,9 +32,9 @@ data:extend({
     enabled = false,
     energy_required = 5,
     ingredients = {
-      {"iron-plate", 20},
-      {"electronic-circuit", 10},
-      {"uranium-fuel-cell", 5}, -- 5x 8 GJ!
+      {type="item", name="iron-plate", amount=20},
+      {type="item", name="electronic-circuit", amount=10},
+      {type="item", name="uranium-fuel-cell", amount=5}, -- 5x 8 GJ!
     },
     results = {{type="item", name="ll-rtg", amount=1}},
   },
@@ -44,8 +44,8 @@ data:extend({
     enabled = false,
     energy_required = 30,
     ingredients = {
-      {"ll-rtg-depleted", 1},
-      {"uranium-fuel-cell", 5}, -- 5x 8 GJ!
+      {type="item", name="ll-rtg-depleted", amount=1},
+      {type="item", name="uranium-fuel-cell", amount=5}, -- 5x 8 GJ!
     },
     results = {{type="item", name="ll-rtg", amount=1}},
   },]]
@@ -56,7 +56,7 @@ data:extend({
     icon_size = 64,
     minable = {
       mining_time = 1,
-      --results = {{"ll-rtg-depleted", 1}, {"used-up-uranium-fuel-cell", 5}}
+      --results = {{type="item", name="ll-rtg-depleted", 1}, {"used-up-uranium-fuel-cell", amount=5}}
     },
     flags = {
       "placeable-neutral",

@@ -28,7 +28,7 @@ data:extend{
     subgroup = "space-related",
     order = "y[interstellar-satellite]",
     stack_size = 1,
-    rocket_launch_product = {"space-science-pack", 1000}
+    rocket_launch_product = {type="item", name="space-science-pack", amount=1000}
   },
   {
     type = "recipe",
@@ -38,11 +38,11 @@ data:extend{
     category = "crafting",
     ingredients =
     {
-      {"satellite", 1},
-      {"low-density-structure", 50},
-      {"rocket-control-unit", 50},
-      {"nuclear-fuel", 10},
-      {"ll-quantum-processor", 100},
+      {type="item", name="satellite", amount=1},
+      {type="item", name="low-density-structure", amount=50},
+      {type="item", name="rocket-control-unit", amount=50},
+      {type="item", name="nuclear-fuel", amount=10},
+      {type="item", name="ll-quantum-processor", amount=100},
     },
     results = {{type="item", name="ll-interstellar-satellite", amount=1}},
     requester_paste_multiplier = 1

@@ -38,10 +38,10 @@ data:extend{
     energy_required = 10,
     ingredients =
     {
-      {"ll-lunar-foundation", 20},
-      {"advanced-circuit", 20},
-      {"steel-plate", 10},
-      {"iron-gear-wheel", 20},
+      {type="item", name="ll-lunar-foundation", amount=20},
+      {type="item", name="advanced-circuit", amount=20},
+      {type="item", name="steel-plate", amount=10},
+      {type="item", name="iron-gear-wheel", amount=20},
     },
     results = {{type="item", name="ll-low-grav-assembling-machine", amount=1}}
   },
