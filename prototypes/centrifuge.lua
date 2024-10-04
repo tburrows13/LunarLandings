@@ -20,5 +20,5 @@ centrifuge.fluid_boxes =
     pipe_connections = {{ type="output", position = {0, 2} }},
     secondary_draw_orders = { north = -1 }
   },
-  off_when_no_fluid_recipe = true
 }
+centrifuge.fluid_boxes_off_when_no_fluid_recipe = true

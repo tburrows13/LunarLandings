@@ -42,8 +42,8 @@ furnace.fluid_boxes =
     pipe_connections = {{ type="output", position = {2, 1} }},
     secondary_draw_orders = { north = -1 }
   },]]
-  off_when_no_fluid_recipe = true
 }
+furnace.fluid_boxes_off_when_no_fluid_recipe = true
 
 data:extend{furnace}
 data.raw["furnace"]["electric-furnace"] = nil --disable original furnace

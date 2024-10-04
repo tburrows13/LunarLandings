@@ -109,8 +109,8 @@ data:extend{
         pipe_connections = {{ type="output", position = {1, -2} }},
         secondary_draw_orders = { north = -1 }
       },
-      off_when_no_fluid_recipe = true
     },
+    fluid_boxes_off_when_no_fluid_recipe = true,
     animation =
     {
       layers =

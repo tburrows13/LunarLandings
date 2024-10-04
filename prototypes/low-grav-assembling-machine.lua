@@ -112,8 +112,8 @@ data:extend{
         pipe_connections = {{ type="input", position = {3, 0} }},
         secondary_draw_orders = { north = -1 }
       },
-      off_when_no_fluid_recipe = true
     },
+    fluid_boxes_off_when_no_fluid_recipe = true,
     --open_sound = x_util.machine_open_sound,
     --close_sound = x_util.machine_close_sound, TODO
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },

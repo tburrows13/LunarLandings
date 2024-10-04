@@ -44,10 +44,8 @@ rocket_silo.fluid_boxes = {
     pipe_connections = {{ type="input", position = {-5, 0} }},
     secondary_draw_orders = { north = -1 }
   },
-
-  off_when_no_fluid_recipe = true
 }
-
+rocket_silo.fluid_boxes_off_when_no_fluid_recipe = true
 
 data:extend{
   {
@@ -158,9 +156,9 @@ rocket_down.fluid_boxes =
     pipe_connections = {{ type="input", position = {-5, 0} }},
     secondary_draw_orders = { north = -1 }
   },
-
-  off_when_no_fluid_recipe = true
 }
+rocket_down.fluid_boxes_off_when_no_fluid_recipe = true
+
 
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"

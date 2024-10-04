@@ -54,8 +54,8 @@ data:extend{
         pipe_connections = {{ type="input", position = {0, 2} }},
         secondary_draw_orders = { north = -1 }
       },
-      --off_when_no_fluid_recipe = true
     },
+    --fluid_boxes_off_when_no_fluid_recipe = true,
     open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.5},
     close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.5},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },

@@ -109,8 +109,8 @@ data:extend{
         },
         production_type = "output",
       },
-      off_when_no_fluid_recipe = true
     },
+    fluid_boxes_off_when_no_fluid_recipe = true,
     always_draw_idle_animation = true,
     idle_animation = {
       layers = {
