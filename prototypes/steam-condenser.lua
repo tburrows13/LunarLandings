@@ -337,11 +337,11 @@ data:extend{
 		energy_required = 10,
 		ingredients =
 		{
-			{ "steel-plate", 20 },					
-			{ "pipe", 40 },
-			{ "empty-barrel", 20 },
-			{ "engine-unit", 4 },			
-			{ "electronic-circuit", 10 },
+			{type="item", name="steel-plate", amount=20},
+			{type="item", name="pipe", amount=40},
+			{type="item", name="empty-barrel", amount=20},
+			{type="item", name="engine-unit", amount=4},
+			{type="item", name="electronic-circuit", amount=10},
 		},
     results = {{type="item", name="ll-steam-condenser", amount=1}}
 	},

@@ -38,7 +38,6 @@ data:extend{
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.50},
     },
     energy_required = 60,
-    results = {{type="item", name="productivity-module-3", amount=1}},
     main_product = "ll-quantum-module",
   },
 
