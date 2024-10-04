@@ -75,9 +75,7 @@ data:extend{
     base_productivity = 0.5,
     fluid_boxes = {
       {
-        base_area = 1,
-        base_level = -1,
-        height = 2,
+        volume = 200,
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
@@ -86,9 +84,7 @@ data:extend{
         production_type = "input",
       },
       {
-        base_area = 1,
-        base_level = 1,
-        height = 2,
+        volume = 200,
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
@@ -97,9 +93,7 @@ data:extend{
         production_type = "output",
       },
       {
-        base_area = 0.1,
-        base_level = 1,
-        height = 1,
+        volume = 10,
         --pipe_covers = pipecoverspictures(),
         --pipe_picture = ei_pipe_big_insulated,
         hide_connection_info = true,
@@ -203,9 +197,7 @@ data:extend{
     {
       type = "fluid",
       fluid_box = {
-        base_area = 1,
-        base_level = -1,
-        height = 2,
+        volume = 200,
         --pipe_covers = pipecoverspictures(),
         --pipe_picture = ei_pipe_big_insulated,
         hide_connection_info = true,
@@ -454,8 +446,7 @@ data:extend{
     fluid_box =
     {
       filter =  "ll-heat",
-      base_area = 0.05, -- gets multiplied by 100 by engine
-      base_level = 0, -- pull fluid in
+      volume = 5,
       pipe_connections =
       {
         --{ position = {-0.5, -0.5} }, -- connects to machine

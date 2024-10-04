@@ -59,9 +59,7 @@ data:extend({
 		circuit_connector_sprites = circuit_connector_definitions["electric-mining-drill"].sprites,
 		circuit_wire_max_distance = default_circuit_wire_max_distance,
     input_fluid_box = {
-      base_area = 1,
-      base_level = -1,
-      height = 2,
+      volume = 200,
       pipe_covers = pipecoverspictures(),
       pipe_picture = assembler3pipepictures(),  -- TODO does nothing
       pipe_connections =

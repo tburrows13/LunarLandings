@@ -36,16 +36,14 @@ data:extend{
 				production_type = "input",
 				--pipe_picture = bery0zas.functions.pipe_pictures(),  -- TODO
 				pipe_covers = pipecoverspictures(),
-				base_area = 10,
-				base_level = -1,
+				volume = 1000,
 				pipe_connections = {{ type = "input", position = { 1, -2 } }},
 			},
       {
 				production_type = "input",
 				--pipe_picture = bery0zas.functions.pipe_pictures(),
 				--pipe_covers = pipecoverspictures(),
-				base_area = 10,
-				base_level = -1,
+				volume = 1000,
 				pipe_connections = {{ type = "input", position = { 0, -1.35 } }},
         hide_connection_info = true,
 			},
@@ -53,8 +51,7 @@ data:extend{
 				production_type = "output",
 				--pipe_picture = bery0zas.functions.pipe_pictures(),
 				pipe_covers = pipecoverspictures(),
-				base_area = 10,
-				base_level = 1,
+				volume = 1000,
 				pipe_connections = {{ type = "output", position = { -1, -2 } }},
 			}
 		},

@@ -12,8 +12,7 @@ rocket_silo.fluid_boxes = {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = -1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {0, -5} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -21,8 +20,7 @@ rocket_silo.fluid_boxes = {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = 1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {0, 5} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -30,8 +28,7 @@ rocket_silo.fluid_boxes = {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = 1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {5, 0} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -39,8 +36,7 @@ rocket_silo.fluid_boxes = {
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = 1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {-5, 0} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -124,8 +120,7 @@ rocket_down.fluid_boxes =
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = -1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {0, -5} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -133,8 +128,7 @@ rocket_down.fluid_boxes =
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = 1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {0, 5} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -142,8 +136,7 @@ rocket_down.fluid_boxes =
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = 1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {5, 0} }},
     secondary_draw_orders = { north = -1 }
   },
@@ -151,8 +144,7 @@ rocket_down.fluid_boxes =
     production_type = "input",
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
-    base_area = 10,
-    base_level = 1,
+    volume = 1000,
     pipe_connections = {{ type="input", position = {-5, 0} }},
     secondary_draw_orders = { north = -1 }
   },
