@@ -179,7 +179,7 @@ data:extend{
         }
       }
     },
-    surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+    --surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
   },
   {
     type = "storage-tank",

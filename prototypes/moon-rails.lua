@@ -5,9 +5,9 @@ data.raw["locomotive"]["space-locomotive"].burner = {
   fuel_category = "nuclear",
 }
 
-data.raw["locomotive"]["space-locomotive"].surface_conditions = {nauvis = false, luna = true}
-data.raw["cargo-wagon"]["space-cargo-wagon"].surface_conditions = {nauvis = false, luna = true}
-data.raw["fluid-wagon"]["space-fluid-wagon"].surface_conditions = {nauvis = false, luna = true}
+--data.raw["locomotive"]["space-locomotive"].surface_conditions = {nauvis = false, luna = true}
+--data.raw["cargo-wagon"]["space-cargo-wagon"].surface_conditions = {nauvis = false, luna = true}
+--data.raw["fluid-wagon"]["space-fluid-wagon"].surface_conditions = {nauvis = false, luna = true}
 
 data:extend{
   {
@@ -62,7 +62,7 @@ straight_rail.icon_size = 64
 straight_rail.minable.result = "ll-moon-rail"
 --straight_rail.placeable_by.item = "ll-moon-rail"
 straight_rail.map_color = {r = 255, g = 0, b = 0, a = 0}  -- Seems to be ignored, TODO check in 2.0
-straight_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
+--straight_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
 --replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
 --replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
 --  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
@@ -77,7 +77,7 @@ curved_rail.icon_size = 64
 curved_rail.minable.result = "ll-moon-rail"
 curved_rail.placeable_by.item = "ll-moon-rail"
 curved_rail.map_color = {r = 0, g = 0, b = 0}
-curved_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
+--curved_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
 --replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
 --replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
 --  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")

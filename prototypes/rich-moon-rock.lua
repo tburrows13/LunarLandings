@@ -20,7 +20,7 @@ rich_moon_rock.map_color = {r=0.9, g=0.9, b=1}
 
 rich_moon_rock.selection_priority = 49
 
-rich_moon_rock.surface_conditions = {nauvis = false, luna = true}
+--rich_moon_rock.surface_conditions = {nauvis = false, luna = true}
 
 data:extend{
   rich_moon_rock,

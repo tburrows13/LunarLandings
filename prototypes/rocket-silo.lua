@@ -171,7 +171,7 @@ rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
 rocket_silo_interstellar.rocket_parts_required = 50
 rocket_silo_interstellar.fixed_recipe = "rocket-part-interstellar"
 rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
-rocket_silo_interstellar.surface_conditions = {nauvis = false, luna = true}
+--rocket_silo_interstellar.surface_conditions = {nauvis = false, luna = true}
 
 rocket_silo_interstellar.base_day_sprite = {layers = {
   {

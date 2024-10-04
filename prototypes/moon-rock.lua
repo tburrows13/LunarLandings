@@ -21,7 +21,7 @@ moon_rock.map_color = {r=0.8, g=0.8, b=0.8}
 
 moon_rock.selection_priority = 49
 
-moon_rock.surface_conditions = {nauvis = false, luna = true}
+--moon_rock.surface_conditions = {nauvis = false, luna = true}
 
 data:extend{
   moon_rock,

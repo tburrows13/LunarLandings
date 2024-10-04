@@ -15,10 +15,8 @@ data:extend{
       type = "void",
     },
     energy_usage = "300kW",
-    
-    pictures = util.empty_sprite(),
     rotation_speed = 0.01,
-    surface_conditions = {nauvis = true, luna = true},
+    --surface_conditions = {nauvis = true, luna = true},
   },
 
 }

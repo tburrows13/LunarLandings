@@ -114,7 +114,7 @@ data:extend{
         }
       }
     },
-    surface_conditions = {nauvis = false, luna = true},
+    --surface_conditions = {nauvis = false, luna = true},
   },
   {
     type = "recipe",
@@ -202,7 +202,7 @@ data:extend{
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    surface_conditions = {nauvis = true, luna = false},
+    --surface_conditions = {nauvis = true, luna = false},
   },
   {
     type = "electric-turret",
@@ -215,7 +215,7 @@ data:extend{
     max_health = 1000,
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     collision_mask = {layers={}},
-    surface_conditions = {nauvis = true, luna = true},
+    --surface_conditions = {nauvis = true, luna = true},
     --damaged_trigger_effect = hit_effects.entity(),
     --rotation_speed = 0.01,
     --preparing_speed = 0.05,

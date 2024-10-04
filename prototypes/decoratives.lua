@@ -136,7 +136,7 @@ for name, bucket in pairs(entity_rock_buckets) do
     default_enabled = false,
     probability_expression = moon_probability_expression(bucket, lowland_entity_rock_buckets[name]),
   }
-  --rock.surface_conditions = {nauvis = false, luna = {}}
+  ----rock.surface_conditions = {nauvis = false, luna = {}}
   switch_filenames(rock.pictures)
   data:extend{rock}
 end
