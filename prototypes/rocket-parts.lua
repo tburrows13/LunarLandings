@@ -21,7 +21,9 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
-data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
+data.raw["item"]["rocket-fuel"].flags = {"hide-from-fuel-tooltip"}
+data.raw["item"]["rocket-fuel"].hidden = true
+
 
 data.raw.recipe["rocket-part"].ingredients = {
   {type="item", name="rocket-control-unit", amount=10},
@@ -98,9 +100,9 @@ data:extend{
     localised_name = {"item-name.rocket-part-down"},
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64,
-    flags = {"hidden"},
     subgroup = "intermediate-product",
     order = "o[rocket-part]-c",
+    hidden = true,
     stack_size = 5
   },
   {
@@ -125,9 +127,9 @@ data:extend{
     localised_name = {"item-name.rocket-part-interstellar"},
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64,
-    flags = {"hidden"},
     subgroup = "intermediate-product",
     order = "o[rocket-part]-d",
+    hidden = true,
     stack_size = 5
   },
   {

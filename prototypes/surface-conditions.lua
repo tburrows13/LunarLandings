@@ -93,10 +93,8 @@ end
 
 for _, prototype_type in pairs(types) do
   for name, prototype in pairs(data.raw[prototype_type]) do
-    for _, flag in pairs(prototype.flags or {}) do
-      if flag == "hidden" then
-        goto continue
-      end
+    if prototype.hidden then
+      goto continue
     end
     local surface_conditions = prototype.surface_conditions
     prototype.surface_conditions = nil
