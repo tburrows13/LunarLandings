@@ -1,4 +1,4 @@
-data.raw.item["satellite"].rocket_launch_product = nil
+data.raw.item["satellite"].rocket_launch_products = nil
 
 -- Interstellar satellite
 data:extend{
@@ -28,7 +28,7 @@ data:extend{
     subgroup = "space-related",
     order = "y[interstellar-satellite]",
     stack_size = 1,
-    rocket_launch_product = {type="item", name="space-science-pack", amount=1000}
+    rocket_launch_products = {{type="item", name="space-science-pack", amount=1000}},
   },
   {
     type = "recipe",
