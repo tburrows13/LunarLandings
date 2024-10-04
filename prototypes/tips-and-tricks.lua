@@ -76,6 +76,7 @@ local vanilla_category_names = {
   "fast-replace",
 }
 
+--[[  -- TODO 2.0
 if not mods["FreightForwarding"] then
   for _, tip_name in pairs(vanilla_tip_names) do
     local tip = data.raw["tips-and-tricks-item"][tip_name]
@@ -108,6 +109,7 @@ if not mods["FreightForwarding"] then
     }
   })
 end
+]]
 
 data:extend{
   {
