@@ -214,7 +214,7 @@ data:extend{
     --minable = { mining_time = 0.5, result = "laser-turret" },
     max_health = 1000,
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
-    collision_mask = {},
+    collision_mask = {layers={}},
     surface_conditions = {nauvis = true, luna = true},
     --damaged_trigger_effect = hit_effects.entity(),
     --rotation_speed = 0.01,

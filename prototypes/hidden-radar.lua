@@ -5,7 +5,7 @@ data:extend{
     icon = "__base__/graphics/icons/radar.png",
     icon_size = 64,
     max_health = 250,
-    collision_mask = {},
+    collision_mask = {layers={}},
     energy_per_sector = "10MJ",
     max_distance_of_sector_revealed = 0,
     max_distance_of_nearby_sector_revealed = 1,

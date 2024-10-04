@@ -77,10 +77,12 @@ data:extend{
       }
     },
     collision_mask = {
-      "water-tile",
-      "item-layer",
-      "object-layer",
-      "player-layer",
+      layers = {
+        water_tile = true,
+        item = true,
+        object = true,
+        player = true,
+      }
     },
     animation =
     {

@@ -226,7 +226,7 @@ data:extend{
     neighbour_bonus = 0,
     collision_box = {{-2.1, -2.1}, {2.1, 2.1}},
     --selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-    collision_mask = {"not-colliding-with-itself"},
+    collision_mask = {layers={}, not_colliding_with_itself = true},
     surface_conditions = {nauvis = true, luna = true},
     damaged_trigger_effect = hit_effects.entity(),
     lower_layer_picture =
@@ -449,7 +449,7 @@ data:extend{
     --collision_box = {{-1, -0.5}, {1, 0.5}},
     --selection_box = {{-1, -0.5}, {1, 0.5}},
 
-    collision_mask = {"not-colliding-with-itself"},
+    collision_mask = {layers={}, not_colliding_with_itself = true},
     --selectable_in_game = selectable,
     fluid_box =
     {

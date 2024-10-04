@@ -21,7 +21,7 @@ data:extend{
     name = "ll-luna-plain",
     type = "tile",
     order = "e[moon]-a",
-    collision_mask = {"ground-tile"},
+    collision_mask = {layers={ground_tile=true}},
     --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
@@ -53,7 +53,7 @@ data:extend{
     name = "ll-luna-lowland",
     type = "tile",
     order = "e[moon]-b",
-    collision_mask = {"ground-tile"},
+    collision_mask = {layers={ground_tile=true}},
     autoplace = rough_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
@@ -83,7 +83,7 @@ data:extend{
     name = "ll-luna-mountain",
     type = "tile",
     order = "e[moon]-c",
-    collision_mask = {"ground-tile"},
+    collision_mask = {layers={ground_tile=true}},
     autoplace = mountain_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
@@ -117,7 +117,7 @@ data:extend{
     needs_correction = false,
     minable = {mining_time = 0.1, result = "ll-lunar-foundation"},
     mined_sound = sounds.deconstruct_bricks(0.8),
-    collision_mask = {"ground-tile"},
+    collision_mask = {layers={ground_tile=true}},
     walking_speed_modifier = 1.5,
     layer = 64,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete

@@ -134,11 +134,12 @@ data:extend{
     },
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     collision_mask = {
-      "water-tile",
-      --"ground-tile",
-      "item-layer",
-      "object-layer",
-      "player-layer",
+      layers = {
+        water_tile = true,
+        item = true,
+        object = true,
+        player = true,
+      }
     },
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     drawing_box = {{-2.5, -2.8}, {2.5, 2.5}},

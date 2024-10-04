@@ -193,7 +193,7 @@ data:extend{
     --dying_explosion = "storage-tank-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     --selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    collision_mask = {},
+    collision_mask = {layers={}},
     --damaged_trigger_effect = hit_effects.entity(),
     fluid_box =
     {

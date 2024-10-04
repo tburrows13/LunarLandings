@@ -1,4 +1,4 @@
-require "__LunarLandings__.prototypes.surface-conditions"
+--require "__LunarLandings__.prototypes.surface-conditions"
 require "__LunarLandings__.prototypes.heat-recipes"
 
 -- Set tile layer because Alien Biomes overwrites it in data-final-fixes
