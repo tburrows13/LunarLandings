@@ -11,7 +11,7 @@ data:extend{
     name = "ll-heat",
     default_temperature = 25,
     fuel_value = "1MJ",
-    --heat_capacity = "0.1KJ",
+    --heat_capacity = "0.1kJ",
     base_color = {r = 75, g = 0, b = 130},
     flow_color = {r = 75, g = 0, b = 130},
     icon = "__core__/graphics/arrows/heat-exchange-indication.png",

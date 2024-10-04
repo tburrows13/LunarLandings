@@ -37,7 +37,7 @@ data:extend{
     type = "fluid",
     name = "ll-red-mud",
     default_temperature = 25,
-    --heat_capacity = "0.1KJ",
+    --heat_capacity = "0.1kJ",
     base_color = {r = 53, g = 0, b = 0}, --153
     flow_color = {r = 53, g = 0, b = 0},
     icon = "__LunarLandings__/graphics/icons/red-mud.png",

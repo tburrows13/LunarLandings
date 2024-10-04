@@ -4,7 +4,7 @@ data:extend{
     name = "ll-oxygen",
     default_temperature = 15,
     max_temperature = 1000,
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.2kJ",
     icon = "__LunarLandings__/graphics/fluid/oxygen.png",
     icon_size = 64,
     base_color = {r = 200, g = 200, b = 200},

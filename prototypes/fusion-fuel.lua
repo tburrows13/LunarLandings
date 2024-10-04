@@ -23,7 +23,7 @@ data:extend{
     name = "ll-helium-3",
     default_temperature = 15,
     max_temperature = 1000,
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.2kJ",
     icon = "__LunarLandings__/graphics/fluids/helium-3.png",
     icon_size = 64,
     base_color = {r = 173, g = 216, b = 230},
