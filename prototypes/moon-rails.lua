@@ -55,7 +55,7 @@ local function replace_filenames(table, old, new)
   end
 end
 
-local straight_rail = table.deepcopy(data.raw["straight-rail"]["straight-rail"])
+local straight_rail = table.deepcopy(data.raw["legacy-straight-rail"]["legacy-straight-rail"])
 straight_rail.name = "ll-straight-moon-rail"
 straight_rail.icon = "__space-exploration-graphics__/graphics/icons/space-rail.png"
 straight_rail.icon_size = 64
@@ -63,14 +63,14 @@ straight_rail.minable.result = "ll-moon-rail"
 --straight_rail.placeable_by.item = "ll-moon-rail"
 straight_rail.map_color = {r = 255, g = 0, b = 0, a = 0}  -- Seems to be ignored, TODO check in 2.0
 straight_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
-replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
-replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
-replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/", "__space-exploration-graphics__/graphics/entity/space-rail/sr/")
-replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.png")
+--replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
+--replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
+--  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
+--replace_filenames(straight_rail.pictures, "__base__/graphics/entity/straight-rail/", "__space-exploration-graphics__/graphics/entity/space-rail/sr/")
+--replace_filenames(straight_rail.pictures, "__base__/graphics/entity/rail-endings/rail-endings-background.png",
+--  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.png")
 
-local curved_rail = table.deepcopy(data.raw["curved-rail"]["curved-rail"])
+local curved_rail = table.deepcopy(data.raw["legacy-curved-rail"]["legacy-curved-rail"])
 curved_rail.name = "ll-curved-moon-rail"
 curved_rail.icon = "__space-exploration-graphics__/graphics/icons/space-rail.png"
 curved_rail.icon_size = 64
@@ -78,11 +78,11 @@ curved_rail.minable.result = "ll-moon-rail"
 curved_rail.placeable_by.item = "ll-moon-rail"
 curved_rail.map_color = {r = 0, g = 0, b = 0}
 curved_rail.surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
-replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
-replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
-  replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/", "__space-exploration-graphics__/graphics/entity/space-rail/sr/")
-  replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/rail-endings-background.png",
-  "__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.png")
+--replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/hr-", "__space-exploration-graphics__/graphics/entity/space-rail/hr/")
+--replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/hr-rail-endings-background.png",
+--  "__space-exploration-graphics__/graphics/entity/space-rail/hr/rail-endings-background.png")
+--replace_filenames(curved_rail.pictures, "__base__/graphics/entity/curved-rail/", "__space-exploration-graphics__/graphics/entity/space-rail/sr/")
+--replace_filenames(curved_rail.pictures, "__base__/graphics/entity/rail-endings/rail-endings-background.png",
+--"__space-exploration-graphics__/graphics/entity/space-rail/sr/rail-endings-background.png")
 
 data:extend{straight_rail, curved_rail}
