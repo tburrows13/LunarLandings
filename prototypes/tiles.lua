@@ -1,22 +1,18 @@
-local noise = require("noise")
-local tne = noise.to_noise_expression
 local tile_trigger_effects = require("__base__.prototypes.tile.tile-trigger-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
 
-local elevation = noise.var("elevation")
-
 local moon_autoplace = {
   default_enabled = false,
-  probability_expression = (elevation) * math.huge
+  probability_expression = "(elevation) * inf"
 }
 local rough_moon_autoplace = {
   default_enabled = false,
-  probability_expression = (-elevation) * math.huge
+  probability_expression = "(-elevation) * inf"
 }
 local mountain_moon_autoplace = {
   default_enabled = false,
-  probability_expression = (elevation - 20) * 100 * math.huge
+  probability_expression = "(elevation - 20) * 100 * inf"
 }
 
 
