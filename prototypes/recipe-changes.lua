@@ -1,4 +1,3 @@
-x_util.replace_ingredient("rocket-control-unit", "processing-unit", "advanced-circuit")
 data.raw.recipe["satellite"].ingredients =
 {
   {type="item", name="low-density-structure", amount=50},

@@ -29,8 +29,8 @@ data.raw.recipe["rocket-part"].ingredients = {
   {type = "fluid", name = "ll-rocket-fuel", amount = 30},
 }
 
-data.raw["item"]["rocket-control-unit"].stack_size = 20
-data.raw["item"]["low-density-structure"].stack_size = 20
+
+--data.raw["item"]["low-density-structure"].stack_size = 20
 
 data.raw["item"]["rocket-part"].order = "o[rocket-part]-b"
 
@@ -45,6 +45,28 @@ data:extend{
     icon = "__space-exploration-graphics__/graphics/icons/fluid/liquid-rocket-fuel.png",
     icon_size = 64,
     order = "f[rocket-fuel]"
+  },
+  {
+    type = "item",
+    name = "rocket-control-unit",
+    icon = "__LunarLandings__/graphics/icons/rocket-control-unit.png",
+    icon_size = 64,
+    subgroup = "intermediate-product",
+    order = "n[rocket-control-unit]",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "rocket-control-unit",
+    energy_required = 30,
+    enabled = false,
+    category = "crafting",
+    ingredients =
+    {
+      {type="item", name="advanced-circuit", amount=1},
+      {type="item", name="speed-module", amount=1},
+    },
+    results = {{type="item", name="rocket-control-unit", amount=1}},
   },
   {
     type = "item",
