@@ -42,7 +42,6 @@ data:extend{
     walking_sound = table.deepcopy(data.raw.tile["dirt-1"].walking_sound),
     map_color={r=150, g=150, b=150},
     --scorch_mark_color = {r = 0.541, g = 0.407, b = 0.248, a = 1.000},
-    pollution_absorption_per_second = 1,
     vehicle_friction_modifier = 1.5,
     can_be_part_of_blueprint = false,
 
@@ -74,7 +73,6 @@ data:extend{
     walking_sound = dirt_sounds,
     map_color={r=50, g=50, b=50},
     scorch_mark_color = {r = 0.420, g = 0.304, b = 0.191, a = 1.000},
-    pollution_absorption_per_second = 1,
     vehicle_friction_modifier = dirt_vehicle_speed_modifier,
 
     trigger_effect = tile_trigger_effects.dirt_4_trigger_effect()
@@ -104,7 +102,6 @@ data:extend{
     walking_sound = dirt_sounds,
     map_color={r=200, g=200, b=200},
     scorch_mark_color = {r = 0.420, g = 0.304, b = 0.191, a = 1.000},
-    pollution_absorption_per_second = 1,
     vehicle_friction_modifier = dirt_vehicle_speed_modifier,
 
     trigger_effect = tile_trigger_effects.dirt_4_trigger_effect()
@@ -263,7 +260,6 @@ data:extend{
 
     map_color={r=49, g=48, b=45},
     scorch_mark_color = {r = 0.373, g = 0.307, b = 0.243, a = 1.000},
-    pollution_absorption_per_second = 1,
     --vehicle_friction_modifier = concrete_vehicle_speed_modifier,
 
     trigger_effect = tile_trigger_effects.concrete_trigger_effect()

@@ -6,10 +6,12 @@ data.raw.tile["ll-luna-plain"].layer = 10
 data.raw.tile["ll-luna-lowland"].layer = 9
 data.raw.tile["ll-luna-mountain"].layer = 11
 
+--[[
 data.raw.tile["ll-luna-plain"].pollution_absorption_per_second = 1
 data.raw.tile["ll-luna-lowland"].pollution_absorption_per_second = 1
 data.raw.tile["ll-luna-mountain"].pollution_absorption_per_second = 1
 data.raw.tile["ll-lunar-foundation"].pollution_absorption_per_second = 1
+]]
 
 do return end  -- TODO 2.0
 for _, tech in pairs(data.raw.technology) do
