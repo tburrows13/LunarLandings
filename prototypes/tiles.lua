@@ -25,7 +25,6 @@ data:extend{
     --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
-      "__space-exploration-graphics__/graphics/terrain/asteroid/asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
       "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
       {
         max_size = 4,
@@ -56,7 +55,6 @@ data:extend{
     autoplace = rough_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes__/graphics/terrain/sr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
       "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
       {
         max_size = 4,
@@ -85,7 +83,6 @@ data:extend{
     autoplace = mountain_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes__/graphics/terrain/sr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
       "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
       {
         max_size = 4,
@@ -122,6 +119,7 @@ data:extend{
     check_collision_with_entities = true,
     variants =
     {
+      empty_transitions = true,
       main = {
       {
         picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile1.png",
