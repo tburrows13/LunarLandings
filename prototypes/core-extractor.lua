@@ -64,9 +64,9 @@ data:extend({
       pipe_picture = assembler3pipepictures(),  -- TODO does nothing
       pipe_connections =
       {
-        { position = {-6, 0} },
-        { position = {6, 0} },
-        { position = {0, 6} }
+        { direction = defines.direction.west, position = {-5, 0} },
+        { direction = defines.direction.east, position = {5, 0} },
+        { direction = defines.direction.south, position = {0, 5} },
       },
       production_type = "input-output",
     },

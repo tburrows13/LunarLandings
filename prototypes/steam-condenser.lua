@@ -37,14 +37,14 @@ data:extend{
 				--pipe_picture = bery0zas.functions.pipe_pictures(),  -- TODO
 				pipe_covers = pipecoverspictures(),
 				volume = 1000,
-				pipe_connections = {{ type = "input", position = { 1, -2 } }},
+				pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = { 1, -1 } }},
 			},
       {
-				production_type = "input",
+				production_type = "input",  -- TODO 2.0 make linked connection?
 				--pipe_picture = bery0zas.functions.pipe_pictures(),
 				--pipe_covers = pipecoverspictures(),
 				volume = 1000,
-				pipe_connections = {{ type = "input", position = { 0, -1.35 } }},
+				pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = { 0, -0.35 } }},
         hide_connection_info = true,
 			},
 			{
@@ -52,7 +52,7 @@ data:extend{
 				--pipe_picture = bery0zas.functions.pipe_pictures(),
 				pipe_covers = pipecoverspictures(),
 				volume = 1000,
-				pipe_connections = {{ type = "output", position = { -1, -2 } }},
+				pipe_connections = {{ flow_direction = "output", direction = defines.direction.north, position = { -1, -1 } }},
 			}
 		},
 

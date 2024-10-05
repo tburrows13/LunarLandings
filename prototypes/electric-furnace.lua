@@ -11,7 +11,7 @@ furnace.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ type="input", position = {-1, 2} }},
+    pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1, 1} }},
     secondary_draw_orders = { north = -1 }
   },
   --[[{
@@ -19,7 +19,7 @@ furnace.fluid_boxes =
     pipe_picture = assembler3pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ type="output", position = {-2, -1} }},
+    pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -1} }},
     secondary_draw_orders = { north = -1 }
   },]]
   {
@@ -27,7 +27,7 @@ furnace.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ type="output", position = {1, -2} }},
+    pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {1, -1} }},
     secondary_draw_orders = { north = -1 }
   },
   --[[{
@@ -35,7 +35,7 @@ furnace.fluid_boxes =
     pipe_picture = assembler3pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ type="output", position = {2, 1} }},
+    pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, 1} }},
     secondary_draw_orders = { north = -1 }
   },]]
 }

@@ -96,7 +96,7 @@ data:extend{
         pipe_picture = assembler3pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ type="input", position = {-1, 2} }},
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1, 1} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -104,7 +104,7 @@ data:extend{
         pipe_picture = assembler3pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ type="output", position = {1, -2} }},
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {1, -1} }},
         secondary_draw_orders = { north = -1 }
       },
     },

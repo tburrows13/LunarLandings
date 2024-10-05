@@ -79,7 +79,7 @@ data:extend{
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
-          {type = "input", position = {3, 0}},
+          {flow_direction = "input", direction = defines.direction.east, position = {2, 0}},
         },
         production_type = "input",
       },
@@ -88,7 +88,7 @@ data:extend{
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
-          {type = "output", position = {-3, 0}},
+          {flow_direction = "output", direction = defines.direction.west, position = {-2, 0}},
         },
         production_type = "output",
       },
@@ -99,7 +99,7 @@ data:extend{
         hide_connection_info = true,
         filter = "ll-heat",
         pipe_connections = {
-          {type = "output", position = {1, 2.2}},
+          {flow_direction = "output", direction = defines.direction.east, position = {0, 1.2}},  -- TODO 2.0
         },
         production_type = "output",
       },
@@ -203,10 +203,10 @@ data:extend{
         hide_connection_info = true,
         filter = "ll-heat",
         pipe_connections = {
-          {type = "input", position = {2, 2.2}},
-          {type = "input", position = {-2.2, 2}},
-          {type = "input", position = {-2, -2.2}},
-          {type = "input", position = {2.2, -2}},
+          {type = "input", direction = defines.direction.east, position = {2, 2.2}},  -- TODO 2.0
+          {type = "input", direction = defines.direction.east, position = {-2.2, 2}},  -- TODO 2.0
+          {type = "input", direction = defines.direction.east, position = {-2, -2.2}},  -- TODO 2.0
+          {type = "input", direction = defines.direction.east, position = {2.2, -2}},  -- TODO 2.0
         },
         production_type = "input",
       },
@@ -451,8 +451,8 @@ data:extend{
       {
         --{ position = {-0.5, -0.5} }, -- connects to machine
         --{ position = {-0.5, 0.5} }, -- connects to reactor
-        { position = {-0.5, -1} }, -- connects to machine
-        { position = {0.5, -1} }, -- connects to reactor
+        --{ position = {-0.5, -1} }, -- connects to machine
+        --{ position = {0.5, -1} }, -- connects to reactor
         --{ position = {-0.5, -0.5} }, -- connects to machine
       },
     },

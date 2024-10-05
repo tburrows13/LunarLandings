@@ -81,7 +81,7 @@ data:extend{
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ type="input", position = {0, -3} }},
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {0, -2} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -89,7 +89,7 @@ data:extend{
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ type="input", position = {0, 3} }},
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0, 2} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -97,7 +97,7 @@ data:extend{
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ type="input", position = {-3, 0} }},
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.west, position = {-2, 0} }},
         secondary_draw_orders = { north = -1 }
       },
       {
@@ -105,7 +105,7 @@ data:extend{
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ type="input", position = {3, 0} }},
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.east, position = {2, 0} }},
         secondary_draw_orders = { north = -1 }
       },
     },
