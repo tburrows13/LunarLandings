@@ -46,7 +46,7 @@ data:extend({
 		energy_source = {
 		  type = "electric",
 		  usage_priority = "secondary-input",
-		  emissions_per_minute = 0
+      emissions_per_minute = {},
 		},
     allowed_effects = {"consumption", "pollution"},  -- Don't want to allow speed beacons
     module_specification = {module_slots = 2},

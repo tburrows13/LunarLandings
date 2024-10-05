@@ -62,7 +62,7 @@ data:extend{
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions_per_minute = 1,
+      emissions_per_minute = { pollution = 1 },
       drain = "300kW",
     },
     energy_usage = "10MW",  -- 9MW will be output as heat, which the player can turn back into electricity
