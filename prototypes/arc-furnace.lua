@@ -203,10 +203,10 @@ data:extend{
         hide_connection_info = true,
         filter = "ll-heat",
         pipe_connections = {
-          {type = "input", direction = defines.direction.east, position = {2, 2.2}},  -- TODO 2.0
-          {type = "input", direction = defines.direction.east, position = {-2.2, 2}},  -- TODO 2.0
-          {type = "input", direction = defines.direction.east, position = {-2, -2.2}},  -- TODO 2.0
-          {type = "input", direction = defines.direction.east, position = {2.2, -2}},  -- TODO 2.0
+          --{type = "input", direction = defines.direction.east, position = {2, 2.2}},  -- TODO 2.0
+          --{type = "input", direction = defines.direction.east, position = {-2.2, 2}},  -- TODO 2.0
+          --{type = "input", direction = defines.direction.east, position = {-2, -2.2}},  -- TODO 2.0
+          --{type = "input", direction = defines.direction.east, position = {2.2, -2}},  -- TODO 2.0
         },
         production_type = "input",
       },
