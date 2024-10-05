@@ -232,11 +232,13 @@ data:extend{
       usage_priority = "secondary-input"
     },
     folded_animation = util.empty_sprite(1),
+    graphics_set = {},
     attack_parameters = {
       ammo_type = { category = "artillery-shell" },
       cooldown = 3600,
       range = 1,
-      type = "projectile"
+      type = "projectile",
+      ammo_category = "laser",
     },
     call_for_help_radius = 1,
   },
