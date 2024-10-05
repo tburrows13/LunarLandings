@@ -396,7 +396,7 @@ data:extend{
 
     },
     --prerequisites = {"utility-science-pack", "production-science-pack"},
-    prerequisites = {"advanced-electronics-2"},
+    prerequisites = {"advanced-circuit"},
     unit =
     {
       count = 150,

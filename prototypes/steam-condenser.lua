@@ -336,7 +336,7 @@ data:extend{
 		{
 			{type="item", name="steel-plate", amount=20},
 			{type="item", name="pipe", amount=40},
-			{type="item", name="empty-barrel", amount=20},
+			{type="item", name="barrel", amount=20},
 			{type="item", name="engine-unit", amount=4},
 			{type="item", name="electronic-circuit", amount=10},
 		},

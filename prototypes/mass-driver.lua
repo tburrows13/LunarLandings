@@ -33,7 +33,7 @@ data:extend{
     energy_required = 10,
     ingredients =
     {
-      {type="item", name="logistic-chest-requester", amount=1},
+      {type="item", name="requester-chest", amount=1},
       {type="item", name="processing-unit", amount=5},
       {type="item", name="steel-plate", amount=20}
     },
