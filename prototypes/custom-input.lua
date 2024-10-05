@@ -15,28 +15,9 @@ data:extend{
     associated_control_input = "ll-toggle-moon-view",
     toggleable = true,
     order = "d[lunar-landings]",
-    icon =
-    {
-      filename = "__LunarLandings__/graphics/icons/moon.png",
-      size = 32,
-      flags = {"gui-icon"}
-    },
-    --[[small_icon = {
-      filename = "__SpidertronEnhancements__/graphics/follow-shortcut-24.png",
-      size = 24,
-      flags = {"gui-icon"}
-    },
-    disabled_icon = {
-      filename = "__SpidertronEnhancements__/graphics/follow-shortcut-white.png",
-      size = 32,
-      flags = {"gui-icon"}
-    },
-    disabled_small_icon =
-    {
-      filename = "__SpidertronEnhancements__/graphics/follow-shortcut-white-24.png",
-      size = 24,
-      flags = {"gui-icon"}
-    }]]
+    icon = "__LunarLandings__/graphics/icons/moon.png",
+    icon_size = 32,
+    small_icon = "__LunarLandings__/graphics/icons/moon.png",
+    small_icon_size = 32,
   }
-  
 }
