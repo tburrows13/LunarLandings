@@ -32,8 +32,10 @@ data:extend{
     order = "a[train-system]-b[moon-rail]",
     place_result = "ll-straight-moon-rail",
     stack_size = 100,
-    straight_rail = "ll-straight-moon-rail",
-    curved_rail = "ll-curved-moon-rail"
+    rails = {
+      "ll-straight-moon-rail",
+      "ll-curved-moon-rail",
+    }
   },
 }
 
