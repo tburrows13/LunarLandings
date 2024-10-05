@@ -143,10 +143,7 @@ data:extend{
     },
     energy_usage = "1000kW",
     ingredient_count = 12,
-    module_specification =
-    {
-      module_slots = 4
-    },
+    module_slots = 4,
     allowed_effects = {"consumption", "speed",  "pollution"}, -- not "productivity",
     --[[working_visualisations =
     {

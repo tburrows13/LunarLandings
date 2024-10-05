@@ -69,9 +69,7 @@ data:extend{
     --result_inventory_size = 1,
     --source_inventory_size = 1,
     --allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-    module_specification = {
-        module_slots = 0
-    },
+    module_slots = 0,
     base_productivity = 0.5,
     fluid_boxes = {
       {

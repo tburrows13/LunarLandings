@@ -49,7 +49,7 @@ data:extend({
       emissions_per_minute = {},
 		},
     allowed_effects = {"consumption", "pollution"},  -- Don't want to allow speed beacons
-    module_specification = {module_slots = 2},
+    module_slots = 2,
     mining_speed = 1,
     resource_categories = {"ll-core"},
     energy_usage = "3MW",

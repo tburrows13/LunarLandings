@@ -93,7 +93,7 @@ data:extend{
     },
     energy_usage = "15MW",
     allowed_effects = {"consumption", "pollution", "speed"},
-    module_specification = {module_slots = 3},
+    module_slots = 3,
     animation = {
       filename = "__LunarLandings__/graphics/entities/computer-core.png",
       size = {512,512},

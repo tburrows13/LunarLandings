@@ -66,12 +66,12 @@ data:extend{
 		},
 		energy_usage = "300kW",
 
-		--module_specification = { module_slots = 2 },
+		--module_slots = 2,
 		--allowed_effects = { "consumption", "speed" },
-		
+
 		icon = "__LunarLandings__/graphics/icons/steam-condenser.png",
 		icon_size = 64,
-		
+
 		integration_patch_render_layer = "lower-object-above-shadow",
 		match_animation_speed_to_activity = true,
 		animation =

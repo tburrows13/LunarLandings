@@ -219,11 +219,8 @@ data:extend{
       emissions_per_minute = { pollution = 50 },
     },
     energy_usage = "750kW",
-    module_specification =
-    {
-      module_slots = 6,
-      module_info_icon_shift = util.by_pixel_hr(0, 32 + (0.7*64)),  -- default is {0, 0.7}
-    },
+    module_slots = 6,
+    --module_info_icon_shift = util.by_pixel_hr(0, 32 + (0.7*64)),  -- default is {0, 0.7}
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     --scale_entity_info_icon = true,
     --[[working_visualisations =
