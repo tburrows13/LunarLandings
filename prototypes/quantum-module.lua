@@ -12,10 +12,10 @@ data:extend{
     stack_size = 50,
     effect =
     {
-      productivity = {bonus = 0.15},
-      consumption = {bonus = 1},
-      --pollution = {bonus = 0.1},
-      --speed = {bonus = -0.15}
+      productivity = 0.15,
+      consumption = 1,
+      --pollution = 0.1,
+      --speed = -0.15
     },
   },
   {
