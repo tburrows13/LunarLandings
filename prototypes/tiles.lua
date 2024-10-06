@@ -25,7 +25,7 @@ data:extend{
     --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
-      "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -55,7 +55,7 @@ data:extend{
     autoplace = rough_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -83,7 +83,7 @@ data:extend{
     autoplace = mountain_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -151,7 +151,7 @@ data:extend{
         count = 16,
         hr_version =
         {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-inner-corner-mask.png",
+          picture = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
           count = 16,
           scale = 0.5
         }
@@ -174,7 +174,7 @@ data:extend{
         count = 8,
         hr_version =
         {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-outer-corner-mask.png",
+          picture = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
           count = 8,
           scale = 0.5
         }
@@ -197,7 +197,7 @@ data:extend{
         count = 16,
         hr_version =
         {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-side-mask.png",
+          picture = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
           count = 16,
           scale = 0.5
         }
@@ -220,7 +220,7 @@ data:extend{
         count = 8,
         hr_version =
         {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-u-mask.png",
+          picture = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
           count = 8,
           scale = 0.5
         }
@@ -243,7 +243,7 @@ data:extend{
         count = 4,
         hr_version =
         {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-o-mask.png",
+          picture = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
           count = 4,
           scale = 0.5
         }

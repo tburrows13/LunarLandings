@@ -91,7 +91,7 @@ data:extend{
 			},
 			{
 					draw_as_shadow = true,
-					filename = '__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png',
+					filename = '__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png',
 					height = 149,
 					priority = 'high',
 					scale = 0.8,
@@ -187,7 +187,7 @@ data:extend{
           draw_as_shadow = true,
           hr_version =
           {
-            filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+            filename = "__base__/graphics/entity/logistic-chest/logistic-chest-shadow.png",
             priority = "extra-high",
             width = 112,
             height = 46,

@@ -8,7 +8,7 @@ local circuit_connections = {
 			0.828125
 		},
 		connector_main = {
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04a-base-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04a-base-sequence.png",
 			height = 50,
 			priority = "low",
 			scale = 0.5,
@@ -21,7 +21,7 @@ local circuit_connections = {
 			y = 150
 		},
 		led_blue = {
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04e-blue-LED-on-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04e-blue-LED-on-sequence.png",
 			height = 60,
 			priority = "low",
 			scale = 0.5,
@@ -34,7 +34,7 @@ local circuit_connections = {
 			y = 180
 		},
 		led_blue_off = {
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04f-blue-LED-off-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04f-blue-LED-off-sequence.png",
 			height = 44,
 			priority = "low",
 			scale = 0.5,
@@ -47,7 +47,7 @@ local circuit_connections = {
 			y = 132
 		},
 		led_green = {
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04h-green-LED-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04h-green-LED-sequence.png",
 			height = 46,
 			priority = "low",
 			scale = 0.5,
@@ -64,7 +64,7 @@ local circuit_connections = {
 			size = 0.9
 		},
 		led_red = {
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04i-red-LED-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04i-red-LED-sequence.png",
 			height = 46,
 			priority = "low",
 			scale = 0.5,
@@ -81,7 +81,7 @@ local circuit_connections = {
 			0.71875
 		},
 		wire_pins = {
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04c-wire-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04c-wire-sequence.png",
 			height = 58,
 			priority = "low",
 			scale = 0.5,
@@ -95,7 +95,7 @@ local circuit_connections = {
 		},
 		wire_pins_shadow = {
 			draw_as_shadow = true,
-			filename = "__base__/graphics/entity/circuit-connector/hr-ccm-universal-04d-wire-shadow-sequence.png",
+			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04d-wire-shadow-sequence.png",
 			height = 54,
 			priority = "low",
 			scale = 0.5,
@@ -167,13 +167,13 @@ data:extend{
     picture = {
       layers = {
         {
-					filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base.png",
+					filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
 					height = 199,
 					width = 207,
 					priority = "high",
 					scale = 1,
 					hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base.png",
+            filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
             height = 199,
             width = 207,
             priority = "high",
@@ -182,7 +182,7 @@ data:extend{
         },
         {
           draw_as_shadow = true,
-					filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png",
+					filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
 					height = 149,
 					width = 277,
           shift = {0.5625 * 2, 0.5 * 2},
@@ -190,7 +190,7 @@ data:extend{
 					scale = 1,
 					hr_version = {
             draw_as_shadow = true,
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png",
+            filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
             height = 149,
             width = 277,
 						shift = {0.5625 * 2, 0.5 * 2},

@@ -39,7 +39,7 @@ local function cliff_sprite_variations(name, column_offset, row_offset, variatio
           shift = shadow_shift,
           hr_version =
           {
-            filename = "__base__/graphics/terrain/cliffs/hr-cliff-" .. name .. "-shadow.png",
+            filename = "__base__/graphics/terrain/cliffs/cliff-" .. name .. "-shadow.png",
             width = shadow_frame_width * 2,
             height = frame_height * 2,
             x = (column_offset + i) * shadow_frame_width * 2,

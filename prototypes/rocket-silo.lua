@@ -171,7 +171,7 @@ rocket_silo_interstellar.base_day_sprite = {layers = {
     shift = util.by_pixel(2, -2),
     hr_version =
     {
-      filename = "__base__/graphics/entity/rocket-silo/hr-06-rocket-silo.png",
+      filename = "__base__/graphics/entity/rocket-silo/06-rocket-silo.png",
       width = 608,
       height = 596,
       shift = util.by_pixel(3, -1),
@@ -204,7 +204,7 @@ rocket_silo_interstellar.base_front_sprite = {
       shift = util.by_pixel(-2, 78),
       hr_version =
       {
-        filename = "__base__/graphics/entity/rocket-silo/hr-14-rocket-silo-front.png",
+        filename = "__base__/graphics/entity/rocket-silo/14-rocket-silo-front.png",
         width = 580,
         height = 262,
         shift = util.by_pixel(-1, 78),
