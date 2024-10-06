@@ -155,6 +155,7 @@ data:extend({
   {
     type = "fluid",
     name = "ll-astroflux",
+    subgroup = "fluid",
     default_temperature = 25,
     heat_capacity = "0.1kJ",
     base_color = { r = 180, g = 40, b = 180},

@@ -36,6 +36,7 @@ data:extend{
   {
     type = "fluid",
     name = "ll-red-mud",
+    subgroup = "fluid",
     default_temperature = 25,
     --heat_capacity = "0.1kJ",
     base_color = {r = 53, g = 0, b = 0}, --153

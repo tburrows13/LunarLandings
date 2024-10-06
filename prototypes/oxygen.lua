@@ -2,6 +2,7 @@ data:extend{
   {
     type = "fluid",
     name = "ll-oxygen",
+    subgroup = "fluid",
     default_temperature = 15,
     max_temperature = 1000,
     heat_capacity = "0.2kJ",
