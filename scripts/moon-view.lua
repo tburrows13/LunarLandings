@@ -173,7 +173,7 @@ MoonView.events = {
   [defines.events.on_lua_shortcut] = on_lua_shortcut,
   [defines.events.on_player_respawned] = on_player_respawned,
   [defines.events.on_chunk_generated] = on_chunk_generated,
-  [defines.events.on_player_clicked_gps_tag] = on_player_clicked_gps_tag,
+  -- [defines.events.on_player_clicked_gps_tag] = on_player_clicked_gps_tag, TODO 2.0 confirm functionality not needed
   [defines.events.on_tick] = on_tick,
 }
 
