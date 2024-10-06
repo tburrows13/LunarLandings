@@ -74,216 +74,218 @@ data:extend{
 
 		integration_patch_render_layer = "lower-object-above-shadow",
 		match_animation_speed_to_activity = true,
-		animation =
-		{
-			east =
+		graphics_set = {
+			animation =
 			{
-				layers =
+				east =
 				{
+					layers =
 					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-east.png",
-						priority = "extra-high",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(31, -33),
-						hr_version =
 						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-east.png",
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-east.png",
 							priority = "extra-high",
-							width = 448,
-							height = 448,
+							width = 224,
+							height = 224,
 							frame_count = 1,
 							animation_speed = 1.0,
 							line_length = 1,
 							shift = util.by_pixel(31, -33),
-							scale = 0.5									
-						}
-					},
-					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-east-shadow.png",
-						priority = "medium",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(31, -33),
-						hr_version =
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-east.png",
+								priority = "extra-high",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(31, -33),
+								scale = 0.5
+							}
+						},
 						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-east-shadow.png",
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-east-shadow.png",
 							priority = "medium",
-							width = 448,
-							height = 448,
+							width = 224,
+							height = 224,
 							frame_count = 1,
 							animation_speed = 1.0,
 							line_length = 1,
 							draw_as_shadow = true,
 							shift = util.by_pixel(31, -33),
-							scale = 0.5									
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-east-shadow.png",
+								priority = "medium",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(31, -33),
+								scale = 0.5
+							}
 						}
 					}
-				}
-			},
-			north =
-			{
-				layers =
+				},
+				north =
 				{
+					layers =
 					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-north.png",
-						priority = "extra-high",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(32, -35),
-						hr_version =
 						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-north.png",
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-north.png",
 							priority = "extra-high",
-							width = 448,
-							height = 448,
+							width = 224,
+							height = 224,
 							frame_count = 1,
 							animation_speed = 1.0,
 							line_length = 1,
 							shift = util.by_pixel(32, -35),
-							scale = 0.5									
-						}
-					},
-					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-north-shadow.png",
-						priority = "medium",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(32, -35),
-						hr_version =
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-north.png",
+								priority = "extra-high",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(32, -35),
+								scale = 0.5
+							}
+						},
 						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-north-shadow.png",
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-north-shadow.png",
 							priority = "medium",
-							width = 448,
-							height = 448,
+							width = 224,
+							height = 224,
 							frame_count = 1,
 							animation_speed = 1.0,
 							line_length = 1,
 							draw_as_shadow = true,
 							shift = util.by_pixel(32, -35),
-							scale = 0.5									
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-north-shadow.png",
+								priority = "medium",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(32, -35),
+								scale = 0.5
+							}
 						}
 					}
-				}
-			},			
-			west =
-			{
-				layers =
+				},			
+				west =
 				{
+					layers =
 					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-west.png",
-						priority = "extra-high",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(32, -32),
-						hr_version =
 						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-west.png",
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-west.png",
 							priority = "extra-high",
-							width = 448,
-							height = 448,
+							width = 224,
+							height = 224,
 							frame_count = 1,
 							animation_speed = 1.0,
 							line_length = 1,
 							shift = util.by_pixel(32, -32),
-							scale = 0.5								   
-						}
-					},
-					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-west-shadow.png",
-						priority = "medium",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(32, -32),
-						hr_version =
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-west.png",
+								priority = "extra-high",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(32, -32),
+								scale = 0.5
+							}
+						},
 						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-west-shadow.png",
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-west-shadow.png",
 							priority = "medium",
-							width = 448,
-							height = 448,
+							width = 224,
+							height = 224,
 							frame_count = 1,
 							animation_speed = 1.0,
 							line_length = 1,
 							draw_as_shadow = true,
 							shift = util.by_pixel(32, -32),
-							scale = 0.5								   
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-west-shadow.png",
+								priority = "medium",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(32, -32),
+								scale = 0.5
+							}
+						}
+					}
+				},
+				south =
+				{
+					layers =
+					{
+						{
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-south.png",
+							priority = "extra-high",
+							width = 224,
+							height = 224,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							shift = util.by_pixel(32, -34),
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-south.png",
+								priority = "extra-high",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(32, -34),
+								scale = 0.5
+							}
+						},
+						{
+							filename = "__LunarLandings__/graphics/steam-condenser/adsorber-south-shadow.png",
+							priority = "medium",
+							width = 224,
+							height = 224,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							draw_as_shadow = true,
+							shift = util.by_pixel(32, -34),
+							hr_version =
+							{
+								filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-south-shadow.png",
+								priority = "medium",
+								width = 448,
+								height = 448,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(32, -34),
+								scale = 0.5
+							}
 						}
 					}
 				}
 			},
-			south =
-			{
-				layers =
-				{
-					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-south.png",
-						priority = "extra-high",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(32, -34),
-						hr_version =
-						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-south.png",
-							priority = "extra-high",
-							width = 448,
-							height = 448,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							shift = util.by_pixel(32, -34),
-							scale = 0.5									
-						}
-					},
-					{
-						filename = "__LunarLandings__/graphics/steam-condenser/adsorber-south-shadow.png",
-						priority = "medium",
-						width = 224,
-						height = 224,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(32, -34),
-						hr_version =
-						{
-							filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-south-shadow.png",
-							priority = "medium",
-							width = 448,
-							height = 448,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							draw_as_shadow = true,
-							shift = util.by_pixel(32, -34),
-							scale = 0.5								   
-						}
-					}
-				}
-			}
 		},
     radius_visualisation_specification =
     {

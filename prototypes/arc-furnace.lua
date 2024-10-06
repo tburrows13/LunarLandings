@@ -103,54 +103,54 @@ data:extend{
       },
     },
     fluid_boxes_off_when_no_fluid_recipe = true,
-    always_draw_idle_animation = true,
-    idle_animation = {
-      layers = {
-        {
-          filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-shadow.png",
-          size = {600, 400},
-          shift = {0, 0},
-          scale = 0.5,
-          line_length = 1,
-          frame_count = 1,
-          repeat_count = 40,
-          draw_as_shadow = true,
-          animation_speed = 0.25,
-        },
-        {
-          filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-structure.png",
-          size = {320, 320},
-          shift = {0, 0},
-          scale = 0.5,
-          line_length = 1,
-          frame_count = 1,
-          repeat_count = 40,
-          animation_speed = 0.25,
-        },
-      },
-    },
-    working_visualisations = {{
-      fadeout = true,
-      secondary_draw_order = 1,
-      animation = {
+    graphics_set = {
+      always_draw_idle_animation = true,
+      idle_animation = {
         layers = {
           {
-            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-animation-emission-1.png",
+            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-shadow.png",
+            size = {600, 400},
+            shift = {0, 0},
+            scale = 0.5,
+            line_length = 1,
+            frame_count = 1,
+            repeat_count = 40,
+            draw_as_shadow = true,
+            animation_speed = 0.25,
+          },
+          {
+            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-structure.png",
             size = {320, 320},
             shift = {0, 0},
             scale = 0.5,
-            line_length = 8,
-            lines_per_file = 8,
-            frame_count = 40,
-            --draw_as_light = true,
-            draw_as_glow = true,
-            blend_mode = "additive",
+            line_length = 1,
+            frame_count = 1,
+            repeat_count = 40,
             animation_speed = 0.25,
-            --run_mode = "backward",
           },
         },
       },
-    }},
+      working_visualisations = {{
+        fadeout = true,
+        secondary_draw_order = 1,
+        animation = {
+          layers = {
+            {
+              filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-animation-emission-1.png",
+              size = {320, 320},
+              shift = {0, 0},
+              scale = 0.5,
+              line_length = 8,
+              lines_per_file = 8,
+              frame_count = 40,
+              draw_as_glow = true,
+              blend_mode = "additive",
+              animation_speed = 0.25,
+            },
+          },
+        },
+      }},
+    },
       --[[{
         light = {
           type = "basic",

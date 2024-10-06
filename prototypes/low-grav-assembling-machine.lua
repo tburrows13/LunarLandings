@@ -139,69 +139,41 @@ data:extend{
     },
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     drawing_box = {{-2.5, -2.8}, {2.5, 2.5}},
-    animation =
-    {
-      layers =
+    graphics_set = {
+      animation =
       {
+        layers =
         {
-          draw_as_shadow = true,
-          filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-shadow.png",
-          priority = "high",
-          width = 520,
-          height = 500,
-          frame_count = 1,
-          line_length = 1,
-          repeat_count = 99,
-          animation_speed = animation_speed,
-          shift = util.by_pixel_hr(0, -16),
-          scale = 0.5,
-        },
-        {
-          priority = "high",
-          width = 320,
-          height = 320,
-          frame_count = 99,
-          shift = util.by_pixel_hr(0, -16),
-          animation_speed = animation_speed,
-          scale = 0.5,
-          stripes =
           {
-            {
-              filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-1.png",
-              width_in_frames = 8,
-              height_in_frames = 8,
-            },
-            {
-              filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-2.png",
-              width_in_frames = 8,
-              height_in_frames = 8,
-            },
-          },
-        },
-      },
-    },
-    working_visualisations = {{
-      fadeout = true,
-      secondary_draw_order = 1,
-      animation = {
-        layers = {
-          {
-            size = {320, 320},
+            draw_as_shadow = true,
+            filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-shadow.png",
+            priority = "high",
+            width = 520,
+            height = 500,
+            frame_count = 1,
+            line_length = 1,
+            repeat_count = 99,
+            animation_speed = animation_speed,
             shift = util.by_pixel_hr(0, -16),
             scale = 0.5,
+          },
+          {
+            priority = "high",
+            width = 320,
+            height = 320,
             frame_count = 99,
-            draw_as_glow = true,
-            blend_mode = "additive",
+            shift = util.by_pixel_hr(0, -16),
             animation_speed = animation_speed,
+            scale = 0.5,
             stripes =
             {
               {
-                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-1.png",
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-1.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
               {
-                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-2.png",
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-2.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
@@ -209,7 +181,37 @@ data:extend{
           },
         },
       },
-    }},
+      working_visualisations = {{
+        fadeout = true,
+        secondary_draw_order = 1,
+        animation = {
+          layers = {
+            {
+              size = {320, 320},
+              shift = util.by_pixel_hr(0, -16),
+              scale = 0.5,
+              frame_count = 99,
+              draw_as_glow = true,
+              blend_mode = "additive",
+              animation_speed = animation_speed,
+              stripes =
+              {
+                {
+                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-1.png",
+                  width_in_frames = 8,
+                  height_in_frames = 8,
+                },
+                {
+                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-2.png",
+                  width_in_frames = 8,
+                  height_in_frames = 8,
+                },
+              },
+            },
+          },
+        },
+      }},
+    },
     crafting_categories = {"circuit-crafting", "advanced-circuit-crafting"},
     crafting_speed = 2,
     energy_source =

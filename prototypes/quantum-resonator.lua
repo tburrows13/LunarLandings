@@ -94,38 +94,40 @@ data:extend{
     energy_usage = "15MW",
     allowed_effects = {"consumption", "pollution", "speed"},
     module_slots = 3,
-    animation = {
-      filename = "__LunarLandings__/graphics/entities/computer-core.png",
-      size = {512,512},
-      shift = {0, 0},
-      scale = 0.35,
-      line_length = 1,
-      --lines_per_file = 2,
-      frame_count = 1,
-      -- animation_speed = 0.2,
-    },
-    working_visualisations = {
-      {
-        animation =
+    graphics_set = {
+      animation = {
+        filename = "__LunarLandings__/graphics/entities/computer-core.png",
+        size = {512,512},
+        shift = {0, 0},
+        scale = 0.35,
+        line_length = 1,
+        --lines_per_file = 2,
+        frame_count = 1,
+        -- animation_speed = 0.2,
+      },
+      working_visualisations = {
         {
-          filename = "__LunarLandings__/graphics/entities/computer-core_animation.png",
-          size = {512,512},
-          shift = {0, 0},
-          scale = 0.35,
-          line_length = 6,
-          lines_per_file = 6,
-          frame_count = 36,
-          animation_speed = 0.4,
-          run_mode = "backward",
+          animation =
+          {
+            filename = "__LunarLandings__/graphics/entities/computer-core_animation.png",
+            size = {512,512},
+            shift = {0, 0},
+            scale = 0.35,
+            line_length = 6,
+            lines_per_file = 6,
+            frame_count = 36,
+            animation_speed = 0.4,
+            run_mode = "backward",
+          }
+        },
+        {
+          light = {
+            type = "basic",
+            intensity = 1,
+            size = 15
+          }
         }
       },
-      {
-        light = {
-          type = "basic",
-          intensity = 1,
-          size = 15
-        }
-      }
     },
     working_sound =
     {
