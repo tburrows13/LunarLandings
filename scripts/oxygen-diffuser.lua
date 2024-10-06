@@ -41,7 +41,7 @@ local function on_script_trigger_effect(event)
   Buckets.add(storage.oxygen_diffusers, entity.unit_number, {
     entity = entity,
     fluidbox = fluidbox,
-    fluid_production_statistics = entity.force.fluid_production_statistics,
+    fluid_production_statistics = entity.force.get_fluid_production_statistics(entity.surface),
     position = position,
   })
 
