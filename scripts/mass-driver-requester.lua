@@ -130,10 +130,10 @@ local function on_script_trigger_effect(event)
     name = "Default",
   }
   MassDriverRequester.name_added("Default", entity.unit_number)
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
-local function on_entity_destroyed(event)
+local function on_object_destroyed(event)
   local entity_data = global.mass_driver_requesters[event.unit_number]
   if not entity_data then return end
 
@@ -177,7 +177,7 @@ MassDriverRequester.events = {
   [defines.events.on_gui_opened] = on_gui_opened,
   [defines.events.on_gui_closed] = on_gui_closed,
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
 }
 
 function MassDriverRequester.on_init()

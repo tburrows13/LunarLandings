@@ -168,10 +168,10 @@ local function on_mass_driver_built(event)
     energy_source = energy_source,
     destination = nil,
   })
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
-local function on_entity_destroyed(event)
+local function on_object_destroyed(event)
   local entity_data = Buckets.get(global.mass_drivers, event.unit_number)
   if not entity_data then return end
 
@@ -286,7 +286,7 @@ MassDriver.events = {
   [defines.events.on_robot_built_entity] = on_mass_driver_built,
   [defines.events.script_raised_built] = on_mass_driver_built,
   [defines.events.script_raised_revive] = on_mass_driver_built,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
 }
 
 MassDriver.on_init = function ()

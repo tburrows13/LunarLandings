@@ -51,10 +51,10 @@ local function on_script_trigger_effect(event)
     position = position,
   }
 
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
-local function on_entity_destroyed(event)
+local function on_object_destroyed(event)
   local furnace_data = global.arc_furnaces[event.unit_number]
 
   if furnace_data then
@@ -183,7 +183,7 @@ end
 
 ArcFurnace.events = {
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
   [defines.events.on_selected_entity_changed] = on_selected_entity_changed,
   [defines.events.on_gui_opened] = on_gui_opened,
   [defines.events.on_tick] = on_tick,

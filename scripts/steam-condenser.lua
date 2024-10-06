@@ -69,7 +69,7 @@ local function on_script_trigger_effect(event)
     turbines = turbines_by_unit_number,
   })
 
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
 
@@ -100,11 +100,11 @@ local function on_entity_built(event)
       --game.print("No condenser found for turbine")
     end
     global.turbines[entity.unit_number] = turbine_data
-    script.register_on_entity_destroyed(entity)
+    script.register_on_object_destroyed(entity)
   end
 end
 
-local function on_entity_destroyed(event)
+local function on_object_destroyed(event)
   if not event.unit_number then return end  -- entity was tree/rock
   -- Condenser destroyed
   local condenser_data = Buckets.get(global.steam_condensers, event.unit_number)
@@ -257,7 +257,7 @@ SteamCondenser.events = {
   [defines.events.on_robot_pre_mined] = on_entity_removed,
   [defines.events.on_marked_for_deconstruction] = on_entity_removed,
   ]]
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
   [defines.events.on_selected_entity_changed] = on_selected_entity_changed,
 }
 

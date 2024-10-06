@@ -45,7 +45,7 @@ local function on_script_trigger_effect(event)
     position = position,
   })
 
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
 
@@ -90,7 +90,7 @@ local function on_entity_removed(event)
   end
 end
 
-local function on_entity_destroyed(event)
+local function on_object_destroyed(event)
   local diffuser_data = Buckets.get(global.oxygen_diffusers, event.unit_number)
 
   if diffuser_data then
@@ -175,7 +175,7 @@ OxygenDiffuser.events = {
   [defines.events.on_robot_pre_mined] = on_entity_removed,
   [defines.events.on_marked_for_deconstruction] = on_entity_removed,
 
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
 }
 
 function OxygenDiffuser.on_init()

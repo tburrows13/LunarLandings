@@ -128,10 +128,10 @@ local function on_built_entity(event)
     surface_name = entity.surface.name
   }
   LandingPad.name_added("Default", entity.unit_number, entity.surface.name)
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
-local function on_entity_destroyed(event)
+local function on_object_destroyed(event)
   local entity_data = global.landing_pads[event.unit_number]
   if not entity_data then return end
 
@@ -146,7 +146,7 @@ LandingPad.events = {
   [defines.events.on_robot_built_entity] = on_built_entity,
   [defines.events.script_raised_built] = on_built_entity,
   [defines.events.script_raised_revive] = on_built_entity,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
 }
 
 LandingPad.on_init = function ()
