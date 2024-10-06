@@ -1,5 +1,6 @@
 x_util = require("__LunarLandings__.x-util")
 
+require "__LunarLandings__.prototypes.luna"
 require "__LunarLandings__.prototypes.signal"
 require "__LunarLandings__.prototypes.quantum-module"
 require "__LunarLandings__.prototypes.custom-input"

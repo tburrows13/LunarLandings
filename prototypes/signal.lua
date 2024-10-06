@@ -18,7 +18,7 @@ data:extend
     type = "virtual-signal",
     name = "ll-luna",
     icon = "__LunarLandings__/graphics/icons/luna.png",
-    icon_size = 500,
+    icon_size = 64,
     subgroup = "virtual-signal-lunar-landings",
     order = "b"
   },

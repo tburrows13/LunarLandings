@@ -79,6 +79,11 @@ data:extend{
     effects =
     {
       {
+        type = "unlock-space-location",
+        space_location = "luna",
+        use_icon_overlay_constant = true
+      },
+      {
         type = "unlock-recipe",
         recipe = "ll-landing-pad"
       },
