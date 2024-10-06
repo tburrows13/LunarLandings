@@ -87,7 +87,7 @@ data:extend{
         recipe = "rocket-part-down"
       }
     },
-    prerequisites = {"rocket-silo"},
+    --prerequisites = {"rocket-silo"},
     unit =
     {
       count = 200,
@@ -197,7 +197,7 @@ data:extend{
         recipe = "ll-lunar-foundation"
       }
     },
-    prerequisites = {"ll-luna-exploration"},
+    --prerequisites = {"ll-luna-exploration"},
     unit =
     {
       count = 150,
