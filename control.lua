@@ -8,11 +8,11 @@ local function on_init()
   if game.tick ~= 0 then
     game.print({"ll-console-info.added-to-existing-save"})
   end
-  global.migrations = {}
+  storage.migrations = {}
 end
 
 local function on_configuration_changed(event)
-  global.migrations = global.migrations or {}
+  storage.migrations = storage.migrations or {}
   for _, force in pairs(game.forces) do
     force.reset_technology_effects()
   end

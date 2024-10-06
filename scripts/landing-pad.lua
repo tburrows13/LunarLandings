@@ -49,13 +49,13 @@ gui.add_handlers(LandingPad,
     local player = game.get_player(event.player_index)
     local entity = player.opened
     if not entity or not entity.valid then return end
-    local entity_data = global.landing_pads[entity.unit_number]
+    local entity_data = storage.landing_pads[entity.unit_number]
     handler(player, event.element, entity, entity_data)
   end
 )
 
 function LandingPad.name_added(name, unit_number, surface_name)
-  local names = global.landing_pad_names[surface_name]
+  local names = storage.landing_pad_names[surface_name]
   if name ~= "Default" and names[name] and next(names[name]) then
     game.print({"ll-console-info.landing-pad-name-exists", name})
   end
@@ -67,7 +67,7 @@ function LandingPad.name_added(name, unit_number, surface_name)
 end
 
 function LandingPad.name_removed(name, unit_number, surface_name)
-  local names = global.landing_pad_names[surface_name]
+  local names = storage.landing_pad_names[surface_name]
   if names[name] then
     names[name][unit_number] = nil
     if not next(names[name]) then
@@ -91,10 +91,10 @@ local function on_gui_opened(event)
   --if player.gui.relative["ll-landing-pad-relative-frame"] then
   --  player.gui.relative["ll-landing-pad-relative-frame"].destroy()
   --end
-  local entity_data = global.landing_pads[entity.unit_number]
+  local entity_data = storage.landing_pads[entity.unit_number]
 
   if not player.gui.relative["ll-landing-pad-relative-frame"] then
-    global.landing_pad_guis[player.index] = build_gui(player, entity_data.name)
+    storage.landing_pad_guis[player.index] = build_gui(player, entity_data.name)
   else
     update_gui(player, entity_data.name)
   end
@@ -106,8 +106,8 @@ local function on_gui_closed(event)
   local entity = event.entity
   if not entity or not entity.valid then return end
   if entity.name ~= "ll-landing-pad" then return end
-  local entity_data = global.landing_pads[entity.unit_number]
-  local landing_pad_gui = global.landing_pad_guis[player.index]
+  local entity_data = storage.landing_pads[entity.unit_number]
+  local landing_pad_gui = storage.landing_pad_guis[player.index]
   local element = landing_pad_gui["ll-landing-pad-name-entry"]
   LandingPad.dock_renamed(nil, element, entity, entity_data)
   --[[if entity and (entity.type == "container" or entity.type == "logistic-container") then
@@ -115,14 +115,14 @@ local function on_gui_closed(event)
     if relative_frame then
       relative_frame.destroy()
     end
-    global.landing_pad_guis[player.index] = nil
+    storage.landing_pad_guis[player.index] = nil
   end]]
 end
 
 local function on_built_entity(event)
   local entity = event.created_entity or event.entity
   if not entity.valid or entity.name ~= "ll-landing-pad" then return end
-  global.landing_pads[entity.unit_number] = {
+  storage.landing_pads[entity.unit_number] = {
     entity = entity,
     name = "Default",
     surface_name = entity.surface.name
@@ -132,11 +132,11 @@ local function on_built_entity(event)
 end
 
 local function on_object_destroyed(event)
-  local entity_data = global.landing_pads[event.unit_number]
+  local entity_data = storage.landing_pads[event.unit_number]
   if not entity_data then return end
 
   LandingPad.name_removed(entity_data.name, event.unit_number, entity_data.surface_name)
-  global.landing_pads[event.unit_number] = nil
+  storage.landing_pads[event.unit_number] = nil
 end
 
 LandingPad.events = {
@@ -150,15 +150,15 @@ LandingPad.events = {
 }
 
 LandingPad.on_init = function ()
-  global.landing_pads = {}
-  global.landing_pad_names = {nauvis = {}, luna = {}}
-  global.landing_pad_guis = {}
+  storage.landing_pads = {}
+  storage.landing_pad_names = {nauvis = {}, luna = {}}
+  storage.landing_pad_guis = {}
 end
 
 LandingPad.on_configuration_changed = function(changed_data)
-  global.landing_pads = global.landing_pads or {}
-  global.landing_pad_names = global.landing_pad_names or {nauvis = {}, luna = {}}
-  global.landing_pad_guis = global.landing_pad_guis or {}
+  storage.landing_pads = storage.landing_pads or {}
+  storage.landing_pad_names = storage.landing_pad_names or {nauvis = {}, luna = {}}
+  storage.landing_pad_guis = storage.landing_pad_guis or {}
 end
 
 return LandingPad

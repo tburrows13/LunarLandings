@@ -11,7 +11,7 @@ local half_life = 0.1 * initial_energy * ln_2 / initial_power  -- 600 kW
 local initial_health = 600
 
 local function on_tick(event)
-  for unit_number, rtg_data in pairs(Buckets.get_bucket(global.rtgs, event.tick)) do
+  for unit_number, rtg_data in pairs(Buckets.get_bucket(storage.rtgs, event.tick)) do
     local entity = rtg_data.entity
     if entity.valid then
       local current_multiplier = 1 / (2^((event.tick-rtg_data.tick_created)/(half_life * 60)))
@@ -20,7 +20,7 @@ local function on_tick(event)
       local health = initial_health * current_multiplier
       entity.health = health
     else
-      Buckets.remove(global.rtgs, unit_number)
+      Buckets.remove(storage.rtgs, unit_number)
     end
   end
 end
@@ -29,7 +29,7 @@ local function on_entity_built(event)
   local entity = event.created_entity or event.entity
   if not entity.valid or entity.name ~= "ll-rtg" then return end
 
-  Buckets.add(global.rtgs, entity.unit_number, {
+  Buckets.add(storage.rtgs, entity.unit_number, {
     entity = entity,
     tick_created = event.tick
   })
@@ -47,7 +47,7 @@ local function on_entity_mined(event)
     end
   end
 
-  Buckets.remove(global.rtgs, entity.unit_number)
+  Buckets.remove(storage.rtgs, entity.unit_number)
 end
 
 RTG.events = {
@@ -61,11 +61,11 @@ RTG.events = {
 }
 
 RTG.on_init = function ()
-  global.rtgs = Buckets.new()
+  storage.rtgs = Buckets.new()
 end
 
 RTG.on_configuration_changed = function(changed_data)
-  global.rtgs = global.rtgs or {}
+  storage.rtgs = storage.rtgs or {}
 end
 
 return RTG

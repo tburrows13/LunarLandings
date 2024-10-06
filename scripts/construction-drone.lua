@@ -24,7 +24,7 @@ ConstructionDrone.events = {
 
 function ConstructionDrone.on_init()
   game.create_force("Under construction")
-  global.construction_jobs = {}
+  storage.construction_jobs = {}
 end
 
 return ConstructionDrone

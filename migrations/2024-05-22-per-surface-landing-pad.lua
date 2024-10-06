@@ -1,5 +1,5 @@
 local function name_added(name, unit_number, surface_name)
-  names = global.landing_pad_names[surface_name]
+  names = storage.landing_pad_names[surface_name]
   if names[name] then
     names[name][unit_number] = true
   else
@@ -7,10 +7,10 @@ local function name_added(name, unit_number, surface_name)
   end
 end
 
-global.landing_pad_names = {nauvis = {}, luna = {}}
+storage.landing_pad_names = {nauvis = {}, luna = {}}
 
 local to_remove = {}
-for unit_number, entity_data in pairs(global.landing_pads) do
+for unit_number, entity_data in pairs(storage.landing_pads) do
   local entity = entity_data.entity
   if entity.valid then
     entity_data.surface_name = entity.surface.name
@@ -21,5 +21,5 @@ for unit_number, entity_data in pairs(global.landing_pads) do
 end
 
 for _, unit_number in ipairs(to_remove) do
-  global.landing_pads[unit_number] = nil
+  storage.landing_pads[unit_number] = nil
 end

@@ -8,14 +8,14 @@ local format_energy = function(energy)
 end
 
 local function build_gui(player, mass_driver)
-  local mass_driver_data = Buckets.get(global.mass_drivers, mass_driver.unit_number)
+  local mass_driver_data = Buckets.get(storage.mass_drivers, mass_driver.unit_number)
 
   local anchor = {gui = defines.relative_gui_type.container_gui, position = defines.relative_gui_position.right}
 
   local mass_driver_requester_names = {[1] = "None"}
   local i = 1
   local dropdown_index = 1
-  for name, _ in pairs(global.mass_driver_requester_names) do
+  for name, _ in pairs(storage.mass_driver_requester_names) do
     table.insert(mass_driver_requester_names, name)
     if name == mass_driver_data.destination then
       dropdown_index = i + 1
@@ -23,7 +23,7 @@ local function build_gui(player, mass_driver)
     i = i + 1
   end
 
-  global.mass_driver_guis[player.index] = gui.add(player.gui.relative, {
+  storage.mass_driver_guis[player.index] = gui.add(player.gui.relative, {
     {
       type = "frame",
       --style = "sp_relative_stretchable_frame",
@@ -93,8 +93,8 @@ gui.add_handlers(MassDriver,
     local player = game.players[event.player_index]
     local mass_driver = player.opened
     if not mass_driver or not mass_driver.valid then return end
-    local mass_driver_data = Buckets.get(global.mass_drivers, mass_driver.unit_number)
-    local mass_driver_gui_data = global.mass_driver_guis[player.index]
+    local mass_driver_data = Buckets.get(storage.mass_drivers, mass_driver.unit_number)
+    local mass_driver_gui_data = storage.mass_driver_guis[player.index]
     handler(player, event.element, mass_driver, mass_driver_data, mass_driver_gui_data)
   end
 )
@@ -102,8 +102,8 @@ gui.add_handlers(MassDriver,
 --[[
 local function update_gui(player, mass_driver)
   -- Currently out of date and unused
-  local mass_driver_data = Buckets.get(global.mass_drivers, mass_driver.unit_number)
-  local gui_elements = global.mass_driver_guis[player.index]
+  local mass_driver_data = Buckets.get(storage.mass_drivers, mass_driver.unit_number)
+  local gui_elements = storage.mass_driver_guis[player.index]
   gui_elements["ll-auto-launch-none"].state = mass_driver_data.auto_launch == "none"
   gui_elements["ll-auto-launch-any"].state = mass_driver_data.auto_launch == "any"
   gui_elements["ll-auto-launch-full"].state = mass_driver_data.auto_launch == "full"
@@ -163,7 +163,7 @@ local function on_mass_driver_built(event)
     force = entity.force,
   }
 
-  Buckets.add(global.mass_drivers, entity.unit_number, {
+  Buckets.add(storage.mass_drivers, entity.unit_number, {
     entity = entity,
     energy_source = energy_source,
     destination = nil,
@@ -172,7 +172,7 @@ local function on_mass_driver_built(event)
 end
 
 local function on_object_destroyed(event)
-  local entity_data = Buckets.get(global.mass_drivers, event.unit_number)
+  local entity_data = Buckets.get(storage.mass_drivers, event.unit_number)
   if not entity_data then return end
 
   if entity_data.energy_source.valid then
@@ -181,11 +181,11 @@ local function on_object_destroyed(event)
 end
 
 local function get_destination_mass_driver_requester(mass_driver_requester_name)
-  local mass_driver_requesters = global.mass_driver_requester_names[mass_driver_requester_name]
+  local mass_driver_requesters = storage.mass_driver_requester_names[mass_driver_requester_name]
   if not mass_driver_requesters then return end
 
   local mass_driver_requester_unit_number, _ = next(mass_driver_requesters)
-  local mass_driver_requester = global.mass_driver_requesters[mass_driver_requester_unit_number]
+  local mass_driver_requester = storage.mass_driver_requesters[mass_driver_requester_unit_number]
   if not (mass_driver_requester and mass_driver_requester.entity.valid) then
     return
   end
@@ -268,10 +268,10 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
 end
 
 local function on_tick(event)
-  for unit_number, mass_driver_data in pairs(Buckets.get_bucket(global.mass_drivers, event.tick)) do
+  for unit_number, mass_driver_data in pairs(Buckets.get_bucket(storage.mass_drivers, event.tick)) do
     local mass_driver = mass_driver_data.entity
     if not mass_driver.valid then
-      Buckets.remove(global.mass_drivers, unit_number)
+      Buckets.remove(storage.mass_drivers, unit_number)
     else  
       MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     end
@@ -290,13 +290,13 @@ MassDriver.events = {
 }
 
 MassDriver.on_init = function ()
-  global.mass_drivers = Buckets.new(180)
-  global.mass_driver_guis = {}
+  storage.mass_drivers = Buckets.new(180)
+  storage.mass_driver_guis = {}
 end
 
 MassDriver.on_configuration_changed = function(changed_data)
-  global.mass_drivers = global.mass_drivers or Buckets.new(180)
-  global.mass_driver_guis = global.mass_driver_guis or {}
+  storage.mass_drivers = storage.mass_drivers or Buckets.new(180)
+  storage.mass_driver_guis = storage.mass_driver_guis or {}
 end
 
 return MassDriver

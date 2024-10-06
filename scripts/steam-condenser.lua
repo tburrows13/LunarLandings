@@ -45,11 +45,11 @@ local function on_script_trigger_effect(event)
 
   local turbines_by_unit_number = {}
   for _, turbine in pairs(turbines) do
-    local turbine_data = global.turbines[turbine.unit_number]
+    local turbine_data = storage.turbines[turbine.unit_number]
     if not turbine_data then
       -- Happens in tips and tricks simulations at least
       turbine_data = {}
-      global.turbines[turbine.unit_number] = turbine_data
+      storage.turbines[turbine.unit_number] = turbine_data
     end
     if not turbine_data.condenser then
       turbine_data.condenser = entity.unit_number
@@ -62,7 +62,7 @@ local function on_script_trigger_effect(event)
     end
   end
 
-  Buckets.add(global.steam_condensers, entity.unit_number, {
+  Buckets.add(storage.steam_condensers, entity.unit_number, {
     entity = entity,
     --fluidbox = entity.fluidbox[2],
     position = position,
@@ -91,7 +91,7 @@ local function on_entity_built(event)
     end
     if next(condensers) then
       local condenser_unit_number = condensers[1].unit_number
-      local condenser_data = Buckets.get(global.steam_condensers, condenser_unit_number)
+      local condenser_data = Buckets.get(storage.steam_condensers, condenser_unit_number)
       if condenser_data then
         condenser_data.turbines[entity.unit_number] = entity
         turbine_data.condenser = condenser_unit_number
@@ -99,7 +99,7 @@ local function on_entity_built(event)
     elseif entity.surface.name == "luna" then
       --game.print("No condenser found for turbine")
     end
-    global.turbines[entity.unit_number] = turbine_data
+    storage.turbines[entity.unit_number] = turbine_data
     script.register_on_object_destroyed(entity)
   end
 end
@@ -107,16 +107,16 @@ end
 local function on_object_destroyed(event)
   if not event.unit_number then return end  -- entity was tree/rock
   -- Condenser destroyed
-  local condenser_data = Buckets.get(global.steam_condensers, event.unit_number)
+  local condenser_data = Buckets.get(storage.steam_condensers, event.unit_number)
   if condenser_data then
     for unit_number, turbine in pairs(condenser_data.turbines) do
       on_entity_built{created_entity = turbine}  -- send the turbine off to check for another condenser
     end
-    Buckets.remove(global.steam_condensers, event.unit_number)
+    Buckets.remove(storage.steam_condensers, event.unit_number)
   end
 
   -- Turbine destroyed, turbine will get removed from condenser data when the condenser updates
-  global.turbines[event.unit_number] = nil
+  storage.turbines[event.unit_number] = nil
 end
 
 -- Show turbine/condenser connection where hovering
@@ -126,11 +126,11 @@ local function on_selected_entity_changed (event)
 
   -- Don't want to set up all the plumbing to create this data.
   -- This is a slow event, so it might be okay for now.
-  global.players = global.players or { }
-  local player_data = global.players[event.player_index]
+  storage.players = storage.players or { }
+  local player_data = storage.players[event.player_index]
   if not player_data then
-    global.players[event.player_index] = { }
-    player_data = global.players[event.player_index]
+    storage.players[event.player_index] = { }
+    player_data = storage.players[event.player_index]
   end
 
   -- Always destroy all current highlight boxes, if any, to keep logic simple.
@@ -145,7 +145,7 @@ local function on_selected_entity_changed (event)
   if not entity or not entity.valid then return end
 
   if entity.name == "ll-steam-condenser" then
-    local condenser_data = Buckets.get(global.steam_condensers, entity.unit_number)
+    local condenser_data = Buckets.get(storage.steam_condensers, entity.unit_number)
     if condenser_data and condenser_data.turbines then
       local surface = entity.surface
       for _, turbine in pairs(condenser_data.turbines) do
@@ -161,9 +161,9 @@ local function on_selected_entity_changed (event)
       end
     end
   elseif entity.name == "steam-turbine" then
-    local turbine_data = global.turbines[entity.unit_number]
+    local turbine_data = storage.turbines[entity.unit_number]
     if turbine_data then
-      local condenser = Buckets.get(global.steam_condensers, turbine_data.condenser)
+      local condenser = Buckets.get(storage.steam_condensers, turbine_data.condenser)
       if condenser and condenser.entity.valid then
         table.insert(player_data.highlight_boxes, condenser.entity.surface.create_entity{
           name = "highlight-box",
@@ -184,7 +184,7 @@ local function update_condenser(entity, turbines)
   local to_remove = {}
   for unit_number, turbine in pairs(turbines) do
     if turbine.valid then
-      total_energy = total_energy + turbine.energy_generated_last_tick * global.steam_condensers.interval
+      total_energy = total_energy + turbine.energy_generated_last_tick * storage.steam_condensers.interval
     else
       table.insert(to_remove, unit_number)
     end
@@ -215,19 +215,19 @@ local function update_condenser(entity, turbines)
 end
 
 local function on_tick(event)
-  for unit_number, condenser_data in pairs(Buckets.get_bucket(global.steam_condensers, event.tick)) do
+  for unit_number, condenser_data in pairs(Buckets.get_bucket(storage.steam_condensers, event.tick)) do
     if condenser_data.entity.valid then
       update_condenser(condenser_data.entity, condenser_data.turbines)
     else
-      Buckets.remove(global.steam_condensers, unit_number)
+      Buckets.remove(storage.steam_condensers, unit_number)
     end
   end
 end
 
 function SteamCondenser.reset_condenser_connections()
-  local steam_condensers = global.steam_condensers
-  global.steam_condensers = Buckets.new()
-  global.turbines = {}
+  local steam_condensers = storage.steam_condensers
+  storage.steam_condensers = Buckets.new()
+  storage.turbines = {}
 
   for _, surface in pairs(game.surfaces) do
     local turbines = surface.find_entities_filtered{type = "generator", name = "steam-turbine"}
@@ -262,17 +262,17 @@ SteamCondenser.events = {
 }
 
 function SteamCondenser.on_init()
-  global.steam_condensers = Buckets.new()
-  global.turbines = {}
+  storage.steam_condensers = Buckets.new()
+  storage.turbines = {}
 end
 
 function SteamCondenser.on_configuration_changed()
-  global.steam_condensers = global.steam_condensers or {}
-  global.turbines = global.turbines or {}
+  storage.steam_condensers = storage.steam_condensers or {}
+  storage.turbines = storage.turbines or {}
 
   -- Trigger reset for all condenser-turbine connections when connection logic has changed
-  if not global.migrations.reset_steam_condensers then
-    global.migrations.reset_steam_condensers = true
+  if not storage.migrations.reset_steam_condensers then
+    storage.migrations.reset_steam_condensers = true
     SteamCondenser.reset_condenser_connections()
   end
 end

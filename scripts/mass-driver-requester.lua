@@ -51,13 +51,13 @@ gui.add_handlers(MassDriverRequester,
     local player = game.get_player(event.player_index)
     local entity = player.opened
     if not entity or not entity.valid then return end
-    local entity_data = global.mass_driver_requesters[entity.unit_number]
+    local entity_data = storage.mass_driver_requesters[entity.unit_number]
     handler(player, event.element, entity, entity_data)
   end
 )
 
 function MassDriverRequester.name_added(name, unit_number)
-  names = global.mass_driver_requester_names
+  names = storage.mass_driver_requester_names
   if name ~= "Default" and names[name] and next(names[name]) then
     game.print({"ll-console-info.mass-driver-requester-name-exists", name})
   end
@@ -69,7 +69,7 @@ function MassDriverRequester.name_added(name, unit_number)
 end
 
 function MassDriverRequester.name_removed(name, unit_number)
-  names = global.mass_driver_requester_names
+  names = storage.mass_driver_requester_names
   if names[name] then
     names[name][unit_number] = nil
     if not next(names[name]) then
@@ -93,10 +93,10 @@ local function on_gui_opened(event)
   if player.gui.relative["ll-mass-driver-requester-relative-frame"] then
     player.gui.relative["ll-mass-driver-requester-relative-frame"].destroy()
   end
-  local entity_data = global.mass_driver_requesters[entity.unit_number]
+  local entity_data = storage.mass_driver_requesters[entity.unit_number]
 
   if not player.gui.relative["ll-mass-driver-requester-relative-frame"] then
-    global.mass_driver_requester_guis[player.index] = build_gui(player, entity_data.name)
+    storage.mass_driver_requester_guis[player.index] = build_gui(player, entity_data.name)
   else
     update_gui(player, entity_data.name)
   end
@@ -107,8 +107,8 @@ local function on_gui_closed(event)
   local entity = event.entity
   if not entity or not entity.valid then return end
   if entity.name ~= "ll-mass-driver-requester" then return end
-  local entity_data = global.mass_driver_requesters[entity.unit_number]
-  local mass_driver_requester_gui = global.mass_driver_requester_guis[player.index]
+  local entity_data = storage.mass_driver_requesters[entity.unit_number]
+  local mass_driver_requester_gui = storage.mass_driver_requester_guis[player.index]
   local element = mass_driver_requester_gui["ll-mass-driver-requester-name-entry"]
   MassDriverRequester.requester_renamed(nil, element, entity, entity_data)
   --[[if entity and (entity.type == "container" or entity.type == "logistic-container") then
@@ -116,7 +116,7 @@ local function on_gui_closed(event)
     if relative_frame then
       relative_frame.destroy()
     end
-    global.mass_driver_requester_guis[player.index] = nil
+    storage.mass_driver_requester_guis[player.index] = nil
   end]]
 end
 
@@ -125,7 +125,7 @@ local function on_script_trigger_effect(event)
 
   local entity = event.target_entity
   entity.force = "ll-mass-driver"
-  global.mass_driver_requesters[entity.unit_number] = {
+  storage.mass_driver_requesters[entity.unit_number] = {
     entity = entity,
     name = "Default",
   }
@@ -134,11 +134,11 @@ local function on_script_trigger_effect(event)
 end
 
 local function on_object_destroyed(event)
-  local entity_data = global.mass_driver_requesters[event.unit_number]
+  local entity_data = storage.mass_driver_requesters[event.unit_number]
   if not entity_data then return end
 
   MassDriverRequester.name_removed(entity_data.name, event.unit_number)
-  global.mass_driver_requesters[event.unit_number] = nil
+  storage.mass_driver_requesters[event.unit_number] = nil
 end
 
 local function check_requester_slots(entity)
@@ -181,9 +181,9 @@ MassDriverRequester.events = {
 }
 
 function MassDriverRequester.on_init()
-  global.mass_driver_requesters = global.mass_driver_requesters or {}
-  global.mass_driver_requester_names = global.mass_driver_requester_names or {}
-  global.mass_driver_requester_guis = global.mass_driver_requester_guis or {}
+  storage.mass_driver_requesters = storage.mass_driver_requesters or {}
+  storage.mass_driver_requester_names = storage.mass_driver_requester_names or {}
+  storage.mass_driver_requester_guis = storage.mass_driver_requester_guis or {}
 
   local force = game.create_force("ll-mass-driver")
   force.set_friend("player", true)
@@ -194,9 +194,9 @@ function MassDriverRequester.on_init()
 end
 
 function MassDriverRequester.on_configuration_changed()
-  global.mass_driver_requesters = global.mass_driver_requesters or {}
-  global.mass_driver_requester_names = global.mass_driver_requester_names or {}
-  global.mass_driver_requester_guis = global.mass_driver_requester_guis or {}
+  storage.mass_driver_requesters = storage.mass_driver_requesters or {}
+  storage.mass_driver_requester_names = storage.mass_driver_requester_names or {}
+  storage.mass_driver_requester_guis = storage.mass_driver_requester_guis or {}
 
   if not game.forces["ll-mass-driver"] then
     MassDriverRequester.on_init()

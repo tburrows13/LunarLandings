@@ -30,12 +30,12 @@ local function is_rocket_launching(entity)
 end
 
 local function build_gui(player, silo)
-  local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
+  local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
 
   local anchor = {gui = defines.relative_gui_type.rocket_silo_gui, position = defines.relative_gui_position.right}
 
   local landing_pad_names = {[1] = "Space"}
-  local surfaces_unlocked = global.satellites_launched[silo.force.name]
+  local surfaces_unlocked = storage.satellites_launched[silo.force.name]
   if surfaces_unlocked then
     if silo.surface.name == "luna" then
       landing_pad_names[2] = "Nauvis Surface"
@@ -48,7 +48,7 @@ local function build_gui(player, silo)
   if silo_data.destination == "Luna Surface" or silo_data.destination == "Nauvis Surface" then
     dropdown_index = 2
   end
-  for name, _ in pairs(global.landing_pad_names[get_other_surface_name(silo.surface.name)]) do
+  for name, _ in pairs(storage.landing_pad_names[get_other_surface_name(silo.surface.name)]) do
     table.insert(landing_pad_names, name)
     if name == silo_data.destination then
       dropdown_index = i + (surfaces_unlocked and 2 or 1)
@@ -56,7 +56,7 @@ local function build_gui(player, silo)
     i = i + 1
   end
 
-  global.rocket_silo_guis[player.index] = gui.add(player.gui.relative, {
+  storage.rocket_silo_guis[player.index] = gui.add(player.gui.relative, {
     {
       type = "frame",
       --style = "sp_relative_stretchable_frame",
@@ -150,16 +150,16 @@ gui.add_handlers(RocketSilo,
     local player = game.players[event.player_index]
     local silo = player.opened
     if not silo or not silo.valid then return end
-    local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
-    local silo_gui_data = global.rocket_silo_guis[player.index]
+    local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
+    local silo_gui_data = storage.rocket_silo_guis[player.index]
     handler(player, event.element, silo, silo_data, silo_gui_data)
   end
 )
 
 local function update_gui(player, silo)
   -- Currently out of date and unused
-  local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
-  local gui_elements = global.rocket_silo_guis[player.index]
+  local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
+  local gui_elements = storage.rocket_silo_guis[player.index]
   gui_elements["ll-auto-launch-none"].state = silo_data.auto_launch == "none"
   gui_elements["ll-auto-launch-any"].state = silo_data.auto_launch == "any"
   gui_elements["ll-auto-launch-full"].state = silo_data.auto_launch == "full"
@@ -218,7 +218,7 @@ local function on_rocket_silo_built(event)
     entity = new_entity
   end
 
-  Buckets.add(global.rocket_silos, entity.unit_number, {
+  Buckets.add(storage.rocket_silos, entity.unit_number, {
     entity = entity,
     auto_launch = "none",  -- "none", "any", "full"
     destination = "Space",
@@ -226,11 +226,11 @@ local function on_rocket_silo_built(event)
 end
 
 local function get_destination_landing_pad(landing_pad_name, landing_pad_surface_name)
-  local landing_pads = global.landing_pad_names[landing_pad_surface_name][landing_pad_name]
+  local landing_pads = storage.landing_pad_names[landing_pad_surface_name][landing_pad_name]
   if not landing_pads then return end
 
   local landing_pad_unit_number, _ = next(landing_pads)
-  local landing_pad = global.landing_pads[landing_pad_unit_number]
+  local landing_pad = storage.landing_pads[landing_pad_unit_number]
   if not (landing_pad and landing_pad.entity.valid) then
     return
   end
@@ -259,10 +259,10 @@ local function launch_if_destination_has_space(silo_data, ready_stacks)
 end
 
 local function on_tick(event)
-  for unit_number, silo_data in pairs(Buckets.get_bucket(global.rocket_silos, event.tick)) do
+  for unit_number, silo_data in pairs(Buckets.get_bucket(storage.rocket_silos, event.tick)) do
     local silo = silo_data.entity
     if not silo.valid then
-      Buckets.remove(global.rocket_silos, unit_number)
+      Buckets.remove(storage.rocket_silos, unit_number)
     else
       if silo.rocket_silo_status == defines.rocket_silo_status.rocket_ready then
         if silo_data.auto_launch == "any" then
@@ -293,7 +293,7 @@ local function on_rocket_launch_ordered(event)
   end
 
   for player_index, _ in pairs(game.players) do
-    local gui_elements = global.rocket_silo_guis[player_index]
+    local gui_elements = storage.rocket_silo_guis[player_index]
     if gui_elements then
       gui_elements["ll-destination-dropdown"].enabled = false
     end
@@ -368,8 +368,8 @@ local function on_rocket_launched(event)
     if not (rocket and rocket.valid) then return end
 
     -- Win the game
-    if game.finished or game.finished_but_continuing or global.finished then return end
-    global.finished = true
+    if game.finished or game.finished_but_continuing or storage.finished then return end
+    storage.finished = true
     if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
       remote.call("better-victory-screen", "trigger_victory", rocket.force)
     else
@@ -384,12 +384,12 @@ local function on_rocket_launched(event)
 
   local inventory = event.rocket.get_inventory(defines.inventory.rocket)
 
-  local silo_data = Buckets.get(global.rocket_silos, silo.unit_number)
+  local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
   if silo_data.destination == "Space" then
     if inventory.get_item_count("satellite") >= 1 then
       if silo.name == "rocket-silo" then
         local force_name = silo.force.name
-        local satellites_launched = global.satellites_launched[force_name] or 0
+        local satellites_launched = storage.satellites_launched[force_name] or 0
         if satellites_launched == 0 then
           if game.is_multiplayer() then
             game.print({"ll-console-info.first-satellite-launched"})
@@ -402,9 +402,9 @@ local function on_rocket_launched(event)
           game.print({"ll-console-info.new-destination-unlocked"})
           silo.force.technologies["ll-luna-exploration"].enabled = true
         end
-        global.satellites_launched[silo.force.name] = satellites_launched + 1
+        storage.satellites_launched[silo.force.name] = satellites_launched + 1
         if satellites_launched > 0 then
-          local position = global.satellite_cursors[silo.force.name] or {x = 0, y = 0}
+          local position = storage.satellite_cursors[silo.force.name] or {x = 0, y = 0}
           for i = 1, 300 do
             while silo.force.is_chunk_charted("luna", position) do
               position = spiral_next(position)
@@ -420,7 +420,7 @@ local function on_rocket_launched(event)
               }
             })
             position = spiral_next(position)
-            global.satellite_cursors[silo.force.name] = position
+            storage.satellite_cursors[silo.force.name] = position
           end
         end
       end
@@ -435,7 +435,7 @@ local function on_rocket_launched(event)
     land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
   end
   for player_index, _ in pairs(game.players) do
-    local gui_elements = global.rocket_silo_guis[player_index]
+    local gui_elements = storage.rocket_silo_guis[player_index]
     if gui_elements then
       gui_elements["ll-destination-dropdown"].enabled = true
     end
@@ -481,7 +481,7 @@ end
 
 local function disable_luna_exploration_tech()
     for _, force in pairs(game.forces) do
-    if not global.satellites_launched[force.name] then
+    if not storage.satellites_launched[force.name] then
       if not force.technologies["ll-luna-exploration"].researched then
         force.technologies["ll-luna-exploration"].enabled = false
         force.technologies["ll-luna-exploration"].visible_when_disabled = true
@@ -491,10 +491,10 @@ local function disable_luna_exploration_tech()
 end
 
 RocketSilo.on_init = function ()
-  global.rocket_silos = Buckets.new()
-  global.rocket_silo_guis = {}
-  global.satellites_launched = {}
-  global.satellite_cursors = {}
+  storage.rocket_silos = Buckets.new()
+  storage.rocket_silo_guis = {}
+  storage.satellites_launched = {}
+  storage.satellite_cursors = {}
   disable_rocket_victory()
   disable_luna_exploration_tech()
 
@@ -507,10 +507,10 @@ RocketSilo.on_init = function ()
 end
 
 RocketSilo.on_configuration_changed = function(changed_data)
-  global.rocket_silos = global.rocket_silos or {}
-  global.rocket_silo_guis = global.rocket_silo_guis or {}
-  global.satellites_launched = global.satellites_launched or {}
-  global.satellite_cursors = global.satellite_cursors or {}
+  storage.rocket_silos = storage.rocket_silos or {}
+  storage.rocket_silo_guis = storage.rocket_silo_guis or {}
+  storage.satellites_launched = storage.satellites_launched or {}
+  storage.satellite_cursors = storage.satellite_cursors or {}
   disable_rocket_victory()
 end
 

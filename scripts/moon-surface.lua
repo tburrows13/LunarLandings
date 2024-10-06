@@ -115,8 +115,8 @@ local function on_configuration_changed()
       luna.map_gen_settings = map_gen_settings
     end
 
-    if not global.migrations.luna_cliffs_made_indestructable then
-      global.migrations.luna_cliffs_made_indestructable = true
+    if not storage.migrations.luna_cliffs_made_indestructable then
+      storage.migrations.luna_cliffs_made_indestructable = true
 
       local cliffs = luna.find_entities_filtered{
         name = "ll-luna-cliff",
