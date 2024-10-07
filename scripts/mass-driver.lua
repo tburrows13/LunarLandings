@@ -172,12 +172,13 @@ local function on_mass_driver_built(event)
 end
 
 local function on_object_destroyed(event)
-  local entity_data = Buckets.get(storage.mass_drivers, event.unit_number)
+  local entity_data = Buckets.get(storage.mass_drivers, event.useful_id)
   if not entity_data then return end
 
   if entity_data.energy_source.valid then
     entity_data.energy_source.destroy()
   end
+  
 end
 
 local function get_destination_mass_driver_requester(mass_driver_requester_name)

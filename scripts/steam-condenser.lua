@@ -105,9 +105,9 @@ local function on_entity_built(event)
 end
 
 local function on_object_destroyed(event)
-  if not event.unit_number then return end  -- entity was tree/rock
+  if not event.useful_id then return end  -- entity was tree/rock
   -- Condenser destroyed
-  local condenser_data = Buckets.get(storage.steam_condensers, event.unit_number)
+  local condenser_data = Buckets.get(storage.steam_condensers, event.useful_id)
   if condenser_data then
     for unit_number, turbine in pairs(condenser_data.turbines) do
       on_entity_built{created_entity = turbine}  -- send the turbine off to check for another condenser
@@ -116,7 +116,7 @@ local function on_object_destroyed(event)
   end
 
   -- Turbine destroyed, turbine will get removed from condenser data when the condenser updates
-  storage.turbines[event.unit_number] = nil
+  storage.turbines[event.useful_id] = nil
 end
 
 -- Show turbine/condenser connection where hovering

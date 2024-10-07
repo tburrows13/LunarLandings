@@ -134,11 +134,11 @@ local function on_script_trigger_effect(event)
 end
 
 local function on_object_destroyed(event)
-  local entity_data = storage.mass_driver_requesters[event.unit_number]
+  local entity_data = storage.mass_driver_requesters[event.useful_id]
   if not entity_data then return end
 
-  MassDriverRequester.name_removed(entity_data.name, event.unit_number)
-  storage.mass_driver_requesters[event.unit_number] = nil
+  MassDriverRequester.name_removed(entity_data.name, event.useful_id)
+  storage.mass_driver_requesters[event.useful_id] = nil
 end
 
 local function check_requester_slots(entity)

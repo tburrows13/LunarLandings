@@ -132,11 +132,11 @@ local function on_built_entity(event)
 end
 
 local function on_object_destroyed(event)
-  local entity_data = storage.landing_pads[event.unit_number]
+  local entity_data = storage.landing_pads[event.useful_id]
   if not entity_data then return end
 
-  LandingPad.name_removed(entity_data.name, event.unit_number, entity_data.surface_name)
-  storage.landing_pads[event.unit_number] = nil
+  LandingPad.name_removed(entity_data.name, event.useful_id, entity_data.surface_name)
+  storage.landing_pads[event.useful_id] = nil
 end
 
 LandingPad.events = {

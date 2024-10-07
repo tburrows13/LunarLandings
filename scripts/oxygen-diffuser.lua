@@ -91,13 +91,13 @@ local function on_entity_removed(event)
 end
 
 local function on_object_destroyed(event)
-  local diffuser_data = Buckets.get(storage.oxygen_diffusers, event.unit_number)
+  local diffuser_data = Buckets.get(storage.oxygen_diffusers, event.useful_id)
 
   if diffuser_data then
     if diffuser_data.fluidbox.valid then
       diffuser_data.fluidbox.destroy()
     end
-    Buckets.remove(storage.oxygen_diffusers, event.unit_number)
+    Buckets.remove(storage.oxygen_diffusers, event.useful_id)
   end
 end
 
