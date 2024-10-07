@@ -18,16 +18,16 @@ x_util.remove_prerequisite("tech-space-trains", "battery")
 x_util.remove_prerequisite("tech-space-trains", "steel-processing")
 
 
-data.raw.recipe["recipe-space-locomotive"].ingredients = {
+data.raw.recipe["space-locomotive"].ingredients = {
   {type="item", name="low-density-structure", amount=4},
   {type="item", name="processing-unit", amount=10},
   {type="item", name="electric-engine-unit", amount=20},
 }
-data.raw.recipe["recipe-space-cargo-wagon"].ingredients = {
+data.raw.recipe["space-cargo-wagon"].ingredients = {
   {type="item", name="low-density-structure", amount=4},
   {type="item", name="processing-unit", amount=5},
 }
-data.raw.recipe["recipe-space-fluid-wagon"].ingredients = {
+data.raw.recipe["space-fluid-wagon"].ingredients = {
   {type="item", name="low-density-structure", amount=4},
   {type="item", name="processing-unit", amount=5},
   {type="item", name="storage-tank", amount=1},
