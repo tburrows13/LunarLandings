@@ -70,7 +70,11 @@ data:extend{
     --source_inventory_size = 1,
     --allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     module_slots = 0,
-    base_productivity = 0.5,
+    effect_receiver = {
+      base_effect = {
+        productivity = 0.5
+      }
+    },
     fluid_boxes = {
       {
         volume = 200,
