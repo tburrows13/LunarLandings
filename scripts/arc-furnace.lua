@@ -5,35 +5,6 @@ local function on_script_trigger_effect(event)
 
   local entity = event.target_entity
   local position = entity.position
-  local storage_tank_s = entity.surface.create_entity{
-    name = "ll-arc-furnace-storage-tank",
-    position = {position.x + 1.5, position.y + 2},
-    force = entity.force,
-    create_build_effect_smoke = false,
-    direction = defines.direction.north,
-  }
-  local storage_tank_w = entity.surface.create_entity{
-    name = "ll-arc-furnace-storage-tank",
-    position = {position.x - 2, position.y + 1.5},
-    force = entity.force,
-    create_build_effect_smoke = false,
-    direction = defines.direction.east
-  }
-  local storage_tank_n = entity.surface.create_entity{
-    name = "ll-arc-furnace-storage-tank",
-    position = {position.x - 1.5, position.y - 2},
-    force = entity.force,
-    create_build_effect_smoke = false,
-    direction = defines.direction.south
-  }
-  local storage_tank_e = entity.surface.create_entity{
-    name = "ll-arc-furnace-storage-tank",
-    position = {position.x + 2, position.y - 1.5},
-    force = entity.force,
-    create_build_effect_smoke = false,
-    direction = defines.direction.west
-  }
-
 
   local reactor = entity.surface.create_entity{
     name = "ll-arc-furnace-reactor",
@@ -44,12 +15,10 @@ local function on_script_trigger_effect(event)
   storage.arc_furnaces[entity.unit_number] = {
     entity = entity,
     reactor = reactor,
-    storage_tank_s = storage_tank_s,
-    storage_tank_w = storage_tank_w,
-    storage_tank_n = storage_tank_n,
-    storage_tank_e = storage_tank_e,
     position = position,
   }
+
+  entity.fluidbox.add_linked_connection(1, reactor, 1)
 
   script.register_on_object_destroyed(entity)
 end
@@ -60,18 +29,6 @@ local function on_object_destroyed(event)
   if furnace_data then
     if furnace_data.reactor.valid then
       furnace_data.reactor.destroy()
-    end
-    if furnace_data.storage_tank_s.valid then
-      furnace_data.storage_tank_s.destroy()
-    end
-    if furnace_data.storage_tank_w.valid then
-      furnace_data.storage_tank_w.destroy()
-    end
-    if furnace_data.storage_tank_n.valid then
-      furnace_data.storage_tank_n.destroy()
-    end
-    if furnace_data.storage_tank_e.valid then
-      furnace_data.storage_tank_e.destroy()
     end
   end
 end
@@ -99,7 +56,7 @@ local function delete_heat_outputs(player)
   local heat_render_ids = storage.arc_furnace_heat_renders[player.index]
   if heat_render_ids then
     for _, render_id in pairs(heat_render_ids) do
-      rendering.destroy(render_id)
+      --rendering.destroy(render_id)
     end
   end
 end
@@ -113,7 +70,7 @@ local function on_selected_entity_changed(event)
 end
 
 local function build_caption(temperature)
-  return {"", {"description.temperature"}, ": ", {"format-degrees-c", string.format("%.2f", temperature)}}
+  return {"", {"description.temperature"}, ": ", string.format("%.2f", temperature), " ", {"si-unit-degree-celsius"}}
 end
 
 local function build_gui(player, furnace, reactor)

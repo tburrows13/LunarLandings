@@ -97,7 +97,7 @@ data:extend{
         hide_connection_info = true,
         filter = "ll-heat",
         pipe_connections = {
-          {flow_direction = "output", direction = defines.direction.east, position = {0, 1.2}},  -- TODO 2.0
+          {flow_direction = "output", connection_type = "linked", linked_connection_id = 1},
         },
         production_type = "output",
       },
@@ -195,16 +195,13 @@ data:extend{
     {
       type = "fluid",
       fluid_box = {
-        volume = 200,
+        volume = 10,
         --pipe_covers = pipecoverspictures(),
         --pipe_picture = ei_pipe_big_insulated,
         hide_connection_info = true,
         filter = "ll-heat",
         pipe_connections = {
-          --{type = "input", direction = defines.direction.east, position = {2, 2.2}},  -- TODO 2.0
-          --{type = "input", direction = defines.direction.east, position = {-2.2, 2}},  -- TODO 2.0
-          --{type = "input", direction = defines.direction.east, position = {-2, -2.2}},  -- TODO 2.0
-          --{type = "input", direction = defines.direction.east, position = {2.2, -2}},  -- TODO 2.0
+          {flow_direction = "input", connection_type = "linked", linked_connection_id = 1},
         },
         production_type = "input",
       },
@@ -218,7 +215,6 @@ data:extend{
     --selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     collision_mask = {layers={}, not_colliding_with_itself = true},
     --surface_conditions = {nauvis = true, luna = true},
-    damaged_trigger_effect = hit_effects.entity(),
     lower_layer_picture =
     {
       filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-heatpipes.png",
@@ -397,72 +393,5 @@ data:extend{
         }
       }
     },
-
-    --vehicle_impact_sound = sounds.generic_impact,
-    open_sound = sounds.machine_open,
-    close_sound = sounds.machine_close,
-    --[[working_sound =
-    {
-      sound =
-      {
-        {
-          filename = "__base__/sound/nuclear-reactor-1.ogg",
-          volume = 0.55
-        },
-        {
-          filename = "__base__/sound/nuclear-reactor-2.ogg",
-          volume = 0.55
-        }
-      },
-      --idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.3 },
-      max_sounds_per_type = 3,
-      fade_in_ticks = 4,
-      fade_out_ticks = 20
-    },]]
-  },
-  {
-    type = "storage-tank",
-    name = "ll-arc-furnace-storage-tank",
-    icon = "__LunarLandings__/graphics/icons/arc-furnace.png",
-    icon_size = 64,
-    flags = {"placeable-player", "player-creation", "not-deconstructable", "not-blueprintable", "hide-alt-info"},
-    --flags = {"placeable-player", "player-creation", "not-deconstructable", "not-blueprintable", "placeable-off-grid"},
-    --flags = {"placeable-player", "player-creation", "not-deconstructable", "not-blueprintable"},
-
-    max_health = 500,
-    order = "zz",
-    --collision_box = {{-0.25, -1}, {0.25, 1}},
-    --selection_box = {{-0.25, -1}, {0.25, 1}},
-    collision_box = {{-0.75, -0.25}, {0.75, 0.25}},
-    selection_box = {{-0.75, -0.25}, {0.75, 0.25}},
-    selectable_in_game = false,
-    --collision_box = {{-1, -0.5}, {1, 0.5}},
-    --selection_box = {{-1, -0.5}, {1, 0.5}},
-
-    collision_mask = {layers={}, not_colliding_with_itself = true},
-    --selectable_in_game = selectable,
-    fluid_box =
-    {
-      filter =  "ll-heat",
-      volume = 5,
-      pipe_connections =
-      {
-        --{ position = {-0.5, -0.5} }, -- connects to machine
-        --{ position = {-0.5, 0.5} }, -- connects to reactor
-        --{ position = {-0.5, -1} }, -- connects to machine
-        --{ position = {0.5, -1} }, -- connects to reactor
-        --{ position = {-0.5, -0.5} }, -- connects to machine
-      },
-    },
-    window_bounding_box = {{-0.0, 0.0}, {0.0, 1.0}},
-    pictures = {
-      picture = util.empty_sprite(),
-      window_background = util.empty_sprite(),
-      fluid_background = util.empty_sprite(),
-      flow_sprite = util.empty_sprite(),
-      gas_flow = util.empty_sprite(),
-    },
-    flow_length_in_ticks = 360,
-    circuit_wire_max_distance = 0
   },
 }
