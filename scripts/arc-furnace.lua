@@ -34,29 +34,28 @@ local function on_object_destroyed(event)
 end
 
 local function draw_heat_outputs(player, entity)
-  local render_ids = {}
+  local render_objects = {}
   for i = -2, 2, 2 do
     for j = -2, 2, 2 do
       if not (i == 0 and j == 0) then
-        local id = rendering.draw_sprite{
+        local render_object = rendering.draw_sprite{
           sprite="utility/heat_exchange_indication",
-          target=entity,
-          target_offset={i, j},
+          target={entity=entity, offset={i, j}},
           surface=entity.surface,
           players={player},
         }
-        table.insert(render_ids, id)
+        table.insert(render_objects, render_object)
       end
     end
   end
-  storage.arc_furnace_heat_renders[player.index] = render_ids
+  storage.arc_furnace_heat_renders[player.index] = render_objects
 end
 
 local function delete_heat_outputs(player)
-  local heat_render_ids = storage.arc_furnace_heat_renders[player.index]
-  if heat_render_ids then
-    for _, render_id in pairs(heat_render_ids) do
-      --rendering.destroy(render_id)
+  local heat_render_objects = storage.arc_furnace_heat_renders[player.index]
+  if heat_render_objects then
+    for _, render_object in pairs(heat_render_objects) do
+      render_object.destroy()
     end
   end
 end
