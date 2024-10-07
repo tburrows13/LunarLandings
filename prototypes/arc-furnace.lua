@@ -187,7 +187,8 @@ data:extend{
     name = "ll-arc-furnace-reactor",
     icon = "__LunarLandings__/graphics/icons/arc-furnace.png",
     icon_size = 64,
-    flags = {"placeable-neutral", "placeable-player", "not-deconstructable", "not-blueprintable", "no-automated-item-insertion", "no-automated-item-removal"},
+    flags = {"placeable-neutral", "placeable-player", "not-deconstructable", "not-blueprintable", "no-automated-item-insertion", "no-automated-item-removal", "hide-alt-info"},
+    hidden = true,
     placeable_by = {item = "ll-arc-furnace", count = 1},  -- So that pipette works
     --minable = {mining_time = 0.5, result = "nuclear-reactor"},
     max_health = 500,
