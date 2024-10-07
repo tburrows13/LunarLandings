@@ -24,13 +24,14 @@ local function on_script_trigger_effect(event)
 end
 
 local function on_object_destroyed(event)
-  local furnace_data = storage.arc_furnaces[event.unit_number]
+  local furnace_data = storage.arc_furnaces[event.useful_id]
 
   if furnace_data then
     if furnace_data.reactor.valid then
       furnace_data.reactor.destroy()
     end
   end
+  storage.arc_furnaces[event.useful_id] = nil
 end
 
 local function draw_heat_outputs(player, entity)
