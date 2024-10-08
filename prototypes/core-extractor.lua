@@ -76,7 +76,7 @@ data:extend({
       animation = {
         layers = {
           {
-            filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-shadow.png",
+            filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-shadow.png",
             priority = "high",
             width = 1400,
             height = 1400,
@@ -98,12 +98,12 @@ data:extend({
             stripes =
             {
               {
-                filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-1.png",
+                filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-animation-1.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
               {
-                filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-2.png",
+                filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-animation-2.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
@@ -127,12 +127,12 @@ data:extend({
           stripes =
           {
             {
-              filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-emission-1.png",
+              filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-animation-emission-1.png",
               width_in_frames = 8,
               height_in_frames = 8,
             },
             {
-              filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-hr-animation-emission-2.png",
+              filename = "__LunarLandings__/graphics/entities/core-extractor/core-extractor-animation-emission-2.png",
               width_in_frames = 8,
               height_in_frames = 8,
             },

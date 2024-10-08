@@ -27,12 +27,12 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-1.png",
+        filename = IMG_PATH.."compilatron-walk-1.png",
         width_in_frames = 2,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."hr-compilatron-walk-2.png",
+        filename = IMG_PATH.."compilatron-walk-2.png",
         width_in_frames = 2,
         height_in_frames = 16
       }
@@ -49,12 +49,12 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
+        filename = IMG_PATH.."compilatron-walk-1-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
+        filename = IMG_PATH.."compilatron-walk-2-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       }
@@ -71,7 +71,7 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
+        filename = IMG_PATH.."compilatron-walk-shadow.png",
         width_in_frames = 1,
         height_in_frames = 32
       }
@@ -88,12 +88,12 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-1.png",
+        filename = IMG_PATH.."compilatron-walk-1.png",
         width_in_frames = 2,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."hr-compilatron-walk-2.png",
+        filename = IMG_PATH.."compilatron-walk-2.png",
         width_in_frames = 2,
         height_in_frames = 16
       }
@@ -111,12 +111,12 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
+        filename = IMG_PATH.."compilatron-walk-1-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
+        filename = IMG_PATH.."compilatron-walk-2-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       }
@@ -134,7 +134,7 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
+        filename = IMG_PATH.."compilatron-walk-shadow.png",
         width_in_frames = 1,
         height_in_frames = 32
       }
@@ -150,12 +150,12 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-1.png",
+        filename = IMG_PATH.."compilatron-walk-1.png",
         width_in_frames = 2,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."hr-compilatron-walk-2.png",
+        filename = IMG_PATH.."compilatron-walk-2.png",
         width_in_frames = 2,
         height_in_frames = 16
       }
@@ -172,12 +172,12 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
+        filename = IMG_PATH.."compilatron-walk-1-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
+        filename = IMG_PATH.."compilatron-walk-2-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       }
@@ -194,7 +194,7 @@ local compilatron_animations = {
     scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
+        filename = IMG_PATH.."compilatron-walk-shadow.png",
         width_in_frames = 1,
         height_in_frames = 32
       }

@@ -112,7 +112,7 @@ data:extend{
       idle_animation = {
         layers = {
           {
-            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-shadow.png",
+            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-shadow.png",
             size = {600, 400},
             shift = {0, 0},
             scale = 0.5,
@@ -123,7 +123,7 @@ data:extend{
             animation_speed = 0.25,
           },
           {
-            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-structure.png",
+            filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-structure.png",
             size = {320, 320},
             shift = {0, 0},
             scale = 0.5,
@@ -140,7 +140,7 @@ data:extend{
         animation = {
           layers = {
             {
-              filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-animation-emission-1.png",
+              filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-animation-emission-1.png",
               size = {320, 320},
               shift = {0, 0},
               scale = 0.5,
@@ -222,7 +222,7 @@ data:extend{
     --surface_conditions = {nauvis = true, luna = true},
     lower_layer_picture =
     {
-      filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-hr-heatpipes.png",
+      filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-heatpipes.png",
       --filename = "__base__/graphics/entity/nuclear-reactor/reactor-pipes.png",
       width = 320,
       height = 320,  -- 316

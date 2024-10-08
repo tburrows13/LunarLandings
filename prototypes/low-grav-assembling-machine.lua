@@ -122,7 +122,7 @@ data:extend{
         {
           {
             draw_as_shadow = true,
-            filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-shadow.png",
+            filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-shadow.png",
             priority = "high",
             width = 520,
             height = 500,
@@ -144,12 +144,12 @@ data:extend{
             stripes =
             {
               {
-                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-1.png",
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-1.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
               {
-                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-2.png",
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-2.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
@@ -173,12 +173,12 @@ data:extend{
               stripes =
               {
                 {
-                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-1.png",
+                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-emission-1.png",
                   width_in_frames = 8,
                   height_in_frames = 8,
                 },
                 {
-                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-2.png",
+                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-emission-2.png",
                   width_in_frames = 8,
                   height_in_frames = 8,
                 },

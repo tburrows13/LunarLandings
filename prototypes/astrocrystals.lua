@@ -27,7 +27,7 @@ data:extend({
     stage_counts = { 0 },
     stages = {
       sheet = {
-        filename = "__LunarLandings__/graphics/resources/imersite/hr-imersite-rift.png",
+        filename = "__LunarLandings__/graphics/resources/imersite/imersite-rift.png",
         priority = "extra-high",
         width = 500,
         height = 500,
@@ -39,7 +39,7 @@ data:extend({
     stages_effect = {
       sheets = {
         {
-          filename = "__LunarLandings__/graphics/resources/imersite/hr-imersite-rift-glow.png",
+          filename = "__LunarLandings__/graphics/resources/imersite/imersite-rift-glow.png",
           priority = "extra-high",
           width = 500,
           height = 500,

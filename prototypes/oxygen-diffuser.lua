@@ -59,7 +59,7 @@ data:extend{
                 layers = {
                     -- Base
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-base.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-base.png",
                         width = 232,
                         height = 186,
                         shift = util.by_pixel(11, 1.5),
@@ -67,7 +67,7 @@ data:extend{
                     },
                     -- Shadow
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-base-shadow.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-base-shadow.png",
                         width = 232,
                         height = 168,
                         shift = util.by_pixel(11, 1.5),
@@ -85,7 +85,7 @@ data:extend{
                 layers = {
                     -- Base
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-antenna.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-antenna.png",
                         width = 108,
                         height = 100,
                         line_length = 8,
@@ -96,7 +96,7 @@ data:extend{
                     },
                     -- Shadow
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-antenna-shadow.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-antenna-shadow.png",
                         width = 126,
                         height = 98,
                         line_length = 8,

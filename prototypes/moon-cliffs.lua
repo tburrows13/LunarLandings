@@ -12,7 +12,7 @@ local function cliff_sprite_variations(name, column_offset, row_offset, variatio
       layers =
       {
         {
-          filename = "__LunarLandings__/graphics/cliffs/hr-cliff-" .. name .. ".png",
+          filename = "__LunarLandings__/graphics/cliffs/cliff-" .. name .. ".png",
           width = frame_width * 2,
           height = frame_height * 2,
           x = (column_offset + i) * frame_width * 2,

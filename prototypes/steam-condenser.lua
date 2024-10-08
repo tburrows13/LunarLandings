@@ -82,7 +82,7 @@ data:extend{
           layers =
           {
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-east.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-east.png",
               priority = "extra-high",
               width = 448,
               height = 448,
@@ -93,7 +93,7 @@ data:extend{
               scale = 0.5
             },
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-east-shadow.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-east-shadow.png",
               priority = "medium",
               width = 448,
               height = 448,
@@ -111,7 +111,7 @@ data:extend{
           layers =
           {
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-north.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-north.png",
               priority = "extra-high",
               width = 448,
               height = 448,
@@ -122,7 +122,7 @@ data:extend{
               scale = 0.5
             },
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-north-shadow.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-north-shadow.png",
               priority = "medium",
               width = 448,
               height = 448,
@@ -140,7 +140,7 @@ data:extend{
           layers =
           {
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-west.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-west.png",
               priority = "extra-high",
               width = 448,
               height = 448,
@@ -151,7 +151,7 @@ data:extend{
               scale = 0.5
             },
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-west-shadow.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-west-shadow.png",
               priority = "medium",
               width = 448,
               height = 448,
@@ -169,7 +169,7 @@ data:extend{
           layers =
           {
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-south.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-south.png",
               priority = "extra-high",
               width = 448,
               height = 448,
@@ -180,7 +180,7 @@ data:extend{
               scale = 0.5
             },
             {
-              filename = "__LunarLandings__/graphics/steam-condenser/hr-adsorber-south-shadow.png",
+              filename = "__LunarLandings__/graphics/steam-condenser/adsorber-south-shadow.png",
               priority = "medium",
               width = 448,
               height = 448,
