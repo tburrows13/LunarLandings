@@ -7,35 +7,35 @@ data:extend({
     name = "ll-core"
   },
   {
-		type = "item",
-		name = "ll-core-extractor",
-		icon = "__LunarLandings__/graphics/icons/core-extractor.png",
-		icon_size = 64,
-		subgroup = "extraction-machine",
-		order = "d[core-extractor]",
-		place_result = "ll-core-extractor",
-		stack_size = 10,
-	},
+    type = "item",
+    name = "ll-core-extractor",
+    icon = "__LunarLandings__/graphics/icons/core-extractor.png",
+    icon_size = 64,
+    subgroup = "extraction-machine",
+    order = "d[core-extractor]",
+    place_result = "ll-core-extractor",
+    stack_size = 10,
+  },
   {
-		type = "recipe",
-		name = "ll-core-extractor",
-		enabled = false,
+    type = "recipe",
+    name = "ll-core-extractor",
+    enabled = false,
     energy_required = 10,
-		ingredients = {
-			{type="item", name="steel-plate", amount=50},
-			{type="item", name="stone-brick", amount=200},
-			{type="item", name="iron-gear-wheel", amount=125},
-		},
-		results = {{type="item", name="ll-core-extractor", amount=1}}
-	},
+    ingredients = {
+      {type="item", name="steel-plate", amount=50},
+      {type="item", name="stone-brick", amount=200},
+      {type="item", name="iron-gear-wheel", amount=125},
+    },
+    results = {{type="item", name="ll-core-extractor", amount=1}}
+  },
   {
     type = "mining-drill",
     name = "ll-core-extractor",
     crafting_categories = {"ei_bio-chamber", "ei_excavator"},
-		icon = "__LunarLandings__/graphics/icons/core-extractor.png",
+    icon = "__LunarLandings__/graphics/icons/core-extractor.png",
     icon_size = 64,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-		minable = {mining_time = 3, result = "ll-core-extractor"},
+    minable = {mining_time = 3, result = "ll-core-extractor"},
     max_health = 1000,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -43,21 +43,21 @@ data:extend({
     selection_box = {{-5.5, -5.5}, {5.5, 5.5}},
     damaged_trigger_effect = hit_effects.entity(),
     --map_color = ei_data.colors.assembler,
-		energy_source = {
-		  type = "electric",
-		  usage_priority = "secondary-input",
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input",
       emissions_per_minute = {},
-		},
+    },
     allowed_effects = {"consumption", "pollution"},  -- Don't want to allow speed beacons
     module_slots = 2,
     mining_speed = 1,
     resource_categories = {"ll-core"},
     energy_usage = "3MW",
     resource_searching_radius = 0.49,
-		vector_to_place_result = {0, -5.85},
+    vector_to_place_result = {0, -5.85},
     circuit_wire_connection_points = circuit_connector_definitions["electric-mining-drill"].points,
-		circuit_connector_sprites = circuit_connector_definitions["electric-mining-drill"].sprites,
-		circuit_wire_max_distance = default_circuit_wire_max_distance,
+    circuit_connector_sprites = circuit_connector_definitions["electric-mining-drill"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
     input_fluid_box = {
       volume = 200,
       pipe_covers = pipecoverspictures(),
@@ -72,7 +72,7 @@ data:extend({
     },
     graphics_set = {
       circuit_connector_layer = "object",
-		  circuit_connector_secondary_draw_order = { north = 14, east = 30, south = 30, west = 30 },
+      circuit_connector_secondary_draw_order = { north = 14, east = 30, south = 30, west = 30 },
       animation = {
         layers = {
           {
@@ -140,7 +140,7 @@ data:extend({
         },
       }},
       --always_draw_idle_animation = true,
-		  --[[idle_animation = {
+      --[[idle_animation = {
         filename = "__LunarLandings__/graphics/entities/core-extractor.png",
         size = {512*2,512*2},
         shift = {0, 0},
@@ -177,7 +177,7 @@ data:extend({
         apparent_volume = 0.1,
     },
     vehicle_impact_sound = sounds.generic_impact,
-		open_sound = sounds.machine_open,
-		close_sound = sounds.machine_close,
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
   },
 })

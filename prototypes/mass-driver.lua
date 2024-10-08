@@ -81,24 +81,24 @@ data:extend{
     animation_sound = sounds.logistics_chest_open,
     vehicle_impact_sound = sounds.generic_impact,
     opened_duration = logistic_chest_opened_duration,
-		picture = {layers = {
-			{
-				filename = '__LunarLandings__/graphics/entities/mass-driver-requester.png',
-				height = 199,
-				priority = 'high',
-				scale = 0.8,
-				width = 207
-			},
-			{
-					draw_as_shadow = true,
-					filename = '__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png',
-					height = 149,
-					priority = 'high',
-					scale = 0.8,
-					shift = {0.5625*1.6, 0.5*1.6},
-					width = 277,
-			},
-		}},
+    picture = {layers = {
+      {
+        filename = '__LunarLandings__/graphics/entities/mass-driver-requester.png',
+        height = 199,
+        priority = 'high',
+        scale = 0.8,
+        width = 207
+      },
+      {
+          draw_as_shadow = true,
+          filename = '__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png',
+          height = 149,
+          priority = 'high',
+          scale = 0.8,
+          shift = {0.5625*1.6, 0.5*1.6},
+          width = 277,
+      },
+    }},
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,

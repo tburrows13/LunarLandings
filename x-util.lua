@@ -136,14 +136,14 @@ end
 
 -- From bzutil
 local function replace_ingredient(recipe, old, new, amount, multiply)
-	if recipe ~= nil and recipe.ingredients ~= nil then
+  if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
       if existing[1] == new or existing.name == new then
         return
       end
     end
-		for i, ingredient in pairs(recipe.ingredients) do 
-			if ingredient.name == old then 
+    for i, ingredient in pairs(recipe.ingredients) do 
+      if ingredient.name == old then 
         ingredient.name = new 
         if amount then
           if multiply then
@@ -153,7 +153,7 @@ local function replace_ingredient(recipe, old, new, amount, multiply)
           end
         end
       end
-			if ingredient[1] == old then 
+      if ingredient[1] == old then 
         ingredient[1] = new
         if amount then
           if multiply then
@@ -163,8 +163,8 @@ local function replace_ingredient(recipe, old, new, amount, multiply)
           end
         end
       end
-		end
-	end
+    end
+  end
 end
 
 -- From bzutil

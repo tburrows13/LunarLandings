@@ -2,135 +2,135 @@ local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
 local circuit_connections = {
-	circuit_connector_sprites = {
-		blue_led_light_offset = {
-			1.203125,
-			0.828125
-		},
-		connector_main = {
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04a-base-sequence.png",
-			height = 50,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.046875,
-				0.609375
-			},
-			width = 52,
-			x = 156,
-			y = 150
-		},
-		led_blue = {
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04e-blue-LED-on-sequence.png",
-			height = 60,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.046875,
-				0.578125
-			},
-			width = 60,
-			x = 180,
-			y = 180
-		},
-		led_blue_off = {
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04f-blue-LED-off-sequence.png",
-			height = 44,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.046875,
-				0.578125
-			},
-			width = 46,
-			x = 138,
-			y = 132
-		},
-		led_green = {
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04h-green-LED-sequence.png",
-			height = 46,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.046875,
-				0.578125
-			},
-			width = 48,
-			x = 144,
-			y = 138
-		},
-		led_light = {
-			intensity = 0.8,
-			size = 0.9
-		},
-		led_red = {
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04i-red-LED-sequence.png",
-			height = 46,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.046875,
-				0.578125
-			},
-			width = 48,
-			x = 144,
-			y = 138
-		},
-		red_green_led_light_offset = {
-			1.203125,
-			0.71875
-		},
-		wire_pins = {
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04c-wire-sequence.png",
-			height = 58,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.046875,
-				0.578125
-			},
-			width = 62,
-			x = 186,
-			y = 174
-		},
-		wire_pins_shadow = {
-			draw_as_shadow = true,
-			filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04d-wire-shadow-sequence.png",
-			height = 54,
-			priority = "low",
-			scale = 0.5,
-			shift = {
-				1.203125,
-				0.703125
-			},
-			width = 70,
-			x = 210,
-			y = 162
-		}
-	},
-	circuit_wire_connection_point = {
-		shadow = {
-			green = {
-				1.5,
-				0.71875
-			},
-			red = {
-				1.65625,
-				0.703125
-			}
-		},
-		wire = {
-			green = {
-				1.40625,
-				0.6875
-			},
-			red = {
-				1.34375,
-				0.46875
-			}
-		}
-	},
-	circuit_wire_max_distance = 9
+  circuit_connector_sprites = {
+    blue_led_light_offset = {
+      1.203125,
+      0.828125
+    },
+    connector_main = {
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04a-base-sequence.png",
+      height = 50,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.046875,
+        0.609375
+      },
+      width = 52,
+      x = 156,
+      y = 150
+    },
+    led_blue = {
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04e-blue-LED-on-sequence.png",
+      height = 60,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.046875,
+        0.578125
+      },
+      width = 60,
+      x = 180,
+      y = 180
+    },
+    led_blue_off = {
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04f-blue-LED-off-sequence.png",
+      height = 44,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.046875,
+        0.578125
+      },
+      width = 46,
+      x = 138,
+      y = 132
+    },
+    led_green = {
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04h-green-LED-sequence.png",
+      height = 46,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.046875,
+        0.578125
+      },
+      width = 48,
+      x = 144,
+      y = 138
+    },
+    led_light = {
+      intensity = 0.8,
+      size = 0.9
+    },
+    led_red = {
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04i-red-LED-sequence.png",
+      height = 46,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.046875,
+        0.578125
+      },
+      width = 48,
+      x = 144,
+      y = 138
+    },
+    red_green_led_light_offset = {
+      1.203125,
+      0.71875
+    },
+    wire_pins = {
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04c-wire-sequence.png",
+      height = 58,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.046875,
+        0.578125
+      },
+      width = 62,
+      x = 186,
+      y = 174
+    },
+    wire_pins_shadow = {
+      draw_as_shadow = true,
+      filename = "__base__/graphics/entity/circuit-connector/ccm-universal-04d-wire-shadow-sequence.png",
+      height = 54,
+      priority = "low",
+      scale = 0.5,
+      shift = {
+        1.203125,
+        0.703125
+      },
+      width = 70,
+      x = 210,
+      y = 162
+    }
+  },
+  circuit_wire_connection_point = {
+    shadow = {
+      green = {
+        1.5,
+        0.71875
+      },
+      red = {
+        1.65625,
+        0.703125
+      }
+    },
+    wire = {
+      green = {
+        1.40625,
+        0.6875
+      },
+      red = {
+        1.34375,
+        0.46875
+      }
+    }
+  },
+  circuit_wire_max_distance = 9
 }
 
 data:extend{
@@ -141,7 +141,7 @@ data:extend{
     icon_size = 64,
     stack_size = 10,
     place_result = "ll-landing-pad",
-		order = "n[landing-pad]",
+    order = "n[landing-pad]",
     subgroup = "space-related",
   },
   {
@@ -149,7 +149,7 @@ data:extend{
     name = "ll-landing-pad",
     ingredients = {
       {type="item", name="steel-chest", amount=4},
-			{type="item", name="rocket-control-unit", amount=1},
+      {type="item", name="rocket-control-unit", amount=1},
     },
     energy_required = 4,
     results = {{type="item", name="ll-landing-pad", amount=1}},
@@ -167,12 +167,12 @@ data:extend{
     picture = {
       layers = {
         {
-					filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
-					height = 199,
-					width = 207,
-					priority = "high",
-					scale = 1,
-					hr_version = {
+          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
+          height = 199,
+          width = 207,
+          priority = "high",
+          scale = 1,
+          hr_version = {
             filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
             height = 199,
             width = 207,
@@ -182,19 +182,19 @@ data:extend{
         },
         {
           draw_as_shadow = true,
-					filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
-					height = 149,
-					width = 277,
+          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
+          height = 149,
+          width = 277,
           shift = {0.5625 * 2, 0.5 * 2},
-					priority = "high",
-					scale = 1,
-					hr_version = {
+          priority = "high",
+          scale = 1,
+          hr_version = {
             draw_as_shadow = true,
             filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
             height = 149,
             width = 277,
-						shift = {0.5625 * 2, 0.5 * 2},
-						priority = "high",
+            shift = {0.5625 * 2, 0.5 * 2},
+            priority = "high",
             scale = 1,
           },
         },
