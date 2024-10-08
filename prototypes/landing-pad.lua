@@ -172,13 +172,6 @@ data:extend{
           width = 207,
           priority = "high",
           scale = 1,
-          hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
-            height = 199,
-            width = 207,
-            priority = "high",
-            scale = 1,
-          },
         },
         {
           draw_as_shadow = true,
@@ -188,15 +181,6 @@ data:extend{
           shift = {0.5625 * 2, 0.5 * 2},
           priority = "high",
           scale = 1,
-          hr_version = {
-            draw_as_shadow = true,
-            filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
-            height = 149,
-            width = 277,
-            shift = {0.5625 * 2, 0.5 * 2},
-            priority = "high",
-            scale = 1,
-          },
         },
       }
     },

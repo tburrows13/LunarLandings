@@ -305,17 +305,10 @@ data:extend{
       --[[heat_picture = apply_heat_pipe_glow
       {
         filename = "__base__/graphics/entity/nuclear-reactor/reactor-heated.png",
-        width = 108,
-        height = 128,
-        shift = util.by_pixel(1, -7),
-        hr_version =
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor-heated.png",
-          width = 216,
-          height = 256,
-          scale = 0.5,
-          shift = util.by_pixel(3, -6.5)
-        }
+        width = 216,
+        height = 256,
+        scale = 0.5,
+        shift = util.by_pixel(3, -6.5)
       },]]
     },
 
@@ -324,17 +317,10 @@ data:extend{
       sheet =
       {
         filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches.png",
-        width = 32,
-        height = 32,
+        width = 64,
+        height = 64,
         variation_count = 12,
-        hr_version =
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches.png",
-          width = 64,
-          height = 64,
-          variation_count = 12,
-          scale = 0.5
-        }
+        scale = 0.5
       }
     },
 
@@ -343,19 +329,11 @@ data:extend{
       sheet =
       {
         filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches.png",
-        width = 32,
-        height = 32,
+        width = 64,
+        height = 64,
         variation_count = 12,
-        y = 32,
-        hr_version =
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches.png",
-          width = 64,
-          height = 64,
-          variation_count = 12,
-          y = 64,
-          scale = 0.5
-        }
+        y = 64,
+        scale = 0.5
       }
     },
 
@@ -364,17 +342,10 @@ data:extend{
       sheet = apply_heat_pipe_glow
       {
         filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches-heated.png",
-        width = 32,
-        height = 32,
+        width = 64,
+        height = 64,
         variation_count = 12,
-        hr_version =
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches-heated.png",
-          width = 64,
-          height = 64,
-          variation_count = 12,
-          scale = 0.5
-        }
+        scale = 0.5
       }
     },
 
@@ -383,19 +354,11 @@ data:extend{
       sheet = apply_heat_pipe_glow
       {
         filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches-heated.png",
-        width = 32,
-        height = 32,
+        width = 64,
+        height = 64,
         variation_count = 12,
-        y = 32,
-        hr_version =
-        {
-          filename = "__base__/graphics/entity/nuclear-reactor/reactor-connect-patches-heated.png",
-          width = 64,
-          height = 64,
-          variation_count = 12,
-          y = 64,
-          scale = 0.5
-        }
+        y = 64,
+        scale = 0.5
       }
     },
   },

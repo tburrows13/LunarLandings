@@ -122,131 +122,75 @@ data:extend{
       empty_transitions = true,
       main = {
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile1.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile1.png",
         count = 12,
         size = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile1.png",
-          count = 12,
-          size = 1,
-          scale = 0.5
-        }
+        scale = 0.5
       },},
 
       inner_corner =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-inner-corner.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-inner-corner.png",
         count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-inner-corner.png",
-          count = 1,
-          scale = 0.5
-        }
+        scale = 0.5
       },
       inner_corner_mask =
       {
         picture = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
         count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
-          count = 16,
-          scale = 0.5
-        }
+        scale = 0.5
       },
 
       outer_corner =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-outer-corner.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-outer-corner.png",
         count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-outer-corner.png",
-          count = 1,
-          scale = 0.5
-        }
+        scale = 0.5
       },
       outer_corner_mask =
       {
         picture = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
         count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
-          count = 8,
-          scale = 0.5
-        }
+        scale = 0.5
       },
 
       side =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-side.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-side.png",
         count = 16,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-side.png",
-          count = 16,
-          scale = 0.5
-        }
+        scale = 0.5
       },
       side_mask =
       {
         picture = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
         count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
-          count = 16,
-          scale = 0.5
-        }
+        scale = 0.5
       },
 
       u_transition =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-u.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-u.png",
         count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-u.png",
-          count = 1,
-          scale = 0.5
-        }
+        scale = 0.5
       },
       u_transition_mask =
       {
         picture = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
         count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
-          count = 8,
-          scale = 0.5
-        }
+        scale = 0.5
       },
 
       o_transition =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-o.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-o.png",
         count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-o.png",
-          count = 1,
-          scale = 0.5
-        }
+        scale = 0.5
       },
       o_transition_mask =
       {
         picture = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
         count = 4,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
-          count = 4,
-          scale = 0.5
-        }
+        scale = 0.5
       },
     },
 

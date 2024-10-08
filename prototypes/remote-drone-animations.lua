@@ -18,361 +18,187 @@ local mining_animation_speed = 10/60
 
 local compilatron_animations = {
   walk = {
-    width = 39,
-    height = 52,
+    width = 78,
+    height = 104,
     frame_count = 2,
     axially_symmetrical = false,
     direction_count = 32,
-    shift = util.by_pixel(0.0, -14.0),
+    shift = util.by_pixel(0.0, -14),
+    scale = 0.5,
     stripes = {
       {
-        filename = IMG_PATH.."compilatron-walk-1.png",
+        filename = IMG_PATH.."hr-compilatron-walk-1.png",
         width_in_frames = 2,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."compilatron-walk-2.png",
+        filename = IMG_PATH.."hr-compilatron-walk-2.png",
         width_in_frames = 2,
         height_in_frames = 16
       }
     },
-    hr_version = {
-      width = 78,
-      height = 104,
-      frame_count = 2,
-      axially_symmetrical = false,
-      direction_count = 32,
-      shift = util.by_pixel(0.0, -14),
-      scale = 0.5,
-      stripes = {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-1.png",
-          width_in_frames = 2,
-          height_in_frames = 16
-        },
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-2.png",
-          width_in_frames = 2,
-          height_in_frames = 16
-        }
-      },
-    }
   },
   walk_mask = {
-    width = 39,
-    height = 52,
+    width = 78,
+    height = 104,
     frame_count = 2,
     axially_symmetrical = false,
     apply_runtime_tint = true,
     direction_count = 32,
     shift = util.by_pixel(0, -14),
+    scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."compilatron-walk-1-mask.png",
+        filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."compilatron-walk-2-mask.png",
+        filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       }
     }),
-    hr_version = {
-      width = 78,
-      height = 104,
-      frame_count = 2,
-      axially_symmetrical = false,
-      apply_runtime_tint = true,
-      direction_count = 32,
-      shift = util.by_pixel(0, -14),
-      scale = 0.5,
-      stripes = util.multiplystripes(2, {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
-          width_in_frames = 1,
-          height_in_frames = 16
-        },
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
-          width_in_frames = 1,
-          height_in_frames = 16
-        }
-      }),
-    }
   },
   walk_shadow = {
-    width = 72,
-    height = 30,
+    width = 142,
+    height = 56,
     frame_count = 2,
     axially_symmetrical = false,
     direction_count = 32,
-    shift = util.by_pixel(19, 0.0),
+    shift = util.by_pixel(15.5, -0.5),
     draw_as_shadow = true,
+    scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."compilatron-walk-shadow.png",
+        filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
         width_in_frames = 1,
         height_in_frames = 32
       }
-    }),
-    hr_version = {
-      width = 142,
-      height = 56,
-      frame_count = 2,
-      axially_symmetrical = false,
-      direction_count = 32,
-      shift = util.by_pixel(15.5, -0.5),
-      draw_as_shadow = true,
-      scale = 0.5,
-      stripes = util.multiplystripes(2, {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
-          width_in_frames = 1,
-          height_in_frames = 32
-        }
-      })
-    }
+    })
   },
   mining = {
     animation_speed = mining_animation_speed,
-    width = 39,
-    height = 52,
+    width = 78,
+    height = 104,
     frame_count = 2,
     axially_symmetrical = false,
     direction_count = 32,
-    shift = util.by_pixel(0.0, -14.0),
+    shift = util.by_pixel(0.0, -14),
+    scale = 0.5,
     stripes = {
       {
-        filename = IMG_PATH.."compilatron-walk-1.png",
+        filename = IMG_PATH.."hr-compilatron-walk-1.png",
         width_in_frames = 2,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."compilatron-walk-2.png",
+        filename = IMG_PATH.."hr-compilatron-walk-2.png",
         width_in_frames = 2,
         height_in_frames = 16
       }
     },
-    hr_version = {
-      animation_speed = mining_animation_speed,
-      width = 78,
-      height = 104,
-      frame_count = 2,
-      axially_symmetrical = false,
-      direction_count = 32,
-      shift = util.by_pixel(0.0, -14),
-      scale = 0.5,
-      stripes = {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-1.png",
-          width_in_frames = 2,
-          height_in_frames = 16
-        },
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-2.png",
-          width_in_frames = 2,
-          height_in_frames = 16
-        }
-      },
-    }
   },
   mining_mask = {
     animation_speed = mining_animation_speed,
-    width = 39,
-    height = 52,
+    width = 78,
+    height = 104,
     frame_count = 2,
     axially_symmetrical = false,
     apply_runtime_tint = true,
     direction_count = 32,
     shift = util.by_pixel(0, -14),
+    scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."compilatron-walk-1-mask.png",
+        filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."compilatron-walk-2-mask.png",
+        filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       }
     }),
-    hr_version = {
-      animation_speed = mining_animation_speed,
-      width = 78,
-      height = 104,
-      frame_count = 2,
-      axially_symmetrical = false,
-      apply_runtime_tint = true,
-      direction_count = 32,
-      shift = util.by_pixel(0, -14),
-      scale = 0.5,
-      stripes = util.multiplystripes(2, {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
-          width_in_frames = 1,
-          height_in_frames = 16
-        },
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
-          width_in_frames = 1,
-          height_in_frames = 16
-        }
-      }),
-    }
   },
   mining_shadow = {
     animation_speed = mining_animation_speed,
-    width = 72,
-    height = 30,
+    width = 142,
+    height = 56,
     frame_count = 2,
     axially_symmetrical = false,
     direction_count = 32,
-    shift = util.by_pixel(19, 0.0),
+    shift = util.by_pixel(15.5, -0.5),
     draw_as_shadow = true,
+    scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."compilatron-walk-shadow.png",
+        filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
         width_in_frames = 1,
         height_in_frames = 32
       }
-    }),
-    hr_version = {
-      animation_speed = mining_animation_speed,
-      width = 142,
-      height = 56,
-      frame_count = 2,
-      axially_symmetrical = false,
-      direction_count = 32,
-      shift = util.by_pixel(15.5, -0.5),
-      draw_as_shadow = true,
-      scale = 0.5,
-      stripes = util.multiplystripes(2, {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
-          width_in_frames = 1,
-          height_in_frames = 32
-        }
-      })
-    }
+    })
   },
   running_gun = {
-    width = 39,
-    height = 52,
+    width = 78,
+    height = 104,
     frame_count = 2,
     axially_symmetrical = false,
     direction_count = 18,
-    shift = util.by_pixel(0.0, -14.0),
+    shift = util.by_pixel(0.0, -14),
+    scale = 0.5,
     stripes = {
       {
-        filename = IMG_PATH.."compilatron-walk-1.png",
+        filename = IMG_PATH.."hr-compilatron-walk-1.png",
         width_in_frames = 2,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."compilatron-walk-2.png",
+        filename = IMG_PATH.."hr-compilatron-walk-2.png",
         width_in_frames = 2,
         height_in_frames = 16
       }
     },
-    hr_version = {
-      width = 78,
-      height = 104,
-      frame_count = 2,
-      axially_symmetrical = false,
-      direction_count = 18,
-      shift = util.by_pixel(0.0, -14),
-      scale = 0.5,
-      stripes = {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-1.png",
-          width_in_frames = 2,
-          height_in_frames = 16
-        },
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-2.png",
-          width_in_frames = 2,
-          height_in_frames = 16
-        }
-      },
-    }
   },
   running_gun_mask = {
-    width = 39,
-    height = 52,
+    width = 78,
+    height = 104,
     frame_count = 2,
     axially_symmetrical = false,
     apply_runtime_tint = true,
     direction_count = 18,
     shift = util.by_pixel(0, -14),
+    scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."compilatron-walk-1-mask.png",
+        filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       },
       {
-        filename = IMG_PATH.."compilatron-walk-2-mask.png",
+        filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
         width_in_frames = 1,
         height_in_frames = 16
       }
     }),
-    hr_version = {
-      width = 78,
-      height = 104,
-      frame_count = 2,
-      axially_symmetrical = false,
-      apply_runtime_tint = true,
-      direction_count = 18,
-      shift = util.by_pixel(0, -14),
-      scale = 0.5,
-      stripes = util.multiplystripes(2, {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-1-mask.png",
-          width_in_frames = 1,
-          height_in_frames = 16
-        },
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-2-mask.png",
-          width_in_frames = 1,
-          height_in_frames = 16
-        }
-      }),
-    }
   },
   running_gun_shadow = {
-    width = 72,
-    height = 30,
+    width = 142,
+    height = 56,
     frame_count = 2,
     axially_symmetrical = false,
     direction_count = 18,
     shift = util.by_pixel(19, 0),
     draw_as_shadow = true,
+    scale = 0.5,
     stripes = util.multiplystripes(2, {
       {
-        filename = IMG_PATH.."compilatron-walk-shadow.png",
+        filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
         width_in_frames = 1,
         height_in_frames = 32
       }
-    }),
-    hr_version = {
-      width = 142,
-      height = 56,
-      frame_count = 2,
-      axially_symmetrical = false,
-      direction_count = 18,
-      shift = util.by_pixel(19, 0),
-      draw_as_shadow = true,
-      scale = 0.5,
-      stripes = util.multiplystripes(2, {
-        {
-          filename = IMG_PATH.."hr-compilatron-walk-shadow.png",
-          width_in_frames = 1,
-          height_in_frames = 32
-        }
-      })
-    }
+    })
   },
 }
 

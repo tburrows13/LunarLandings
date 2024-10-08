@@ -180,22 +180,12 @@ data:extend{
         --[[{
           filename = "__base__/graphics/entity/logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
-          width = 56,
-          height = 24,
+          width = 112,
+          height = 46,
           repeat_count = 1,
-          shift = util.by_pixel(12, 5),
+          shift = util.by_pixel(12, 4.5),
           draw_as_shadow = true,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/logistic-chest/logistic-chest-shadow.png",
-            priority = "extra-high",
-            width = 112,
-            height = 46,
-            repeat_count = 1,
-            shift = util.by_pixel(12, 4.5),
-            draw_as_shadow = true,
-            scale = 0.5
-          }
+          scale = 0.5
         }]]
       }
     },

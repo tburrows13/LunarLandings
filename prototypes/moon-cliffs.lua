@@ -12,42 +12,22 @@ local function cliff_sprite_variations(name, column_offset, row_offset, variatio
       layers =
       {
         {
-          filename = "__LunarLandings__/graphics/cliffs/cliff-" .. name .. ".png",
-          width = frame_width,
-          height = frame_height,
-          x = (column_offset + i) * frame_width,
-          y = row_offset * frame_height,
-          scale = scale,
-          hr_version =
-          {
-            filename = "__LunarLandings__/graphics/cliffs/hr-cliff-" .. name .. ".png",
-            width = frame_width * 2,
-            height = frame_height * 2,
-            x = (column_offset + i) * frame_width * 2,
-            y = row_offset * frame_height * 2,
-            scale = scale * 0.5
-          }
+          filename = "__LunarLandings__/graphics/cliffs/hr-cliff-" .. name .. ".png",
+          width = frame_width * 2,
+          height = frame_height * 2,
+          x = (column_offset + i) * frame_width * 2,
+          y = row_offset * frame_height * 2,
+          scale = scale * 0.5
         },
         {
           filename = "__base__/graphics/terrain/cliffs/cliff-" .. name .. "-shadow.png",
-          width = shadow_frame_width,
-          height = frame_height,
-          x = (column_offset + i) * shadow_frame_width,
-          y = row_offset * frame_height,
+          width = shadow_frame_width * 2,
+          height = frame_height * 2,
+          x = (column_offset + i) * shadow_frame_width * 2,
+          y = row_offset * frame_height * 2,
           draw_as_shadow = true,
-          scale = scale,
-          shift = shadow_shift,
-          hr_version =
-          {
-            filename = "__base__/graphics/terrain/cliffs/cliff-" .. name .. "-shadow.png",
-            width = shadow_frame_width * 2,
-            height = frame_height * 2,
-            x = (column_offset + i) * shadow_frame_width * 2,
-            y = row_offset * frame_height * 2,
-            draw_as_shadow = true,
-            scale = scale * 0.5,
-            shift = shadow_shift
-          }
+          scale = scale * 0.5,
+          shift = shadow_shift
         }
       }
     })
