@@ -4,13 +4,6 @@ x_util.add_unlock("advanced-material-processing-2", "ll-boil-water")
 
 x_util.add_unlock("nuclear-power", "ll-rtg")
 
--- TODO 2.0
---x_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
---x_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
---x_util.add_prerequisite("rocket-control-unit", "chemical-science-pack")
---x_util.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
---x_util.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
-
 x_util.add_unlock("low-density-structure", "ll-pack-low-density-structure")
 x_util.add_unlock("low-density-structure", "ll-unpack-low-density-structure")
 
@@ -21,11 +14,12 @@ x_util.add_prerequisite("processing-unit", "ll-moon-rock-processing")
 data.raw.technology["rocket-silo"].unit.count = 500
 x_util.remove_prerequisite("rocket-silo", "speed-module-3")
 x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
+x_util.remove_prerequisite("rocket-silo", "utility-science-pack")
 x_util.add_prerequisite("rocket-silo", "low-density-structure")
+x_util.add_prerequisite("rocket-silo", "rocket-control-unit")
 x_util.add_prerequisite("rocket-silo", "electric-engine")
 x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
-x_util.add_unlock("rocket-silo", "satellite")
 
 x_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
 
@@ -45,6 +39,40 @@ x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
 --data.raw.technology["space-science-pack"].unit.count = 3000  -- TODO 2.0
 
 data:extend{
+  {
+    type = "technology",
+    name = "rocket-control-unit",
+    icon_size = 256,
+    icon = "__LunarLandings__/graphics/technology/rocket-control-unit.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "rocket-control-unit"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-pack-rocket-control-unit"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-unpack-rocket-control-unit"
+      },
+    },
+    prerequisites = {"chemical-science-pack", "speed-module"},
+    unit =
+    {
+      count = 300,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+      },
+      time = 45
+    },
+    order = "k-a"
+  },
   {
     type = "technology",
     name = "ll-used-rocket-part-recycling",
@@ -92,7 +120,7 @@ data:extend{
         recipe = "rocket-part-down"
       }
     },
-    --prerequisites = {"rocket-silo"},
+    prerequisites = {"rocket-silo"},
     unit =
     {
       count = 200,
@@ -202,7 +230,7 @@ data:extend{
         recipe = "ll-lunar-foundation"
       }
     },
-    --prerequisites = {"ll-luna-exploration"},
+    prerequisites = {"ll-luna-exploration"},
     unit =
     {
       count = 150,
