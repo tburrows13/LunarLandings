@@ -1,7 +1,7 @@
 local function force_setting(setting_type, setting_name, value)
   local setting = data.raw[setting_type .. "-setting"][setting_name]
-  log(setting.name)
   if setting then
+    log(setting.name)
     if setting_type == "bool" then
       setting.forced_value = value
     else
@@ -12,7 +12,9 @@ local function force_setting(setting_type, setting_name, value)
   end
 end
 
-force_setting("string", "alien-biomes-include-dirt-grey", "Enabled")
+if mods["alien-biomes"] then
+  force_setting("string", "alien-biomes-include-dirt-grey", "Enabled")
+end
 
 force_setting("bool", "space-battery-decay-enable-setting", true)
 force_setting("string", "space-battery-pack-energy-density-setting", "50 MJ (Default)")

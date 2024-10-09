@@ -9,8 +9,8 @@ local function switch_filenames(pictures)
     __alien-biomes__/graphics/decorative/rock/base/rock-small/rock-small-01.png
   ]]
   for _, variation in pairs(pictures) do
-    variation.filename = "__alien-biomes__/graphics/decorative/rock/base/" .. variation.filename:sub(30)
-    variation.hr_version.filename = "__alien-biomes__/graphics/decorative/rock/base/" .. variation.hr_version.filename:sub(30)
+    variation.filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/" .. variation.filename:sub(30)
+    variation.hr_version.filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/" .. variation.hr_version.filename:sub(30)
   end
 end
 

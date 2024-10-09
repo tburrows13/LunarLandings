@@ -8,8 +8,7 @@
   "factorio_version": "1.1",
   "dependencies": [
     "base",
-    "alien-biomes",
-    "alien-biomes-hr-terrain",
+    "alien-biomes-graphics",
     "SpidertronPatrols",
     "se-space-trains",
     "space-exploration-graphics",

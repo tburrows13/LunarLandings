@@ -1,6 +1,6 @@
 local tile_trigger_effects = require("__base__.prototypes.tile.tile-trigger-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
-local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
+--local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
 
 local moon_autoplace = {
   default_enabled = false,
@@ -35,8 +35,8 @@ data:extend{
       }
     ),
 
-    transitions = transitions.cliff_transitions(),  -- to_tiles is set later
-    transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
+    --transitions = transitions.cliff_transitions(),  -- to_tiles is set later -- TODO 2.0
+    --transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
 
     walking_sound = table.deepcopy(data.raw.tile["dirt-1"].walking_sound),
     map_color={r=150, g=150, b=150},
@@ -55,7 +55,7 @@ data:extend{
     autoplace = rough_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
+      "__alien-biomes-graphics__/graphics/terrain/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -83,7 +83,7 @@ data:extend{
     autoplace = mountain_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
+      "__alien-biomes-graphics__/graphics/terrain/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -93,8 +93,8 @@ data:extend{
       }
     ),
 
-    transitions = transitions.cliff_transitions(),  -- to_tiles is set later
-    transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
+    --transitions = transitions.cliff_transitions(),  -- to_tiles is set later -- TODO 2.0
+    --transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
 
     walking_sound = dirt_sounds,
     map_color={r=200, g=200, b=200},
@@ -237,8 +237,8 @@ data:extend{
   },
 }
 
-data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}
-data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
+--data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}  -- TODO 2.0
+--data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 
 --data.raw["straight-rail"]["straight-rail"].surface_conditions = {nauvis = true, luna = false}
 ----data.raw["curved-rail"]["curved-rail"].surface_conditions = {nauvis = true, luna = false}
