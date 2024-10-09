@@ -24,13 +24,13 @@ corpse.armor_picture_mapping = nil
 corpse.pictures = {  -- TODO get alternate corpse variation to appear
   layers = {
     {
-      filename    = IMG_PATH.."hr-compilatron-corpse.png",
+      filename    = IMG_PATH.."compilatron-corpse.png",
       frame_count = 2,
       size        = 128,
       scale       = 0.5,
     },
     {
-      filename           = IMG_PATH.."hr-compilatron-corpse-mask.png",
+      filename           = IMG_PATH.."compilatron-corpse-mask.png",
       apply_runtime_tint = true,
       frame_count        = 2,
       size               = 128,
