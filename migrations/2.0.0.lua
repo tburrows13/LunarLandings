@@ -13,3 +13,6 @@ for unit_number, arc_furnace_data in pairs(storage.arc_furnaces) do
     storage.arc_furnaces[unit_number] = nil
   end
 end
+
+rendering.clear("LunarLandings")
+storage.arc_furnace_heat_renders = {}
