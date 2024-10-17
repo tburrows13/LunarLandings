@@ -16,3 +16,9 @@ end
 
 rendering.clear("LunarLandings")
 storage.arc_furnace_heat_renders = {}
+
+for _, force in pairs(game.forces) do
+  force.technologies["ll-luna-exploration"].enabled = true
+end
+
+storage.satellites_launched = nil

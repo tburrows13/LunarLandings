@@ -20,6 +20,7 @@ x_util.add_prerequisite("rocket-silo", "rocket-control-unit")
 x_util.add_prerequisite("rocket-silo", "electric-engine")
 x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
+x_util.remove_recipe_effect("rocket-silo", "satellite")
 
 x_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
 
@@ -102,8 +103,7 @@ data:extend{
   {
     type = "technology",
     name = "ll-luna-exploration",
-    icon = "__LunarLandings__/graphics/technology/luna.png",
-    icon_size = 256,
+    icons = util.technology_icon_constant_planet("__LunarLandings__/graphics/technology/luna.png"),
     effects =
     {
       {
@@ -121,16 +121,9 @@ data:extend{
       }
     },
     prerequisites = {"rocket-silo"},
-    unit =
-    {
-      count = 200,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-      },
-      time = 30
+    research_trigger = {
+      type = "send-item-to-orbit",
+      item = "rocket-silo"
     },
     order = "c-o-a"
   },

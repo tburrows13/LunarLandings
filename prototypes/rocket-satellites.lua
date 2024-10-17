@@ -1,5 +1,3 @@
-data.raw.item["satellite"].rocket_launch_products = nil
-
 -- Interstellar satellite
 data:extend{
   {
@@ -38,7 +36,7 @@ data:extend{
     category = "crafting",
     ingredients =
     {
-      {type="item", name="satellite", amount=1},
+      --{type="item", name="satellite", amount=1},  -- TODO 2.0 add more to the recipe in lieu of satellite
       {type="item", name="low-density-structure", amount=50},
       {type="item", name="rocket-control-unit", amount=50},
       {type="item", name="nuclear-fuel", amount=10},

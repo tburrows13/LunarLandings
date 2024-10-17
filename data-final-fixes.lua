@@ -1,6 +1,12 @@
 --require "__LunarLandings__.prototypes.surface-conditions"
 require "__LunarLandings__.prototypes.heat-recipes"
 
+for type, _ in pairs(defines.prototypes.item) do
+  for _, item in pairs(data.raw[type] or {}) do
+    item.send_to_orbit_mode = "manual"
+  end
+end
+
 -- Set tile layer because Alien Biomes overwrites it in data-final-fixes
 data.raw.tile["ll-luna-plain"].layer = 10
 data.raw.tile["ll-luna-lowland"].layer = 9

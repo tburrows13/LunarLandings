@@ -74,7 +74,7 @@ data:extend(
     starmap_icon_size = 500,
     gravity_pull = 10,
     distance = 15,
-    orientation = 0.525+0.05,
+    orientation = 0.525+0.025,
     magnitude = 0.7,
     order = "a[nauvis]-b[luna]",
     --subgroup = "planets",

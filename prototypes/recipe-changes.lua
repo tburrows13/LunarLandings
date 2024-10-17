@@ -1,12 +1,5 @@
-data.raw.recipe["satellite"].ingredients =
-{
-  {type="item", name="low-density-structure", amount=50},
-  {type="item", name="solar-panel", amount=50},
-  {type="item", name="accumulator", amount=50},
-  {type="item", name="radar", amount=5},
-  {type="item", name="advanced-circuit", amount=100},
-  {type="item", name="solid-fuel", amount=25}
-}
+data.raw["item"]["satellite"] = nil
+data.raw["recipe"]["satellite"] = nil
 
 -- Buff solid fuel because no rocket fuel
 local solid_fuel = data.raw.item["solid-fuel"]

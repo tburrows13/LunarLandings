@@ -6,7 +6,7 @@ data.raw["item"]["rocket-silo"].stack_size = 5
 
 local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
 rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}
-rocket_silo.rocket_result_inventory_size = 20
+rocket_silo.to_be_inserted_to_rocket_inventory_size = 20
 rocket_silo.fluid_boxes = {
   {
     production_type = "input",
