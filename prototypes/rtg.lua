@@ -56,7 +56,7 @@ data:extend({
     icon_size = 64,
     minable = {
       mining_time = 1,
-      --results = {{type="item", name="ll-rtg-depleted", 1}, {"used-up-uranium-fuel-cell", amount=5}}
+      results = {{type="item", name="depleted-uranium-fuel-cell", amount=5}}
     },
     flags = {
       "placeable-neutral",
