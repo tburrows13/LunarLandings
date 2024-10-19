@@ -16,6 +16,7 @@ data:extend{
     },
     energy_usage = "300kW",
     rotation_speed = 0.01,
+    hidden_in_factoriopedia = true,
   },
 
 }

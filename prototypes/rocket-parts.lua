@@ -103,7 +103,7 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-c",
-    hidden = true,
+    --hidden = true,
     stack_size = 5
   },
   {

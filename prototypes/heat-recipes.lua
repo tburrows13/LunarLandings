@@ -14,6 +14,7 @@ for name, recipe in pairs(data.raw.recipe) do
 
     heat_recipe.enabled = true
     heat_recipe.hide_from_player_crafting = true
+    heat_recipe.hidden_in_factoriopedia = true
 
     -- Doesn't account for fluids
     -- TODO 2.0 order should be doable now
