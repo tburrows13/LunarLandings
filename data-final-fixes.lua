@@ -19,6 +19,16 @@ data.raw.tile["ll-luna-mountain"].pollution_absorption_per_second = 1
 data.raw.tile["ll-lunar-foundation"].pollution_absorption_per_second = 1
 ]]
 
+data.raw["assembling-machine"]["space-train-battery-charging-station"] = nil
+data.raw.item["space-train-battery-charging-station"] = nil
+data.raw.item["space-train-battery-pack"] = nil
+data.raw.item["space-train-destroyed-battery-pack"] = nil
+data.raw.item["space-train-discharged-battery-pack"] = nil
+data.raw.recipe["space-train-battery-pack-recharge"] = nil
+data.raw.recipe["space-train-battery-pack-refurbish"] = nil
+data.raw.recipe["space-train-battery-pack"] = nil
+data.raw.recipe["space-train-battery-charging-station"] = nil
+
 do return end  -- TODO 2.0
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then

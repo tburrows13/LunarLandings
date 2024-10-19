@@ -1,8 +1,8 @@
-data.raw["locomotive"]["space-locomotive"].burner = {
+data.raw["locomotive"]["space-locomotive"].energy_source = {
   type = "burner",
   fuel_inventory_size = 1,
   burnt_inventory_size = 1,
-  fuel_category = "nuclear",
+  fuel_categories = {"nuclear"},
 }
 
 data.raw["locomotive"]["space-locomotive"].ll_surface_conditions = {nauvis = false, luna = true}
