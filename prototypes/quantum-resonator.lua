@@ -82,7 +82,7 @@ data:extend{
     max_health = 300,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-    collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
+    collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     --map_color = ei_data.colors.assembler,
     crafting_categories = {"ll-quantum-resonating"},
@@ -134,5 +134,6 @@ data:extend{
       sound = {filename = "__base__/sound/nuclear-reactor-1.ogg", volume = 0.6},
       apparent_volume = 0.3,
     },
+    ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
   }
 }
