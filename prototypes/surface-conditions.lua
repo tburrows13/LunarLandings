@@ -1,21 +1,34 @@
-local collision_mask_util = require "__core__.lualib.collision-mask-util"
+data:extend{
+  {
+    type = "collision-layer",
+    name = "ll_luna_plain_tile",
+  },
+  {
+    type = "collision-layer",
+    name = "ll_luna_lowland_tile",
+  },
+  {
+    type = "collision-layer",
+    name = "ll_luna_mountain_tile",
+  },
+  {
+    type = "collision-layer",
+    name = "ll_luna_foundation_tile",
+  },
+  {
+    type = "collision-layer",
+    name = "ll_luna_tile",
+  },
+  {
+    type = "collision-layer",
+    name = "ll_nauvis_tile",
+  },
+}
 
-local luna_plain_layer = collision_mask_util.get_first_unused_layer()
-log("Created layer luna_plain_layer: " .. luna_plain_layer)
-collision_mask_util.add_layer(data.raw.tile["ll-luna-plain"].collision_mask, luna_plain_layer)
-
-local luna_lowland_layer = collision_mask_util.get_first_unused_layer()
-log("Created layer luna_lowland_layer: " .. luna_lowland_layer)
-collision_mask_util.add_layer(data.raw.tile["ll-luna-lowland"].collision_mask, luna_lowland_layer)
-
-local luna_mountain_layer = collision_mask_util.get_first_unused_layer()
-log("Created layer luna_mountain_layer: " .. luna_mountain_layer)
-collision_mask_util.add_layer(data.raw.tile["ll-luna-mountain"].collision_mask, luna_mountain_layer)
-
-local luna_foundation_layer = collision_mask_util.get_first_unused_layer()
-log("Created layer luna_foundation_layer: " .. luna_foundation_layer
-)
-collision_mask_util.add_layer(data.raw.tile["ll-lunar-foundation"].collision_mask, luna_foundation_layer)
+data.raw.tile["ll-luna-plain"].collision_mask.layers["ll_luna_plain_tile"] = true
+data.raw.tile["ll-luna-lowland"].collision_mask.layers["ll_luna_lowland_tile"] = true
+data.raw.tile["ll-luna-mountain"].collision_mask.layers["ll_luna_mountain_tile"] = true
+data.raw.tile["ll-lunar-foundation"].collision_mask.layers["ll_luna_foundation_tile"] = true
 
 local luna_tiles = {
   ["ll-luna-plain"] = true,
@@ -31,23 +44,19 @@ local whitelist_tiles = {
   ["tutorial-grid"] = true,
 }
 
-local nauvis_layer = collision_mask_util.get_first_unused_layer()
-log("Created layer nauvis_layer: " .. nauvis_layer)
 for _, tile in pairs(data.raw.tile) do
   if not luna_tiles[tile.name] and not whitelist_tiles[tile.name] then
-    collision_mask_util.add_layer(tile.collision_mask, nauvis_layer)
+    tile.collision_mask.layers["ll_nauvis_tile"] = true
   end
 end
 
-local luna_layer = collision_mask_util.get_first_unused_layer()
-log("Created layer luna_layer: " .. luna_layer)
 for _, tile in pairs(data.raw.tile) do
   if luna_tiles[tile.name] then
-    collision_mask_util.add_layer(tile.collision_mask, luna_layer)
+    tile.collision_mask.layers["ll_luna_tile"] = true
   end
 end
 
-local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmetic-combinator", "decider-combinator", "constant-combinator", "container", "logistic-container", "infinity-container", "assembling-machine", "rocket-silo", "furnace", "electric-energy-interface", "electric-pole", "unit-spawner", "gate", "generator", "heat-interface", "heat-pipe", "inserter", "lab", "lamp", "land-mine", "linked-container", "market", "mining-drill", "offshore-pump", "pipe", "infinity-pipe", "pipe-to-ground", "power-switch", "programmable-speaker", "pump", "radar", "curved-rail", "straight-rail", "rail-chain-signal", "rail-signal", "reactor", "roboport", "simple-entity-with-owner", "simple-entity-with-force", "solar-panel", "storage-tank", "train-stop", "linked-belt", "loader-1x1", "loader", "splitter", "transport-belt", "underground-belt", "turret", "ammo-turret", "electric-turret", "fluid-turret", "car", "spider-vehicle", "spider-leg", "wall", "fish", "simple-entity", "tree", "locomotive", "cargo-wagon", "fluid-wagon", "artillery-wagon"}
+--local types = {"accumulator", "beacon", "boiler", "burner-generator", "arithmetic-combinator", "decider-combinator", "constant-combinator", "container", "logistic-container", "infinity-container", "assembling-machine", "rocket-silo", "furnace", "electric-energy-interface", "electric-pole", "unit-spawner", "gate", "generator", "heat-interface", "heat-pipe", "inserter", "lab", "lamp", "land-mine", "linked-container", "market", "mining-drill", "offshore-pump", "pipe", "infinity-pipe", "pipe-to-ground", "power-switch", "programmable-speaker", "pump", "radar", "curved-rail", "straight-rail", "rail-chain-signal", "rail-signal", "reactor", "roboport", "simple-entity-with-owner", "simple-entity-with-force", "solar-panel", "storage-tank", "train-stop", "linked-belt", "loader-1x1", "loader", "splitter", "transport-belt", "underground-belt", "turret", "ammo-turret", "electric-turret", "fluid-turret", "car", "spider-vehicle", "spider-leg", "wall", "fish", "simple-entity", "tree", "locomotive", "cargo-wagon", "fluid-wagon", "artillery-wagon"}
 local train_types = {["locomotive"] = true, ["cargo-wagon"] = true, ["fluid-wagon"] = true, ["artillery-wagon"] = true}
 
 --[[
@@ -64,13 +73,29 @@ local train_types = {["locomotive"] = true, ["cargo-wagon"] = true, ["fluid-wago
   `luna = true` is the same as `luna = {plain = true, lowland = false, mountain = true, foundation = true}`
 ]]
 
+local default_anywhere = {
+  ["legacy-straight-rail"] = true,
+  ["legacy-curved-rail"] = true,
+  ["straight-rail"] = true,
+  ["curved-rail-a"] = true,
+  ["curved-rail-b"] = true,
+  ["half-diagonal-rail"] = true,
+  ["rail-signal"] = true,
+  ["rail-chain-signal"] = true,
+  ["car"] = true,
+  ["spider-vehicle"] = true,
+  ["spider-leg"] = true,
+  ["electric-pole"] = true,
+  ["simple-entity"] = true,
+}
+
 local function get_default_surface_conditions(prototype)
   local type = prototype.type
   if type == "lab" or type == "radar" or train_types[type] then
     return {nauvis = true, luna = false}
   elseif type == "logistic-container" and (prototype.logistic_mode == "active-provider" or prototype.logistic_mode == "requester" or prototype.logistic_mode == "buffer") then
     return {nauvis = true, luna = false}
-  elseif type == "straight-rail" or type == "curved-rail" or type == "rail-signal" or type == "rail-chain-signal" or type == "car" or type == "spider-vehicle" or type == "spider-leg" or type == "electric-pole" or type == "simple-entity" then
+  elseif default_anywhere[type] then
     return {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   else
     return {nauvis = true, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
@@ -91,13 +116,13 @@ local function add_comma(restrictions_list)
   end
 end
 
-for _, prototype_type in pairs(types) do
-  for name, prototype in pairs(data.raw[prototype_type]) do
-    if prototype.hidden then
+for prototype_type, _ in pairs(defines.prototypes.entity) do
+  for name, prototype in pairs(data.raw[prototype_type] or {}) do
+    if prototype.hidden or not prototype.collision_box or prototype_type == "cliff" or prototype.tile_buildability_rules then
       goto continue
     end
-    local surface_conditions = prototype.surface_conditions
-    prototype.surface_conditions = nil
+    local surface_conditions = prototype.ll_surface_conditions
+    prototype.ll_surface_conditions = nil
     if not surface_conditions then
       surface_conditions = get_default_surface_conditions(prototype)
     end
@@ -105,33 +130,41 @@ for _, prototype_type in pairs(types) do
     -- Set collision masks
     if not train_types[prototype_type] then
       -- Train 'collision' is done at runtime
-      local mask = collision_mask_util.get_mask(prototype)
+      --local mask = collision_mask_util.get_mask(prototype)
+      local colliding_tile_layers = {}
       if surface_conditions.luna == false then
-        collision_mask_util.add_layer(mask, luna_layer)
+        colliding_tile_layers.ll_luna_tile = true
       elseif surface_conditions.luna == true then
         -- Set default
         surface_conditions.lua = {plain = true, lowland = false, mountain = true, foundation = true}
       end
       if surface_conditions.nauvis == false then
-        collision_mask_util.add_layer(mask, nauvis_layer)
+        colliding_tile_layers.ll_nauvis_tile = true
       end
       if type(surface_conditions.luna) == "table" then
         local luna_conditions = surface_conditions.luna
         if not luna_conditions.plain then
-          collision_mask_util.add_layer(mask, luna_plain_layer)
+          colliding_tile_layers.ll_luna_plain_tile = true
         end
         if not luna_conditions.lowland then
-          collision_mask_util.add_layer(mask, luna_lowland_layer)
+          colliding_tile_layers.ll_luna_lowland_tile = true
         end
         if not luna_conditions.mountain then
-          collision_mask_util.add_layer(mask, luna_mountain_layer)
+          colliding_tile_layers.ll_luna_mountain_tile = true
         end
         if not luna_conditions.foundation then
-          collision_mask_util.add_layer(mask, luna_foundation_layer)
+          colliding_tile_layers.ll_luna_foundation_tile = true
         end
       end
-      prototype.collision_mask = mask
-    end
+      local tile_buildability_rules = prototype.tile_buildability_rules or {}
+      table.insert(tile_buildability_rules, {
+        area = prototype.collision_box,
+        colliding_tiles = {layers=colliding_tile_layers},
+        required_tiles = {layers={ground_tile=true}},
+        remove_on_collision = true,
+      })
+      prototype.tile_buildability_rules = tile_buildability_rules
+  end
     -- Add to descriptions
     -- First check mountain-only and foundation-only
     if type(surface_conditions.luna) == "table" then
@@ -185,30 +218,13 @@ end
 -- TODO respect surface_conditions, add to tooltip
 for name, prototype in pairs(data.raw.item) do
   if name ~= "ll-lunar-foundation" and prototype.place_as_tile then
-    table.insert(prototype.place_as_tile.condition, luna_layer)
+    prototype.place_as_tile.condition.layers["ll_luna_tile"] = true
   end
 end
 
-data.raw["item"]["ll-lunar-foundation"].place_as_tile.condition = {
-  nauvis_layer,
-  luna_mountain_layer,
-  luna_lowland_layer,
-  luna_foundation_layer,
+data.raw["item"]["ll-lunar-foundation"].place_as_tile.condition.layers = {
+  ll_nauvis_tile = true,
+  ll_luna_mountain_tile = true,
+  ll_luna_lowland_tile = true,
+  ll_luna_foundation_tile = true,
 }
-
-for _, type in pairs({"artillery-wagon", "cargo-wagon", "fluid-wagon", "locomotive", "car"}) do
-  for _, prototype in pairs(data.raw[type]) do
-    if not prototype.selection_priority or prototype.selection_priority == 50 then
-      prototype.selection_priority = 51
-    end
-  end
-end
-
--- Now that vehicles have selection_priority = 51, bump up all spidertrons to 52
-for _, type in pairs({"spider-vehicle"}) do
-  for _, prototype in pairs(data.raw[type]) do
-    if prototype.selection_priority and prototype.selection_priority == 51 then
-      prototype.selection_priority = 52
-    end
-  end
-end

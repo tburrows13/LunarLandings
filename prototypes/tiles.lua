@@ -240,11 +240,11 @@ data:extend{
 --data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}  -- TODO 2.0
 --data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 
---data.raw["straight-rail"]["straight-rail"].surface_conditions = {nauvis = true, luna = false}
-----data.raw["curved-rail"]["curved-rail"].surface_conditions = {nauvis = true, luna = false}
---data.raw["assembling-machine"]["assembling-machine-1"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
---data.raw["assembling-machine"]["assembling-machine-2"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
---data.raw["assembling-machine"]["assembling-machine-3"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
---data.raw["assembling-machine"]["chemical-plant"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
---data.raw["assembling-machine"]["oil-refinery"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
---data.raw["assembling-machine"]["centrifuge"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+--data.raw["straight-rail"]["straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+--data.raw["curved-rail"]["curved-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["assembling-machine"]["assembling-machine-1"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["assembling-machine-2"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["assembling-machine-3"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["chemical-plant"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["oil-refinery"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["centrifuge"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}

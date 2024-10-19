@@ -1,4 +1,4 @@
---require "__LunarLandings__.prototypes.surface-conditions"
+require "__LunarLandings__.prototypes.surface-conditions"
 require "__LunarLandings__.prototypes.heat-recipes"
 
 for type, _ in pairs(defines.prototypes.item) do

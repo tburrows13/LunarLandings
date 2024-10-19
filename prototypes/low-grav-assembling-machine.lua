@@ -208,7 +208,7 @@ data:extend{
         light = {intensity = 0.8, size = 20, shift = {0.0, 0.0}, color = {r = 0.7, g = 0.8, b = 1}}
       },
     },]]
-    --surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}},
+    ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}},
   },
 
 }

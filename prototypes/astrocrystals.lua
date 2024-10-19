@@ -150,7 +150,7 @@ data:extend({
     subgroup = "raw-resource",
     order = "h[moon]-e[astrocrystals]",
     stack_size = 50,
-    --surface_conditions = {nauvis = false, luna = true},
+    ll_surface_conditions = {nauvis = false, luna = true},
   },
   {
     type = "fluid",

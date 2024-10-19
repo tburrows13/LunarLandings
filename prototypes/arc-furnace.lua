@@ -180,7 +180,7 @@ data:extend{
         }
       }
     },
-    --surface_conditions = {nauvis = false, luna = true},
+    ll_surface_conditions = {nauvis = false, luna = true},
   },
   {
     type = "reactor",
@@ -219,7 +219,7 @@ data:extend{
     collision_box = {{-2.1, -2.1}, {2.1, 2.1}},
     --selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     collision_mask = {layers={}, not_colliding_with_itself = true},
-    --surface_conditions = {nauvis = true, luna = true},
+    ll_surface_conditions = {nauvis = true, luna = true},
     lower_layer_picture =
     {
       filename = "__LunarLandings__/graphics/entities/arc-furnace/arc-furnace-heatpipes.png",

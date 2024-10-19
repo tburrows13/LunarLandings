@@ -1,5 +1,5 @@
-data.raw["item"]["satellite"] = nil
-data.raw["recipe"]["satellite"] = nil
+--data.raw["item"]["satellite"] = nil
+--data.raw["recipe"]["satellite"] = nil
 
 -- Buff solid fuel because no rocket fuel
 local solid_fuel = data.raw.item["solid-fuel"]
