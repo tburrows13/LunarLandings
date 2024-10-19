@@ -114,7 +114,6 @@ data:extend{
       }
     },
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-    drawing_box = {{-2.5, -2.8}, {2.5, 2.5}},
     graphics_set = {
       animation =
       {

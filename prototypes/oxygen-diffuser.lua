@@ -44,7 +44,6 @@ data:extend{
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
-    drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
     --allowed_effects = {"consumption", "speed", "pollution"},
 
     --graphics_set = require("prototypes.entity.beacon-animations"),

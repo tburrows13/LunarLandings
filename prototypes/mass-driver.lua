@@ -151,7 +151,6 @@ data:extend{
     dying_explosion = "artillery-turret-explosion",
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-    drawing_box = {{-2.5, -6}, {2.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
     fast_replaceable_group = "container",
     inventory_size = 48,
