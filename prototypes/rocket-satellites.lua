@@ -11,7 +11,6 @@ data:extend{
           size = 64,
           filename = "__LunarLandings__/graphics/item/interstellar-satellite.png",
           scale = 0.25,
-          mipmap_count = 4,
         },
         {
           draw_as_light = true,
@@ -19,7 +18,6 @@ data:extend{
           size = 64,
           filename = "__LunarLandings__/graphics/item/interstellar-satellite-light.png",
           scale = 0.25,
-          mipmap_count = 4,
         },
       },
     },

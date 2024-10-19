@@ -193,7 +193,7 @@ data:extend{
     corpse = "artillery-turret-remnants",
     dying_explosion = "assembling-machine-3-explosion",  -- artillery-turret-explosion is too tall
     damaged_trigger_effect = hit_effects.entity(),
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal-large",
     close_sound = {
       filename = "__base__/sound/metallic-chest-close.ogg",
       volume = 0.6

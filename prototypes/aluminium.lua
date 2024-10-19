@@ -6,10 +6,10 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-3.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-4.png", scale = 0.25, mipmap_count = 4 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-2.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-3.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-4.png", scale = 0.25 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-c[aluminium-ore]",
@@ -155,10 +155,7 @@ data:extend{
     },
     results = {{type="item", name="low-density-structure", amount=1}},
     main_product = "",
-    order = "o[low-density-structure]-a"
+    order = "o[low-density-structure]-a",
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-alumina")
-x_util.allow_productivity("ll-aluminium-plate")
-x_util.allow_productivity("ll-low-density-structure-aluminium")

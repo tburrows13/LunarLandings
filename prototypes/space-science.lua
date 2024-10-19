@@ -30,8 +30,8 @@ data:extend{
       {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, catalyst_amount = 5},
       {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, catalyst_amount = 5},
     },
+    allow_productivity = true,
   },
 }
 
 table.insert(data.raw.lab.lab.inputs, 7, "ll-space-science-pack")
-x_util.allow_productivity("ll-space-science-pack")

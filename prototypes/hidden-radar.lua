@@ -16,7 +16,6 @@ data:extend{
     },
     energy_usage = "300kW",
     rotation_speed = 0.01,
-    ll_surface_conditions = {nauvis = true, luna = true},
   },
 
 }

@@ -73,12 +73,11 @@ data:extend{
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     order = "b[decorative]-l[rock]-b[big]",
     selectable_in_game = false,
-    map_color = {r=144, g=119, b=87},
+    map_color = {r=180, g=180, b=180},
     grid_size = {4 * scale, 4 * scale},
     grid_offset = grid_offset,
     mined_sound = sounds.deconstruct_bricks(0.8),
-    vehicle_impact_sound = sounds.car_stone_impact,
-    map_color = {r=180, g=180, b=180},
+    impact_category = "stone",
     orientations =
     {
       -- Since removing a cliff also causes neighboring cliffs to be removed,

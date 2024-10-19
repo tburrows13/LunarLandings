@@ -66,6 +66,7 @@ data:extend{
       {type="item", name="stone-brick", amount=1}
     },
     results = {{type="item", name="ll-blank-data-card", amount=1}},
+    allow_productivity = true,
   },
   {
     type = "recipe",
@@ -173,7 +174,4 @@ data:extend{
     },
     main_product = "ll-quantum-data-card"
   },
-
 }
-
-x_util.allow_productivity("ll-blank-data-card")

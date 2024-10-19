@@ -79,7 +79,7 @@ data:extend{
     open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
     close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
     animation_sound = sounds.logistics_chest_open,
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     opened_duration = logistic_chest_opened_duration,
     picture = {layers = {
       {
@@ -161,7 +161,7 @@ data:extend{
     close_sound = sounds.artillery_close,
     mined_sound = sounds.deconstruct_large(0.8),
     animation_sound = sounds.logistics_chest_open,
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     opened_duration = logistic_chest_opened_duration,
     animation =
     {

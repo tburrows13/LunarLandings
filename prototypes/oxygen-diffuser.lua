@@ -136,7 +136,7 @@ data:extend{
       type = "electric",
       usage_priority = "secondary-input"
     },
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     working_sound =
@@ -215,7 +215,6 @@ data:extend{
       gas_flow = util.empty_sprite(1),
     },
     flow_length_in_ticks = 360,
-    --vehicle_impact_sound = sounds.generic_impact,
     --open_sound = sounds.machine_open,
     --close_sound = sounds.machine_close,
     --[[working_sound =

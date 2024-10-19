@@ -1,3 +1,5 @@
+local sounds = require("__base__.prototypes.entity.sounds")
+
 for i, recipe in pairs({"copper-cable", "electronic-circuit", "advanced-circuit"}) do
   data.raw.recipe[recipe].category = "circuit-crafting"
 end
@@ -86,9 +88,9 @@ data:extend{
       },
     },
     fluid_boxes_off_when_no_fluid_recipe = true,
-    --open_sound = x_util.machine_open_sound,
-    --close_sound = x_util.machine_close_sound, TODO
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
+    impact_category = "metal",
     working_sound =
     {
       sound = {

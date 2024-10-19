@@ -29,20 +29,13 @@ for name, recipe in pairs(data.raw.recipe) do
       -- So each second, needs to output 9 heat / 3 / 1.5 = 2
       table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = 2*(heat_recipe.energy_required or 0.5), fluidbox_index = 2})
       data:extend{heat_recipe}
-
-      x_util.allow_productivity(heat_recipe.name)
     end
+
+    heat_recipe.allow_efficiency = false
     table.insert(heat_recipes, heat_recipe.name)
   end
-end
-
-for _, heat_recipe_name in pairs(heat_recipes) do
-  x_util.disallow_efficiency(heat_recipe_name)
 end
 local efficiency_modules = {"efficiency-module", "efficiency-module-2", "efficiency-module-3"}
 for _, module_name in pairs(efficiency_modules) do
   data.raw.module[module_name].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
 end
-
-x_util.disallow_productivity("ll-melt-ice-heat")
-x_util.disallow_productivity("ll-boil-water-heat")

@@ -12,7 +12,6 @@ drone.icon_size = 64
 drone.animations = require("remote-drone-animations")
 drone.character_corpse = "ll-remote-drone-corpse"
 --drone.heartbeat  -- TODO
---drone.vehicle_impact_sound
 
 
 local corpse = table.deepcopy(data.raw["character-corpse"]["character-corpse"])

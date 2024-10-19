@@ -122,10 +122,7 @@ data:extend({
       },
       max_sounds_per_type = 5
     },
-    vehicle_impact_sound = {
-      filename = "__base__/sound/car-metal-impact.ogg",
-      volume = 0.65
-    },
+    impact_category = "metal",
     order = "z-f[nuclear-energy]-1[rtg]",
   },
 })

@@ -189,8 +189,7 @@ data:extend{
     results = {
       {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 10},
       {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 10},
-    }
+    },
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-heat-shielding")

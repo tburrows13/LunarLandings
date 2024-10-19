@@ -72,7 +72,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -82,7 +81,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -92,7 +90,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -102,7 +99,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -112,7 +108,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -122,7 +117,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -132,7 +126,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -142,7 +135,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -182,9 +174,7 @@ data:extend({
       {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.0025},
       {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.0025},
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.0025},
-    }
+    },
+    allow_productivity = true,
   },
-
 })
-
-x_util.allow_productivity("ll-astrocrystal-processing")

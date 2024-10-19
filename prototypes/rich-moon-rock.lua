@@ -31,10 +31,10 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25, mipmap_count = 4 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-b[rich-moon-rock]",
@@ -57,12 +57,10 @@ data:extend{
       {type="item", name="iron-ore", amount = 5},
       {type="item", name="ll-moon-rock", amount_min = 0, amount_max = 2},
     },
+    allow_productivity = true,
     icon = "__LunarLandings__/graphics/icons/aluminium-ore.png",
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "b[rich-moon-rock]"
   },
 }
-
---x_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
-x_util.allow_productivity("ll-rich-moon-rock-processing")

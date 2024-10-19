@@ -1,3 +1,5 @@
+local sounds = require("__base__.prototypes.entity.sounds")
+
 data:extend{
   {
     type = "recipe",
@@ -54,9 +56,9 @@ data:extend{
       },
     },
     --fluid_boxes_off_when_no_fluid_recipe = true,
-    open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.5},
-    close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.5},
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
+    impact_category = "metal",
     working_sound = {
       apparent_volume = 1.5,
       idle_sound = {

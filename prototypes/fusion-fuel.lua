@@ -81,8 +81,7 @@ data:extend{
     results = {
       {type="item", name="ll-fusion-fuel", amount=1},
       {type = "fluid", name = "ll-helium-3", amount = 900},
-    }
+    },
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-fusion-fuel")  -- TODO check vanilla nuclear fuel

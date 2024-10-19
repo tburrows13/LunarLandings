@@ -31,7 +31,6 @@ data:extend({
   {
     type = "mining-drill",
     name = "ll-core-extractor",
-    crafting_categories = {"ei_bio-chamber", "ei_excavator"},
     icon = "__LunarLandings__/graphics/icons/core-extractor.png",
     icon_size = 64,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -176,7 +175,7 @@ data:extend({
         sound = {filename = "__base__/sound/electric-mining-drill.ogg", volume = 0.8},
         apparent_volume = 0.1,
     },
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal-large",
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
   },

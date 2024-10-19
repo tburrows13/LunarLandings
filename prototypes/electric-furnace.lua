@@ -63,7 +63,8 @@ data:extend{
     results = {
       {type = "fluid", name = "water", amount = 200, fluidbox_index = 1},
     },
-    main_product = ""
+    main_product = "",
+    allow_efficiency = false,
   },
   {
     type = "recipe",
@@ -81,9 +82,7 @@ data:extend{
     results = {
       {type = "fluid", name = "steam", amount = 20, temperature = 500, fluidbox_index = 1},
     },
-    main_product = ""
+    main_product = "",
+    allow_efficiency = false,
   },
 }
-
-x_util.disallow_efficiency("ll-melt-ice")
-x_util.disallow_efficiency("ll-boil-water")

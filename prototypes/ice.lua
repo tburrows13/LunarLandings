@@ -8,9 +8,9 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.25 },
     },
     subgroup = "raw-resource",
     order = "h[moon]-d[ice]",

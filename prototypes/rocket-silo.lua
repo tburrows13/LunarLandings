@@ -215,4 +215,4 @@ rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.
 
 data:extend{rocket_down, rocket_silo_interstellar, rocket_interstellar}
 
-x_util.disallow_productivity("rocket-part")
+data.raw.recipe["rocket-part"].allow_productivity = false

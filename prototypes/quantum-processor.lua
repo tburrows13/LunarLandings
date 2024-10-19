@@ -11,7 +11,8 @@ data:extend{
       {type="item", name="ll-alumina", amount=5},
       {type = "fluid", name = "ll-astroflux", amount = 5}
     },
-    results = {{type="item", name="ll-quantum-processor", amount=1}}
+    results = {{type="item", name="ll-quantum-processor", amount=1}},
+    allow_productivity = true,
   },
   {
     type = "item",
@@ -23,5 +24,3 @@ data:extend{
     stack_size = 100
   },
 }
-
-x_util.allow_productivity("ll-quantum-processor")

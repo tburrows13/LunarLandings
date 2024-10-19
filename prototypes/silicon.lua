@@ -30,8 +30,7 @@ data:extend{
     enabled = false,
     energy_required = 8,
     ingredients = {{type="item", name="coal", amount=1}, {type="item", name="ll-silica", amount=2}},
-    results = {{type="item", name="ll-silicon", amount=5}}
+    results = {{type="item", name="ll-silicon", amount=5}},
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-silicon")

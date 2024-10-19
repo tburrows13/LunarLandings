@@ -176,42 +176,6 @@ function x_util.replace_ingredient(recipe_name, old, new, amount, multiply, opti
   end
 end
 
-function x_util.allow_productivity(recipe_name)
-  for _, module in pairs(data.raw.module) do
-    if module.category == "productivity" and module.limitation then
-      table.insert(module.limitation, recipe_name)
-    end
-  end
-end
-
-function x_util.disallow_productivity(recipe_name)
-  for _, module in pairs(data.raw.module) do
-    if module.category == "productivity" and module.limitation then
-      for i, name in pairs(module.limitation) do
-        if name == recipe_name then
-          table.remove(module.limitation, i)
-        end
-      end
-    end
-  end
-end
-
-function x_util.disallow_efficiency(recipe_name)
-  for _, module in pairs(data.raw.module) do
-    if module.category == "efficiency" then
-      module.limitation = module.limitation or {}
-      for i, name in pairs(module.limitation) do
-        if name == recipe_name then
-          table.remove(module.limitation, i)
-        end
-      end
-      -- Also add to limitation_blacklist
-      module.limitation_blacklist = module.limitation_blacklist or {}
-      table.insert(module.limitation_blacklist, recipe_name)
-    end
-  end
-end
-
 function x_util.debug_technology(tech_name)
   local tech = data.raw.technology[tech_name]
   if not tech then log("Unable to find "..tech_name) return end

@@ -29,7 +29,7 @@ data:extend{
     max_health = 200,
     corpse = "steel-furnace-remnants",
     dying_explosion = "steel-furnace-explosion",
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     working_sound =
