@@ -42,7 +42,8 @@ require "__LunarLandings__.prototypes.technology"
 require "__LunarLandings__.prototypes.technology-infinite"  -- TODO 2.0
 require "__LunarLandings__.prototypes.resources"
 require "__LunarLandings__.prototypes.moon-cliffs"
---require "__LunarLandings__.prototypes.decoratives"  -- TODO 2.0
+require "__LunarLandings__.prototypes.decoratives-crater"
+require "__LunarLandings__.prototypes.decoratives"
 --require "__LunarLandings__.prototypes.noise-expressions"  -- TODO 2.0
 require "__LunarLandings__.prototypes.autoplace-controls"
 require "__LunarLandings__.prototypes.remote-drone"
