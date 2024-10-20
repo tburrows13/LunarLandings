@@ -104,6 +104,7 @@ data:extend{
     type = "technology",
     name = "ll-luna-exploration",
     icons = util.technology_icon_constant_planet("__LunarLandings__/graphics/technology/luna.png"),
+    essential = true,
     effects =
     {
       {
@@ -443,6 +444,7 @@ data:extend{
     name = "ll-space-science-pack",
     icon = "__LunarLandings__/graphics/technology/space-science-pack.png",
     icon_size = 256,
+    essential = true,
     prerequisites = {"ll-space-data-collection", "ll-rich-moon-rock-processing"},
     effects =
     {
@@ -669,6 +671,7 @@ data:extend{
     name = "ll-quantum-science-pack",
     icon = "__LunarLandings__/graphics/technology/quantum-science-pack.png",
     icon_size = 256,
+    essential = true,
     prerequisites = {"ll-quantum-data-collection"},
     effects =
     {
@@ -723,6 +726,7 @@ data:extend{
     name = "ll-interstellar-rocket-silo",
     icon = "__space-exploration-graphics__/graphics/technology/probe-rocket.png",
     icon_size = 128,
+    essential = true,
     prerequisites = {"ll-quantum-science-pack"},
     effects =
     {

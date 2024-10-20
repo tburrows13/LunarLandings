@@ -39,7 +39,7 @@ require "__LunarLandings__.prototypes.quantum-science"
 require "__LunarLandings__.prototypes.polariton"
 require "__LunarLandings__.prototypes.quantum-resonator"
 require "__LunarLandings__.prototypes.technology"
---require "__LunarLandings__.prototypes.technology-infinite"  -- TODO 2.0
+require "__LunarLandings__.prototypes.technology-infinite"  -- TODO 2.0
 require "__LunarLandings__.prototypes.resources"
 require "__LunarLandings__.prototypes.moon-cliffs"
 --require "__LunarLandings__.prototypes.decoratives"  -- TODO 2.0
