@@ -45,7 +45,6 @@ require "__LunarLandings__.prototypes.moon-cliffs"
 --require "__LunarLandings__.prototypes.decoratives"  -- TODO 2.0
 --require "__LunarLandings__.prototypes.noise-expressions"  -- TODO 2.0
 require "__LunarLandings__.prototypes.autoplace-controls"
-require "__LunarLandings__.prototypes.map-gen-presets"
 require "__LunarLandings__.prototypes.remote-drone"
 require "__LunarLandings__.prototypes.recipe-changes"
 require "__LunarLandings__.prototypes.tips-and-tricks"
