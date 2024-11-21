@@ -1,26 +1,3 @@
-local noise = require "noise"
-local tne = noise.to_noise_expression
-local collision_mask_util = require "__core__.lualib.collision-mask-util"
-
-local function switch_filenames(pictures)
-  --[[
-    Replace
-    __base__/graphics/decorative/rock-small/rock-small-01.png
-    __alien-biomes__/graphics/decorative/rock/base/rock-small/rock-small-01.png
-  ]]
-  for _, variation in pairs(pictures) do
-    variation.filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/" .. variation.filename:sub(30)
-    variation.filename = string.gsub(variation.filename, "big%-sand%-rock", "sand-rock-big")
-    variation.filename = string.gsub(variation.filename, "medium%-sand%-rock", "sand-rock-medium")
-    variation.filename = string.gsub(variation.filename, "small%-sand%-rock", "sand-rock-small")
-    variation.filename = string.gsub(variation.filename, "huge%-rock", "rock-huge")
-    variation.filename = string.gsub(variation.filename, "big%-rock", "rock-big")
-    variation.filename = string.gsub(variation.filename, "medium%-rock", "rock-medium")
-    variation.filename = string.gsub(variation.filename, "small%-rock", "rock-small")
-    variation.filename = string.gsub(variation.filename, "tiny%-rock", "rock-tiny")
-  end
-end
-
 local current_bucket = 0  -- Persists across all make_buckets calls
 local current_lowland_bucket = 0
 local function make_buckets(frequencies)
@@ -42,7 +19,7 @@ local function make_buckets(frequencies)
   return buckets, lowland_buckets
 end
 
-local elevation = noise.var("elevation")
+--[[
 local function moon_probability_expression(bucket, lowland_bucket)
   return noise.define_noise_function( function(x, y, tile, map)
     local selection = noise.random(100)
@@ -63,7 +40,7 @@ local function moon_probability_expression(bucket, lowland_bucket)
     )
     return probability
   end)
-end
+end]]
 
 -- Percentage of tiles that should have this decorative
 -- First number is on plain, second number is on lowland
@@ -107,7 +84,6 @@ for name, bucket in pairs(decorative_rock_buckets) do
     default_enabled = false,
     probability_expression = moon_probability_expression(bucket, lowland_decorative_rock_buckets[name]),
   }]]
-  switch_filenames(rock.pictures)
   data:extend{rock}
 end
 
@@ -140,6 +116,5 @@ for name, bucket in pairs(entity_rock_buckets) do
     probability_expression = moon_probability_expression(bucket, lowland_entity_rock_buckets[name]),
   }]]
   rock.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
-  switch_filenames(rock.pictures)
   data:extend{rock}
 end
