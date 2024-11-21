@@ -93,7 +93,7 @@ data:extend(
       pressure = 100,
       gravity = 1.5,
       ["ll-atmospheric-oxygen"] = 0,
-      ["solar-power"] = 1.25,
+      ["solar-power"] = 125,
     },
     surface_render_parameters =
     {
