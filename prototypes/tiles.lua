@@ -18,9 +18,16 @@ local mountain_moon_autoplace = {
 
 data:extend{
   {
+    type = "item-subgroup",
+    name = "luna-tiles",
+    group = "tiles",
+    order = "b-a"
+  },
+  {
     name = "ll-luna-plain",
     type = "tile",
     order = "e[moon]-a",
+    subgroup = "luna-tiles",
     collision_mask = {layers={ground_tile=true}},
     --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
@@ -51,6 +58,7 @@ data:extend{
     name = "ll-luna-lowland",
     type = "tile",
     order = "e[moon]-b",
+    subgroup = "luna-tiles",
     collision_mask = {layers={ground_tile=true}},
     autoplace = rough_moon_autoplace,
     layer = 22,
@@ -79,6 +87,7 @@ data:extend{
     name = "ll-luna-mountain",
     type = "tile",
     order = "e[moon]-c",
+    subgroup = "luna-tiles",
     collision_mask = {layers={ground_tile=true}},
     autoplace = mountain_moon_autoplace,
     layer = 22,
@@ -108,6 +117,7 @@ data:extend{
     type = "tile",
     name = "ll-lunar-foundation",
     order = "e[moon]-d[foundation]",
+    subgroup = "luna-tiles",
     needs_correction = false,
     minable = {mining_time = 0.1, result = "ll-lunar-foundation"},
     mined_sound = sounds.deconstruct_bricks(0.8),
