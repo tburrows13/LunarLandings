@@ -200,6 +200,7 @@ data:extend{
     icon = "__base__/graphics/icons/artillery-turret.png",
     icon_size = 64,
     flags = { "placeable-player", "placeable-enemy", "player-creation"},
+    hidden = true,
     --minable = { mining_time = 0.5, result = "laser-turret" },
     max_health = 1000,
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},

@@ -155,7 +155,9 @@ local function on_mass_driver_built(event)
   if not entity.valid or entity.name ~= "ll-mass-driver" then return end
 
   entity.get_inventory(defines.inventory.chest).set_filter(1, "ll-mass-driver-capsule")
-  entity.set_request_slot({name="ll-mass-driver-capsule", count=50}, 1)
+  local logistic_point = entity.get_logistic_point(defines.logistic_member_index.logistic_container)
+  local logistic_section = logistic_point.get_section(1)
+  logistic_section.set_slot(1, {name="ll-mass-driver-capsule", count=50})
 
   local energy_source = entity.surface.create_entity{
     name = "ll-mass-driver-energy-source",
@@ -245,7 +247,7 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     local requester_inventory = requester.get_inventory(defines.inventory.chest)
     local requester_contents = requester_inventory.get_contents()
     local sender_request_count = mass_driver.request_slot_count
-    
+
     for i = 1, math.max(requester_request_count, sender_request_count) do
       local request = requester.get_request_slot(i)
       if request then
@@ -273,7 +275,7 @@ local function on_tick(event)
     local mass_driver = mass_driver_data.entity
     if not mass_driver.valid then
       Buckets.remove(storage.mass_drivers, unit_number)
-    else  
+    else
       MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     end
   end
