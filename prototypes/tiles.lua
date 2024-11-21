@@ -29,7 +29,7 @@ data:extend{
     order = "e[moon]-a",
     subgroup = "luna-tiles",
     collision_mask = {layers={ground_tile=true}},
-    --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
+    autoplace = moon_autoplace,
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
       "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
@@ -52,7 +52,6 @@ data:extend{
     can_be_part_of_blueprint = false,
 
     --trigger_effect = tile_trigger_effects.dirt_1_trigger_effect()
-    autoplace = moon_autoplace,
   },
   {
     name = "ll-luna-lowland",

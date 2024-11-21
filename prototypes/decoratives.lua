@@ -1,3 +1,17 @@
+local function switch_filenames(pictures)
+  --[[
+    Replace
+    __base__/graphics/decorative/small-rock/small-rock-01.png
+    __alien-biomes__/graphics/decorative/small-rock/small-rock-01.png
+  ]]
+  for _, variation in pairs(pictures) do
+    variation.filename = "__alien-biomes-graphics__/graphics/decorative/" .. variation.filename:sub(30)
+    variation.filename = string.gsub(variation.filename, "big%-sand%-rock", "sand-big-rock")
+    variation.filename = string.gsub(variation.filename, "medium%-sand%-rock", "sand-medium-rock")
+    variation.filename = string.gsub(variation.filename, "small%-sand%-rock", "sand-small-rock")
+  end
+end
+
 local current_bucket = 0  -- Persists across all make_buckets calls
 local current_lowland_bucket = 0
 local function make_buckets(frequencies)
@@ -19,28 +33,23 @@ local function make_buckets(frequencies)
   return buckets, lowland_buckets
 end
 
---[[
-local function moon_probability_expression(bucket, lowland_bucket)
-  return noise.define_noise_function( function(x, y, tile, map)
-    local selection = noise.random(100)
-    selection_min = noise.if_else_chain(
-      noise.less_than(elevation, -0.5), lowland_bucket[1],
-      bucket[1]
-    )
-    selection_max = noise.if_else_chain(
-      noise.less_than(elevation, -0.5), lowland_bucket[2],
-      bucket[2]
-    )
-    local probability = noise.if_else_chain(
-      noise.less_or_equal(selection_min, selection), noise.if_else_chain(
-        noise.less_than(selection, selection_max), 1,
-        0
-      ),
-      0
-    )
-    return probability
-  end)
-end]]
+
+local function moon_rock_autoplace(bucket, lowland_bucket)
+  return {
+    tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
+    default_enabled = false,
+    probability_expression = "(random_probability > selection_min) * (random_probability < selection_max)",
+    local_expressions = {
+      random_probability = "random(100, lowland_bucket_low * 100003)",
+      selection_min = "(elevation < -0.5) * lowland_bucket_low + (elevation >= -0.5) * bucket_low",
+      selection_max = "(elevation < -0.5) * lowland_bucket_high + (elevation >= -0.5) * bucket_high",
+      lowland_bucket_low = lowland_bucket[1],
+      lowland_bucket_high = lowland_bucket[2],
+      bucket_low = bucket[1],
+      bucket_high = bucket[2],
+    }
+  }
+end
 
 -- Percentage of tiles that should have this decorative
 -- First number is on plain, second number is on lowland
@@ -56,13 +65,7 @@ local craters = {
 local crater_buckets, lowland_crater_buckets = make_buckets(craters)
 for name, bucket in pairs(crater_buckets) do
   local decorative = data.raw["optimized-decorative"]["ll-moon-" .. name]
-  --[[decorative.autoplace = {
-    name = name,
-    order = "b",
-    tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
-    default_enabled = false,
-    probability_expression = moon_probability_expression(bucket, lowland_crater_buckets[name]),
-  }]]
+  decorative.autoplace = moon_rock_autoplace(bucket, lowland_crater_buckets[name])
 end
 
 local decorative_rocks = {
@@ -77,13 +80,8 @@ for name, bucket in pairs(decorative_rock_buckets) do
   local rock = table.deepcopy(data.raw["optimized-decorative"][name])
   rock.name = "ll-moon-" .. name
   rock.order = "x-b"
-  --[[rock.autoplace = {
-    name = name,
-    order = "b",
-    tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
-    default_enabled = false,
-    probability_expression = moon_probability_expression(bucket, lowland_decorative_rock_buckets[name]),
-  }]]
+  rock.autoplace = moon_rock_autoplace(bucket, lowland_decorative_rock_buckets[name])
+  switch_filenames(rock.pictures)
   data:extend{rock}
 end
 
@@ -108,13 +106,8 @@ for name, bucket in pairs(entity_rock_buckets) do
   rock.minable.count = nil
   rock.minable.results = {{type = "item", name = "ll-moon-rock", amount_min = entity_rock_results[rock.name][1], amount_max = entity_rock_results[rock.name][2]}}
   rock.loot = nil
-  --[[rock.autoplace = {
-    name = name,
-    order = "b",
-    tile_restriction = {"ll-luna-plain", "ll-luna-lowland"},
-    default_enabled = false,
-    probability_expression = moon_probability_expression(bucket, lowland_entity_rock_buckets[name]),
-  }]]
+  rock.autoplace = moon_rock_autoplace(bucket, lowland_entity_rock_buckets[name])
   rock.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
+  switch_filenames(rock.pictures)
   data:extend{rock}
 end
