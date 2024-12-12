@@ -1,9 +1,11 @@
 local ArcFurnace = {}
 
+---@param event EventData.on_script_trigger_effect
 local function on_script_trigger_effect(event)
   if event.effect_id ~= "ll-arc-furnace-created" then return end
 
   local entity = event.target_entity
+  if not entity then return end
   local position = entity.position
 
   local reactor = entity.surface.create_entity{
@@ -23,6 +25,7 @@ local function on_script_trigger_effect(event)
   script.register_on_object_destroyed(entity)
 end
 
+---@param event EventData.on_object_destroyed
 local function on_object_destroyed(event)
   local furnace_data = storage.arc_furnaces[event.useful_id]
 
@@ -34,6 +37,8 @@ local function on_object_destroyed(event)
   storage.arc_furnaces[event.useful_id] = nil
 end
 
+---@param player LuaPlayer
+---@param entity LuaEntity
 local function draw_heat_outputs(player, entity)
   local render_objects = {}
   for i = -2, 2, 2 do
@@ -52,6 +57,7 @@ local function draw_heat_outputs(player, entity)
   storage.arc_furnace_heat_renders[player.index] = render_objects
 end
 
+---@param player LuaPlayer
 local function delete_heat_outputs(player)
   local heat_render_objects = storage.arc_furnace_heat_renders[player.index]
   if heat_render_objects then
@@ -61,18 +67,24 @@ local function delete_heat_outputs(player)
   end
 end
 
+---@param event EventData.on_selected_entity_changed
 local function on_selected_entity_changed(event)
-  local player = game.get_player(event.player_index)
+  local player = game.get_player(event.player_index)  ---@cast player -?
   delete_heat_outputs(player)
   if player.selected and player.selected.name == "ll-arc-furnace" then
     draw_heat_outputs(player, player.selected)
   end
 end
 
+---@param temperature number
+---@return LocalisedString
 local function build_caption(temperature)
   return {"", {"description.temperature"}, ": ", string.format("%.2f", temperature), " ", {"si-unit-degree-celsius"}}
 end
 
+---@param player LuaPlayer
+---@param furnace LuaEntity
+---@param reactor LuaEntity
 local function build_gui(player, furnace, reactor)
   local anchor = {gui = defines.relative_gui_type.assembling_machine_gui, position = defines.relative_gui_position.right}
 
@@ -107,18 +119,21 @@ local function build_gui(player, furnace, reactor)
   })
 end
 
+---@param player LuaPlayer
+---@param reactor LuaEntity
 local function update_gui(player, reactor)
   local gui_elements = storage.arc_furnace_guis[player.index]
   gui_elements["ll-arc-furnace-progressbar"].value = reactor.temperature / 1000
   gui_elements["ll-arc-furnace-progressbar"].caption = build_caption(reactor.temperature)
 end
 
+---@param event EventData.on_gui_opened
 local function on_gui_opened(event)
   local entity = event.entity
   if not entity or not entity.valid then return end
   if entity.type ~= "assembling-machine" then return end
 
-  local player = game.get_player(event.player_index)
+  local player = game.get_player(event.player_index)  ---@cast player -?
 
   if player.gui.relative["ll-arc-furnace-relative-frame"] then
     player.gui.relative["ll-arc-furnace-relative-frame"].destroy()

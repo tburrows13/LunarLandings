@@ -1,8 +1,9 @@
 local Buckets = require "scripts.buckets"
 
----@type ScriptLib
 local SteamCondenser = {}
 
+---@param position MapPosition
+---@return BoundingBox
 local function condenser_position_to_area(position)
   return {
     left_top = {
@@ -16,6 +17,8 @@ local function condenser_position_to_area(position)
   }
 end
 
+---@param bounding_box BoundingBox
+---@return BoundingBox
 local function turbine_bounding_box_to_area(bounding_box)
   return {
     left_top = {
@@ -33,9 +36,11 @@ local function distance_squared(position1, position2)
   return (position1.x - position2.x)^2 + (position1.y - position2.y)^2
 end
 
+---@param event EventData.on_script_trigger_effect
 local function on_script_trigger_effect(event)
   if event.effect_id ~= "ll-steam-condenser-created" then return end
   local entity = event.target_entity
+  if not entity then return end
   local position = entity.position
 
   local turbines = entity.surface.find_entities_filtered{
@@ -72,9 +77,9 @@ local function on_script_trigger_effect(event)
   script.register_on_object_destroyed(entity)
 end
 
-
+---@param event EventData.on_built_entity | EventData.on_robot_built_entity | EventData.on_space_platform_built_entity | EventData.script_raised_built | EventData.script_raised_revive
 local function on_entity_built(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if not entity.valid then return end
 
   if entity.name == "steam-turbine" then
@@ -104,25 +109,27 @@ local function on_entity_built(event)
   end
 end
 
+---@param event EventData.on_object_destroyed
 local function on_object_destroyed(event)
   if not event.useful_id then return end  -- entity was tree/rock
   -- Condenser destroyed
   local condenser_data = Buckets.get(storage.steam_condensers, event.useful_id)
   if condenser_data then
     for unit_number, turbine in pairs(condenser_data.turbines) do
-      on_entity_built{created_entity = turbine}  -- send the turbine off to check for another condenser
+      on_entity_built{entity = turbine  --[[@as EventData.on_built_entity]]}  -- send the turbine off to check for another condenser
     end
-    Buckets.remove(storage.steam_condensers, event.unit_number)
+    Buckets.remove(storage.steam_condensers, event.useful_id)
   end
 
   -- Turbine destroyed, turbine will get removed from condenser data when the condenser updates
   storage.turbines[event.useful_id] = nil
 end
 
--- Show turbine/condenser connection where hovering
--- the mouse over either entity, similar to how beacons/machines work.
+--- Show turbine/condenser connection where hovering the mouse over either
+--- entity, similar to how beacons/machines work.
+--- @param event EventData.on_selected_entity_changed
 local function on_selected_entity_changed (event)
-  local player = game.get_player(event.player_index) --[[@cast player -? ]]
+  local player = game.get_player(event.player_index)  ---@cast player -?
 
   -- Don't want to set up all the plumbing to create this data.
   -- This is a slow event, so it might be okay for now.
@@ -177,6 +184,8 @@ local function on_selected_entity_changed (event)
   end
 end
 
+---@param entity LuaEntity
+---@param turbines table<number, LuaEntity>
 local function update_condenser(entity, turbines)
   if not next(turbines) then return end
 
@@ -214,6 +223,7 @@ local function update_condenser(entity, turbines)
   end
 end
 
+---@param event EventData.on_tick
 local function on_tick(event)
   for unit_number, condenser_data in pairs(Buckets.get_bucket(storage.steam_condensers, event.tick)) do
     if condenser_data.entity.valid then
@@ -250,6 +260,7 @@ SteamCondenser.events = {
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
   [defines.events.on_built_entity] = on_entity_built,
   [defines.events.on_robot_built_entity] = on_entity_built,
+  [defines.events.on_space_platform_built_entity] = on_entity_built,
   [defines.events.script_raised_built] = on_entity_built,
   [defines.events.script_raised_revive] = on_entity_built,
   --[[[defines.events.on_cancelled_deconstruction] = on_entity_built,

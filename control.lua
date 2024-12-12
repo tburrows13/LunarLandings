@@ -1,4 +1,4 @@
-local handler = require "__core__.lualib.event_handler"
+local handler = require "event_handler"
 gui = require "__LunarLandings__.scripts.gui-lite"
 
 local compatibility = require "scripts.compatibility"
