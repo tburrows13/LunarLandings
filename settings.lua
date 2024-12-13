@@ -12,10 +12,6 @@ local function force_setting(setting_type, setting_name, value)
   end
 end
 
-if mods["alien-biomes"] then
-  force_setting("string", "alien-biomes-include-dirt-grey", "Enabled")
-end
-
 force_setting("bool", "space-battery-decay-enable-setting", true)
 force_setting("string", "space-battery-pack-energy-density-setting", "50 MJ (Default)")
 force_setting("string", "space-fluid-wagon-capacity-setting", "30.000 (Default)")
