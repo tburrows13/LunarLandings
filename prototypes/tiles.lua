@@ -249,8 +249,12 @@ data:extend{
 --data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}  -- TODO 2.0
 --data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 
---data.raw["straight-rail"]["straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
---data.raw["curved-rail"]["curved-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["legacy-straight-rail"]["legacy-straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["legacy-curved-rail"]["legacy-curved-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["straight-rail"]["straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["half-diagonal-rail"]["half-diagonal-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["curved-rail-a"]["curved-rail-a"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["curved-rail-b"]["curved-rail-b"].ll_surface_conditions = {nauvis = true, luna = false}
 data.raw["assembling-machine"]["assembling-machine-1"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
 data.raw["assembling-machine"]["assembling-machine-2"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
 data.raw["assembling-machine"]["assembling-machine-3"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}

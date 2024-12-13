@@ -3,7 +3,9 @@
   [
     ["ll-moon-rock-huge", "ll-moon-huge-rock"],
     ["ll-moon-rock-big", "ll-moon-big-rock"],
-    ["ll-moon-sand-rock-big", "ll-moon-big-sand-rock"]
+    ["ll-moon-sand-rock-big", "ll-moon-big-sand-rock"],
+    ["ll-straight-moon-rail", "ll-legacy-straight-moon-rail"],
+    ["ll-curved-moon-rail", "ll-legacy-curved-moon-rail"]
   ],
   "decorative":
   [
