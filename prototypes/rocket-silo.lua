@@ -172,7 +172,7 @@ rocket_silo_interstellar.base_day_sprite = {layers = {
     scale = 0.5
   },
   {
-    filename = "__space-exploration-graphics-5__/graphics/entity/probe/hr/06-rocket-silo-mask.png",
+    filename = "__space-exploration-graphics-5__/graphics/entity/probe/06-rocket-silo-mask.png",
     width = 608,
     height = 596,
     shift = util.by_pixel(3, -1),
@@ -190,7 +190,7 @@ rocket_silo_interstellar.base_front_sprite = {
       scale = 0.5
     },
     {
-      filename = "__space-exploration-graphics-5__/graphics/entity/probe/hr/14-rocket-silo-front-mask.png",
+      filename = "__space-exploration-graphics-5__/graphics/entity/probe/14-rocket-silo-front-mask.png",
       width = 580,
       height = 262,
       shift = util.by_pixel(-1, 78),
@@ -205,7 +205,7 @@ rocket_interstellar.name = "ll-rocket-interstellar"
 rocket_interstellar.inventory_size = 1
 rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
 {
-  filename = "__space-exploration-graphics-5__/graphics/entity/probe/hr/probe-rocket.png",
+  filename = "__space-exploration-graphics-5__/graphics/entity/probe/probe-rocket.png",
   width = 310,
   height = 596,
   shift = util.by_pixel(-5, -27),

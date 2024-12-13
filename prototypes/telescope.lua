@@ -90,7 +90,7 @@ data:extend{
         layers =
         {
           {
-            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/hr/telescope.png",
+            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/telescope.png",
             priority = "high",
             width = 2080/8,
             height = 2128/8,
@@ -102,7 +102,7 @@ data:extend{
           },
           {
             draw_as_shadow = true,
-            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/hr/telescope-shadow.png",
+            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/telescope-shadow.png",
             priority = "high",
             width = 2608/8,
             height = 1552/8,

@@ -32,7 +32,7 @@ data:extend{
     autoplace = moon_autoplace,
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
-      "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
+      "__space-exploration-graphics__/graphics/terrain/asteroid/asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -131,7 +131,7 @@ data:extend{
       empty_transitions = true,
       main = {
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile1.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile1.png",
         count = 12,
         size = 1,
         scale = 0.5
@@ -139,7 +139,7 @@ data:extend{
 
       inner_corner =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-inner-corner.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-inner-corner.png",
         count = 1,
         scale = 0.5
       },
@@ -152,7 +152,7 @@ data:extend{
 
       outer_corner =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-outer-corner.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-outer-corner.png",
         count = 1,
         scale = 0.5
       },
@@ -165,7 +165,7 @@ data:extend{
 
       side =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-side.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-side.png",
         count = 16,
         scale = 0.5
       },
@@ -178,7 +178,7 @@ data:extend{
 
       u_transition =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-u.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-u.png",
         count = 1,
         scale = 0.5
       },
@@ -191,7 +191,7 @@ data:extend{
 
       o_transition =
       {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-o.png",
+        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-o.png",
         count = 1,
         scale = 0.5
       },
