@@ -10,7 +10,7 @@ local function make_crater(name, box, pictures)
   return {
     name = "ll-moon-" .. name,
     type = "optimized-decorative",
-    subgroup = "grass",
+    subgroup = "ll-luna",
     order = "x-a",
     collision_box = {{-box, -box*0.75}, {box, box*0.75}},
     collision_mask = {
@@ -61,7 +61,7 @@ data:extend{
   {
     name = "ll-moon-sand-decal-white",
     type = "optimized-decorative",
-    subgroup = "grass",
+    subgroup = "ll-luna",
     order = "b[decorative]-b[red-desert-decal]",
     collision_box = {{-6, -6}, {6, 6}},
     collision_mask = {
@@ -261,7 +261,7 @@ data:extend{
   {
     name = "ll-moon-stone-decal-white",
     type = "optimized-decorative",
-    subgroup = "grass",
+    subgroup = "ll-luna",
     order = "b[decorative]-b[red-desert-decal]",
     collision_box = {{-4, -4}, {4, 4}},
     collision_mask = {

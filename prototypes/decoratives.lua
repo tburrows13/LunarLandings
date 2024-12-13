@@ -12,6 +12,15 @@ local function switch_filenames(pictures)
   end
 end
 
+data:extend{
+  {
+    type = "item-subgroup",
+    name = "ll-luna",
+    group = "environment",
+    order = "-a"
+  },
+}
+
 local current_bucket = 0  -- Persists across all make_buckets calls
 local current_lowland_bucket = 0
 local function make_buckets(frequencies)
@@ -79,6 +88,7 @@ local decorative_rock_buckets, lowland_decorative_rock_buckets = make_buckets(de
 for name, bucket in pairs(decorative_rock_buckets) do
   local rock = table.deepcopy(data.raw["optimized-decorative"][name])
   rock.name = "ll-moon-" .. name
+  rock.subgroup = "ll-luna"
   rock.order = "x-b"
   rock.autoplace = moon_rock_autoplace(bucket, lowland_decorative_rock_buckets[name])
   switch_filenames(rock.pictures)
@@ -100,6 +110,7 @@ log(serpent.block(lowland_entity_rock_buckets))
 for name, bucket in pairs(entity_rock_buckets) do
   local rock = table.deepcopy(data.raw["simple-entity"][name])
   rock.name = "ll-moon-" .. name
+  rock.subgroup = "ll-luna"
   rock.order = "x-c"
   rock.map_color={r=45, g=45, b=45}
   rock.minable.result = nil
