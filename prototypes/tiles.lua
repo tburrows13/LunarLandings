@@ -90,6 +90,7 @@ data:extend{
     collision_mask = {layers={ground_tile=true}},
     autoplace = mountain_moon_autoplace,
     layer = 22,
+    searchable = true,
     variants = tile_variations_template(
       "__alien-biomes-graphics__/graphics/terrain/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
