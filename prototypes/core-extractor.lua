@@ -115,11 +115,10 @@ data:extend({
         animation = {
           priority = "high",
           width = 704,
-          height = 400,
+          height = 704,
           shift = util.by_pixel_hr(0, 92),
           frame_count = 120,
           animation_speed = 0.5,
-          --shift = {0, -8/32},
           scale = 0.5,
           draw_as_light = true,
           blend_mode = "additive",
