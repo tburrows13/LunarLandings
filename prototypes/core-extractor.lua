@@ -170,13 +170,17 @@ data:extend({
         },
       },]]
     },
-    working_sound =
-    {
-        sound = {filename = "__base__/sound/electric-mining-drill.ogg", volume = 0.8},
+    working_sound = {
+        sound = {filename = "__LunarLandings__/sound/core-extractor.ogg", volume = 0.8},
+        idle_sound = {
+          filename = "__base__/sound/idle1.ogg",
+          volume = 0.6,
+          category = "environment"
+        },
         apparent_volume = 0.1,
     },
     impact_category = "metal-large",
-    open_sound = sounds.machine_open,
-    close_sound = sounds.machine_close,
+    open_sound = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"].open_sound),
+    close_sound = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"].close_sound),
   },
 })
