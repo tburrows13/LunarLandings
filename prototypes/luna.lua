@@ -68,6 +68,28 @@ planet_map_gen.luna = function()
   }
 end
 
+local function persistent_ambient_sounds()
+  local persistent_ambient_sounds = {
+    base_ambience = {filename = "__LunarLandings__/sound/luna-ambience.ogg", volume = 0.2}
+  }
+
+  if mods["space-age"] then
+    persistent_ambient_sounds.semi_persistent = {
+      {
+        sound = {variations = sound_variations("__space-age__/sound/world/semi-persistent/distant-rumble", 3, 0.5)},
+        delay_mean_seconds = 10,
+        delay_variance_seconds = 5
+      },
+      {
+        sound = {variations = sound_variations("__space-age__/sound/world/semi-persistent/cold-wind-gust", 5, 0.3)},
+        delay_mean_seconds = 15,
+        delay_variance_seconds = 9
+      }
+    }
+  end
+
+  return persistent_ambient_sounds
+end
 
 data:extend(
 {
@@ -106,6 +128,6 @@ data:extend(
       ["solar-power"] = 125,
     },
     surface_render_parameters = {},
-    persistent_ambient_sounds = {},
+    persistent_ambient_sounds = persistent_ambient_sounds(),
   }
 })
