@@ -141,14 +141,29 @@ local function on_object_destroyed(event)
   storage.mass_driver_requesters[event.useful_id] = nil
 end
 
+--- returns the first logistic section of the entity
+--- both mass drivers and mass driver requesters should have a single logistic section
+function get_logistic_section(entity)
+  local sections = entity.get_logistic_sections()
+  if sections.sections_count ~= 1 then
+    for i = sections.sections_count, 1, -1 do
+      sections.remove_section(i)
+    end
+    sections.add_section()
+  end
+
+  return sections.get_section(1)
+end
+
 local function check_requester_slots(entity)
+  local requester_logistic_section = get_logistic_section(entity)
   local slots_cleared = false
-  for i = 1, entity.request_slot_count do
-    local slot = entity.get_request_slot(i)
-    if slot and not is_allowed(slot.name) then
-      entity.clear_request_slot(i)
+  for i = 1, requester_logistic_section.filters_count do
+    local slot = requester_logistic_section.get_slot(i)
+    if slot and slot.value and not is_allowed(slot.value.name) then
+      requester_logistic_section.clear_slot(i)
       -- If request slot is set by circuit network, then clearing it has no effect.
-      if not entity.get_request_slot(i) then
+      if not requester_logistic_section.get_slot(i) then
         slots_cleared = true
       end
     end
