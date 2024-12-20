@@ -76,182 +76,182 @@ data:extend{
     pictures =
     {
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-01.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-01.png",
         width = 975,
         height = 664,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-02.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-02.png",
         width = 628,
         height = 477,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-03.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-03.png",
         width = 519,
         height = 331,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-04.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-04.png",
         width = 870,
         height = 781,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-05.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-05.png",
         width = 230,
         height = 161,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-06.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-06.png",
         width = 140,
         height = 110,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-07.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-07.png",
         width = 285,
         height = 243,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-08.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-08.png",
         width = 156,
         height = 85,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-09.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-09.png",
         width = 212,
         height = 152,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-10.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-10.png",
         width = 233,
         height = 197,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-11.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-11.png",
         width = 324,
         height = 413,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-12.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-12.png",
         width = 504,
         height = 488,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-13.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-13.png",
         width = 329,
         height = 305,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-14.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-14.png",
         width = 811,
         height = 724,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-15.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-15.png",
         width = 266,
         height = 262,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-16.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-16.png",
         width = 921,
         height = 712,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-17.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-17.png",
         width = 722,
         height = 395,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-18.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-18.png",
         width = 187,
         height = 289,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-19.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-19.png",
         width = 999,
         height = 374,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-20.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-20.png",
         width = 783,
         height = 399,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-21.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-21.png",
         width = 668,
         height = 406,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-22.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-22.png",
         width = 437,
         height = 318,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-23.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-23.png",
         width = 394,
         height = 246,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-24.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-24.png",
         width = 361,
         height = 291,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-25.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-25.png",
         width = 1290,
         height = 1281,
         slice_y = 4,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-26.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-26.png",
         width = 314,
         height = 174,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-27.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-27.png",
         width = 348,
         height = 264,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-28.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-28.png",
         width = 488,
         height = 357,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-29.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-29.png",
         width = 594,
         height = 634,
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/sand-decal/sand-decal-30.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/sand-decal/sand-decal-30.png",
         width = 195,
         height = 215,
         scale = 0.5
@@ -277,210 +277,210 @@ data:extend{
     {
       --lightDecal
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-00.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-00.png",
         width = 400,
         height = 299,
         shift = util.by_pixel(4.5, -2.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-01.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-01.png",
         width = 419,
         height = 320,
         shift = util.by_pixel(-0.75, 2),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-02.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-02.png",
         width = 417,
         height = 287,
         shift = util.by_pixel(-1.25, 1.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-03.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-03.png",
         width = 421,
         height = 298,
         shift = util.by_pixel(-0.25, 5.5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-04.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-04.png",
         width = 396,
         height = 302,
         shift = util.by_pixel(6, 4),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-05.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-05.png",
         width = 408,
         height = 295,
         shift = util.by_pixel(-2.5, 7.75),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-06.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-06.png",
         width = 417,
         height = 317,
         shift = util.by_pixel(-1.25, 3.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-07.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-07.png",
         width = 419,
         height = 312,
         shift = util.by_pixel(0.75, 2.5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-08.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-08.png",
         width = 413,
         height = 317,
         shift = util.by_pixel(-2.25, 2.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-09.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-09.png",
         width = 403,
         height = 310,
         shift = util.by_pixel(0.25, 1.5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-10.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-10.png",
         width = 411,
         height = 307,
         shift = util.by_pixel(-0.75, 1.75),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-11.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-11.png",
         width = 421,
         height = 295,
         shift = util.by_pixel(-0.25, -0.75),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-12.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-12.png",
         width = 420,
         height = 280,
         shift = util.by_pixel(-0.5, -7),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-13.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-13.png",
         width = 403,
         height = 311,
         shift = util.by_pixel(0.75, 3.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-14.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-14.png",
         width = 418,
         height = 304,
         shift = util.by_pixel(0, 2),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-15.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-15.png",
         width = 398,
         height = 284,
         shift = util.by_pixel(-3.5, 6.5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-16.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-16.png",
         width = 406,
         height = 313,
         shift = util.by_pixel(4, 0.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-17.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-17.png",
         width = 420,
         height = 294,
         shift = util.by_pixel(0.5, 4.5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-18.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-18.png",
         width = 379,
         height = 289,
         shift = util.by_pixel(0.25, 5.75),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-19.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-19.png",
         width = 401,
         height = 311,
         shift = util.by_pixel(-5.25, 1.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-20.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-20.png",
         width = 418,
         height = 315,
         shift = util.by_pixel(0.5, 1.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-21.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-21.png",
         width = 418,
         height = 314,
         shift = util.by_pixel(1, 3),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-22.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-22.png",
         width = 421,
         height = 270,
         shift = util.by_pixel(-0.25, 1),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-23.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-23.png",
         width = 403,
         height = 290,
         shift = util.by_pixel(2.25, -2.5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-24.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-24.png",
         width = 418,
         height = 315,
         shift = util.by_pixel(-0.5, 2.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-25.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-25.png",
         width = 414,
         height = 310,
         shift = util.by_pixel(-2, 4),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-26.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-26.png",
         width = 403,
         height = 306,
         shift = util.by_pixel(-3.75, 5),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-27.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-27.png",
         width = 416,
         height = 303,
         shift = util.by_pixel(1, 0.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-28.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-28.png",
         width = 422,
         height = 311,
         shift = util.by_pixel(0, 2.25),
         scale = 0.5
       },
       {
-        filename = "__alien-biomes-graphics__/graphics/decorative/stone-decal/stone-decal-29.png",
+        filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/stone-decal/stone-decal-29.png",
         width = 406,
         height = 292,
         shift = util.by_pixel(-3.5, 2),
