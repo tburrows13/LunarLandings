@@ -32,14 +32,15 @@ local function build_gui(player, mass_driver)
       anchor = anchor,
       children = {
         {type = "label", style = "frame_title", caption = {"gui-blueprint.settings"}, ignored_by_interaction = true},
-        {type = "frame", direction = "vertical", style = "inside_shallow_frame_with_padding", children = {
+        {type = "frame", name = "ll-mass-driver-inner-frame", direction = "vertical", style = "inside_shallow_frame_with_padding", children = {
           {
             type = "flow",
             direction = "vertical",
             style = "inset_frame_container_vertical_flow",
+              name = "ll-mass-driver-info-flow",
             children = {
               {
-                type = "flow", direction = "vertical", 
+                type = "flow", direction = "vertical", name = "ll-mass-driver-energy-flow",
                 children = {
                   {
                     type = "label",
@@ -53,6 +54,7 @@ local function build_gui(player, mass_driver)
                     --caption = {"", {"gui-rocket-silo.destination"}, " [img=info]"},
                     caption = format_energy(mass_driver_data.energy_source.energy) .. "/200MJ",
                     --tooltip = {"gui-rocket-silo.destination-tooltip"}
+                      name = "ll-mass-driver-energy-label",
                   },
                 } 
               },
@@ -295,6 +297,15 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
       else
         mass_driver_logistic_section.clear_slot(i + 1)
       end
+    end
+  end
+
+  -- Update GUI to display the current energy stored
+  for _, player in pairs(game.connected_players) do
+    local gui = player.gui.relative["ll-mass-driver-relative-frame"]
+    if gui and player.opened == mass_driver then
+      local energy_info = gui["ll-mass-driver-inner-frame"]["ll-mass-driver-info-flow"]["ll-mass-driver-energy-flow"]["ll-mass-driver-energy-label"]
+      energy_info.caption = format_energy(mass_driver_data.energy_source.energy) .. "/200MJ"
     end
   end
 end
