@@ -7,7 +7,7 @@ rich_moon_rock.icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png"
 rich_moon_rock.stages = {
   sheet =
   {
-    filename = "__LunarLandings__/graphics/moon-rock/moon-rock.png",  -- TODO 2.0 reset back to rich-moon-rock.png
+    filename = "__LunarLandings__/graphics/moon-rock/rich-moon-rock.png",
     priority = "extra-high",
     size = 128,
     frame_count = 8,
