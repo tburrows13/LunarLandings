@@ -14,18 +14,18 @@ data:extend{
     energy_required = 15,
     ingredients =
     {
-      {"advanced-circuit", 20},
-      {"steel-plate", 10},
-      {"copper-cable", 10},
-      {"pump", 2}
+      {type="item", name="advanced-circuit", amount=20},
+      {type="item", name="steel-plate", amount=10},
+      {type="item", name="copper-cable", amount=10},
+      {type="item", name="pump", amount=2}
     },
-    result = "ll-oxygen-diffuser"
+    results = {{type="item", name="ll-oxygen-diffuser", amount=1}}
   },
   {
     type = "item",
     name = "ll-oxygen-diffuser",
     icon = "__LunarLandings__/graphics/icons/oxygen-diffuser.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "space-related",
     order = "o[oxygen-diffuser]",
     place_result = "ll-oxygen-diffuser",
@@ -35,7 +35,7 @@ data:extend{
     type = "beacon",
     name = "ll-oxygen-diffuser",
     icon = "__LunarLandings__/graphics/icons/oxygen-diffuser.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "ll-oxygen-diffuser"},
     max_health = 200,
@@ -44,7 +44,6 @@ data:extend{
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
-    drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
     --allowed_effects = {"consumption", "speed", "pollution"},
 
     --graphics_set = require("prototypes.entity.beacon-animations"),
@@ -59,7 +58,7 @@ data:extend{
                 layers = {
                     -- Base
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-base.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-base.png",
                         width = 232,
                         height = 186,
                         shift = util.by_pixel(11, 1.5),
@@ -67,7 +66,7 @@ data:extend{
                     },
                     -- Shadow
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-base-shadow.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-base-shadow.png",
                         width = 232,
                         height = 168,
                         shift = util.by_pixel(11, 1.5),
@@ -85,7 +84,7 @@ data:extend{
                 layers = {
                     -- Base
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-antenna.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-antenna.png",
                         width = 108,
                         height = 100,
                         line_length = 8,
@@ -96,7 +95,7 @@ data:extend{
                     },
                     -- Shadow
                     {
-                        filename = "__LunarLandings__/graphics/oxygen-diffuser/hr-beacon-antenna-shadow.png",
+                        filename = "__LunarLandings__/graphics/oxygen-diffuser/beacon-antenna-shadow.png",
                         width = 126,
                         height = 98,
                         line_length = 8,
@@ -137,7 +136,7 @@ data:extend{
       type = "electric",
       usage_priority = "secondary-input"
     },
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     working_sound =
@@ -160,13 +159,7 @@ data:extend{
     },
     energy_usage = "480kW",
     distribution_effectivity = 1,
-    module_specification =
-    {
-      module_slots = 0,
-      module_info_icon_shift = {0, 0},
-      --module_info_multi_row_initial_height_modifier = -0.3,
-      --module_info_max_icons_per_row = 2
-    },
+    module_slots = 0,
     created_effect = {
       type = "direct",
       action_delivery = {
@@ -179,35 +172,34 @@ data:extend{
         }
       }
     },
-    surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+    ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
   },
   {
     type = "storage-tank",
     name = "ll-oxygen-diffuser-fluidbox",
     icon = "__base__/graphics/icons/storage-tank.png",
-    icon_size = 64, icon_mipmaps = 4,
-    flags = {"placeable-player", "player-creation", "hidden"},
+    icon_size = 64,
+    flags = {"placeable-player", "player-creation"},
+    hidden = true,
     --minable = {mining_time = 0.5, result = "storage-tank"},
     max_health = 500,
     corpse = "storage-tank-remnants",
     --dying_explosion = "storage-tank-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     --selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    collision_mask = {},
+    collision_mask = {layers={}},
     --damaged_trigger_effect = hit_effects.entity(),
     fluid_box =
     {
-      base_area = 2,
-      height = 2,
-      base_level = -1,
+      volume = 400,
       pipe_picture = diffuser_pipe_pictures,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
-        { position = {2, 0} },
-        { position = {-2, 0} },
-        { position = {0, 2} },
-        { position = {0, -2} }
+        { direction = defines.direction.east, position = {1, 0} },
+        { direction = defines.direction.west, position = {-1, 0} },
+        { direction = defines.direction.south, position = {0, 1} },
+        { direction = defines.direction.north, position = {0, -1} }
       },
       hide_connection_info = false,
       filter = "ll-oxygen"
@@ -223,7 +215,6 @@ data:extend{
       gas_flow = util.empty_sprite(1),
     },
     flow_length_in_ticks = 360,
-    --vehicle_impact_sound = sounds.generic_impact,
     --open_sound = sounds.machine_open,
     --close_sound = sounds.machine_close,
     --[[working_sound =

@@ -6,8 +6,8 @@ local MoonView = {}
 local SHORTCUT_NAME = "ll-toggle-moon-view"
 
 function MoonView.get_data(player_index)
-  global.moon_view_data[player_index] = global.moon_view_data[player_index] or {}
-  return global.moon_view_data[player_index]
+  storage.moon_view_data[player_index] = storage.moon_view_data[player_index] or {}
+  return storage.moon_view_data[player_index]
 end
 
 function MoonView.get_associated_character(player)
@@ -121,16 +121,16 @@ local function on_player_clicked_gps_tag(event)
     or player.surface.name == "nauvis" and destination_surface.name == "luna"
   then
     MoonView.toggle_moon_view(event)
-    global.open_map_requests[event.player_index] = {tick = event.tick, position = event.position}
+    storage.open_map_requests[event.player_index] = {tick = event.tick, position = event.position}
   end
 end
 
 local function on_tick(event)
-  for player_index, request_data in pairs(global.open_map_requests) do
+  for player_index, request_data in pairs(storage.open_map_requests) do
     if request_data.tick + 1 == event.tick then
       local player = game.get_player(player_index)
       player.open_map(request_data.position, 0.2)
-      global.open_map_requests[player_index] = nil
+      storage.open_map_requests[player_index] = nil
     end
   end
 end
@@ -173,18 +173,18 @@ MoonView.events = {
   [defines.events.on_lua_shortcut] = on_lua_shortcut,
   [defines.events.on_player_respawned] = on_player_respawned,
   [defines.events.on_chunk_generated] = on_chunk_generated,
-  [defines.events.on_player_clicked_gps_tag] = on_player_clicked_gps_tag,
+  -- [defines.events.on_player_clicked_gps_tag] = on_player_clicked_gps_tag, TODO 2.0 confirm functionality not needed
   [defines.events.on_tick] = on_tick,
 }
 
 MoonView.on_init = function ()
-  global.moon_view_data = {}
-  global.open_map_requests = {}
+  storage.moon_view_data = {}
+  storage.open_map_requests = {}
 end
 
 MoonView.on_configuration_changed = function(changed_data)
-  global.moon_view_data = global.moon_view_data or {}
-  global.open_map_requests = global.open_map_requests or {}
+  storage.moon_view_data = storage.moon_view_data or {}
+  storage.open_map_requests = storage.open_map_requests or {}
 end
 
 return MoonView

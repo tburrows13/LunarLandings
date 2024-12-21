@@ -1,36 +1,38 @@
-local noise = require("noise")
-local tne = noise.to_noise_expression
 local tile_trigger_effects = require("__base__.prototypes.tile.tile-trigger-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
-local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
-
-local elevation = noise.var("elevation")
+--local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
 
 local moon_autoplace = {
   default_enabled = false,
-  probability_expression = (elevation) * math.huge
+  probability_expression = "(elevation) * inf"
 }
 local rough_moon_autoplace = {
   default_enabled = false,
-  probability_expression = (-elevation) * math.huge
+  probability_expression = "(-elevation) * inf"
 }
 local mountain_moon_autoplace = {
   default_enabled = false,
-  probability_expression = (elevation - 20) * 100 * math.huge
+  probability_expression = "(elevation - 20) * 100 * inf"
 }
 
 
 data:extend{
   {
+    type = "item-subgroup",
+    name = "luna-tiles",
+    group = "tiles",
+    order = "b-a"
+  },
+  {
     name = "ll-luna-plain",
     type = "tile",
     order = "e[moon]-a",
-    collision_mask = {"ground-tile"},
-    --autoplace = autoplace_settings("dirt-1", "dirt", {{0, 0.25}, {0.45, 0.3}}, {{0.4, 0}, {0.45, 0.25}}),
+    subgroup = "luna-tiles",
+    collision_mask = {layers={ground_tile=true}},
+    autoplace = moon_autoplace,
     layer = 10,  -- Will be overwritten by Alien Biomes in data-final-fixes, then in Lunar Landings
     variants = tile_variations_template(
       "__space-exploration-graphics__/graphics/terrain/asteroid/asteroid.png", "__base__/graphics/terrain/masks/transition-1.png",
-      "__space-exploration-graphics__/graphics/terrain/asteroid/hr-asteroid.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -40,29 +42,27 @@ data:extend{
       }
     ),
 
-    transitions = transitions.cliff_transitions(),  -- to_tiles is set later
-    transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
+    --transitions = transitions.cliff_transitions(),  -- to_tiles is set later -- TODO 2.0
+    --transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
 
     walking_sound = table.deepcopy(data.raw.tile["dirt-1"].walking_sound),
     map_color={r=150, g=150, b=150},
     --scorch_mark_color = {r = 0.541, g = 0.407, b = 0.248, a = 1.000},
-    pollution_absorption_per_second = 1,
     vehicle_friction_modifier = 1.5,
     can_be_part_of_blueprint = false,
 
     --trigger_effect = tile_trigger_effects.dirt_1_trigger_effect()
-    autoplace = moon_autoplace,
   },
   {
     name = "ll-luna-lowland",
     type = "tile",
     order = "e[moon]-b",
-    collision_mask = {"ground-tile"},
+    subgroup = "luna-tiles",
+    collision_mask = {layers={ground_tile=true}},
     autoplace = rough_moon_autoplace,
     layer = 22,
     variants = tile_variations_template(
-      "__alien-biomes__/graphics/terrain/sr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
-      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      "__alien-biomes-graphics__/graphics/terrain/mineral-grey-dirt-2.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -78,7 +78,6 @@ data:extend{
     walking_sound = dirt_sounds,
     map_color={r=50, g=50, b=50},
     scorch_mark_color = {r = 0.420, g = 0.304, b = 0.191, a = 1.000},
-    pollution_absorption_per_second = 1,
     vehicle_friction_modifier = dirt_vehicle_speed_modifier,
 
     trigger_effect = tile_trigger_effects.dirt_4_trigger_effect()
@@ -87,12 +86,13 @@ data:extend{
     name = "ll-luna-mountain",
     type = "tile",
     order = "e[moon]-c",
-    collision_mask = {"ground-tile"},
+    subgroup = "luna-tiles",
+    collision_mask = {layers={ground_tile=true}},
     autoplace = mountain_moon_autoplace,
     layer = 22,
+    searchable = true,
     variants = tile_variations_template(
-      "__alien-biomes__/graphics/terrain/sr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
-      "__alien-biomes-hr-terrain__/graphics/terrain/hr/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/hr-transition-1.png",
+      "__alien-biomes-graphics__/graphics/terrain/mineral-white-dirt-4.png", "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -102,13 +102,12 @@ data:extend{
       }
     ),
 
-    transitions = transitions.cliff_transitions(),  -- to_tiles is set later
-    transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
+    --transitions = transitions.cliff_transitions(),  -- to_tiles is set later -- TODO 2.0
+    --transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
 
     walking_sound = dirt_sounds,
     map_color={r=200, g=200, b=200},
     scorch_mark_color = {r = 0.420, g = 0.304, b = 0.191, a = 1.000},
-    pollution_absorption_per_second = 1,
     vehicle_friction_modifier = dirt_vehicle_speed_modifier,
 
     trigger_effect = tile_trigger_effects.dirt_4_trigger_effect()
@@ -118,10 +117,11 @@ data:extend{
     type = "tile",
     name = "ll-lunar-foundation",
     order = "e[moon]-d[foundation]",
+    subgroup = "luna-tiles",
     needs_correction = false,
     minable = {mining_time = 0.1, result = "ll-lunar-foundation"},
     mined_sound = sounds.deconstruct_bricks(0.8),
-    collision_mask = {"ground-tile"},
+    collision_mask = {layers={ground_tile=true}},
     walking_speed_modifier = 1.5,
     layer = 64,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
@@ -129,133 +129,72 @@ data:extend{
     check_collision_with_entities = true,
     variants =
     {
+      empty_transitions = false,
       main = {
-      {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile1.png",
-        count = 12,
-        size = 1,
-        hr_version =
         {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile1.png",
+          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile1.png",
           count = 12,
           size = 1,
           scale = 0.5
-        }
-      },},
-
-      inner_corner =
-      {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-inner-corner.png",
-        count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-inner-corner.png",
-          count = 1,
-          scale = 0.5
-        }
+        },
       },
-      inner_corner_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-inner-corner-mask.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-
-      outer_corner =
-      {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-outer-corner.png",
-        count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-outer-corner.png",
-          count = 1,
-          scale = 0.5
-        }
-      },
-      outer_corner_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-outer-corner-mask.png",
-          count = 8,
-          scale = 0.5
-        }
-      },
-
-      side =
-      {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-side.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-side.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-      side_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-side-mask.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-
-      u_transition =
-      {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-u.png",
-        count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-u.png",
-          count = 1,
-          scale = 0.5
-        }
-      },
-      u_transition_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-u-mask.png",
-          count = 8,
-          scale = 0.5
-        }
-      },
-
-      o_transition =
-      {
-        picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-o.png",
-        count = 1,
-        hr_version =
-        {
-          picture = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/hr-tile-o.png",
-          count = 1,
-          scale = 0.5
-        }
-      },
-      o_transition_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
-        count = 4,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-o-mask.png",
-          count = 4,
-          scale = 0.5
-        }
+      transition = {
+        layout = {
+          mask = {
+            inner_corner = {
+              spritesheet = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
+              count = 16,
+              scale = 0.5
+            },
+            outer_corner = {
+              spritesheet = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
+              count = 8,
+              scale = 0.5
+            },
+            side = {
+              spritesheet = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
+              count = 16,
+              scale = 0.5
+            },
+            u_transition = {
+              spritesheet = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
+              count = 8,
+              scale = 0.5
+            },
+            o_transition = {
+              spritesheet = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
+              count = 4,
+              scale = 0.5
+            },
+          },
+          overlay = {
+            inner_corner = {
+              spritesheet = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-inner-corner.png",
+              count = 1,
+              scale = 0.5
+            },
+            outer_corner = {
+              spritesheet = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-outer-corner.png",
+              count = 1,
+              scale = 0.5
+            },
+            side = {
+              spritesheet = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-side.png",
+              count = 16,
+              scale = 0.5
+            },
+            u_transition = {
+              spritesheet = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-u.png",
+              count = 1,
+              scale = 0.5
+            },
+            o_transition = {
+              spritesheet = "__space-exploration-graphics__/graphics/terrain/space-platform-plating/tile-o.png",
+              count = 1,
+              scale = 0.5
+            },
+          },
+        },
       },
     },
 
@@ -267,7 +206,6 @@ data:extend{
 
     map_color={r=49, g=48, b=45},
     scorch_mark_color = {r = 0.373, g = 0.307, b = 0.243, a = 1.000},
-    pollution_absorption_per_second = 1,
     --vehicle_friction_modifier = concrete_vehicle_speed_modifier,
 
     trigger_effect = tile_trigger_effects.concrete_trigger_effect()
@@ -284,7 +222,7 @@ data:extend{
     {
       result = "ll-lunar-foundation",
       condition_size = 1,
-      condition = { "water-tile" }  -- Will be overwritten in data-final-fixes
+      condition = {layers={water_tile=true}},  -- Will be overwritten in data-final-fixes
     }
   },
   {
@@ -295,22 +233,26 @@ data:extend{
     category = "crafting-with-fluid",
     ingredients =
     {
-      {"stone-brick", 40},
-      {"steel-plate", 4},
+      {type="item", name="stone-brick", amount=40},
+      {type="item", name="steel-plate", amount=4},
       {type="fluid", name="water", amount=10}
     },
     results = {{type="item", name="ll-lunar-foundation", amount=5}},
   },
 }
 
-data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}
-data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
+--data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}  -- TODO 2.0
+--data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 
-data.raw["straight-rail"]["straight-rail"].surface_conditions = {nauvis = true, luna = false}
-data.raw["curved-rail"]["curved-rail"].surface_conditions = {nauvis = true, luna = false}
-data.raw["assembling-machine"]["assembling-machine-1"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
-data.raw["assembling-machine"]["assembling-machine-2"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
-data.raw["assembling-machine"]["assembling-machine-3"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
-data.raw["assembling-machine"]["chemical-plant"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
-data.raw["assembling-machine"]["oil-refinery"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
-data.raw["assembling-machine"]["centrifuge"].surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["legacy-straight-rail"]["legacy-straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["legacy-curved-rail"]["legacy-curved-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["straight-rail"]["straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["half-diagonal-rail"]["half-diagonal-rail"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["curved-rail-a"]["curved-rail-a"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["curved-rail-b"]["curved-rail-b"].ll_surface_conditions = {nauvis = true, luna = false}
+data.raw["assembling-machine"]["assembling-machine-1"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["assembling-machine-2"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["assembling-machine-3"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["chemical-plant"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["oil-refinery"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+data.raw["assembling-machine"]["centrifuge"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}

@@ -8,7 +8,7 @@ data:extend{
   {
     type = "technology",
     name = "mining-productivity-4",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/mining-productivity.png"),
     effects =
     {
@@ -17,10 +17,10 @@ data:extend{
         modifier = 0.1
       }
     },
-    prerequisites = {"mining-productivity-3"},
+    prerequisites = {"mining-productivity-3", "ll-space-science-pack"},
     unit =
     {
-      count_formula = 1500,
+      count = 1500,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -38,7 +38,7 @@ data:extend{
   {
     type = "technology",
     name = "mining-productivity-5",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/mining-productivity.png"),
     effects =
     {
@@ -47,10 +47,10 @@ data:extend{
         modifier = 0.1
       }
     },
-    prerequisites = {"mining-productivity-4"},
+    prerequisites = {"mining-productivity-4", "ll-quantum-science-pack"},
     unit =
     {
-      count_formula = 2000,
+      count = 2000,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -77,7 +77,7 @@ data:extend{
   {
     type = "technology",
     name = "worker-robots-speed-6",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/worker-robots-speed.png"),
     effects =
     {
@@ -86,7 +86,7 @@ data:extend{
         modifier = 0.1
       }
     },
-    prerequisites = {"worker-robots-speed-5"},
+    prerequisites = {"worker-robots-speed-5", "ll-space-science-pack"},
     unit =
     {
       count = 700,
@@ -107,7 +107,7 @@ data:extend{
   {
     type = "technology",
     name = "worker-robots-speed-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/worker-robots-speed.png"),
     effects =
     {
@@ -116,7 +116,7 @@ data:extend{
         modifier = 0.1
       }
     },
-    prerequisites = {"worker-robots-speed-6"},
+    prerequisites = {"worker-robots-speed-6", "ll-quantum-science-pack"},
     unit =
     {
       count = 800,
@@ -147,7 +147,7 @@ data:extend{
   {
     type = "technology",
     name = "physical-projectile-damage-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(physical_projectile_damage_2_icon),
     effects =
     {
@@ -162,7 +162,7 @@ data:extend{
         modifier = 0.1
       }
     },
-    prerequisites = {"physical-projectile-damage-6"},
+    prerequisites = {"physical-projectile-damage-6", "ll-space-science-pack"},
     unit =
     {
       count = 100*7,
@@ -183,7 +183,7 @@ data:extend{
   {
     type = "technology",
     name = "physical-projectile-damage-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(physical_projectile_damage_2_icon),
     effects =
     {
@@ -208,7 +208,7 @@ data:extend{
         modifier = 1
       }
     },
-    prerequisites = {"physical-projectile-damage-7"},
+    prerequisites = {"physical-projectile-damage-7", "ll-quantum-science-pack"},
     unit =
     {
       count = 100*8,
@@ -229,18 +229,18 @@ data:extend{
   },
 }
 
-local energy_weapons_damage_3_icon = "__base__/graphics/technology/energy-weapons-damage.png"
-local infinite_energy_weapons_damage = data.raw.technology["energy-weapons-damage-7"]
-infinite_energy_weapons_damage.name = "energy-weapons-damage-9"
-infinite_energy_weapons_damage.prerequisites = {"energy-weapons-damage-8", "space-science-pack"}
-infinite_energy_weapons_damage.unit.count_formula = "2^(L-9)*1000"
+local laser_weapons_damage_3_icon = "__base__/graphics/technology/laser-weapons-damage.png"
+local infinite_laser_weapons_damage = data.raw.technology["laser-weapons-damage-7"]
+infinite_laser_weapons_damage.name = "laser-weapons-damage-9"
+infinite_laser_weapons_damage.prerequisites = {"laser-weapons-damage-8", "space-science-pack"}
+infinite_laser_weapons_damage.unit.count_formula = "2^(L-9)*1000"
 data:extend{
-  infinite_energy_weapons_damage,
+  infinite_laser_weapons_damage,
   {
     type = "technology",
-    name = "energy-weapons-damage-7",
-    icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
+    name = "laser-weapons-damage-7",
+    icon_size = 256,
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_3_icon),
     effects =
     {
       {
@@ -256,10 +256,10 @@ data:extend{
       {
         type = "ammo-damage",
         ammo_category = "beam",
-        modifier = 0.6
+        modifier = 0.3
       }
     },
-    prerequisites = {"energy-weapons-damage-6"},
+    prerequisites = {"laser-weapons-damage-6", "ll-space-science-pack"},
     unit =
     {
       count = 100*7,
@@ -279,9 +279,9 @@ data:extend{
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-8",
-    icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
+    name = "laser-weapons-damage-8",
+    icon_size = 256,
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_3_icon),
     effects =
     {
       {
@@ -297,10 +297,10 @@ data:extend{
       {
         type = "ammo-damage",
         ammo_category = "beam",
-        modifier = 0.6
+        modifier = 0.3
       }
     },
-    prerequisites = {"energy-weapons-damage-7"},
+    prerequisites = {"laser-weapons-damage-7", "ll-quantum-science-pack"},
     unit =
     {
       count = 100*8,
@@ -331,7 +331,7 @@ data:extend{
   {
     type = "technology",
     name = "stronger-explosives-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(stronger_explosives_3_icon),
     effects =
     {
@@ -351,7 +351,7 @@ data:extend{
         modifier = 0.2
       }
     },
-    prerequisites = {"stronger-explosives-6"},
+    prerequisites = {"stronger-explosives-6", "ll-space-science-pack"},
     unit =
     {
       count = 100*7,
@@ -372,7 +372,7 @@ data:extend{
   {
     type = "technology",
     name = "stronger-explosives-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(stronger_explosives_3_icon),
     effects =
     {
@@ -392,7 +392,7 @@ data:extend{
         modifier = 0.2
       }
     },
-    prerequisites = {"stronger-explosives-7"},
+    prerequisites = {"stronger-explosives-7", "ll-quantum-science-pack"},
     unit =
     {
       count = 100*8,
@@ -424,7 +424,7 @@ data:extend{
   {
     type = "technology",
     name = "refined-flammables-7",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(refined_flammables_icon),
     effects =
     {
@@ -439,7 +439,7 @@ data:extend{
         modifier = 0.2
       }
     },
-    prerequisites = {"refined-flammables-6"},
+    prerequisites = {"refined-flammables-6", "ll-space-science-pack"},
     unit =
     {
       count = 100*7,
@@ -460,7 +460,7 @@ data:extend{
   {
     type = "technology",
     name = "refined-flammables-8",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_damage(refined_flammables_icon),
     effects =
     {
@@ -475,7 +475,7 @@ data:extend{
         modifier = 0.2
       }
     },
-    prerequisites = {"refined-flammables-7"},
+    prerequisites = {"refined-flammables-7", "ll-quantum-science-pack"},
     unit =
     {
       count = 100*8,
@@ -506,7 +506,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-range-1",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_range("__base__/graphics/technology/artillery-range.png"),
     effects =
     {
@@ -515,7 +515,7 @@ data:extend{
         modifier = 0.3
       }
     },
-    prerequisites = {"artillery"},
+    prerequisites = {"artillery", "ll-space-science-pack"},
     unit =
     {
       count = 1000,
@@ -536,7 +536,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-range-2",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_range("__base__/graphics/technology/artillery-range.png"),
     effects =
     {
@@ -545,7 +545,7 @@ data:extend{
         modifier = 0.3
       }
     },
-    prerequisites = {"artillery-shell-range-1"},
+    prerequisites = {"artillery-shell-range-1", "ll-quantum-science-pack"},
     unit =
     {
       count = 1500,
@@ -576,7 +576,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-speed-1",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/artillery-speed.png"),
     effects =
     {
@@ -585,11 +585,10 @@ data:extend{
         ammo_category = "artillery-shell",
         icon = "__base__/graphics/icons/artillery-shell.png",
         icon_size = 64,
-        icon_mipmaps = 2,
         modifier = 1
       }
     },
-    prerequisites = {"artillery"},
+    prerequisites = {"artillery", "ll-space-science-pack"},
     unit =
     {
       count = 1000,
@@ -610,7 +609,7 @@ data:extend{
   {
     type = "technology",
     name = "artillery-shell-speed-2",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icons = util.technology_icon_constant_speed("__base__/graphics/technology/artillery-speed.png"),
     effects =
     {
@@ -619,11 +618,10 @@ data:extend{
         ammo_category = "artillery-shell",
         icon = "__base__/graphics/icons/artillery-shell.png",
         icon_size = 64,
-        icon_mipmaps = 2,
         modifier = 1
       }
     },
-    prerequisites = {"artillery-shell-speed-1"},
+    prerequisites = {"artillery-shell-speed-1", "ll-quantum-science-pack"},
     unit =
     {
       count = 1500,

@@ -10,8 +10,9 @@ local half_life = 0.1 * initial_energy * ln_2 / initial_power  -- 600 kW
 
 local initial_health = 600
 
+---@param event EventData.on_tick
 local function on_tick(event)
-  for unit_number, rtg_data in pairs(Buckets.get_bucket(global.rtgs, event.tick)) do
+  for unit_number, rtg_data in pairs(Buckets.get_bucket(storage.rtgs, event.tick)) do
     local entity = rtg_data.entity
     if entity.valid then
       local current_multiplier = 1 / (2^((event.tick-rtg_data.tick_created)/(half_life * 60)))
@@ -20,21 +21,23 @@ local function on_tick(event)
       local health = initial_health * current_multiplier
       entity.health = health
     else
-      Buckets.remove(global.rtgs, unit_number)
+      Buckets.remove(storage.rtgs, unit_number)
     end
   end
 end
 
+---@param event EventData.on_built_entity | EventData.on_robot_built_entity | EventData.on_space_platform_built_entity | EventData.script_raised_built | EventData.script_raised_revive
 local function on_entity_built(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if not entity.valid or entity.name ~= "ll-rtg" then return end
 
-  Buckets.add(global.rtgs, entity.unit_number, {
+  Buckets.add(storage.rtgs, entity.unit_number, {
     entity = entity,
     tick_created = event.tick
   })
 end
 
+---@param event EventData.on_player_mined_entity | EventData.on_robot_mined_entity | EventData.on_space_platform_mined_entity
 local function on_entity_mined(event)
   local entity = event.entity
   if entity.name ~= "ll-rtg" then return end
@@ -47,25 +50,27 @@ local function on_entity_mined(event)
     end
   end
 
-  Buckets.remove(global.rtgs, entity.unit_number)
+  Buckets.remove(storage.rtgs, entity.unit_number)
 end
 
 RTG.events = {
   [defines.events.on_tick] = on_tick,
   [defines.events.on_built_entity] = on_entity_built,
   [defines.events.on_robot_built_entity] = on_entity_built,
+  [defines.events.on_space_platform_built_entity] = on_entity_built,
   [defines.events.script_raised_built] = on_entity_built,
   [defines.events.script_raised_revive] = on_entity_built,
   [defines.events.on_player_mined_entity] = on_entity_mined,
   [defines.events.on_robot_mined_entity] = on_entity_mined,
+  [defines.events.on_space_platform_mined_entity] = on_entity_mined,
 }
 
 RTG.on_init = function ()
-  global.rtgs = Buckets.new()
+  storage.rtgs = Buckets.new()
 end
 
 RTG.on_configuration_changed = function(changed_data)
-  global.rtgs = global.rtgs or {}
+  storage.rtgs = storage.rtgs or {}
 end
 
 return RTG

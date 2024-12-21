@@ -8,14 +8,14 @@ local format_energy = function(energy)
 end
 
 local function build_gui(player, mass_driver)
-  local mass_driver_data = Buckets.get(global.mass_drivers, mass_driver.unit_number)
+  local mass_driver_data = Buckets.get(storage.mass_drivers, mass_driver.unit_number)
 
   local anchor = {gui = defines.relative_gui_type.container_gui, position = defines.relative_gui_position.right}
 
   local mass_driver_requester_names = {[1] = "None"}
   local i = 1
   local dropdown_index = 1
-  for name, _ in pairs(global.mass_driver_requester_names) do
+  for name, _ in pairs(storage.mass_driver_requester_names) do
     table.insert(mass_driver_requester_names, name)
     if name == mass_driver_data.destination then
       dropdown_index = i + 1
@@ -23,7 +23,7 @@ local function build_gui(player, mass_driver)
     i = i + 1
   end
 
-  global.mass_driver_guis[player.index] = gui.add(player.gui.relative, {
+  storage.mass_driver_guis[player.index] = gui.add(player.gui.relative, {
     {
       type = "frame",
       --style = "sp_relative_stretchable_frame",
@@ -93,8 +93,8 @@ gui.add_handlers(MassDriver,
     local player = game.players[event.player_index]
     local mass_driver = player.opened
     if not mass_driver or not mass_driver.valid then return end
-    local mass_driver_data = Buckets.get(global.mass_drivers, mass_driver.unit_number)
-    local mass_driver_gui_data = global.mass_driver_guis[player.index]
+    local mass_driver_data = Buckets.get(storage.mass_drivers, mass_driver.unit_number)
+    local mass_driver_gui_data = storage.mass_driver_guis[player.index]
     handler(player, event.element, mass_driver, mass_driver_data, mass_driver_gui_data)
   end
 )
@@ -102,8 +102,8 @@ gui.add_handlers(MassDriver,
 --[[
 local function update_gui(player, mass_driver)
   -- Currently out of date and unused
-  local mass_driver_data = Buckets.get(global.mass_drivers, mass_driver.unit_number)
-  local gui_elements = global.mass_driver_guis[player.index]
+  local mass_driver_data = Buckets.get(storage.mass_drivers, mass_driver.unit_number)
+  local gui_elements = storage.mass_driver_guis[player.index]
   gui_elements["ll-auto-launch-none"].state = mass_driver_data.auto_launch == "none"
   gui_elements["ll-auto-launch-any"].state = mass_driver_data.auto_launch == "any"
   gui_elements["ll-auto-launch-full"].state = mass_driver_data.auto_launch == "full"
@@ -155,7 +155,9 @@ local function on_mass_driver_built(event)
   if not entity.valid or entity.name ~= "ll-mass-driver" then return end
 
   entity.get_inventory(defines.inventory.chest).set_filter(1, "ll-mass-driver-capsule")
-  entity.set_request_slot({name="ll-mass-driver-capsule", count=50}, 1)
+  local logistic_point = entity.get_logistic_point(defines.logistic_member_index.logistic_container)
+  local logistic_section = logistic_point.get_section(1)
+  logistic_section.set_slot(1, {name="ll-mass-driver-capsule", count=50})
 
   local energy_source = entity.surface.create_entity{
     name = "ll-mass-driver-energy-source",
@@ -163,29 +165,30 @@ local function on_mass_driver_built(event)
     force = entity.force,
   }
 
-  Buckets.add(global.mass_drivers, entity.unit_number, {
+  Buckets.add(storage.mass_drivers, entity.unit_number, {
     entity = entity,
     energy_source = energy_source,
     destination = nil,
   })
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
-local function on_entity_destroyed(event)
-  local entity_data = Buckets.get(global.mass_drivers, event.unit_number)
+local function on_object_destroyed(event)
+  local entity_data = Buckets.get(storage.mass_drivers, event.useful_id)
   if not entity_data then return end
 
   if entity_data.energy_source.valid then
     entity_data.energy_source.destroy()
   end
+  
 end
 
 local function get_destination_mass_driver_requester(mass_driver_requester_name)
-  local mass_driver_requesters = global.mass_driver_requester_names[mass_driver_requester_name]
+  local mass_driver_requesters = storage.mass_driver_requester_names[mass_driver_requester_name]
   if not mass_driver_requesters then return end
 
   local mass_driver_requester_unit_number, _ = next(mass_driver_requesters)
-  local mass_driver_requester = global.mass_driver_requesters[mass_driver_requester_unit_number]
+  local mass_driver_requester = storage.mass_driver_requesters[mass_driver_requester_unit_number]
   if not (mass_driver_requester and mass_driver_requester.entity.valid) then
     return
   end
@@ -199,7 +202,7 @@ end
 -- If we have a complete stack, launch to destination
 
 function is_allowed(item_name)
-  local prototype = game.item_prototypes[item_name]
+  local prototype = prototypes.item[item_name]
   if prototype.place_result then return true end
   if prototype.module_effects then return true end
   if prototype.capsule_action and prototype.capsule_action.type == "destroy-cliffs" then return true end
@@ -224,11 +227,11 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     if requester_inventory.count_empty_stacks(false, false) > 0 then
       if sender_content["ll-mass-driver-capsule"] then
         for name, count in pairs(sender_content) do
-          if count >= game.item_prototypes[name].stack_size and is_allowed(name) then
+          if count >= prototypes.item[name].stack_size and is_allowed(name) then
             local energy_source_entity = mass_driver_data.energy_source
             if energy_source_entity.valid and energy_source_entity.energy >= (200000000) then
               energy_source_entity.energy = 0
-              local stack = {name=name, count=game.item_prototypes[name].stack_size}
+              local stack = {name=name, count=prototypes.item[name].stack_size}
               local sent = requester_inventory.insert(stack)
               sender_inventory.remove(stack)
               sender_inventory.remove({name="ll-mass-driver-capsule", count=1})
@@ -244,7 +247,7 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     local requester_inventory = requester.get_inventory(defines.inventory.chest)
     local requester_contents = requester_inventory.get_contents()
     local sender_request_count = mass_driver.request_slot_count
-    
+
     for i = 1, math.max(requester_request_count, sender_request_count) do
       local request = requester.get_request_slot(i)
       if request then
@@ -268,11 +271,11 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
 end
 
 local function on_tick(event)
-  for unit_number, mass_driver_data in pairs(Buckets.get_bucket(global.mass_drivers, event.tick)) do
+  for unit_number, mass_driver_data in pairs(Buckets.get_bucket(storage.mass_drivers, event.tick)) do
     local mass_driver = mass_driver_data.entity
     if not mass_driver.valid then
-      Buckets.remove(global.mass_drivers, unit_number)
-    else  
+      Buckets.remove(storage.mass_drivers, unit_number)
+    else
       MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     end
   end
@@ -286,17 +289,17 @@ MassDriver.events = {
   [defines.events.on_robot_built_entity] = on_mass_driver_built,
   [defines.events.script_raised_built] = on_mass_driver_built,
   [defines.events.script_raised_revive] = on_mass_driver_built,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
 }
 
 MassDriver.on_init = function ()
-  global.mass_drivers = Buckets.new(180)
-  global.mass_driver_guis = {}
+  storage.mass_drivers = Buckets.new(180)
+  storage.mass_driver_guis = {}
 end
 
 MassDriver.on_configuration_changed = function(changed_data)
-  global.mass_drivers = global.mass_drivers or Buckets.new(180)
-  global.mass_driver_guis = global.mass_driver_guis or {}
+  storage.mass_drivers = storage.mass_drivers or Buckets.new(180)
+  storage.mass_driver_guis = storage.mass_driver_guis or {}
 end
 
 return MassDriver

@@ -27,7 +27,7 @@ for _, spidertron in pairs({"sp-spiderling", "spidertron"}) do
         {type="item", name="stone", amount=5},
       },
       icon = "__base__/graphics/icons/stone.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64,
       subgroup = "raw-material",
       order = "a[oil-processing]-b[advanced-oil-processing]"
     },

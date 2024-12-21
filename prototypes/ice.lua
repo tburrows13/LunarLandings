@@ -5,12 +5,12 @@ data:extend{
     type = "item",
     name = "ll-ice",
     icon = "__LunarLandings__/graphics/icons/ice.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.25, mipmap_count = 4 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.25 },
     },
     subgroup = "raw-resource",
     order = "h[moon]-d[ice]",
@@ -20,7 +20,7 @@ data:extend{
     type = "resource",
     name = "ll-ice",
     icon = "__space-exploration-graphics__/graphics/icons/water-ice.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     flags = {"placeable-neutral"},
     category = "ll-core",
     subgroup = "raw-resource",
@@ -76,7 +76,7 @@ data:extend{
     },
     map_color = {0.1, 0.2, 0.5},
     map_grid = false,
-    surface_conditions = {nauvis = false, luna = true},
+    ll_surface_conditions = {nauvis = false, luna = true},
   }
 
 }

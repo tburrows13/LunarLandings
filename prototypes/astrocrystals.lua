@@ -7,7 +7,6 @@ data:extend({
     category = "ll-core",
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = { "placeable-neutral" },
     order = "a-b-a",
     subgroup = "raw-resource",
@@ -19,7 +18,7 @@ data:extend({
     resource_patch_search_radius = 12,
     minable = {
       mining_time = 2,
-      result = "ll-astrocrystals",
+      results = {{type="item", name="ll-astrocrystals", amount=1}},
       required_fluid = "lubricant",
       fluid_amount = 2,
     },
@@ -28,7 +27,7 @@ data:extend({
     stage_counts = { 0 },
     stages = {
       sheet = {
-        filename = "__LunarLandings__/graphics/resources/imersite/hr-imersite-rift.png",
+        filename = "__LunarLandings__/graphics/resources/imersite/imersite-rift.png",
         priority = "extra-high",
         width = 500,
         height = 500,
@@ -40,7 +39,7 @@ data:extend({
     stages_effect = {
       sheets = {
         {
-          filename = "__LunarLandings__/graphics/resources/imersite/hr-imersite-rift-glow.png",
+          filename = "__LunarLandings__/graphics/resources/imersite/imersite-rift-glow.png",
           priority = "extra-high",
           width = 500,
           height = 500,
@@ -64,7 +63,7 @@ data:extend({
     type = "item",
     name = "ll-astrocrystals",
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
       {
@@ -73,7 +72,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -83,7 +81,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -93,7 +90,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -103,7 +99,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-1-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -113,7 +108,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -123,7 +117,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-2-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -133,7 +126,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
           {
             draw_as_light = true,
@@ -143,7 +135,6 @@ data:extend({
             size = 64,
             filename = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite-3-light.png",
             scale = 0.25,
-            mipmap_count = 4,
           },
         },
       },
@@ -151,17 +142,18 @@ data:extend({
     subgroup = "raw-resource",
     order = "h[moon]-e[astrocrystals]",
     stack_size = 50,
-    surface_conditions = {nauvis = false, luna = true},
+    ll_surface_conditions = {nauvis = false, luna = true},
   },
   {
     type = "fluid",
     name = "ll-astroflux",
+    subgroup = "fluid",
     default_temperature = 25,
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.1kJ",
     base_color = { r = 180, g = 40, b = 180},
     flow_color = { r = 180, g = 40, b = 180},
     icon = "__LunarLandings__/graphics/fluid/astroflux.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     order = "h[astroflux]"
   },
   {
@@ -170,9 +162,9 @@ data:extend({
     energy_required = 12,
     enabled = false,
     category = "centrifuging",
-    ingredients = {{"ll-astrocrystals", 4}, {type="fluid", name="steam", amount="10"}},
+    ingredients = {{type="item", name="ll-astrocrystals", amount=4}, {type="fluid", name="steam", amount=10}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "l[exotic-mineral-processing]",
     results =
@@ -182,9 +174,7 @@ data:extend({
       {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.0025},
       {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.0025},
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.0025},
-    }
+    },
+    allow_productivity = true,
   },
-
 })
-
-x_util.allow_productivity("ll-astrocrystal-processing")

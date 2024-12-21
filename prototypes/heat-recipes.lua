@@ -12,27 +12,16 @@ for name, recipe in pairs(data.raw.recipe) do
     heat_recipe.localised_name = recipe.localised_name or {"?", {"item-name." .. name}, {"recipe-name." .. name}}
     heat_recipe.localised_description = recipe.localised_description or {"?", {"item-description." .. name}, {"?", {"recipe-description." .. name}, ""}}
 
-    -- Remove normal/expensive
-    if heat_recipe.normal then
-      for key, value in pairs(heat_recipe.normal) do
-        heat_recipe[key] = value
-      end
-      heat_recipe.normal = nil
-      heat_recipe.expensive = nil
-    end
     heat_recipe.enabled = true
     heat_recipe.hide_from_player_crafting = true
+    heat_recipe.hidden_in_factoriopedia = true
 
     -- Doesn't account for fluids
+    -- TODO 2.0 order should be doable now
     --heat_recipe.order = tostring(recipe.order or data.raw["item"][heat_recipe.result or heat_recipe.results[1][1]].order) .. "-heat"
 
-    if heat_recipe.result and not heat_recipe.results then
-      heat_recipe.results = {{type = "item", name = heat_recipe.result, amount = heat_recipe.result_count or 1}}
-      heat_recipe.result = nil
-      heat_recipe.result_count = nil
-    end
     if not heat_recipe.main_product and #heat_recipe.results == 1 then
-      heat_recipe.main_product = heat_recipe.results[1].name or heat_recipe.results[1][1]
+      heat_recipe.main_product = heat_recipe.results[1].name
     end
     if heat_recipe.results then
       -- Every second, arc furnace consumes 10MJ, of which 9MJ needs to be output in heat
@@ -41,20 +30,13 @@ for name, recipe in pairs(data.raw.recipe) do
       -- So each second, needs to output 9 heat / 3 / 1.5 = 2
       table.insert(heat_recipe.results, {type = "fluid", name = "ll-heat", amount = 2*(heat_recipe.energy_required or 0.5), fluidbox_index = 2})
       data:extend{heat_recipe}
-
-      x_util.allow_productivity(heat_recipe.name)
     end
+
+    heat_recipe.allow_efficiency = false
     table.insert(heat_recipes, heat_recipe.name)
   end
 end
-
-for _, heat_recipe_name in pairs(heat_recipes) do
-  x_util.disallow_efficiency(heat_recipe_name)
-end
-local efficiency_modules = {"effectivity-module", "effectivity-module-2", "effectivity-module-3"}
+local efficiency_modules = {"efficiency-module", "efficiency-module-2", "efficiency-module-3"}
 for _, module_name in pairs(efficiency_modules) do
   data.raw.module[module_name].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
 end
-
-x_util.disallow_productivity("ll-melt-ice-heat")
-x_util.disallow_productivity("ll-boil-water-heat")

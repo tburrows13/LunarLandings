@@ -1,3 +1,5 @@
+local sounds = require("__base__.prototypes.entity.sounds")
+
 data:extend{
   {
     type = "recipe",
@@ -6,17 +8,17 @@ data:extend{
     energy_required = 8,
     ingredients =
     {
-      {"iron-gear-wheel", 30},
-      {"processing-unit", 10},
-      {"lab", 2},
+      {type="item", name="iron-gear-wheel", amount=30},
+      {type="item", name="processing-unit", amount=10},
+      {type="item", name="lab", amount=2},
     },
-    result = "ll-telescope"
+    results = {{type="item", name="ll-telescope", amount=1}}
   },
   {
     type = "item",
     name = "ll-telescope",
     icon = "__space-exploration-graphics__/graphics/icons/telescope.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "production-machine",
     order = "h[telescope]",
     place_result = "ll-telescope",
@@ -35,7 +37,6 @@ data:extend{
     alert_icon_shift = util.by_pixel(0, -12),
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
     resistances =
     {
       {
@@ -49,16 +50,15 @@ data:extend{
         production_type = "input",
         --pipe_picture = assembler3pipepictures(),
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {0, 2} }},
+        volume = 1000,
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0, 1} }},
         secondary_draw_orders = { north = -1 }
       },
-      --off_when_no_fluid_recipe = true
     },
-    open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.5},
-    close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.5},
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    --fluid_boxes_off_when_no_fluid_recipe = true,
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
+    impact_category = "metal",
     working_sound = {
       apparent_volume = 1.5,
       idle_sound = {
@@ -77,26 +77,20 @@ data:extend{
       }
     },
     collision_mask = {
-      "water-tile",
-      "item-layer",
-      "object-layer",
-      "player-layer",
+      layers = {
+        water_tile = true,
+        item = true,
+        object = true,
+        player = true,
+      }
     },
-    animation =
-    {
-      layers =
+    graphics_set = {
+      animation =
       {
+        layers =
         {
-          filename = "__space-exploration-graphics-4__/graphics/entity/telescope/sr/telescope.png",
-          priority = "high",
-          width = 2080/8/2,
-          height = 2128/8/2,
-          frame_count = 64,
-          line_length = 8,
-          shift = util.by_pixel(6, -19),
-          animation_speed = 0.3,
-          hr_version = {
-            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/hr/telescope.png",
+          {
+            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/telescope.png",
             priority = "high",
             width = 2080/8,
             height = 2128/8,
@@ -105,21 +99,10 @@ data:extend{
             shift = util.by_pixel(6, -19),
             animation_speed = 0.3,
             scale = 0.5,
-          }
-        },
-        {
-          draw_as_shadow = true,
-          filename = "__space-exploration-graphics-4__/graphics/entity/telescope/sr/telescope-shadow.png",
-          priority = "high",
-          width = 2608/8/2,
-          height = 1552/8/2,
-          frame_count = 64,
-          line_length = 8,
-          shift = util.by_pixel(32, 7),
-          animation_speed = 0.3,
-          hr_version = {
+          },
+          {
             draw_as_shadow = true,
-            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/hr/telescope-shadow.png",
+            filename = "__space-exploration-graphics-4__/graphics/entity/telescope/telescope-shadow.png",
             priority = "high",
             width = 2608/8,
             height = 1552/8,
@@ -128,7 +111,7 @@ data:extend{
             shift = util.by_pixel(32, 7),
             animation_speed = 0.3,
             scale = 0.5,
-          }
+          },
         },
       },
     },
@@ -138,14 +121,11 @@ data:extend{
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions_per_minute = 0,
+      emissions_per_minute = {},
     },
     energy_usage = "1000kW",
     ingredient_count = 12,
-    module_specification =
-    {
-      module_slots = 4
-    },
+    module_slots = 4,
     allowed_effects = {"consumption", "speed",  "pollution"}, -- not "productivity",
     --[[working_visualisations =
     {
@@ -154,7 +134,7 @@ data:extend{
         light = {intensity = 0.5, size = 8, shift = {0.0, 0.0}, color = {r = 0.9, g = 1, b = 0.8}}
       },
     },]]
-    surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = true, foundation = false}}
+    ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = true, foundation = false}}
   },
-
 }
+

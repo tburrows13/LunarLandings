@@ -38,14 +38,14 @@ local function on_script_trigger_effect(event)
     force = entity.force,
     create_build_effect_smoke = false,
   }
-  Buckets.add(global.oxygen_diffusers, entity.unit_number, {
+  Buckets.add(storage.oxygen_diffusers, entity.unit_number, {
     entity = entity,
     fluidbox = fluidbox,
-    fluid_production_statistics = entity.force.fluid_production_statistics,
+    fluid_production_statistics = entity.force.get_fluid_production_statistics(entity.surface),
     position = position,
   })
 
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
 end
 
 
@@ -90,14 +90,14 @@ local function on_entity_removed(event)
   end
 end
 
-local function on_entity_destroyed(event)
-  local diffuser_data = Buckets.get(global.oxygen_diffusers, event.unit_number)
+local function on_object_destroyed(event)
+  local diffuser_data = Buckets.get(storage.oxygen_diffusers, event.useful_id)
 
   if diffuser_data then
     if diffuser_data.fluidbox.valid then
       diffuser_data.fluidbox.destroy()
     end
-    Buckets.remove(global.oxygen_diffusers, event.unit_number)
+    Buckets.remove(storage.oxygen_diffusers, event.useful_id)
   end
 end
 
@@ -132,7 +132,7 @@ local function update_diffuser(entity, fluidbox, fluid_production_statistics)
     return
   end
 
-  local oxygen_required = machines_working * 0.005 * global.oxygen_diffusers.interval  -- 0.3 oxygen per second per machine
+  local oxygen_required = machines_working * 0.005 * storage.oxygen_diffusers.interval  -- 0.3 oxygen per second per machine
   local oxygen_in_fluidbox = fluidbox.get_fluid_count("ll-oxygen")
   if oxygen_in_fluidbox >= oxygen_required then
     for _, assembler in pairs(assemblers) do
@@ -148,7 +148,7 @@ local function update_diffuser(entity, fluidbox, fluid_production_statistics)
 end
 
 local function on_tick(event)
-  for unit_number, diffuser_data in pairs(Buckets.get_bucket(global.oxygen_diffusers, event.tick)) do
+  for unit_number, diffuser_data in pairs(Buckets.get_bucket(storage.oxygen_diffusers, event.tick)) do
     if diffuser_data.entity.valid and diffuser_data.fluidbox.valid and diffuser_data.fluid_production_statistics.valid then
       update_diffuser(diffuser_data.entity, diffuser_data.fluidbox, diffuser_data.fluid_production_statistics)
     else
@@ -158,7 +158,7 @@ local function on_tick(event)
       if diffuser_data.fluidbox.valid then
         diffuser_data.fluidbox.destroy()
       end
-      Buckets.remove(global.oxygen_diffusers, unit_number)
+      Buckets.remove(storage.oxygen_diffusers, unit_number)
     end
   end
 end
@@ -175,15 +175,15 @@ OxygenDiffuser.events = {
   [defines.events.on_robot_pre_mined] = on_entity_removed,
   [defines.events.on_marked_for_deconstruction] = on_entity_removed,
 
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_object_destroyed,
 }
 
 function OxygenDiffuser.on_init()
-  global.oxygen_diffusers = Buckets.new()
+  storage.oxygen_diffusers = Buckets.new()
 end
 
 function OxygenDiffuser.on_configuration_changed()
-  global.oxygen_diffusers = global.oxygen_diffusers or {}
+  storage.oxygen_diffusers = storage.oxygen_diffusers or {}
 end
 
 return OxygenDiffuser

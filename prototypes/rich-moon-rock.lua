@@ -7,7 +7,7 @@ rich_moon_rock.icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png"
 rich_moon_rock.stages = {
   sheet =
   {
-    filename = "__LunarLandings__/graphics/moon-rock/rich-moon-rock.png",
+    filename = "__LunarLandings__/graphics/moon-rock/moon-rock.png",  -- TODO 2.0 reset back to rich-moon-rock.png
     priority = "extra-high",
     size = 128,
     frame_count = 8,
@@ -20,7 +20,7 @@ rich_moon_rock.map_color = {r=0.9, g=0.9, b=1}
 
 rich_moon_rock.selection_priority = 49
 
-rich_moon_rock.surface_conditions = {nauvis = false, luna = true}
+--rich_moon_rock.surface_conditions = {nauvis = false, luna = true}
 
 data:extend{
   rich_moon_rock,
@@ -29,13 +29,12 @@ data:extend{
     name = "ll-rich-moon-rock",
     icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25, mipmap_count = 4 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25, mipmap_count = 4 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-b[rich-moon-rock]",
@@ -58,12 +57,10 @@ data:extend{
       {type="item", name="iron-ore", amount = 5},
       {type="item", name="ll-moon-rock", amount_min = 0, amount_max = 2},
     },
+    allow_productivity = true,
     icon = "__LunarLandings__/graphics/icons/aluminium-ore.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "b[rich-moon-rock]"
   },
 }
-
---x_util.allow_productivity("ll-moon-rock-processing-with-oxygen-helium")
-x_util.allow_productivity("ll-rich-moon-rock-processing")

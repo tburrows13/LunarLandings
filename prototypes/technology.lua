@@ -4,27 +4,23 @@ x_util.add_unlock("advanced-material-processing-2", "ll-boil-water")
 
 x_util.add_unlock("nuclear-power", "ll-rtg")
 
-x_util.remove_prerequisite("rocket-control-unit", "utility-science-pack")
-x_util.remove_research_ingredient("rocket-control-unit", "utility-science-pack")
-x_util.add_prerequisite("rocket-control-unit", "chemical-science-pack")
-x_util.add_unlock("rocket-control-unit", "ll-pack-rocket-control-unit")
-x_util.add_unlock("rocket-control-unit", "ll-unpack-rocket-control-unit")
-
 x_util.add_unlock("low-density-structure", "ll-pack-low-density-structure")
 x_util.add_unlock("low-density-structure", "ll-unpack-low-density-structure")
 
-x_util.remove_prerequisite("advanced-electronics-2", "chemical-science-pack")
-x_util.add_prerequisite("advanced-electronics-2", "ll-luna-automation")
-x_util.add_prerequisite("advanced-electronics-2", "ll-moon-rock-processing")
+x_util.remove_prerequisite("processing-unit", "chemical-science-pack")
+x_util.add_prerequisite("processing-unit", "ll-luna-automation")
+x_util.add_prerequisite("processing-unit", "ll-moon-rock-processing")
 
 data.raw.technology["rocket-silo"].unit.count = 500
 x_util.remove_prerequisite("rocket-silo", "speed-module-3")
 x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
+x_util.remove_prerequisite("rocket-silo", "utility-science-pack")
 x_util.add_prerequisite("rocket-silo", "low-density-structure")
+x_util.add_prerequisite("rocket-silo", "rocket-control-unit")
 x_util.add_prerequisite("rocket-silo", "electric-engine")
 x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
-x_util.add_unlock("rocket-silo", "satellite")
+x_util.remove_recipe_effect("rocket-silo", "satellite")
 
 x_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
 
@@ -41,14 +37,48 @@ x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 x_util.remove_recipe_effect("space-science-pack", "satellite")
 x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
-data.raw.technology["space-science-pack"].unit.count = 3000
+--data.raw.technology["space-science-pack"].unit.count = 3000  -- TODO 2.0
 
 data:extend{
   {
     type = "technology",
+    name = "rocket-control-unit",
+    icon_size = 256,
+    icon = "__LunarLandings__/graphics/technology/rocket-control-unit.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "rocket-control-unit"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-pack-rocket-control-unit"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-unpack-rocket-control-unit"
+      },
+    },
+    prerequisites = {"chemical-science-pack", "speed-module"},
+    unit =
+    {
+      count = 300,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+      },
+      time = 45
+    },
+    order = "k-a"
+  },
+  {
+    type = "technology",
     name = "ll-used-rocket-part-recycling",
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     effects =
     {
       {
@@ -73,10 +103,15 @@ data:extend{
   {
     type = "technology",
     name = "ll-luna-exploration",
-    icon = "__LunarLandings__/graphics/technology/luna.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icons = util.technology_icon_constant_planet("__LunarLandings__/graphics/technology/luna.png"),
+    essential = true,
     effects =
     {
+      {
+        type = "unlock-space-location",
+        space_location = "luna",
+        use_icon_overlay_constant = true
+      },
       {
         type = "unlock-recipe",
         recipe = "ll-landing-pad"
@@ -87,16 +122,9 @@ data:extend{
       }
     },
     prerequisites = {"rocket-silo"},
-    unit =
-    {
-      count = 200,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-      },
-      time = 30
+    research_trigger = {
+      type = "send-item-to-orbit",
+      item = "rocket-silo"
     },
     order = "c-o-a"
   },
@@ -104,7 +132,7 @@ data:extend{
     type = "technology",
     name = "ll-moon-rock-processing",
     icon = "__LunarLandings__/graphics/technology/silicon-processing.png",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     effects =
     {
       {
@@ -146,7 +174,7 @@ data:extend{
     type = "technology",
     name = "ll-heat-shielding",
     icon = "__space-exploration-graphics__/graphics/technology/heat-shielding.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     effects =
     {
       {
@@ -180,7 +208,7 @@ data:extend{
     type = "technology",
     name = "ll-luna-automation",
     icon = "__LunarLandings__/graphics/technology/low-gravity-assembling-machine.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icon_size = 256,
     effects =
     {
       {
@@ -214,7 +242,7 @@ data:extend{
     type = "technology",
     name = "ll-ice-extraction",
     icon = "__LunarLandings__/graphics/technology/core-extractor.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icon_size = 256,
     effects =
     {
       {
@@ -244,7 +272,7 @@ data:extend{
     type = "technology",
     name = "ll-arc-furnace",
     icon = "__LunarLandings__/graphics/technology/arc-furnace.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icon_size = 256,
     effects =
     {
       {
@@ -270,7 +298,7 @@ data:extend{
   {
     type = "technology",
     name = "ll-heat-furnace",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icon = "__base__/graphics/technology/advanced-material-processing.png",
     effects =
     {
@@ -298,7 +326,7 @@ data:extend{
     type = "technology",
     name = "ll-steam-condenser",
     icon = "__LunarLandings__/graphics/technology/steam-condenser.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icon_size = 256,
     effects =
     {
       {
@@ -329,7 +357,7 @@ data:extend{
     type = "technology",
     name = "ll-rich-moon-rock-processing",
     icon = "__LunarLandings__/graphics/icons/aluminium-plate.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     effects =
     {
       {
@@ -369,7 +397,7 @@ data:extend{
     type = "technology",
     name = "ll-space-data-collection",
     icon = "__space-exploration-graphics__/graphics/technology/telescope.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     effects =
     {
       {
@@ -395,7 +423,7 @@ data:extend{
 
     },
     --prerequisites = {"utility-science-pack", "production-science-pack"},
-    prerequisites = {"advanced-electronics-2"},
+    prerequisites = {"advanced-circuit"},
     unit =
     {
       count = 150,
@@ -415,7 +443,8 @@ data:extend{
     type = "technology",
     name = "ll-space-science-pack",
     icon = "__LunarLandings__/graphics/technology/space-science-pack.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icon_size = 256,
+    essential = true,
     prerequisites = {"ll-space-data-collection", "ll-rich-moon-rock-processing"},
     effects =
     {
@@ -440,7 +469,7 @@ data:extend{
   {
     type = "technology",
     name = "ll-low-density-structure-aluminium",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icon = "__base__/graphics/technology/low-density-structure.png",
     effects =
     {
@@ -469,7 +498,7 @@ data:extend{
     type = "technology",
     name = "ll-mass-driver",
     icon = "__LunarLandings__/graphics/technology/mass-driver.png",
-    icon_size = 286, icon_mipmaps = 1,
+    icon_size = 286,
     effects =
     {
       {
@@ -506,7 +535,7 @@ data:extend{
     type = "technology",
     name = "ll-quantum-resource-processing",
     icon = "__LunarLandings__/graphics/technology/neodym-refining.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     prerequisites = {"ll-space-science-pack", "ll-ice-extraction"},
     effects =
     {
@@ -533,7 +562,7 @@ data:extend{
     type = "technology",
     name = "ll-quantum-computing",
     icon = "__LunarLandings__/graphics/icons/quantum-processor.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     prerequisites = {"ll-quantum-resource-processing"},
     effects =
     {
@@ -560,9 +589,9 @@ data:extend{
     type = "technology",
     name = "ll-quantum-resonation",
     --icon = "__LunarLandings__/graphics/technology/computer-core.png",
-    --icon_size = 256, icon_mipmaps = 1,
+    --icon_size = 256,
     icon = "__LunarLandings__/graphics/technology/polariton.png",
-    icon_size = 256, icon_mipmaps = 1,
+    icon_size = 256,
     prerequisites = {"ll-quantum-computing", "utility-science-pack"},
     effects =
     {
@@ -614,7 +643,7 @@ data:extend{
     type = "technology",
     name = "ll-quantum-data-collection",
     icon = "__space-exploration-graphics__/graphics/technology/telescope.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     prerequisites = {"ll-quantum-resonation"},
     effects =
     {
@@ -641,7 +670,8 @@ data:extend{
     type = "technology",
     name = "ll-quantum-science-pack",
     icon = "__LunarLandings__/graphics/technology/quantum-science-pack.png",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
+    essential = true,
     prerequisites = {"ll-quantum-data-collection"},
     effects =
     {
@@ -668,7 +698,7 @@ data:extend{
     type = "technology",
     name = "ll-quantum-module",
     icon = "__LunarLandings__/graphics/technology/quantum-module.png",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     prerequisites = {"ll-quantum-science-pack"},
     effects =
     {
@@ -695,7 +725,8 @@ data:extend{
     type = "technology",
     name = "ll-interstellar-rocket-silo",
     icon = "__space-exploration-graphics__/graphics/technology/probe-rocket.png",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
+    essential = true,
     prerequisites = {"ll-quantum-science-pack"},
     effects =
     {
@@ -727,7 +758,7 @@ data:extend{
     type = "technology",
     name = "ll-research-productivity-1",
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/research-speed.png"),
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     prerequisites = {"ll-space-science-pack"},
     effects =
     {
@@ -756,7 +787,7 @@ data:extend{
     type = "technology",
     name = "ll-research-productivity-2",
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/research-speed.png"),
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     prerequisites = {"ll-research-productivity-1"},
     effects =
     {

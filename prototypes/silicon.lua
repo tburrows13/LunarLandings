@@ -9,7 +9,7 @@ data:extend{
     type = "item",
     name = "ll-silica",
     icon = "__LunarLandings__/graphics/silica.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "a[silica]",
     stack_size = 100
@@ -18,7 +18,7 @@ data:extend{
     type = "item",
     name = "ll-silicon",
     icon = "__LunarLandings__/graphics/silicon.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "b[silicon]",
     stack_size = 100
@@ -29,9 +29,8 @@ data:extend{
     category = "ll-electric-smelting",
     enabled = false,
     energy_required = 8,
-    ingredients = {{"coal", 1}, {"ll-silica", 2}},
-    results = {{"ll-silicon", 5}}
+    ingredients = {{type="item", name="coal", amount=1}, {type="item", name="ll-silica", amount=2}},
+    results = {{type="item", name="ll-silicon", amount=5}},
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-silicon")

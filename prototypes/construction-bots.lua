@@ -22,7 +22,7 @@ data:extend{
     type = "item",
     name = "ll-construction-drone",
     icon = "__base__/graphics/icons/construction-robot.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "logistic-network",
     order = "a[robot]-b[construction-robot]",
     place_result = "construction-robot",
@@ -34,10 +34,10 @@ data:extend{
     enabled = true,
     ingredients =
     {
-      {"flying-robot-frame", 1},
-      {"electronic-circuit", 2}
+      {type="item", name="flying-robot-frame", amount=1},
+      {type="item", name="electronic-circuit", amount=2}
     },
-    result = "construction-robot"
+    results = {{type="item", name="construction-robot", amount=1}}
   },
 
 }

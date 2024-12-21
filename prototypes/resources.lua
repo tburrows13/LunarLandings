@@ -1,5 +1,4 @@
 local resource_autoplace = require("__core__/lualib/resource-autoplace")
-local noise = require("__core__/lualib/noise")
 
 local resources = {"ll-moon-rock", "ll-rich-moon-rock", "ll-ice", "ll-astrocrystals"}
 

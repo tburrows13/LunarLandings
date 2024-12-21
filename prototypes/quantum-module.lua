@@ -4,7 +4,7 @@ data:extend{
     name = "ll-quantum-module",
     localised_description = {"item-description.productivity-module"},
     icon = "__LunarLandings__/graphics/icons/quantum-module.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "module",
     category = "productivity",
     tier = 4,
@@ -12,13 +12,11 @@ data:extend{
     stack_size = 50,
     effect =
     {
-      productivity = {bonus = 0.15},
-      consumption = {bonus = 1},
-      --pollution = {bonus = 0.1},
-      --speed = {bonus = -0.15}
+      productivity = 0.15,
+      consumption = 1,
+      --pollution = 0.1,
+      --speed = -0.15
     },
-    limitation = productivity_module_limitation(),
-    limitation_message_key = "production-module-usable-only-on-intermediates"
   },
   {
     type = "recipe",
@@ -26,11 +24,11 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"speed-module-3", 1},
-      {"effectivity-module-3", 1},
-      {"productivity-module-3", 1},
-      {"ll-quantum-processor", 5},
-      {"ll-superposed-polariton", 1},
+      {type="item", name="speed-module-3", amount=1},
+      {type="item", name="efficiency-module-3", amount=1},
+      {type="item", name="productivity-module-3", amount=1},
+      {type="item", name="ll-quantum-processor", amount=5},
+      {type="item", name="ll-superposed-polariton", amount=1},
     },
     results = {
       {type = "item", name = "ll-quantum-module", amount = 1},
@@ -40,7 +38,6 @@ data:extend{
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.50},
     },
     energy_required = 60,
-    result = "productivity-module-3",
     main_product = "ll-quantum-module",
   },
 

@@ -1,17 +1,17 @@
 local Buckets = require "scripts.buckets"
 
-if not global.oxygen_diffusers.interval then
-  global.oxygen_diffusers = Buckets.migrate(global.oxygen_diffusers)
+if not storage.oxygen_diffusers.interval then
+  storage.oxygen_diffusers = Buckets.migrate(storage.oxygen_diffusers)
 end
 
-if not global.rocket_silos.interval then
-  global.rocket_silos = Buckets.migrate(global.rocket_silos)
+if not storage.rocket_silos.interval then
+  storage.rocket_silos = Buckets.migrate(storage.rocket_silos)
 end
 
-if not global.rtgs.interval then
-  global.rtgs = Buckets.migrate(global.rtgs)
+if not storage.rtgs.interval then
+  storage.rtgs = Buckets.migrate(storage.rtgs)
 end
 
-if not global.steam_condensers.interval then
-  global.steam_condensers = Buckets.migrate(global.steam_condensers)
+if not storage.steam_condensers.interval then
+  storage.steam_condensers = Buckets.migrate(storage.steam_condensers)
 end

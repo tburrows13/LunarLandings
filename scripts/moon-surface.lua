@@ -24,7 +24,8 @@ local function on_init()
   local ice_controls = nauvis_map_gen_settings.autoplace_controls["ll-ice"] or default_resource_controls
   local astrocrystals_controls = nauvis_map_gen_settings.autoplace_controls["ll-astrocrystals"] or default_resource_controls
 
-  local luna = game.create_surface(
+  local luna = game.planets["luna"].create_surface()
+  --[[local luna = game.create_surface(
     "luna",
     {
       seed = nauvis_map_gen_settings.seed + 1,
@@ -77,14 +78,9 @@ local function on_init()
         elevation = "ll-luna-elevation",
       }
     }
-  )
-  -- Nauvis is 25000 ticks per day
-  local ticks_per_day = 216000
-  luna.daytime = (game.tick / ticks_per_day) % 1
-  luna.ticks_per_day = ticks_per_day
-  luna.solar_power_multiplier = 1.5
-  luna.freeze_daytime = false
-  luna.show_clouds = false
+  )]]
+  --luna.freeze_daytime = false
+  --luna.show_clouds = false
 
   luna.request_to_generate_chunks({0, 0}, 1)
 
@@ -115,8 +111,8 @@ local function on_configuration_changed()
       luna.map_gen_settings = map_gen_settings
     end
 
-    if not global.migrations.luna_cliffs_made_indestructable then
-      global.migrations.luna_cliffs_made_indestructable = true
+    if not storage.migrations.luna_cliffs_made_indestructable then
+      storage.migrations.luna_cliffs_made_indestructable = true
 
       local cliffs = luna.find_entities_filtered{
         name = "ll-luna-cliff",

@@ -23,9 +23,9 @@ data:extend{
     name = "ll-helium-3",
     default_temperature = 15,
     max_temperature = 1000,
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.2kJ",
     icon = "__LunarLandings__/graphics/fluids/helium-3.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     base_color = {r = 173, g = 216, b = 230},
     flow_color = {r = 173, g = 216, b = 230},
     order = "g[gas]-b[helium-3]",
@@ -36,7 +36,7 @@ data:extend{
     type = "item",
     name = "ll-fusion-fuel",
     icon = "__LunarLandings__/graphics/icons/fusion-fuel.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
       layers =
@@ -75,14 +75,13 @@ data:extend{
     subgroup = "intermediate-product",
     ingredients = {
       {type = "fluid", name = "ll-helium-3", amount = 1000},
-      {"steel-plate", 1},
+      {type="item", name="steel-plate", amount=1},
     },
     main_product = "ll-fusion-fuel",
     results = {
-      {"ll-fusion-fuel", 1},
+      {type="item", name="ll-fusion-fuel", amount=1},
       {type = "fluid", name = "ll-helium-3", amount = 900},
-    }
+    },
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-fusion-fuel")  -- TODO check vanilla nuclear fuel

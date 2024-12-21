@@ -1,19 +1,16 @@
-data.raw.item["satellite"].rocket_launch_product = nil
-
 -- Interstellar satellite
 data:extend{
   {
     type = "item",
     name = "ll-interstellar-satellite",
     icon = "__LunarLandings__/graphics/item/interstellar-satellite.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures = {
       layers = {
         {
           size = 64,
           filename = "__LunarLandings__/graphics/item/interstellar-satellite.png",
           scale = 0.25,
-          mipmap_count = 4,
         },
         {
           draw_as_light = true,
@@ -21,14 +18,13 @@ data:extend{
           size = 64,
           filename = "__LunarLandings__/graphics/item/interstellar-satellite-light.png",
           scale = 0.25,
-          mipmap_count = 4,
         },
       },
     },
     subgroup = "space-related",
     order = "y[interstellar-satellite]",
     stack_size = 1,
-    rocket_launch_product = {"space-science-pack", 1000}
+    rocket_launch_products = {{type="item", name="space-science-pack", amount=1000}},
   },
   {
     type = "recipe",
@@ -38,13 +34,13 @@ data:extend{
     category = "crafting",
     ingredients =
     {
-      {"satellite", 1},
-      {"low-density-structure", 50},
-      {"rocket-control-unit", 50},
-      {"nuclear-fuel", 10},
-      {"ll-quantum-processor", 100},
+      --{type="item", name="satellite", amount=1},  -- TODO 2.0 add more to the recipe in lieu of satellite
+      {type="item", name="low-density-structure", amount=50},
+      {type="item", name="rocket-control-unit", amount=50},
+      {type="item", name="nuclear-fuel", amount=10},
+      {type="item", name="ll-quantum-processor", amount=100},
     },
-    result = "ll-interstellar-satellite",
+    results = {{type="item", name="ll-interstellar-satellite", amount=1}},
     requester_paste_multiplier = 1
   },
 

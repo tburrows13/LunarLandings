@@ -13,41 +13,21 @@ local function cliff_sprite_variations(name, column_offset, row_offset, variatio
       {
         {
           filename = "__LunarLandings__/graphics/cliffs/cliff-" .. name .. ".png",
-          width = frame_width,
-          height = frame_height,
-          x = (column_offset + i) * frame_width,
-          y = row_offset * frame_height,
-          scale = scale,
-          hr_version =
-          {
-            filename = "__LunarLandings__/graphics/cliffs/hr-cliff-" .. name .. ".png",
-            width = frame_width * 2,
-            height = frame_height * 2,
-            x = (column_offset + i) * frame_width * 2,
-            y = row_offset * frame_height * 2,
-            scale = scale * 0.5
-          }
+          width = frame_width * 2,
+          height = frame_height * 2,
+          x = (column_offset + i) * frame_width * 2,
+          y = row_offset * frame_height * 2,
+          scale = scale * 0.5
         },
         {
           filename = "__base__/graphics/terrain/cliffs/cliff-" .. name .. "-shadow.png",
-          width = shadow_frame_width,
-          height = frame_height,
-          x = (column_offset + i) * shadow_frame_width,
-          y = row_offset * frame_height,
+          width = shadow_frame_width * 2,
+          height = frame_height * 2,
+          x = (column_offset + i) * shadow_frame_width * 2,
+          y = row_offset * frame_height * 2,
           draw_as_shadow = true,
-          scale = scale,
-          shift = shadow_shift,
-          hr_version =
-          {
-            filename = "__base__/graphics/terrain/cliffs/hr-cliff-" .. name .. "-shadow.png",
-            width = shadow_frame_width * 2,
-            height = frame_height * 2,
-            x = (column_offset + i) * shadow_frame_width * 2,
-            y = row_offset * frame_height * 2,
-            draw_as_shadow = true,
-            scale = scale * 0.5,
-            shift = shadow_shift
-          }
+          scale = scale * 0.5,
+          shift = shadow_shift
         }
       }
     })
@@ -83,7 +63,7 @@ data:extend{
     type = "cliff",
     name = "ll-luna-cliff",
     icon = "__base__/graphics/icons/cliff.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "cliffs",
     flags = {"placeable-neutral"},
     -- generic collision box is intentionally small so you can place trees nearby in map editor
@@ -93,12 +73,11 @@ data:extend{
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     order = "b[decorative]-l[rock]-b[big]",
     selectable_in_game = false,
-    map_color = {r=144, g=119, b=87},
+    map_color = {r=180, g=180, b=180},
     grid_size = {4 * scale, 4 * scale},
     grid_offset = grid_offset,
     mined_sound = sounds.deconstruct_bricks(0.8),
-    vehicle_impact_sound = sounds.car_stone_impact,
-    map_color = {r=180, g=180, b=180},
+    impact_category = "stone",
     orientations =
     {
       -- Since removing a cliff also causes neighboring cliffs to be removed,

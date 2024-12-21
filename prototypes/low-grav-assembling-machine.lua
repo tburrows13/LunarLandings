@@ -1,3 +1,5 @@
+local sounds = require("__base__.prototypes.entity.sounds")
+
 for i, recipe in pairs({"copper-cable", "electronic-circuit", "advanced-circuit"}) do
   data.raw.recipe[recipe].category = "circuit-crafting"
 end
@@ -38,12 +40,12 @@ data:extend{
     energy_required = 10,
     ingredients =
     {
-      {"ll-lunar-foundation", 20},
-      {"advanced-circuit", 20},
-      {"steel-plate", 10},
-      {"iron-gear-wheel", 20},
+      {type="item", name="ll-lunar-foundation", amount=20},
+      {type="item", name="advanced-circuit", amount=20},
+      {type="item", name="steel-plate", amount=10},
+      {type="item", name="iron-gear-wheel", amount=20},
     },
-    result = "ll-low-grav-assembling-machine"
+    results = {{type="item", name="ll-low-grav-assembling-machine", amount=1}}
   },
   {
     type = "item",
@@ -80,43 +82,15 @@ data:extend{
         production_type = "input",
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {0, -3} }},
+        volume = 1000,
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {0, -2} }},
         secondary_draw_orders = { north = -1 }
       },
-      {
-        production_type = "input",
-        pipe_picture = assembler2pipepictures(),
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {0, 3} }},
-        secondary_draw_orders = { north = -1 }
-      },
-      {
-        production_type = "input",
-        pipe_picture = assembler2pipepictures(),
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {-3, 0} }},
-        secondary_draw_orders = { north = -1 }
-      },
-      {
-        production_type = "input",
-        pipe_picture = assembler2pipepictures(),
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {3, 0} }},
-        secondary_draw_orders = { north = -1 }
-      },
-      off_when_no_fluid_recipe = true
     },
-    --open_sound = x_util.machine_open_sound,
-    --close_sound = x_util.machine_close_sound, TODO
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    fluid_boxes_off_when_no_fluid_recipe = true,
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
+    impact_category = "metal",
     working_sound =
     {
       sound = {
@@ -134,77 +108,49 @@ data:extend{
     },
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     collision_mask = {
-      "water-tile",
-      --"ground-tile",
-      "item-layer",
-      "object-layer",
-      "player-layer",
+      layers = {
+        water_tile = true,
+        item = true,
+        object = true,
+        player = true,
+      }
     },
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-    drawing_box = {{-2.5, -2.8}, {2.5, 2.5}},
-    animation =
-    {
-      layers =
+    graphics_set = {
+      animation =
       {
+        layers =
         {
-          draw_as_shadow = true,
-          filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-shadow.png",
-          priority = "high",
-          width = 520,
-          height = 500,
-          frame_count = 1,
-          line_length = 1,
-          repeat_count = 99,
-          animation_speed = animation_speed,
-          shift = util.by_pixel_hr(0, -16),
-          scale = 0.5,
-        },
-        {
-          priority = "high",
-          width = 320,
-          height = 320,
-          frame_count = 99,
-          shift = util.by_pixel_hr(0, -16),
-          animation_speed = animation_speed,
-          scale = 0.5,
-          stripes =
           {
-            {
-              filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-1.png",
-              width_in_frames = 8,
-              height_in_frames = 8,
-            },
-            {
-              filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-2.png",
-              width_in_frames = 8,
-              height_in_frames = 8,
-            },
-          },
-        },
-      },
-    },
-    working_visualisations = {{
-      fadeout = true,
-      secondary_draw_order = 1,
-      animation = {
-        layers = {
-          {
-            size = {320, 320},
+            draw_as_shadow = true,
+            filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-shadow.png",
+            priority = "high",
+            width = 520,
+            height = 500,
+            frame_count = 1,
+            line_length = 1,
+            repeat_count = 99,
+            animation_speed = animation_speed,
             shift = util.by_pixel_hr(0, -16),
             scale = 0.5,
+          },
+          {
+            priority = "high",
+            width = 320,
+            height = 320,
             frame_count = 99,
-            draw_as_glow = true,
-            blend_mode = "additive",
+            shift = util.by_pixel_hr(0, -16),
             animation_speed = animation_speed,
+            scale = 0.5,
             stripes =
             {
               {
-                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-1.png",
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-1.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
               {
-                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-hr-animation-emission-2.png",
+                filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-2.png",
                 width_in_frames = 8,
                 height_in_frames = 8,
               },
@@ -212,21 +158,48 @@ data:extend{
           },
         },
       },
-    }},
+      working_visualisations = {{
+        fadeout = true,
+        secondary_draw_order = 1,
+        animation = {
+          layers = {
+            {
+              size = {320, 320},
+              shift = util.by_pixel_hr(0, -16),
+              scale = 0.5,
+              frame_count = 99,
+              draw_as_glow = true,
+              blend_mode = "additive",
+              animation_speed = animation_speed,
+              stripes =
+              {
+                {
+                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-emission-1.png",
+                  width_in_frames = 8,
+                  height_in_frames = 8,
+                },
+                {
+                  filename = "__LunarLandings__/graphics/entities/low-gravity-assembling-machine/low-gravity-assembling-machine-animation-emission-2.png",
+                  width_in_frames = 8,
+                  height_in_frames = 8,
+                },
+              },
+            },
+          },
+        },
+      }},
+    },
     crafting_categories = {"circuit-crafting", "advanced-circuit-crafting"},
     crafting_speed = 2,
     energy_source =
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions_per_minute = 50,
+      emissions_per_minute = { pollution = 50 },
     },
     energy_usage = "750kW",
-    module_specification =
-    {
-      module_slots = 6,
-      module_info_icon_shift = util.by_pixel_hr(0, 32 + (0.7*64)),  -- default is {0, 0.7}
-    },
+    module_slots = 6,
+    --module_info_icon_shift = util.by_pixel_hr(0, 32 + (0.7*64)),  -- default is {0, 0.7}
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     --scale_entity_info_icon = true,
     --[[working_visualisations =
@@ -236,7 +209,7 @@ data:extend{
         light = {intensity = 0.8, size = 20, shift = {0.0, 0.0}, color = {r = 0.7, g = 0.8, b = 1}}
       },
     },]]
-    surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}},
+    ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}},
   },
 
 }

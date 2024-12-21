@@ -1,0 +1,19 @@
+{
+  "entity":
+  [
+    ["ll-moon-rock-huge", "ll-moon-huge-rock"],
+    ["ll-moon-rock-big", "ll-moon-big-rock"],
+    ["ll-moon-sand-rock-big", "ll-moon-big-sand-rock"],
+    ["ll-straight-moon-rail", "ll-legacy-straight-moon-rail"],
+    ["ll-curved-moon-rail", "ll-legacy-curved-moon-rail"]
+  ],
+  "decorative":
+  [
+    ["ll-moon-sand-rock-medium", "ll-moon-medium-sand-rock"],
+    ["ll-moon-sand-rock-small", "ll-moon-small-sand-rock"],
+    ["ll-moon-rock-tiny", "ll-moon-tiny-rock"],
+    ["ll-moon-rock-small", "ll-moon-small-rock"],
+    ["ll-moon-rock-medium", "ll-moon-medium-rock"]
+ ]
+
+}

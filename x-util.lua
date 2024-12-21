@@ -120,7 +120,7 @@ local function add_ingredient(recipe, ingredient, quantity, is_fluid)
     if is_fluid then
       table.insert(recipe.ingredients, {type="fluid", name=ingredient, amount=quantity})
     else
-      table.insert(recipe.ingredients, {ingredient, quantity})
+      table.insert(recipe.ingredients, {type="item", name=ingredient, amount=quantity})
     end
   end
 end
@@ -131,21 +131,19 @@ function x_util.add_ingredient(recipe_name, ingredient, quantity, options)
   local is_fluid = not not data.raw.fluid[ingredient]
   if data.raw.recipe[recipe_name] and (data.raw.item[ingredient] or is_fluid) then
     add_ingredient(data.raw.recipe[recipe_name], ingredient, quantity, is_fluid)
-    add_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity, is_fluid)
-    add_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity, is_fluid)
   end
 end
 
 -- From bzutil
 local function replace_ingredient(recipe, old, new, amount, multiply)
-	if recipe ~= nil and recipe.ingredients ~= nil then
+  if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
       if existing[1] == new or existing.name == new then
         return
       end
     end
-		for i, ingredient in pairs(recipe.ingredients) do 
-			if ingredient.name == old then 
+    for i, ingredient in pairs(recipe.ingredients) do 
+      if ingredient.name == old then 
         ingredient.name = new 
         if amount then
           if multiply then
@@ -155,7 +153,7 @@ local function replace_ingredient(recipe, old, new, amount, multiply)
           end
         end
       end
-			if ingredient[1] == old then 
+      if ingredient[1] == old then 
         ingredient[1] = new
         if amount then
           if multiply then
@@ -165,8 +163,8 @@ local function replace_ingredient(recipe, old, new, amount, multiply)
           end
         end
       end
-		end
-	end
+    end
+  end
 end
 
 -- From bzutil
@@ -175,44 +173,6 @@ end
 function x_util.replace_ingredient(recipe_name, old, new, amount, multiply, options)
   if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
     replace_ingredient(data.raw.recipe[recipe_name], old, new, amount, multiply)
-    replace_ingredient(data.raw.recipe[recipe_name].normal, old, new, amount, multiply)
-    replace_ingredient(data.raw.recipe[recipe_name].expensive, old, new, amount, multiply)
-  end
-end
-
-function x_util.allow_productivity(recipe_name)
-  for _, module in pairs(data.raw.module) do
-    if module.category == "productivity" and module.limitation then
-      table.insert(module.limitation, recipe_name)
-    end
-  end
-end
-
-function x_util.disallow_productivity(recipe_name)
-  for _, module in pairs(data.raw.module) do
-    if module.category == "productivity" and module.limitation then
-      for i, name in pairs(module.limitation) do
-        if name == recipe_name then
-          table.remove(module.limitation, i)
-        end
-      end
-    end
-  end
-end
-
-function x_util.disallow_efficiency(recipe_name)
-  for _, module in pairs(data.raw.module) do
-    if module.category == "effectivity" then
-      module.limitation = module.limitation or {}
-      for i, name in pairs(module.limitation) do
-        if name == recipe_name then
-          table.remove(module.limitation, i)
-        end
-      end
-      -- Also add to limitation_blacklist
-      module.limitation_blacklist = module.limitation_blacklist or {}
-      table.insert(module.limitation_blacklist, recipe_name)
-    end
   end
 end
 

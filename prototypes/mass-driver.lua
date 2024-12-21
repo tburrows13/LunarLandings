@@ -10,9 +10,9 @@ data:extend{
     energy_required = 1,
     ingredients =
     {
-      {"rocket-control-unit", 1},
-      {"ll-heat-shielding", 1},
-      {"ll-aluminium-plate", 3},
+      {type="item", name="rocket-control-unit", amount=1},
+      {type="item", name="ll-heat-shielding", amount=1},
+      {type="item", name="ll-aluminium-plate", amount=3},
       {type="fluid", name="ll-rocket-fuel", amount=5}
     },
     results = {{type="item", name="ll-mass-driver-capsule", amount=1}},
@@ -21,7 +21,7 @@ data:extend{
     type = "item",
     name = "ll-mass-driver-capsule",
     icon = "__space-exploration-graphics__/graphics/icons/delivery-cannon-weapon-capsule.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "space-related",
     order = "s[mass-driver-requester]",
     stack_size = 50
@@ -33,9 +33,9 @@ data:extend{
     energy_required = 10,
     ingredients =
     {
-      {"logistic-chest-requester", 1},
-      {"processing-unit", 5},
-      {"steel-plate", 20}
+      {type="item", name="requester-chest", amount=1},
+      {type="item", name="processing-unit", amount=5},
+      {type="item", name="steel-plate", amount=20}
     },
     results = {{type="item", name="ll-mass-driver-requester", amount=1}},
   },
@@ -43,7 +43,7 @@ data:extend{
     type = "item",
     name = "ll-mass-driver-requester",
     icon = "__LunarLandings__/graphics/icons/mass-driver-requester.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "space-related",
     order = "r[mass-driver-requester]",
     place_result = "ll-mass-driver-requester",
@@ -53,7 +53,7 @@ data:extend{
     type = "logistic-container",
     name = "ll-mass-driver-requester",
     icon = "__LunarLandings__/graphics/icons/mass-driver-requester.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "ll-mass-driver-requester"},
     max_health = 350,
@@ -79,26 +79,26 @@ data:extend{
     open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
     close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
     animation_sound = sounds.logistics_chest_open,
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     opened_duration = logistic_chest_opened_duration,
-		picture = {layers = {
-			{
-				filename = '__LunarLandings__/graphics/entities/mass-driver-requester.png',
-				height = 199,
-				priority = 'high',
-				scale = 0.8,
-				width = 207
-			},
-			{
-					draw_as_shadow = true,
-					filename = '__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png',
-					height = 149,
-					priority = 'high',
-					scale = 0.8,
-					shift = {0.5625*1.6, 0.5*1.6},
-					width = 277,
-			},
-		}},
+    picture = {layers = {
+      {
+        filename = '__LunarLandings__/graphics/entities/mass-driver-requester.png',
+        height = 199,
+        priority = 'high',
+        scale = 0.8,
+        width = 207
+      },
+      {
+          draw_as_shadow = true,
+          filename = '__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png',
+          height = 149,
+          priority = 'high',
+          scale = 0.8,
+          shift = {0.5625*1.6, 0.5*1.6},
+          width = 277,
+      },
+    }},
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -114,7 +114,7 @@ data:extend{
         }
       }
     },
-    surface_conditions = {nauvis = false, luna = true},
+    ll_surface_conditions = {nauvis = false, luna = true},
   },
   {
     type = "recipe",
@@ -123,9 +123,9 @@ data:extend{
     energy_required = 30,
     ingredients =
     {
-      {"copper-cable", 200},
-      {"processing-unit", 20},
-      {"steel-plate", 100}
+      {type="item", name="copper-cable", amount=200},
+      {type="item", name="processing-unit", amount=20},
+      {type="item", name="steel-plate", amount=100}
     },
     results = {{type="item", name="ll-mass-driver", amount=1}},
   },
@@ -133,7 +133,7 @@ data:extend{
     type = "item",
     name = "ll-mass-driver",
     icon = "__base__/graphics/icons/artillery-turret.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "space-related",
     order = "q[mass-driver]",
     place_result = "ll-mass-driver",
@@ -143,7 +143,7 @@ data:extend{
     type = "logistic-container",
     name = "ll-mass-driver",
     icon = "__base__/graphics/icons/artillery-turret.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "ll-mass-driver"},
     max_health = 1000,
@@ -151,7 +151,6 @@ data:extend{
     dying_explosion = "artillery-turret-explosion",
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-    drawing_box = {{-2.5, -6}, {2.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
     fast_replaceable_group = "container",
     inventory_size = 48,
@@ -162,7 +161,7 @@ data:extend{
     close_sound = sounds.artillery_close,
     mined_sound = sounds.deconstruct_large(0.8),
     animation_sound = sounds.logistics_chest_open,
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal",
     opened_duration = logistic_chest_opened_duration,
     animation =
     {
@@ -180,42 +179,33 @@ data:extend{
         --[[{
           filename = "__base__/graphics/entity/logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
-          width = 56,
-          height = 24,
+          width = 112,
+          height = 46,
           repeat_count = 1,
-          shift = util.by_pixel(12, 5),
+          shift = util.by_pixel(12, 4.5),
           draw_as_shadow = true,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
-            priority = "extra-high",
-            width = 112,
-            height = 46,
-            repeat_count = 1,
-            shift = util.by_pixel(12, 4.5),
-            draw_as_shadow = true,
-            scale = 0.5
-          }
+          scale = 0.5
         }]]
       }
     },
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    surface_conditions = {nauvis = true, luna = false},
+    ll_surface_conditions = {nauvis = true, luna = false},
   },
   {
     type = "electric-turret",
     name = "ll-mass-driver-energy-source",
     localised_name = {"entity-name.ll-mass-driver"},
     icon = "__base__/graphics/icons/artillery-turret.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = { "placeable-player", "placeable-enemy", "player-creation"},
+    hidden = true,
     --minable = { mining_time = 0.5, result = "laser-turret" },
     max_health = 1000,
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
-    collision_mask = {},
-    surface_conditions = {nauvis = true, luna = true},
+    collision_mask = {layers={}},
+    ll_surface_conditions = {nauvis = true, luna = true},
     --damaged_trigger_effect = hit_effects.entity(),
     --rotation_speed = 0.01,
     --preparing_speed = 0.05,
@@ -232,11 +222,13 @@ data:extend{
       usage_priority = "secondary-input"
     },
     folded_animation = util.empty_sprite(1),
+    graphics_set = {},
     attack_parameters = {
       ammo_type = { category = "artillery-shell" },
       cooldown = 3600,
       range = 1,
-      type = "projectile"
+      type = "projectile",
+      ammo_category = "laser",
     },
     call_for_help_radius = 1,
   },

@@ -10,7 +10,7 @@ data:extend({
     type = "item",
     name = "ll-rtg",
     icon = "__LunarLandings__/graphics/icons/rtg.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     order = "f[nuclear-energy]-1[rtg]",
     place_result = "ll-rtg",
     stack_size = 10,
@@ -20,7 +20,7 @@ data:extend({
     type = "item",
     name = "ll-rtg-depleted",
     icon = "__LunarLandings__/graphics/icons/rtg-depleted.png",
-    icon_size = 32, icon_mipmaps = 1,
+    icon_size = 32,
     order = "f[nuclear-energy]-2[depleted-rtg]",
     -- place_result = RTG,
     stack_size = 5,
@@ -32,11 +32,11 @@ data:extend({
     enabled = false,
     energy_required = 5,
     ingredients = {
-      {"iron-plate", 20},
-      {"electronic-circuit", 10},
-      {"uranium-fuel-cell", 5}, -- 5x 8 GJ!
+      {type="item", name="iron-plate", amount=20},
+      {type="item", name="electronic-circuit", amount=10},
+      {type="item", name="uranium-fuel-cell", amount=5}, -- 5x 8 GJ!
     },
-    result = "ll-rtg",
+    results = {{type="item", name="ll-rtg", amount=1}},
   },
   --[[{
     type = "recipe",
@@ -44,19 +44,19 @@ data:extend({
     enabled = false,
     energy_required = 30,
     ingredients = {
-      {"ll-rtg-depleted", 1},
-      {"uranium-fuel-cell", 5}, -- 5x 8 GJ!
+      {type="item", name="ll-rtg-depleted", amount=1},
+      {type="item", name="uranium-fuel-cell", amount=5}, -- 5x 8 GJ!
     },
-    result = "ll-rtg",
+    results = {{type="item", name="ll-rtg", amount=1}},
   },]]
   {
     type = "electric-energy-interface",
     name = "ll-rtg",
     icon = "__LunarLandings__/graphics/icons/rtg.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     minable = {
       mining_time = 1,
-      --results = {{"ll-rtg-depleted", 1}, {"used-up-uranium-fuel-cell", 5}}
+      results = {{type="item", name="depleted-uranium-fuel-cell", amount=5}}
     },
     flags = {
       "placeable-neutral",
@@ -122,10 +122,7 @@ data:extend({
       },
       max_sounds_per_type = 5
     },
-    vehicle_impact_sound = {
-      filename = "__base__/sound/car-metal-impact.ogg",
-      volume = 0.65
-    },
+    impact_category = "metal",
     order = "z-f[nuclear-energy]-1[rtg]",
   },
 })

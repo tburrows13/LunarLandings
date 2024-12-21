@@ -1,13 +1,5 @@
-x_util.replace_ingredient("rocket-control-unit", "processing-unit", "advanced-circuit")
-data.raw.recipe["satellite"].ingredients =
-{
-  {"low-density-structure", 50},
-  {"solar-panel", 50},
-  {"accumulator", 50},
-  {"radar", 5},
-  {"advanced-circuit", 100},
-  {"solid-fuel", 25}
-}
+--data.raw["item"]["satellite"] = nil
+--data.raw["recipe"]["satellite"] = nil
 
 -- Buff solid fuel because no rocket fuel
 local solid_fuel = data.raw.item["solid-fuel"]

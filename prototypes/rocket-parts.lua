@@ -8,7 +8,6 @@ rocket_fuel_recipe.results = {
 rocket_fuel_recipe.subgroup = "fluid-recipes"
 
 -- Replace all rocket-fuel with ll-rocket-fuel (fluid)
--- Doesn't handle normal/expensive, etc
 for _, recipe in pairs(data.raw.recipe) do
   if recipe.ingredients then
     for i, ingredient in pairs(recipe.ingredients) do
@@ -22,16 +21,18 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
-data.raw["item"]["rocket-fuel"].flags = {"hidden", "hide-from-fuel-tooltip"}
+data.raw["item"]["rocket-fuel"].flags = {"hide-from-fuel-tooltip"}
+data.raw["item"]["rocket-fuel"].hidden = true
+
 
 data.raw.recipe["rocket-part"].ingredients = {
-  {"rocket-control-unit", 10},
-  {"low-density-structure", 10},
+  {type="item", name="rocket-control-unit", amount=10},
+  {type="item", name="low-density-structure", amount=10},
   {type = "fluid", name = "ll-rocket-fuel", amount = 30},
 }
 
-data.raw["item"]["rocket-control-unit"].stack_size = 20
-data.raw["item"]["low-density-structure"].stack_size = 20
+
+--data.raw["item"]["low-density-structure"].stack_size = 20
 
 data.raw["item"]["rocket-part"].order = "o[rocket-part]-b"
 
@@ -39,19 +40,42 @@ data:extend{
   {
     type = "fluid",
     name = "ll-rocket-fuel",
+    subgroup = "fluid",
     default_temperature = 25,
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.1kJ",
     base_color = {r = 255, g = 191, b = 0},
     flow_color = {r = 255, g = 191, b = 0},
     icon = "__space-exploration-graphics__/graphics/icons/fluid/liquid-rocket-fuel.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     order = "f[rocket-fuel]"
+  },
+  {
+    type = "item",
+    name = "rocket-control-unit",
+    icon = "__LunarLandings__/graphics/icons/rocket-control-unit.png",
+    icon_size = 64,
+    subgroup = "intermediate-product",
+    order = "n[rocket-control-unit]",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "rocket-control-unit",
+    energy_required = 30,
+    enabled = false,
+    category = "crafting",
+    ingredients =
+    {
+      {type="item", name="advanced-circuit", amount=1},
+      {type="item", name="speed-module", amount=1},
+    },
+    results = {{type="item", name="rocket-control-unit", amount=1}},
   },
   {
     type = "item",
     name = "ll-heat-shielding",
     icon = "__space-exploration-graphics__/graphics/icons/heat-shielding.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-a",
     stack_size = 20,
@@ -64,22 +88,22 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"steel-plate", 2},
-      {"stone-brick", 10},
-      {"plastic-bar", 2},
-      {"ll-silica", 5},
+      {type="item", name="steel-plate", amount=2},
+      {type="item", name="stone-brick", amount=10},
+      {type="item", name="plastic-bar", amount=2},
+      {type="item", name="ll-silica", amount=5},
     },
-    result = "ll-heat-shielding"
+    results = {{type="item", name="ll-heat-shielding", amount=1}}
   },
   {
     type = "item",
     name = "rocket-part-down",
     localised_name = {"item-name.rocket-part-down"},
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
-    flags = {"hidden"},
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-c",
+    --hidden = true,
     stack_size = 5
   },
   {
@@ -91,22 +115,22 @@ data:extend{
     category = "rocket-building-luna",
     ingredients =
     {
-      {"ll-heat-shielding", 10},
-      {"low-density-structure", 10},
-      {"rocket-control-unit", 10},
+      {type="item", name="ll-heat-shielding", amount=10},
+      {type="item", name="low-density-structure", amount=10},
+      {type="item", name="rocket-control-unit", amount=10},
       {type = "fluid", name = "steam", amount = 100, temperature = 500}
     },
-    result = "rocket-part-down"
+    results = {{type="item", name="rocket-part-down", amount=1}}
   },
   {
     type = "item",
     name = "rocket-part-interstellar",
     localised_name = {"item-name.rocket-part-interstellar"},
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
-    flags = {"hidden"},
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-d",
+    hidden = true,
     stack_size = 5
   },
   {
@@ -118,19 +142,19 @@ data:extend{
     category = "rocket-building-interstellar",
     ingredients =
     {
-      {"ll-heat-shielding", 10},
-      {"low-density-structure", 10},
-      {"rocket-control-unit", 10},
-      {"ll-quantum-processor", 1},
-      {"nuclear-fuel", 1},
+      {type="item", name="ll-heat-shielding", amount=10},
+      {type="item", name="low-density-structure", amount=10},
+      {type="item", name="rocket-control-unit", amount=10},
+      {type="item", name="ll-quantum-processor", amount=1},
+      {type="item", name="nuclear-fuel", amount=1},
     },
-    result = "rocket-part-interstellar"
+    results = {{type="item", name="rocket-part-interstellar", amount=1}}
   },
   {
     type = "item",
     name = "ll-used-rocket-part",
     icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-e",
     stack_size = 1
@@ -141,11 +165,11 @@ data:extend{
     icons = {
       {
         icon = "__base__/graphics/icons/rocket-part.png",
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
       },
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
-        icon_size = 64, icon_mipmaps = 1,
+        icon_size = 64,
         scale = 0.3,
         shift = {-8, 8},
       }
@@ -158,15 +182,14 @@ data:extend{
     allow_decomposition = false,
     ingredients =
     {
-      {"ll-used-rocket-part", 1},
-      {"steel-plate", 1},
-      {"copper-plate", 5}
+      {type="item", name="ll-used-rocket-part", amount=1},
+      {type="item", name="steel-plate", amount=1},
+      {type="item", name="copper-plate", amount=5}
     },
     results = {
       {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 10},
       {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 10},
-    }
+    },
+    allow_productivity = true,
   },
 }
-
-x_util.allow_productivity("ll-heat-shielding")

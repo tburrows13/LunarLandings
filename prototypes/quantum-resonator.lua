@@ -60,13 +60,12 @@ data:extend{
     energy_required = 20,
     ingredients =
     {
-      {"lab", 5},
-      {"concrete", 100},
-      {"ll-aluminium-plate", 100},
-      {"ll-quantum-processor", 20},
+      {type="item", name="lab", amount=5},
+      {type="item", name="concrete", amount=100},
+      {type="item", name="ll-aluminium-plate", amount=100},
+      {type="item", name="ll-quantum-processor", amount=20},
     },
-    result = "ll-quantum-resonator",
-    result_count = 1,
+    results = {{type="item", name="ll-quantum-resonator", amount=1}},
     enabled = false,
     main_product = "ll-quantum-resonator",
   },
@@ -78,12 +77,12 @@ data:extend{
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
       mining_time = 1,
-      result = "ll-quantum-resonator"
+      results = {{type="item", name="ll-quantum-resonator", amount=1}}
     },
     max_health = 300,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-    collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
+    collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     --map_color = ei_data.colors.assembler,
     crafting_categories = {"ll-quantum-resonating"},
@@ -94,44 +93,47 @@ data:extend{
     },
     energy_usage = "15MW",
     allowed_effects = {"consumption", "pollution", "speed"},
-    module_specification = {module_slots = 3},
-    animation = {
-      filename = "__LunarLandings__/graphics/entities/computer-core.png",
-      size = {512,512},
-      shift = {0, 0},
-      scale = 0.35,
-      line_length = 1,
-      --lines_per_file = 2,
-      frame_count = 1,
-      -- animation_speed = 0.2,
-    },
-    working_visualisations = {
-      {
-        animation =
+    module_slots = 3,
+    graphics_set = {
+      animation = {
+        filename = "__LunarLandings__/graphics/entities/computer-core.png",
+        size = {512,512},
+        shift = {0, 0},
+        scale = 0.35,
+        line_length = 1,
+        --lines_per_file = 2,
+        frame_count = 1,
+        -- animation_speed = 0.2,
+      },
+      working_visualisations = {
         {
-          filename = "__LunarLandings__/graphics/entities/computer-core_animation.png",
-          size = {512,512},
-          shift = {0, 0},
-          scale = 0.35,
-          line_length = 6,
-          lines_per_file = 6,
-          frame_count = 36,
-          animation_speed = 0.4,
-          run_mode = "backward",
+          animation =
+          {
+            filename = "__LunarLandings__/graphics/entities/computer-core_animation.png",
+            size = {512,512},
+            shift = {0, 0},
+            scale = 0.35,
+            line_length = 6,
+            lines_per_file = 6,
+            frame_count = 36,
+            animation_speed = 0.4,
+            run_mode = "backward",
+          }
+        },
+        {
+          light = {
+            type = "basic",
+            intensity = 1,
+            size = 15
+          }
         }
       },
-      {
-        light = {
-          type = "basic",
-          intensity = 1,
-          size = 15
-        }
-      }
     },
     working_sound =
     {
       sound = {filename = "__base__/sound/nuclear-reactor-1.ogg", volume = 0.6},
       apparent_volume = 0.3,
     },
+    ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
   }
 }
