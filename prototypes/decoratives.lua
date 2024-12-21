@@ -2,13 +2,18 @@ local function switch_filenames(pictures)
   --[[
     Replace
     __base__/graphics/decorative/small-rock/small-rock-01.png
-    __alien-biomes__/graphics/decorative/small-rock/small-rock-01.png
+    __alien-biomes__/graphics/decorative/rock/base/rock-small/rock-small-01.png
   ]]
   for _, variation in pairs(pictures) do
-    variation.filename = "__alien-biomes-graphics__/graphics/decorative/" .. variation.filename:sub(30)
-    variation.filename = string.gsub(variation.filename, "big%-sand%-rock", "sand-big-rock")
-    variation.filename = string.gsub(variation.filename, "medium%-sand%-rock", "sand-medium-rock")
-    variation.filename = string.gsub(variation.filename, "small%-sand%-rock", "sand-small-rock")
+    variation.filename = "__alien-biomes-graphics__/graphics/decorative/rock/base/" .. variation.filename:sub(30)
+    variation.filename = string.gsub(variation.filename, "tiny%-rock", "rock-tiny")
+    variation.filename = string.gsub(variation.filename, "small%-rock", "rock-small")
+    variation.filename = string.gsub(variation.filename, "medium%-rock", "rock-medium")
+    variation.filename = string.gsub(variation.filename, "big%-rock", "rock-big")
+    variation.filename = string.gsub(variation.filename, "huge%-rock", "rock-huge")
+    variation.filename = string.gsub(variation.filename, "big%-sand%-rock", "sand-rock-big")
+    variation.filename = string.gsub(variation.filename, "medium%-sand%-rock", "sand-rock-medium")
+    variation.filename = string.gsub(variation.filename, "small%-sand%-rock", "sand-rock-small")
   end
 end
 
