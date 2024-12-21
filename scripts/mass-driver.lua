@@ -240,23 +240,27 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
   else
     -- Send complete stacks to destination
     local sender_inventory = mass_driver.get_inventory(defines.inventory.chest)
-    local sender_content = sender_inventory.get_contents()
     local requester_inventory = requester.get_inventory(defines.inventory.chest)
+    sender_inventory.sort_and_merge()
+    requester_inventory.sort_and_merge()
+
     if requester_inventory.count_empty_stacks(false, false) > 0 then
       local driver_capsule = sender_inventory.find_item_stack("ll-mass-driver-capsule")
       if driver_capsule then
-        for _, item in pairs(sender_content) do
-          local name, count, quality = item.name, item.count, item.quality
-          if count >= prototypes.item[name].stack_size and is_allowed(name) then
+        for i = 1, #sender_inventory do
+          local stack = sender_inventory[i]
+          if not stack.valid_for_read then break end
+          local name, count = stack.name, stack.count
+
+          if count >= stack.prototype.stack_size and is_allowed(name) then
             local energy_source_entity = mass_driver_data.energy_source
             if energy_source_entity.valid and energy_source_entity.energy >= (200000000) then
               energy_source_entity.energy = 0
-              local stack = {name = name, count = prototypes.item[name].stack_size, quality = quality}
               local sent = requester_inventory.insert(stack)
               if sent > 0 then
-                stack.count = sent
-                sender_inventory.remove(stack)
-                sender_inventory.remove{name = "ll-mass-driver-capsule", count = 1, quality = driver_capsule.quality}
+                stack.count = count - sent
+                sender_inventory.remove {name = "ll-mass-driver-capsule", count = 1}
+                sender_inventory.sort_and_merge()
                 MassDriver.kaboom(mass_driver)
               end
               break
