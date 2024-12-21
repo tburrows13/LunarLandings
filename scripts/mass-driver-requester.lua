@@ -145,11 +145,14 @@ end
 --- both mass drivers and mass driver requesters should have a single logistic section
 function get_logistic_section(entity)
   local sections = entity.get_logistic_sections()
-  if sections.sections_count ~= 1 then
-    for i = sections.sections_count, 1, -1 do
+  local sections_count = sections.sections_count
+  
+  if sections_count == 0 then
+    sections.add_section()
+  elseif sections_count >= 2 then
+    for i = sections.sections_count, 2, -1 do
       sections.remove_section(i)
     end
-    sections.add_section()
   end
 
   return sections.get_section(1)
