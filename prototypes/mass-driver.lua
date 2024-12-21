@@ -234,5 +234,11 @@ data:extend{
     },
     call_for_help_radius = 1,
   },
-
+  {
+    type = "sound",
+    name = "ll-mass-driver-kaboom",
+    category = "explosion",
+    filename = "__LunarLandings__/sound/mass-driver-kaboom.ogg",
+    speed = 0.7
+  }
 }

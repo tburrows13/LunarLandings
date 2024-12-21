@@ -217,6 +217,13 @@ function is_allowed(item_name)
   return false
 end
 
+function MassDriver.kaboom(mass_driver)
+  mass_driver.surface.play_sound{
+    path = "ll-mass-driver-kaboom",
+    position = mass_driver.position,
+  }
+end
+
 function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
   local requester = get_destination_mass_driver_requester(mass_driver_data.destination)
   if not requester then
@@ -240,9 +247,12 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
               energy_source_entity.energy = 0
               local stack = {name = name, count = prototypes.item[name].stack_size, quality = quality}
               local sent = requester_inventory.insert(stack)
-              stack.count = sent
-              sender_inventory.remove(stack)
-              sender_inventory.remove{name = "ll-mass-driver-capsule", count = 1, quality = driver_capsule.quality}
+              if sent > 0 then
+                stack.count = sent
+                sender_inventory.remove(stack)
+                sender_inventory.remove{name = "ll-mass-driver-capsule", count = 1, quality = driver_capsule.quality}
+                MassDriver.kaboom(mass_driver)
+              end
               break
             end
           end
