@@ -89,6 +89,9 @@ local function on_gui_opened(event)
   if not entity or not entity.valid then return end
   if entity.name ~= "ll-mass-driver-requester" then return end
   local player = game.get_player(event.player_index)
+  
+  local inventory = entity.get_inventory(defines.inventory.chest)
+  inventory.sort_and_merge()
 
   if player.gui.relative["ll-mass-driver-requester-relative-frame"] then
     player.gui.relative["ll-mass-driver-requester-relative-frame"].destroy()

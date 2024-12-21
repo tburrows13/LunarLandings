@@ -131,8 +131,11 @@ local function on_gui_opened(event)
       player.gui.relative["ll-mass-driver-requester-relative-frame"].destroy()
     end    
   end
-  if entity.name ~= "ll-mass-driver" then return end
 
+  if entity.name ~= "ll-mass-driver" then return end
+  local inventory = entity.get_inventory(defines.inventory.chest)
+  inventory.set_filter(1, "ll-mass-driver-capsule")
+  inventory.sort_and_merge()
 
   if not player.gui.relative["ll-mass-driver-relative-frame"] then
     build_gui(player, entity)
