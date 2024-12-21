@@ -230,16 +230,19 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     local sender_content = sender_inventory.get_contents()
     local requester_inventory = requester.get_inventory(defines.inventory.chest)
     if requester_inventory.count_empty_stacks(false, false) > 0 then
-      if sender_content["ll-mass-driver-capsule"] then
-        for name, count in pairs(sender_content) do
+      local driver_capsule = sender_inventory.find_item_stack("ll-mass-driver-capsule")
+      if driver_capsule then
+        for _, item in pairs(sender_content) do
+          local name, count, quality = item.name, item.count, item.quality
           if count >= prototypes.item[name].stack_size and is_allowed(name) then
             local energy_source_entity = mass_driver_data.energy_source
             if energy_source_entity.valid and energy_source_entity.energy >= (200000000) then
               energy_source_entity.energy = 0
-              local stack = {name=name, count=prototypes.item[name].stack_size}
+              local stack = {name = name, count = prototypes.item[name].stack_size, quality = quality}
               local sent = requester_inventory.insert(stack)
+              stack.count = sent
               sender_inventory.remove(stack)
-              sender_inventory.remove({name="ll-mass-driver-capsule", count=1})
+              sender_inventory.remove{name = "ll-mass-driver-capsule", count = 1, quality = driver_capsule.quality}
               break
             end
           end
@@ -252,7 +255,6 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
     local mass_driver_logistic_section = get_logistic_section(mass_driver)
     local requester_request_count = requester_logistic_section.filters_count
     local requester_inventory = requester.get_inventory(defines.inventory.chest)
-    local requester_contents = requester_inventory.get_contents()
     local mass_driver_request_count = mass_driver_logistic_section.filters_count
 
     for i = 1, math.max(requester_request_count, mass_driver_request_count) do
@@ -260,8 +262,9 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
       if request and request.min then
         local item_name = request.value.name
         local requested_count = request.min
-        local delivered_count = requester_contents[item_name] or 0
-        local needed_count = requested_count - delivered_count
+        requested_count = math.max(requested_count, prototypes.item[item_name].stack_size)
+        local already_delivered_count = requester_inventory.get_item_count{name = item_name, quality = request.value.quality}
+        local needed_count = requested_count - already_delivered_count
         if needed_count > 0 then
           local existing_request = mass_driver_logistic_section.get_slot(i + 1) -- i+1 because capsule will be in slot 1
           if not existing_request or existing_request.min ~= needed_count or existing_request.value.name ~= item_name then
