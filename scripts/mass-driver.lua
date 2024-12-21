@@ -222,6 +222,7 @@ function is_allowed(item_name)
   return false
 end
 
+-- TODO: Play firing animation for the gun here.
 function MassDriver.kaboom(mass_driver)
   mass_driver.surface.play_sound{
     path = "ll-mass-driver-kaboom",
