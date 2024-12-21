@@ -262,7 +262,7 @@ function MassDriver.update_mass_driver(mass_driver, mass_driver_data)
               local sent = requester_inventory.insert(stack)
               if sent > 0 then
                 stack.count = count - sent
-                sender_inventory.remove {name = "ll-mass-driver-capsule", count = 1}
+                driver_capsule.count = driver_capsule.count - 1
                 sender_inventory.sort_and_merge()
                 MassDriver.kaboom(mass_driver)
               end
