@@ -187,12 +187,36 @@ local on_tick = function(event)
   end
 end
 
+local function on_entity_settings_pasted(event)
+  local source, destination = event.source, event.destination
+
+  local source_data = Buckets.get(storage.mass_drivers, source.unit_number) or storage.mass_driver_requesters[source.unit_number]
+  if not source_data then return end
+  local destination_data = Buckets.get(storage.mass_drivers, destination.unit_number) or storage.mass_driver_requesters[destination.unit_number]
+  if not destination_data then return end
+
+  local name = source_data.destination or source_data.name
+  if destination.name == "ll-mass-driver" then
+    destination_data.destination = name
+  elseif destination.name == "ll-mass-driver-requester" and name ~= "None" then
+    if source.name == "ll-mass-driver-requester" then
+      -- copying names between two requesters causes duplicate names and is likely not what the user intended to do.
+      return
+    end
+    local player = game.get_player(event.player_index)
+    MassDriverRequester.requester_renamed(player, {text = name}, destination, destination_data)
+  else
+    error()
+  end
+end
+
 MassDriverRequester.events = {
   [defines.events.on_tick] = on_tick,
   [defines.events.on_gui_opened] = on_gui_opened,
   [defines.events.on_gui_closed] = on_gui_closed,
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
   [defines.events.on_object_destroyed] = on_object_destroyed,
+  [defines.events.on_entity_settings_pasted] = on_entity_settings_pasted,
 }
 
 function MassDriverRequester.on_init()
