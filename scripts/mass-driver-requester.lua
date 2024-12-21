@@ -164,6 +164,7 @@ local function check_requester_slots(entity)
   for i = 1, requester_logistic_section.filters_count do
     local slot = requester_logistic_section.get_slot(i)
     if slot and slot.value and not is_allowed(slot.value.name) then
+      game.print {"ll-console-info.mass-driver-limitation", slot.value.name, slot.value.quality, entity.gps_tag}
       requester_logistic_section.clear_slot(i)
       -- If request slot is set by circuit network, then clearing it has no effect.
       if not requester_logistic_section.get_slot(i) then
