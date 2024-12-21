@@ -89,6 +89,9 @@ local function on_gui_opened(event)
   if not entity or not entity.valid then return end
   if entity.name ~= "ll-mass-driver-requester" then return end
   local player = game.get_player(event.player_index)
+  
+  local inventory = entity.get_inventory(defines.inventory.chest)
+  inventory.sort_and_merge()
 
   if player.gui.relative["ll-mass-driver-requester-relative-frame"] then
     player.gui.relative["ll-mass-driver-requester-relative-frame"].destroy()
@@ -141,14 +144,33 @@ local function on_object_destroyed(event)
   storage.mass_driver_requesters[event.useful_id] = nil
 end
 
+--- returns the first logistic section of the entity
+--- both mass drivers and mass driver requesters should have a single logistic section
+function get_logistic_section(entity)
+  local sections = entity.get_logistic_sections()
+  local sections_count = sections.sections_count
+  
+  if sections_count == 0 then
+    sections.add_section()
+  elseif sections_count >= 2 then
+    for i = sections.sections_count, 2, -1 do
+      sections.remove_section(i)
+    end
+  end
+
+  return sections.get_section(1)
+end
+
 local function check_requester_slots(entity)
+  local requester_logistic_section = get_logistic_section(entity)
   local slots_cleared = false
-  for i = 1, entity.request_slot_count do
-    local slot = entity.get_request_slot(i)
-    if slot and not is_allowed(slot.name) then
-      entity.clear_request_slot(i)
+  for i = 1, requester_logistic_section.filters_count do
+    local slot = requester_logistic_section.get_slot(i)
+    if slot and slot.value and not is_allowed(slot.value.name) then
+      game.print {"ll-console-info.mass-driver-limitation", slot.value.name, slot.value.quality, entity.gps_tag}
+      requester_logistic_section.clear_slot(i)
       -- If request slot is set by circuit network, then clearing it has no effect.
-      if not entity.get_request_slot(i) then
+      if not requester_logistic_section.get_slot(i) then
         slots_cleared = true
       end
     end
@@ -172,12 +194,36 @@ local on_tick = function(event)
   end
 end
 
+local function on_entity_settings_pasted(event)
+  local source, destination = event.source, event.destination
+
+  local source_data = Buckets.get(storage.mass_drivers, source.unit_number) or storage.mass_driver_requesters[source.unit_number]
+  if not source_data then return end
+  local destination_data = Buckets.get(storage.mass_drivers, destination.unit_number) or storage.mass_driver_requesters[destination.unit_number]
+  if not destination_data then return end
+
+  local name = source_data.destination or source_data.name
+  if destination.name == "ll-mass-driver" then
+    destination_data.destination = name
+  elseif destination.name == "ll-mass-driver-requester" and name ~= "None" then
+    if source.name == "ll-mass-driver-requester" then
+      -- copying names between two requesters causes duplicate names and is likely not what the user intended to do.
+      return
+    end
+    local player = game.get_player(event.player_index)
+    MassDriverRequester.requester_renamed(player, {text = name}, destination, destination_data)
+  else
+    error()
+  end
+end
+
 MassDriverRequester.events = {
   [defines.events.on_tick] = on_tick,
   [defines.events.on_gui_opened] = on_gui_opened,
   [defines.events.on_gui_closed] = on_gui_closed,
   [defines.events.on_script_trigger_effect] = on_script_trigger_effect,
   [defines.events.on_object_destroyed] = on_object_destroyed,
+  [defines.events.on_entity_settings_pasted] = on_entity_settings_pasted,
 }
 
 function MassDriverRequester.on_init()
