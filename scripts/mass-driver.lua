@@ -212,10 +212,13 @@ end
 -- If we have a complete stack, launch to destination
 
 function is_allowed(item_name)
+  if item_name == "ll-lunar-foundation" then return true end
   local prototype = prototypes.item[item_name]
   if prototype.place_result then return true end
+  if prototype.place_as_equipment_result then return true end
   if prototype.module_effects then return true end
   if prototype.capsule_action and prototype.capsule_action.type == "destroy-cliffs" then return true end
+  if prototype.flags.spawnable then return true end -- blueprint books, deconstruction planners, spidertron remote, etc
   return false
 end
 
