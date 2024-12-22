@@ -80,6 +80,12 @@ local default_anywhere = {
   ["curved-rail-a"] = true,
   ["curved-rail-b"] = true,
   ["half-diagonal-rail"] = true,
+  ["elevated-straight-rail"] = true,
+  ["elevated-curved-rail-a"] = true,
+  ["elevated-curved-rail-b"] = true,
+  ["elevated-half-diagonal-rail"] = true,
+  ["rail-ramp"] = true,
+  ["rail-support"] = true,
   ["rail-signal"] = true,
   ["rail-chain-signal"] = true,
   ["car"] = true,
@@ -118,7 +124,7 @@ end
 
 for prototype_type, _ in pairs(defines.prototypes.entity) do
   for name, prototype in pairs(data.raw[prototype_type] or {}) do
-    if prototype.hidden or not prototype.collision_box or prototype_type == "cliff" or prototype.tile_buildability_rules then
+    if prototype.hidden or not prototype.collision_box or prototype_type == "cliff" then
       goto continue
     end
     local surface_conditions = prototype.ll_surface_conditions
@@ -156,11 +162,14 @@ for prototype_type, _ in pairs(defines.prototypes.entity) do
           colliding_tile_layers.ll_luna_foundation_tile = true
         end
       end
+
+      if table_size(colliding_tile_layers) == 0 then goto continue end
+
       local tile_buildability_rules = prototype.tile_buildability_rules or {}
       table.insert(tile_buildability_rules, {
         area = prototype.collision_box,
-        colliding_tiles = {layers=colliding_tile_layers},
-        required_tiles = {layers={ground_tile=true}},
+        colliding_tiles = {layers = colliding_tile_layers},
+        required_tiles = {layers = {ground_tile = true, water_tile = true}},
         remove_on_collision = true,
       })
       prototype.tile_buildability_rules = tile_buildability_rules

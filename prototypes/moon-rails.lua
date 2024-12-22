@@ -41,10 +41,6 @@ data:extend{
   },
 }
 
-function literalize(str)
-  return str:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", "%%%0")
-end
-
 local function replace_filenames(table, old, new)
   for k, v in pairs(table) do
     if type(v) == "table" then
