@@ -176,6 +176,7 @@ local function on_mass_driver_built(event)
     name = "ll-mass-driver-energy-source",
     position = entity.position,
     force = entity.force,
+    create_build_effect_smoke = false,
   }
 
   Buckets.add(storage.mass_drivers, entity.unit_number, {
