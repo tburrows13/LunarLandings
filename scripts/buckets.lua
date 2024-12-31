@@ -42,7 +42,7 @@ function Buckets.reallocate(bucket, new_interval)
 
   for b_id=0, bucket.interval do
     local bucket_data = bucket.list[b_id]
-    for id, data in pairs(d_data or {}) do
+    for id, data in pairs(bucket_data or {}) do
       tmp[id] = data
     end
     bucket.list[b_id] = nil
