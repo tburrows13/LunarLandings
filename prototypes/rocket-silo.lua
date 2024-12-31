@@ -1,3 +1,64 @@
+local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
+rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png"
+rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
+rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
+rocket_silo_interstellar.rocket_parts_required = 50
+rocket_silo_interstellar.fixed_recipe = "rocket-part-interstellar"
+rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
+rocket_silo_interstellar.ll_surface_conditions = {nauvis = false, luna = true}
+
+rocket_silo_interstellar.base_day_sprite = {layers = {
+  {
+    filename = "__base__/graphics/entity/rocket-silo/06-rocket-silo.png",
+    width = 608,
+    height = 596,
+    shift = util.by_pixel(3, -1),
+    scale = 0.5
+  },
+  {
+    filename = "__space-exploration-graphics-5__/graphics/entity/probe/06-rocket-silo-mask.png",
+    width = 608,
+    height = 596,
+    shift = util.by_pixel(3, -1),
+    tint = {r=0.9,b=0.3,g=0.3},
+    scale = 0.5
+  },
+}}
+rocket_silo_interstellar.base_front_sprite = {
+  layers = {
+    {
+      filename = "__base__/graphics/entity/rocket-silo/14-rocket-silo-front.png",
+      width = 580,
+      height = 262,
+      shift = util.by_pixel(-1, 78),
+      scale = 0.5
+    },
+    {
+      filename = "__space-exploration-graphics-5__/graphics/entity/probe/14-rocket-silo-front-mask.png",
+      width = 580,
+      height = 262,
+      shift = util.by_pixel(-1, 78),
+      tint = {r=0.9,b=0.3,g=0.3},
+      scale = 0.5
+    },
+  }
+}
+
+local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
+rocket_interstellar.name = "ll-rocket-interstellar"
+rocket_interstellar.inventory_size = 1
+rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
+{
+  filename = "__space-exploration-graphics-5__/graphics/entity/probe/probe-rocket.png",
+  width = 310,
+  height = 596,
+  shift = util.by_pixel(-5, -27),
+  scale = 0.5
+})
+
+
 local rocket = data.raw["rocket-silo-rocket"]["rocket-silo-rocket"]
 rocket.inventory_size = 20
 
@@ -13,7 +74,7 @@ rocket_silo.fluid_boxes = {
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = {0, -4} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = {0, -3} }},
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -21,7 +82,7 @@ rocket_silo.fluid_boxes = {
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = {0, 4} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = {0, 3} }},
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -29,7 +90,7 @@ rocket_silo.fluid_boxes = {
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.east, position = {4, 0} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.east, position = {3, 0} }},
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -37,11 +98,64 @@ rocket_silo.fluid_boxes = {
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.west, position = {-4, 0} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.west, position = {-3, 0} }},
     secondary_draw_orders = { north = -1 }
   },
 }
 rocket_silo.fluid_boxes_off_when_no_fluid_recipe = true
+
+local function scale_sprite(sprite, scale)
+  sprite.scale = (sprite.scale or 0.5) * scale
+  sprite.shift = {sprite.shift[1] * scale, sprite.shift[2] * scale}
+end
+
+local function scale_offset(offset, scale)
+  offset[1] = offset[1] * scale
+  offset[2] = offset[2] * scale
+end
+
+-- Reduce size from 9x9 to 7x7
+rocket_silo.collision_box = {{-3.20, -3.20}, {3.20, 3.20}}
+rocket_silo.selection_box = {{-3.5, -3.5}, {3.5, 3.5}}
+local scale = 7 / 9  -- 0.77778
+scale_offset(rocket_silo.door_back_open_offset, scale)
+scale_offset(rocket_silo.door_front_open_offset, scale)
+
+scale_sprite(rocket_silo.shadow_sprite, scale)
+scale_sprite(rocket_silo.hole_sprite, scale)
+scale_sprite(rocket_silo.hole_light_sprite, scale)
+scale_sprite(rocket_silo.rocket_shadow_overlay_sprite, scale)
+scale_sprite(rocket_silo.rocket_glow_overlay_sprite, scale)
+scale_sprite(rocket_silo.door_back_sprite, scale)
+scale_sprite(rocket_silo.door_front_sprite, scale)
+scale_sprite(rocket_silo.base_day_sprite, scale)
+for _, sprite in pairs(rocket_silo.red_lights_back_sprites.layers) do
+  scale_sprite(sprite, scale)
+end
+for _, sprite in pairs(rocket_silo.red_lights_front_sprites.layers) do
+  scale_sprite(sprite, scale)
+end
+scale_sprite(rocket_silo.satellite_animation, scale)
+scale_sprite(rocket_silo.arm_01_back_animation, scale)
+scale_sprite(rocket_silo.arm_02_right_animation, scale)
+scale_sprite(rocket_silo.arm_03_front_animation, scale)
+scale_sprite(rocket_silo.base_front_sprite, scale)
+
+scale_sprite(rocket.rocket_sprite.layers[1], scale)
+scale_sprite(rocket.rocket_sprite.layers[2], scale)
+scale_sprite(rocket.rocket_shadow_sprite, scale)
+scale_sprite(rocket.rocket_glare_overlay_sprite, scale)
+scale_sprite(rocket.rocket_smoke_top1_animation, scale)
+scale_sprite(rocket.rocket_smoke_top2_animation, scale)
+scale_sprite(rocket.rocket_smoke_top3_animation, scale)
+scale_sprite(rocket.rocket_smoke_bottom1_animation, scale)
+scale_sprite(rocket.rocket_smoke_bottom2_animation, scale)
+scale_sprite(rocket.rocket_flame_animation, scale)
+
+scale_offset(rocket.rocket_initial_offset, scale)
+scale_offset(rocket.rocket_rise_offset, scale)
+scale_offset(rocket.rocket_launch_offset, scale)
+scale_offset(rocket.cargo_attachment_offset, scale)
 
 data:extend{
   {
@@ -121,7 +235,7 @@ rocket_down.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = {0, -4} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = {0, -3} }},
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -129,7 +243,7 @@ rocket_down.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = {0, 4} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = {0, 3} }},
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -137,7 +251,7 @@ rocket_down.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.east, position = {4, 0} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.east, position = {3, 0} }},
     secondary_draw_orders = { north = -1 }
   },
   {
@@ -145,72 +259,11 @@ rocket_down.fluid_boxes =
     pipe_picture = assembler2pipepictures(),
     pipe_covers = pipecoverspictures(),
     volume = 1000,
-    pipe_connections = {{ flow_direction = "input", direction = defines.direction.west, position = {-4, 0} }},
+    pipe_connections = {{ flow_direction = "input", direction = defines.direction.west, position = {-3, 0} }},
     secondary_draw_orders = { north = -1 }
   },
 }
 rocket_down.fluid_boxes_off_when_no_fluid_recipe = true
-
-
-local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
-rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
-rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png"
-rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
-rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
-rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
-rocket_silo_interstellar.rocket_parts_required = 50
-rocket_silo_interstellar.fixed_recipe = "rocket-part-interstellar"
-rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
-rocket_silo_interstellar.ll_surface_conditions = {nauvis = false, luna = true}
-
-rocket_silo_interstellar.base_day_sprite = {layers = {
-  {
-    filename = "__base__/graphics/entity/rocket-silo/06-rocket-silo.png",
-    width = 608,
-    height = 596,
-    shift = util.by_pixel(3, -1),
-    scale = 0.5
-  },
-  {
-    filename = "__space-exploration-graphics-5__/graphics/entity/probe/06-rocket-silo-mask.png",
-    width = 608,
-    height = 596,
-    shift = util.by_pixel(3, -1),
-    tint = {r=0.9,b=0.3,g=0.3},
-    scale = 0.5
-  },
-}}
-rocket_silo_interstellar.base_front_sprite = {
-  layers = {
-    {
-      filename = "__base__/graphics/entity/rocket-silo/14-rocket-silo-front.png",
-      width = 580,
-      height = 262,
-      shift = util.by_pixel(-1, 78),
-      scale = 0.5
-    },
-    {
-      filename = "__space-exploration-graphics-5__/graphics/entity/probe/14-rocket-silo-front-mask.png",
-      width = 580,
-      height = 262,
-      shift = util.by_pixel(-1, 78),
-      tint = {r=0.9,b=0.3,g=0.3},
-      scale = 0.5
-    },
-  }
-}
-
-local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
-rocket_interstellar.name = "ll-rocket-interstellar"
-rocket_interstellar.inventory_size = 1
-rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
-{
-  filename = "__space-exploration-graphics-5__/graphics/entity/probe/probe-rocket.png",
-  width = 310,
-  height = 596,
-  shift = util.by_pixel(-5, -27),
-  scale = 0.5
-})
 
 
 data:extend{rocket_down, rocket_silo_interstellar, rocket_interstellar}
