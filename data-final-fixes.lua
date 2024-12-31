@@ -29,6 +29,11 @@ data.raw.recipe["space-train-battery-pack-refurbish"] = nil
 data.raw.recipe["space-train-battery-pack"] = nil
 data.raw.recipe["space-train-battery-charging-station"] = nil
 
+data.raw.recipe["space-train-battery-charging-station-recycling"] = nil
+data.raw.recipe["space-train-battery-pack-recycling"] = nil
+data.raw.recipe["space-train-destroyed-battery-pack-recycling"] = nil
+data.raw.recipe["space-train-discharged-battery-pack-recycling"] = nil
+
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then
     local ingredients = tech.unit.ingredients
