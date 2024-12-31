@@ -43,6 +43,8 @@ if mods["elevated-rails"] then
     type = "unlock-recipe",
     recipe = "ll-moon-rail-ramp",
   })
+  x_util.add_prerequisite("tech-space-trains", "elevated-rail")
+  x_util.remove_prerequisite("tech-space-trains", "production-science-pack")
 end
 
 require "__LunarLandings__.compatibility.aai-industry.data-updates"
