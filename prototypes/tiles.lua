@@ -1,6 +1,6 @@
 local tile_trigger_effects = require("__base__.prototypes.tile.tile-trigger-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
---local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
+local transitions = require("__LunarLandings__/prototypes/tile-transitions")
 
 local moon_autoplace = {
   default_enabled = false,
@@ -42,8 +42,8 @@ data:extend{
       }
     ),
 
-    --transitions = transitions.cliff_transitions(),  -- to_tiles is set later -- TODO 2.0
-    --transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
+    transitions = transitions.cliff_transitions(),  -- to_tiles is set later
+    transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
 
     walking_sound = table.deepcopy(data.raw.tile["dirt-1"].walking_sound),
     map_color={r=150, g=150, b=150},
@@ -72,8 +72,8 @@ data:extend{
       }
     ),
 
-    transitions = dark_dirt_transitions,
-    transitions_between_transitions = dark_dirt_transitions_between_transitions,
+    transitions = transitions.dark_dirt_transitions(),
+    transitions_between_transitions = transitions.dark_dirt_transitions_between_transitions(),
 
     walking_sound = dirt_sounds,
     map_color={r=50, g=50, b=50},
@@ -102,8 +102,8 @@ data:extend{
       }
     ),
 
-    --transitions = transitions.cliff_transitions(),  -- to_tiles is set later -- TODO 2.0
-    --transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
+    transitions = transitions.cliff_transitions(),  -- to_tiles is set later
+    transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
 
     walking_sound = dirt_sounds,
     map_color={r=200, g=200, b=200},
@@ -241,8 +241,8 @@ data:extend{
   },
 }
 
---data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}  -- TODO 2.0
---data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
+data.raw.tile["ll-luna-plain"].transitions[1].to_tiles = {"ll-luna-lowland"}  -- TODO 2.0
+data.raw.tile["ll-luna-mountain"].transitions[1].to_tiles = {"ll-luna-lowland"}
 
 data.raw["legacy-straight-rail"]["legacy-straight-rail"].ll_surface_conditions = {nauvis = true, luna = false}
 data.raw["legacy-curved-rail"]["legacy-curved-rail"].ll_surface_conditions = {nauvis = true, luna = false}
