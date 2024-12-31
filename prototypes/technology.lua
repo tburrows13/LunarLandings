@@ -398,6 +398,7 @@ data:extend{
     name = "ll-space-data-collection",
     icon = "__space-exploration-graphics__/graphics/technology/telescope.png",
     icon_size = 128,
+    prerequisites = {"advanced-circuit", "ll-luna-automation"},
     effects =
     {
       {
@@ -422,8 +423,6 @@ data:extend{
       },
 
     },
-    --prerequisites = {"utility-science-pack", "production-science-pack"},
-    prerequisites = {"advanced-circuit"},
     unit =
     {
       count = 150,
@@ -432,8 +431,6 @@ data:extend{
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
-        --{"production-science-pack", 1},
-        --{"utility-science-pack", 1},
       },
       time = 30
     },
