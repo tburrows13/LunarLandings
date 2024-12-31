@@ -34,4 +34,15 @@ data.raw.recipe["space-fluid-wagon"].ingredients = {
   {type="item", name="pipe", amount=8},
 }
 
+if mods["elevated-rails"] then
+  table.insert(data.raw.technology["tech-space-trains"].effects, 2, {
+    type = "unlock-recipe",
+    recipe = "ll-moon-rail-support",
+  })
+  table.insert(data.raw.technology["tech-space-trains"].effects, 2, {
+    type = "unlock-recipe",
+    recipe = "ll-moon-rail-ramp",
+  })
+end
+
 require "__LunarLandings__.compatibility.aai-industry.data-updates"

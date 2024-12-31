@@ -17,6 +17,7 @@
 
     "? better-victory-screen >= 0.2.14",
     "? Milestones",
+    "? elevated-rails",
 
     "! wret-beacon-rebalance-mod",
     "! beacon-overhaul",
