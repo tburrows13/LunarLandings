@@ -4,15 +4,15 @@ local transitions = require("__LunarLandings__/prototypes/tile-transitions")
 
 local moon_autoplace = {
   default_enabled = false,
-  probability_expression = "(elevation) * inf"
+  probability_expression = "luna_flat_mask * water_base(80, 1000)"
 }
 local rough_moon_autoplace = {
   default_enabled = false,
-  probability_expression = "(-elevation) * inf"
+  probability_expression = "luna_flat_mask * water_base(0, 2000)"
 }
 local mountain_moon_autoplace = {
   default_enabled = false,
-  probability_expression = "(elevation - 20) * 100 * inf"
+  probability_expression = "luna_mountain_mask"
 }
 
 

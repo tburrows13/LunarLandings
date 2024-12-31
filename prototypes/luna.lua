@@ -11,14 +11,13 @@ planet_map_gen.luna = function()
       temperature = "temperature_basic",
       moisture = "moisture_basic",
       aux = "aux_basic",
-      cliffiness = "luna_cliffiness",
-      cliff_elevation = "cliff_elevation_from_elevation",
+      cliffiness = "cliffiness_luna",
+      cliff_elevation = "cliff_elevation_luna",
     },
     cliff_settings =
     {
-      name = "cliff-luna",
-      control = "luna_cliff",
-      cliff_elevation_0 = 40,
+      name = "ll-luna-cliff",
+      cliff_elevation_0 = 80,
       cliff_elevation_interval = 40,  -- Inversely proportional to "frequency"
       cliff_smoothing = 0, -- This is critical for correct cliff placement around mountains.
       richness = 0.95,  -- "continuity"
