@@ -121,7 +121,7 @@ rail_ramp.name = "ll-moon-rail-ramp"
 --rail_ramp.icon = "__space-exploration-graphics__/graphics/icons/elevated-space-rail-ramp.png"
 --rail_ramp.icon_size = 64
 rail_ramp.minable.result = "ll-moon-rail-ramp"
-rail_ramp.support_range = rail_ramp.support_range * 3
+rail_ramp.support_range = rail_ramp.support_range * 2
 rail_ramp.factoriopedia_alternative = "ll-moon-rail-ramp"
 rail_ramp.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
 
@@ -131,7 +131,7 @@ rail_support.name = "ll-moon-rail-support"
 --rail_support.icon_size = 64
 rail_support.minable.result = "ll-moon-rail-support"
 rail_support.factoriopedia_alternative = "ll-moon-rail-support"
-rail_support.support_range = rail_support.support_range * 3
+rail_support.support_range = rail_support.support_range * 2
 rail_support.collision_mask_allow_on_deep_oil_ocean = nil
 rail_support.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
 
