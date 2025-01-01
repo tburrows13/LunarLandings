@@ -1,15 +1,40 @@
 x_util = require("__LunarLandings__.x-util")
 
+BASE_ONLY = not mods["space-age"]
+SPACE_AGE = not BASE_ONLY
+
+local function require_base_only(filename)
+  if BASE_ONLY then
+    require("__LunarLandings__.prototypes-base-only." .. filename)
+  end
+end
+
+local function require_space_age(filename)
+  if BASE_ONLY then
+    require("__LunarLandings__.prototypes-space-age." .. filename)
+  end
+end
+
+local function require_base_or_sa(filename)
+  if BASE_ONLY then
+    require("__LunarLandings__.prototypes-base-only." .. filename)
+  else
+    require("__LunarLandings__.prototypes-space-age." .. filename)
+  end
+end
+
 require "__LunarLandings__.prototypes.luna"
 require "__LunarLandings__.prototypes.signal"
 require "__LunarLandings__.prototypes.quantum-module"
 require "__LunarLandings__.prototypes.custom-input"
 require "__LunarLandings__.prototypes.item-groups"
-require "__LunarLandings__.prototypes.rocket-silo"
+require_base_only "rocket-silo-interstellar"
+require_base_or_sa "rocket-silo"
 require "__LunarLandings__.prototypes.rocket-parts"
-require "__LunarLandings__.prototypes.rocket-satellites"
+require_base_only "interstellar-satellite"
 require "__LunarLandings__.prototypes.packed-parts"
 require "__LunarLandings__.prototypes.mass-driver"
+require_base_only "liquid-rocket-fuel"
 require "__LunarLandings__.prototypes.electric-furnace"
 require "__LunarLandings__.prototypes.heat-furnace"
 require "__LunarLandings__.prototypes.centrifuge"
@@ -23,7 +48,6 @@ require "__LunarLandings__.prototypes.moon-rock"
 require "__LunarLandings__.prototypes.rich-moon-rock"
 require "__LunarLandings__.prototypes.silicon"
 require "__LunarLandings__.prototypes.oxygen"
---require "__LunarLandings__.prototypes.fusion-fuel"
 require "__LunarLandings__.prototypes.ice"
 require "__LunarLandings__.prototypes.aluminium"
 require "__LunarLandings__.prototypes.low-grav-assembling-machine"
@@ -40,7 +64,8 @@ require "__LunarLandings__.prototypes.quantum-science"
 require "__LunarLandings__.prototypes.polariton"
 require "__LunarLandings__.prototypes.quantum-resonator"
 require "__LunarLandings__.prototypes.technology"
-require "__LunarLandings__.prototypes.technology-infinite"  -- TODO 2.0
+require_base_or_sa "technology-updates"
+require_base_only "technology-infinite"
 require "__LunarLandings__.prototypes.resources"
 require "__LunarLandings__.prototypes.moon-cliffs"
 require "__LunarLandings__.prototypes.decoratives-crater"

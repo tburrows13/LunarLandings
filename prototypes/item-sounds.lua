@@ -1,22 +1,25 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
 
-local function find_item_prototype(name)
+local function find_item_prototype(name, allow_fail)
   for item_type in pairs(defines.prototypes.item) do
     local item = (data.raw[item_type] or {})[name]
     if item then return item end
   end
-  error("Could not find item " .. name)
+  if not allow_fail then
+    error("Could not find item " .. name)
+  end
 end
 
-local function copy_item_sounds(name, from)
-  local item = find_item_prototype(name)
+local function copy_item_sounds(name, from, allow_fail)
+  local item = find_item_prototype(name, allow_fail)
+  if not item then return end
   local from_item = find_item_prototype(from)
   item.inventory_move_sound = item.inventory_move_sound or table.deepcopy(from_item.inventory_move_sound)
   item.pick_sound = item.pick_sound or table.deepcopy(from_item.pick_sound)
   item.drop_sound = item.drop_sound or table.deepcopy(from_item.drop_sound)
 end
 
-copy_item_sounds("ll-interstellar-satellite", "speed-module-3")
+copy_item_sounds("ll-interstellar-satellite", "speed-module-3", true)
 copy_item_sounds("ll-moon-rail", "rail")
 copy_item_sounds("ll-lunar-foundation", "concrete")
 copy_item_sounds("ll-rtg", "uranium-fuel-cell")
@@ -33,7 +36,7 @@ copy_item_sounds("ll-oxygen-diffuser", "steam-engine")
 copy_item_sounds("ll-mass-driver", "laser-turret")
 copy_item_sounds("ll-mass-driver-requester", "requester-chest")
 copy_item_sounds("ll-mass-driver-capsule", "artillery-shell")
-copy_item_sounds("ll-rocket-silo-interstellar", "rocket-silo")
+copy_item_sounds("ll-rocket-silo-interstellar", "rocket-silo", true)
 copy_item_sounds("ll-silica", "sulfur")
 copy_item_sounds("ll-silicon", "copper-cable")
 copy_item_sounds("ll-alumina", "sulfur")
@@ -59,5 +62,8 @@ copy_item_sounds("ll-aluminium-ore", "stone")
 copy_item_sounds("ll-ice", "poison-capsule")
 copy_item_sounds("ll-astrocrystals", "poison-capsule")
 copy_item_sounds("rocket-control-unit", "defender-capsule")
+copy_item_sounds("ll-rocket-part-up", "rocket-part", true)
+copy_item_sounds("ll-rocket-part-down", "rocket-part")
+copy_item_sounds("ll-used-rocket-part", "rocket-part")
 copy_item_sounds("ll-space-science-pack", "automation-science-pack")
 copy_item_sounds("ll-quantum-science-pack", "automation-science-pack")

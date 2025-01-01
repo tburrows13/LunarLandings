@@ -1,4 +1,3 @@
--- Interstellar satellite
 data:extend{
   {
     type = "item",

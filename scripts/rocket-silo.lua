@@ -3,10 +3,7 @@ local Buckets = require "scripts.buckets"
 ---@type ScriptLib
 local RocketSilo = {}
 
-local rocket_silos = {
-  ["rocket-silo"] = true,
-  ["ll-rocket-silo-down"] = true,
-}
+local NAUVIS_ROCKET_SILO = SPACE_AGE and "ll-rocket-silo-up" or "rocket-silo"
 
 NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
 LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
@@ -36,7 +33,15 @@ end
 local function build_gui(player, silo)
   local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
 
-  local anchor = {gui = defines.relative_gui_type.rocket_silo_gui, position = defines.relative_gui_position.right}
+  local anchor = {
+    gui = defines.relative_gui_type.rocket_silo_gui,
+    names = {
+      NAUVIS_ROCKET_SILO,
+      "ll-rocket-silo-down",
+      "ll-rocket-silo-interstellar"
+    },
+    position = defines.relative_gui_position.right
+  }
 
   local landing_pad_names = {}
   local surfaces_unlocked = silo.force.technologies["ll-luna-exploration"].researched
@@ -92,7 +97,7 @@ local function build_gui(player, silo)
                 }
               },
               {
-                type = "flow", direction = "vertical", 
+                type = "flow", direction = "vertical",
                 visible = silo.name ~= "ll-rocket-silo-interstellar",
                 children = {
                   {
@@ -189,7 +194,7 @@ local function on_rocket_silo_built(event)
   local entity = event.created_entity or event.entity
   if entity.type ~= "rocket-silo" then return end
 
-  if entity.name == "rocket-silo" and entity.surface.name == "luna" then
+  if entity.name == NAUVIS_ROCKET_SILO and entity.surface.name == "luna" then
     local new_entity = entity.surface.create_entity{
       name = "ll-rocket-silo-down",
       position = entity.position,
@@ -200,7 +205,7 @@ local function on_rocket_silo_built(event)
     entity = new_entity
   elseif entity.name == "ll-rocket-silo-down" and entity.surface.name == "nauvis" then
     local new_entity = entity.surface.create_entity{
-      name = "rocket-silo",
+      name = NAUVIS_ROCKET_SILO,
       position = entity.position,
       force = entity.force,
       create_build_effect_smoke = false,
@@ -367,7 +372,7 @@ end
 
 local function on_rocket_launched(event)
   local silo = event.rocket_silo
-  if silo.name == "rocket-silo" then
+  if silo.name == NAUVIS_ROCKET_SILO then
     silo.force.technologies["ll-luna-exploration"].researched = true
     --if silo.force.technologies["ll-used-rocket-part-recycling"].researched then  -- TODO 2.0
     --  local result_inventory = silo.get_inventory(defines.inventory.rocket_silo_result)
@@ -397,7 +402,7 @@ local function on_rocket_launched(event)
   local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
   if silo_data.destination == "Space" then
     if inventory.get_item_count("satellite") >= 1 then
-      if silo.name == "rocket-silo" then
+      if silo.name == NAUVIS_ROCKET_SILO then
         local force_name = silo.force.name
         local satellites_launched = storage.satellites_launched[force_name] or 0
         if satellites_launched == 0 then

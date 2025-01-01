@@ -144,7 +144,7 @@ data:extend{
     },
     category = "crafting",
     subgroup = "intermediate-product",
-    order = "o[low-density-structure]-a",
+    order = "d[rocket-parts]-a[low-density-structure]-a[aluminium]",
     energy_required = 20,
     enabled = false,
     ingredients =
@@ -155,7 +155,6 @@ data:extend{
     },
     results = {{type="item", name="low-density-structure", amount=1}},
     main_product = "",
-    order = "o[low-density-structure]-a",
     allow_productivity = true,
   },
 }

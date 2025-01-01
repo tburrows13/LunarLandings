@@ -40,7 +40,7 @@ return {
       {type="item",       name="spidertron",              quantity=1},
       {type="item",       name="ll-quantum-resonator",            quantity=1},
       {type="technology", name="ll-interstellar-rocket-silo",     quantity=1},
-      {type="item",       name="rocket-part-interstellar",        quantity=100},
+      {type="item",       name="ll-rocket-part-interstellar",        quantity=100},
 
       {type="group",      name="Power"},
       {type="item",       name="solar-panel",               quantity=1},

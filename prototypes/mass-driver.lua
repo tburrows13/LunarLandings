@@ -13,7 +13,7 @@ data:extend{
       {type="item", name="rocket-control-unit", amount=1},
       {type="item", name="ll-heat-shielding", amount=1},
       {type="item", name="ll-aluminium-plate", amount=3},
-      {type="fluid", name="ll-rocket-fuel", amount=5}
+      {type="item", name="rocket-fuel", amount=1}
     },
     results = {{type="item", name="ll-mass-driver-capsule", amount=1}},
   },
