@@ -24,7 +24,6 @@ local function require_base_or_sa(filename)
 end
 
 require "__LunarLandings__.prototypes.luna"
-require "__LunarLandings__.prototypes.signal"
 require "__LunarLandings__.prototypes.quantum-module"
 require "__LunarLandings__.prototypes.custom-input"
 require "__LunarLandings__.prototypes.item-groups"

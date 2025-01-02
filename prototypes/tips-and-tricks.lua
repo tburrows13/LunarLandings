@@ -68,7 +68,7 @@ data:extend{
   {
     type = "tips-and-tricks-item",
     name = "ll-nauvis",
-    tag = "[virtual-signal=ll-nauvis]",
+    tag = "[planet=nauvis]",
     category = "lunar-landings",
     indent = 1,
     order = "b",
@@ -77,7 +77,7 @@ data:extend{
   {
     type = "tips-and-tricks-item",
     name = "ll-luna",
-    tag = "[virtual-signal=ll-luna]",
+    tag = "[planet=luna]",
     category = "lunar-landings",
     indent = 1,
     order = "c",
