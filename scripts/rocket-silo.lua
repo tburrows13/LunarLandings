@@ -236,7 +236,7 @@ end
 local function launch_if_destination_has_space(silo_data, ready_stacks)
   local silo = silo_data.entity
   local destination_name = silo_data.destination
-  if silo_data.destination == "Space" or silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
+  if silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
     silo.launch_rocket()
   else
     local destination = get_destination_landing_pad(destination_name, get_other_surface_name(silo.surface.name))
@@ -400,16 +400,16 @@ local function on_rocket_launched(event)
   local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)
 
   local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
-  if silo_data.destination == "Space" then
+  if silo_data.destination == "Space" then  -- TODO remove this whole code block
     if inventory.get_item_count("satellite") >= 1 then
       if silo.name == NAUVIS_ROCKET_SILO then
         local force_name = silo.force.name
         local satellites_launched = storage.satellites_launched[force_name] or 0
         if satellites_launched == 0 then
           if game.is_multiplayer() then
-            game.print({"ll-console-info.first-satellite-launched"})
+            game.print({"ll-console-info.first-rocket-launched"})
           else
-            game.show_message_dialog{text = {"ll-console-info.first-satellite-launched"}}
+            game.show_message_dialog{text = {"ll-console-info.first-rocket-launched"}}
           end
           if script.active_mods["UltimateResearchQueue"] or script.active_mods["UltimateResearchQueueFiltered"] then
             game.print({"ll-console-info.first-satellite-launched-urq-hint"})
