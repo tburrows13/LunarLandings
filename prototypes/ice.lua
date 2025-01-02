@@ -24,7 +24,7 @@ data:extend{
     flags = {"placeable-neutral"},
     category = "ll-core",
     subgroup = "raw-resource",
-    order="a-b-a",
+    order = "a-c-c",
     selection_priority = 49,
     highlight = true,
     infinite = true,

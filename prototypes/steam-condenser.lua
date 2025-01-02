@@ -24,12 +24,13 @@ data:extend{
     type = "assembling-machine",
     name = "ll-steam-condenser",
     flags = { "placeable-neutral", "placeable-player", "player-creation" },
-    minable = { mining_time = 0.5, result = "ll-steam-condenser" },        
+    minable = { mining_time = 0.5, result = "ll-steam-condenser" },
     max_health = 150,
     corpse = "medium-remnants",
 
     collision_box = {{ -1.3, -1.3 }, { 1.3, 1.3 }},
     selection_box = {{ -1.5, -1.5 }, { 1.5, 1.5 }},
+    drawing_box_vertical_extension = 2.5,
     fluid_boxes =
     {
       {

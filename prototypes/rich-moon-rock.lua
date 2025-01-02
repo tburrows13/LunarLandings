@@ -2,6 +2,7 @@ local rich_moon_rock = table.deepcopy(data.raw.resource["stone"])
 
 rich_moon_rock.name = "ll-rich-moon-rock"
 rich_moon_rock.minable.result = "ll-rich-moon-rock"
+rich_moon_rock.order = "a-c-b"
 
 rich_moon_rock.icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png"
 rich_moon_rock.stages = {

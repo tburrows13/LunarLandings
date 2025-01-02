@@ -1,10 +1,13 @@
+local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 50
+
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png"
 rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
+rocket_silo_interstellar.localised_description = {"entity-description.ll-rocket-silo-interstellar", tostring(INTERSTELLAR_ROCKET_PARTS_REQUIRED)}
 rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
-rocket_silo_interstellar.rocket_parts_required = 50
+rocket_silo_interstellar.rocket_parts_required = INTERSTELLAR_ROCKET_PARTS_REQUIRED
 rocket_silo_interstellar.fixed_recipe = "ll-rocket-part-interstellar"
 rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
 rocket_silo_interstellar.ll_surface_conditions = {nauvis = false, luna = true}

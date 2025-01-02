@@ -109,7 +109,7 @@ data:extend(
     magnitude = 0.7,
     draw_orbit = false,
     order = "a[nauvis]-b[luna]",
-    --subgroup = "planets",
+    subgroup = BASE_ONLY and "space-related" or "planets",
     map_gen_settings = planet_map_gen.luna(),
     pollutant_type = nil,
     solar_power_in_space = 300,
@@ -130,3 +130,9 @@ data:extend(
     persistent_ambient_sounds = persistent_ambient_sounds(),
   }
 })
+
+if BASE_ONLY then
+  local nauvis = data.raw.planet.nauvis
+  nauvis.subgroup = "space-related"
+  nauvis.localised_description = {"", {"space-location-description.nauvis"}, "\n\n", {"space-location-description.nauvis-append"}}
+end

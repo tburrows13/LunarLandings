@@ -93,6 +93,9 @@ local default_anywhere = {
   ["spider-leg"] = true,
   ["electric-pole"] = true,
   ["simple-entity"] = true,
+  ["cargo-pod"] = true,
+  ["temporary-container"] = true,
+  ["item-request-proxy"] = true,
 }
 
 local function get_default_surface_conditions(prototype)

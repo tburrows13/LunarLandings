@@ -8,7 +8,7 @@ data:extend({
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64,
     flags = { "placeable-neutral" },
-    order = "a-b-a",
+    order = "a-c-d",
     subgroup = "raw-resource",
     highlight = true,
     infinite = true,

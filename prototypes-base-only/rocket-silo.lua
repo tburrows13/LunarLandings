@@ -3,10 +3,12 @@ local scale = 7 / 9  -- 0.77778
 local scale_offset = x_util.scale_offset
 local scale_sprite = x_util.scale_sprite
 
+local NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
+local LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
+
 local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
-rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}
-rocket_silo.localised_description = {"entity-description.ll-rocket-silo"}
-rocket_silo.rocket_parts_required = 20
+rocket_silo.localised_description = {"entity-description.ll-rocket-silo", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.rocket_parts_required = NAUVIS_ROCKET_SILO_PARTS_REQUIRED
 rocket_silo.to_be_inserted_to_rocket_inventory_size = 20
 rocket_silo.fluid_boxes = {
   {
@@ -75,10 +77,11 @@ rocket_silo_down.name = "ll-rocket-silo-down"
 rocket_silo_down.localised_name = {"entity-name.ll-rocket-silo-down"}
 rocket_silo_down.minable.result = "rocket-silo"
 rocket_silo_down.placeable_by = {item = "rocket-silo", count = 1}
-rocket_silo_down.crafting_categories = {"rocket-building-luna"}
-rocket_silo_down.rocket_parts_required = 5
+--rocket_silo_down.crafting_categories = {"rocket-building-luna"}
+rocket_silo_down.rocket_parts_required = LUNA_ROCKET_SILO_PARTS_REQUIRED
 rocket_silo_down.fixed_recipe = "ll-rocket-part-down"
-table.insert(rocket_silo_down.flags, "not-in-made-in")
+rocket_silo_down.hidden = true
+--table.insert(rocket_silo_down.flags, "not-in-made-in")
 data:extend{rocket_silo_down}
 
 -- Rocket entity

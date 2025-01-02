@@ -2,6 +2,7 @@ local moon_rock = table.deepcopy(data.raw.resource["stone"])
 
 moon_rock.name = "ll-moon-rock"
 moon_rock.minable.result = "ll-moon-rock"
+moon_rock.order = "a-c-a"
 
 moon_rock.icon = "__LunarLandings__/graphics/icons/moon-rock.png"
 moon_rock.stages = {

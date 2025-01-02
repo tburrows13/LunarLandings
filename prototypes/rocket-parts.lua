@@ -19,7 +19,7 @@ rocket_part_recipe.ingredients = {
 }
 rocket_part_recipe.allow_productivity = false
 
---rocket_part_item.localised_name = {"item-name.ll-rocket-part-up"}
+rocket_part_item.localised_name = {"item-name.ll-rocket-part-up"}
 rocket_part_item.order = "o[rocket-part]-b"
 
 data:extend{
@@ -86,7 +86,7 @@ data:extend{
     energy_required = 3,
     enabled = false,
     hide_from_player_crafting = true,
-    category = "rocket-building-luna",
+    category = "rocket-building",
     ingredients =
     {
       {type="item", name="ll-heat-shielding", amount=10},
