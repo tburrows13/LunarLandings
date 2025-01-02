@@ -120,7 +120,7 @@ local function on_gui_closed(event)
 end
 
 local function on_built_entity(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if not entity.valid or entity.name ~= "ll-landing-pad" then return end
   storage.landing_pads[entity.unit_number] = {
     entity = entity,

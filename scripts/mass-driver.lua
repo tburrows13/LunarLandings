@@ -156,7 +156,7 @@ local function on_gui_closed(event)
 end
 
 local function on_mass_driver_built(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if not entity.valid or entity.name ~= "ll-mass-driver" then return end
 
   entity.get_inventory(defines.inventory.chest).set_filter(1, "ll-mass-driver-capsule")

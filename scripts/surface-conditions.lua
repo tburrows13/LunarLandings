@@ -13,11 +13,8 @@ local maglev_trains = {
   ["space-fluid-wagon"] = true,
 }
 
-local function destroy_entity(entity)
-end
-
 local function on_built_entity(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if not entity.valid or not is_train[entity.type] then return end
   if entity.surface.name == "luna" then
     if not maglev_trains[entity.name] then

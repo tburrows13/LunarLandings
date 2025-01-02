@@ -55,7 +55,7 @@ end
 
 
 local function on_entity_built(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if not entity.valid then return end
   if entity.surface.name ~= "luna" then return end
 

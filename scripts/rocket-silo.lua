@@ -191,7 +191,7 @@ local function on_gui_closed(event)
 end
 
 local function on_rocket_silo_built(event)
-  local entity = event.created_entity or event.entity
+  local entity = event.entity
   if entity.type ~= "rocket-silo" then return end
 
   if entity.name == NAUVIS_ROCKET_SILO and entity.surface.name == "luna" then
@@ -502,7 +502,7 @@ RocketSilo.on_init = function ()
 
   for _, surface in pairs(game.surfaces) do
     for _, silo in pairs(surface.find_entities_filtered{type = "rocket-silo"}) do
-      on_rocket_silo_built({created_entity = silo})
+      on_rocket_silo_built({entity = silo})
     end
   end
 end
