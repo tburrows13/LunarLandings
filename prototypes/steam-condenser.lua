@@ -37,14 +37,14 @@ data:extend{
         --pipe_picture = bery0zas.functions.pipe_pictures(),  -- TODO
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = { 1, -1 } }},
+        pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = { -1, 1 } }},
       },
       {
         production_type = "input",  -- TODO 2.0 make linked connection?
         --pipe_picture = bery0zas.functions.pipe_pictures(),
         --pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = { 0, -0.35 } }},
+        pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = { 0, 0.35 } }},
         hide_connection_info = true,
       },
       {
@@ -52,7 +52,7 @@ data:extend{
         --pipe_picture = bery0zas.functions.pipe_pictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ flow_direction = "output", direction = defines.direction.north, position = { -1, -1 } }},
+        pipe_connections = {{ flow_direction = "output", direction = defines.direction.south, position = { 1, 1 } }},
       }
     },
 
@@ -77,7 +77,7 @@ data:extend{
     graphics_set = {
       animation =
       {
-        east =
+        west =
         {
           layers =
           {
@@ -106,7 +106,7 @@ data:extend{
             }
           }
         },
-        north =
+        south =
         {
           layers =
           {
@@ -135,7 +135,7 @@ data:extend{
             }
           }
         },      
-        west =
+        east =
         {
           layers =
           {
@@ -164,7 +164,7 @@ data:extend{
             }
           }
         },
-        south =
+        north =
         {
           layers =
           {
@@ -205,7 +205,7 @@ data:extend{
       },
       distance = 5.5,
     },
-    
+
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     working_sound =
