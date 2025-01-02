@@ -12,7 +12,7 @@ Lunar Landings shares a similar design philosophy to the upcoming Space Age expa
 # Information
 
 ## Features
-- Cheaper rocket silo, with reusable rocket parts
+- Cheaper & smaller rocket silo, with reusable rocket parts
 - Moon rock, processed into silicon, stone, and oxygen
 - Oxygen diffusers, provide oxygen to nearby machines
 - Ice, can be mined and melted to provide water
@@ -23,9 +23,7 @@ Lunar Landings shares a similar design philosophy to the upcoming Space Age expa
 - Astrocrystals, processed into quantum things...
 
 ## Other mods
-Alien Biomes is a required mod because it contains some decoratives that Lunar Landings uses for the Luna surface. Included is an "Earth-like Nauvis" map gen preset which reduces some things that are more alien-looking. You can also turn off tile-based movement penalties in mod settings.
-
-Lunar Landings is not compatible with any other overhaul mods. It will probably be compatible with [Freight Forwarding](https://mods.factorio.com/mod/FreightForwarding) and Space Age in the future. If you would like to contribute compatibility with another mod, please get in touch.
+Lunar Landings is not compatible with any other overhaul mods. If you would like to contribute compatibility with another mod, please get in touch.
 
 If you want additional complexity, consider adding [AAI Industry](https://mods.factorio.com/mod/aai-industry) or [Planetfall's ores and intermediates mods](https://mods.factorio.com/user/planetfall). These mods are compatible, but may not have been as thoroughly tested for bugs and balance.
 
