@@ -115,3 +115,7 @@ data.raw.recipe["rocket-silo"].ingredients =
   {type="item", name="advanced-circuit", amount=100},
   {type="item", name="electric-engine-unit", amount=40}
 }
+
+data.raw["cargo-landing-pad"]["cargo-landing-pad"].localised_name = {"entity-name.ll-cargo-landing-pad"}
+data.raw["cargo-landing-pad"]["cargo-landing-pad"].localised_description = {"entity-description.ll-cargo-landing-pad"}
+data.raw["cargo-landing-pad"]["cargo-landing-pad"].ll_surface_conditions = {nauvis = true, luna = false}

@@ -8,7 +8,12 @@ x_util.add_prerequisite("rocket-silo", "electric-engine")
 x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
 x_util.remove_recipe_effect("rocket-silo", "satellite")
+x_util.add_unlock("rocket-silo", "ll-landing-pad")
 
+data.raw.technology["space-science-pack"].research_trigger = {
+  type = "send-item-to-orbit",
+  item = "ll-interstellar-satellite"
+}
 x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 x_util.remove_recipe_effect("space-science-pack", "satellite")

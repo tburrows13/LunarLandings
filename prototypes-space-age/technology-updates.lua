@@ -12,6 +12,11 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ll-rocket-silo-up"
       },
+      -- TODO add rocket part, cargo landing pad?
+      {
+        type = "unlock-recipe",
+        recipe = "ll-landing-pad"
+      },
     },
     unit =
     {

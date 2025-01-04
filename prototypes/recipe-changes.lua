@@ -9,6 +9,7 @@ x_util.add_ingredient("processing-unit", "ll-silicon", 5)
 
 x_util.add_ingredient("production-science-pack", "ll-heat-shielding", 2)
 
+x_util.replace_ingredient("cargo-landing-pad", "processing-unit", "advanced-circuit")
 x_util.replace_ingredient("power-armor-mk2", "processing-unit", "ll-quantum-processor")
 
 local nuclear_fuel = data.raw.recipe["nuclear-fuel"]

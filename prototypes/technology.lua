@@ -59,32 +59,6 @@ data:extend{
   },
   {
     type = "technology",
-    name = "ll-used-rocket-part-recycling",
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64,
-    effects =
-    {
-      {
-        type = "unlock-recipe",
-        recipe = "ll-used-rocket-part-recycling"
-      },
-    },
-    prerequisites = {"ll-luna-exploration"},
-    unit =
-    {
-      count = 500,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-      },
-      time = 30
-    },
-    order = "c-o-a"
-  },
-  {
-    type = "technology",
     name = "ll-luna-exploration",
     icons = util.technology_icon_constant_planet("__LunarLandings__/graphics/technology/luna.png"),
     essential = true,
@@ -97,17 +71,32 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ll-landing-pad"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "ll-rocket-part-down"
       }
     },
     prerequisites = {BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo"},
     research_trigger = {
       type = "send-item-to-orbit",
-      item = "rocket-silo"
+      item = "ll-landing-pad"
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
+    name = "ll-reusable-rockets",
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-used-rocket-part-recycling"
+      },
+    },
+    prerequisites = {"ll-luna-exploration"},
+    research_trigger = {
+      type = "build-entity",
+      entity = "cargo-landing-pad"
     },
     order = "c-o-a"
   },
@@ -139,17 +128,10 @@ data:extend{
         recipe = "ll-silicon"
       },
     },
-    prerequisites = {"ll-luna-exploration", "advanced-material-processing-2"},
-    unit =
-    {
-      count = 150,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-      },
-      time = 30
+    prerequisites = {"ll-reusable-rockets", "advanced-material-processing-2"},
+    research_trigger = {
+      type = "mine-entity",
+      entity = "ll-moon-rock"
     },
     order = "c-o-a"
   },
@@ -207,7 +189,7 @@ data:extend{
         recipe = "ll-lunar-foundation"
       }
     },
-    prerequisites = {"ll-luna-exploration"},
+    prerequisites = {"ll-reusable-rockets"},
     unit =
     {
       count = 150,
@@ -237,7 +219,7 @@ data:extend{
         recipe = "ll-melt-ice"
       },
     },
-    prerequisites = {"advanced-material-processing-2", "ll-luna-exploration"},
+    prerequisites = {"advanced-material-processing-2", "ll-reusable-rockets"},
     unit =
     {
       count = 150,
@@ -361,17 +343,9 @@ data:extend{
       },
     },
     prerequisites = {"ll-arc-furnace"},
-    unit =
-    {
-      count = 150,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-      },
-      time = 30
+    research_trigger = {
+      type = "mine-entity",
+      entity = "ll-rich-moon-rock"
     },
     order = "c-o-a"
   },
@@ -524,17 +498,9 @@ data:extend{
         recipe = "ll-astrocrystal-processing"
       }
     },
-    unit =
-    {
-      count = 300,
-      ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        --{"utility-science-pack", 1},
-      },
-      time = 30
+    research_trigger = {
+      type = "mine-entity",
+      entity = "ll-astrocrystals"
     },
     order = "c-a"
   },

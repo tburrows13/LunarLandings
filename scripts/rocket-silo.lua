@@ -373,7 +373,7 @@ end
 local function on_rocket_launched(event)
   local silo = event.rocket_silo
   if silo.name == NAUVIS_ROCKET_SILO then
-    silo.force.technologies["ll-luna-exploration"].researched = true
+    --silo.force.technologies["ll-luna-exploration"].researched = true
     --if silo.force.technologies["ll-used-rocket-part-recycling"].researched then  -- TODO 2.0
     --  local result_inventory = silo.get_inventory(defines.inventory.rocket_silo_result)
     --  result_inventory.insert{name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED}
@@ -460,7 +460,13 @@ end
 local function on_research_finished(event)
   if event.by_script then return end
   local technology = event.research
-  if technology.name == "ll-luna-exploration" then
+  if technology.name == BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo" then
+    if game.is_multiplayer() then
+      game.print({"ll-console-info.rocket-silo-research-complete"})
+    else
+      game.show_message_dialog{text = {"ll-console-info.rocket-silo-research-complete"}}
+    end
+  elseif technology.name == "ll-luna-exploration" then
     if game.is_multiplayer() then
       game.print({"ll-console-info.luna-exploration-researched"})
     else
