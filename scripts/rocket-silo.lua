@@ -358,7 +358,7 @@ local function land_rocket(surface, inventory, landing_pad_name, rocket_parts)
       end
     end
   end
-  if rocket_parts and rocket_parts > 0 and landing_pad.force.technologies["ll-used-rocket-part-recycling"].researched then
+  if rocket_parts and rocket_parts > 0 and landing_pad.force.technologies["ll-reusable-rockets"].researched then
     local inserted = pad_inventory.insert{name = "ll-used-rocket-part", count = rocket_parts}
     if inserted < rocket_parts then
       surface.spill_item_stack{
@@ -374,7 +374,7 @@ local function on_rocket_launched(event)
   local silo = event.rocket_silo
   if silo.name == NAUVIS_ROCKET_SILO then
     --silo.force.technologies["ll-luna-exploration"].researched = true
-    --if silo.force.technologies["ll-used-rocket-part-recycling"].researched then  -- TODO 2.0
+    --if silo.force.technologies["ll-reusable-rockets"].researched then  -- TODO 2.0
     --  local result_inventory = silo.get_inventory(defines.inventory.rocket_silo_result)
     --  result_inventory.insert{name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED}
     --end
@@ -400,47 +400,7 @@ local function on_rocket_launched(event)
   local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)
 
   local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
-  if silo_data.destination == "Space" then  -- TODO remove this whole code block
-    if inventory.get_item_count("satellite") >= 1 then
-      if silo.name == NAUVIS_ROCKET_SILO then
-        local force_name = silo.force.name
-        local satellites_launched = storage.satellites_launched[force_name] or 0
-        if satellites_launched == 0 then
-          if game.is_multiplayer() then
-            game.print({"ll-console-info.first-rocket-launched"})
-          else
-            game.show_message_dialog{text = {"ll-console-info.first-rocket-launched"}}
-          end
-          if script.active_mods["UltimateResearchQueue"] or script.active_mods["UltimateResearchQueueFiltered"] then
-            game.print({"ll-console-info.first-satellite-launched-urq-hint"})
-          end
-          game.print({"ll-console-info.new-destination-unlocked"})
-          silo.force.technologies["ll-luna-exploration"].enabled = true
-        end
-        storage.satellites_launched[silo.force.name] = satellites_launched + 1
-        if satellites_launched > 0 then
-          local position = storage.satellite_cursors[silo.force.name] or {x = 0, y = 0}
-          for i = 1, 300 do
-            while silo.force.is_chunk_charted("luna", position) do
-              position = spiral_next(position)
-            end
-            silo.force.chart("luna", {
-              {
-                x = position.x * 32,
-                y = position.y * 32
-              },
-              {
-                x = (position.x + 0.5) * 32,
-                y = (position.y + 0.5) * 32,
-              }
-            })
-            position = spiral_next(position)
-            storage.satellite_cursors[silo.force.name] = position
-          end
-        end
-      end
-    end
-  elseif silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
+  if silo_data.destination == "Nauvis Surface" or silo_data.destination == "Luna Surface" then
     local rocket_surface = silo.surface.name
     local surface = game.get_surface(get_other_surface_name(rocket_surface))
     spill_rocket(surface, inventory, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
@@ -448,6 +408,15 @@ local function on_rocket_launched(event)
     local rocket_surface = silo.surface.name
     local surface = game.get_surface(get_other_surface_name(rocket_surface))
     land_rocket(surface, inventory, silo_data.destination, silo.name == "ll-rocket-silo-down" and LUNA_ROCKET_SILO_PARTS_REQUIRED or 0)
+  end
+  if silo.name == "rocket-silo" then
+    inventory.clear()  -- Prevents cargo pod returning to planet with launched contents
+    if silo.force.technologies["ll-reusable-rockets"].researched and silo.name == NAUVIS_ROCKET_SILO then
+      local landing_pad = silo.surface.find_entities_filtered{name = "cargo-landing-pad"}[1]
+      if landing_pad then
+        landing_pad.get_inventory(defines.inventory.cargo_landing_pad_main).insert({name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED})
+      end
+    end
   end
   for player_index, _ in pairs(game.players) do
     local gui_elements = storage.rocket_silo_guis[player_index]
@@ -503,7 +472,6 @@ end
 RocketSilo.on_init = function ()
   storage.rocket_silos = Buckets.new()
   storage.rocket_silo_guis = {}
-  storage.satellite_cursors = {}
   disable_rocket_victory()
 
   for _, surface in pairs(game.surfaces) do
@@ -516,7 +484,6 @@ end
 RocketSilo.on_configuration_changed = function(changed_data)
   storage.rocket_silos = storage.rocket_silos or {}
   storage.rocket_silo_guis = storage.rocket_silo_guis or {}
-  storage.satellite_cursors = storage.satellite_cursors or {}
   disable_rocket_victory()
 end
 

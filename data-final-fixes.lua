@@ -7,6 +7,7 @@ for type, _ in pairs(defines.prototypes.item) do
   end
 end
 
+
 -- Set tile layer because Alien Biomes overwrites it in data-final-fixes
 data.raw.tile["ll-luna-plain"].layer = 10
 data.raw.tile["ll-luna-lowland"].layer = 9
