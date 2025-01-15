@@ -254,6 +254,29 @@ local function launch_if_destination_has_space(silo_data, ready_stacks)
   end
 end
 
+local function get_weight(inventory)
+  local weight = 0
+  local item_prototypes = prototypes.item
+  for _, get_contents_data in pairs(inventory.get_contents()) do
+    local item_prototype = item_prototypes[get_contents_data.name]
+    weight = weight + (item_prototype.weight * get_contents_data.count)
+  end
+  return weight
+end
+
+local function inventory_has_weight_capacity_remaining(inventory)
+  local weight = get_weight(inventory)
+  local spare_weight = 1000000 - weight
+  local item_1 = inventory.get_contents()[1]
+  if item_1 then
+    local item_prototype = prototypes.item[item_1.name]
+    if spare_weight < item_prototype.weight then
+      return false
+    end
+  end
+  return true
+end
+
 local function on_tick(event)
   for unit_number, silo_data in pairs(Buckets.get_bucket(storage.rocket_silos, event.tick)) do
     local silo = silo_data.entity
@@ -268,7 +291,7 @@ local function on_tick(event)
           end
         elseif silo_data.auto_launch == "full" then
           local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
-          if inventory.is_full() then
+          if not inventory_has_weight_capacity_remaining(inventory) or inventory.is_full() then
             launch_if_destination_has_space(silo_data, #inventory)
           end
         end
