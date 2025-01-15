@@ -39,7 +39,8 @@ data:extend{
     },
     subgroup = "raw-resource",
     order = "h[moon]-b[rich-moon-rock]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2 * kg
   },
   {
     type = "recipe",

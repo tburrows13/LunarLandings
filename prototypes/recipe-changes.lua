@@ -1,11 +1,12 @@
---data.raw["item"]["satellite"] = nil
---data.raw["recipe"]["satellite"] = nil
+data.raw["item"]["satellite"] = nil
+data.raw["recipe"]["satellite"] = nil
 
 -- Buff solid fuel because no rocket fuel
 local solid_fuel = data.raw.item["solid-fuel"]
 solid_fuel.fuel_acceleration_multiplier = 1.5
 
 x_util.add_ingredient("processing-unit", "ll-silicon", 5)
+data.raw.item["processing-unit"].weight = 3.3333 * kg
 
 x_util.add_ingredient("production-science-pack", "ll-heat-shielding", 2)
 

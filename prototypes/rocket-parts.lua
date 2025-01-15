@@ -15,7 +15,7 @@ end
 rocket_part_recipe.ingredients = {
   {type="item", name="rocket-control-unit", amount=10},
   {type="item", name="low-density-structure", amount=10},
-  {type="item", name="rocket-fuel", amount=10},
+  {type="item", name="rocket-fuel", amount=5},
 }
 rocket_part_recipe.allow_productivity = false
 
@@ -30,7 +30,8 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "n[rocket-control-unit]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 5*kg,
   },
   {
     type = "recipe",
@@ -44,6 +45,7 @@ data:extend{
       {type="item", name="speed-module", amount=1},
     },
     results = {{type="item", name="rocket-control-unit", amount=1}},
+    allow_productivity = true,
   },
   {
     type = "item",
@@ -52,7 +54,8 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-a",
-    stack_size = 20,
+    stack_size = 50,
+    weight = 5*kg,
   },
   {
     type = "recipe",
@@ -67,7 +70,8 @@ data:extend{
       {type="item", name="plastic-bar", amount=2},
       {type="item", name="ll-silica", amount=5},
     },
-    results = {{type="item", name="ll-heat-shielding", amount=1}}
+    results = {{type="item", name="ll-heat-shielding", amount=1}},
+    allow_productivity = true,
   },
   {
     type = "item",
@@ -134,8 +138,8 @@ data:extend{
       {type="item", name="copper-plate", amount=5}
     },
     results = {
-      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 10},
-      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 10},
+      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 8},
+      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 8},
     },
     allow_productivity = true,
   },

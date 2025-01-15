@@ -90,7 +90,7 @@ data:extend{
               frame_count = 1,
               animation_speed = 1.0,
               line_length = 1,
-              shift = util.by_pixel(31, -33),
+              shift = util.by_pixel(32, -33),
               scale = 0.5
             },
             {
@@ -102,7 +102,7 @@ data:extend{
               animation_speed = 1.0,
               line_length = 1,
               draw_as_shadow = true,
-              shift = util.by_pixel(31, -33),
+              shift = util.by_pixel(32, -33),
               scale = 0.5
             }
           }

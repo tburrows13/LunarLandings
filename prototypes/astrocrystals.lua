@@ -150,6 +150,7 @@ data:extend({
     subgroup = "raw-resource",
     order = "h[moon]-e[astrocrystals]",
     stack_size = 50,
+    weight = 1 * kg,
     ll_surface_conditions = {nauvis = false, luna = true},
   },
   {

@@ -8,6 +8,7 @@ data:extend{
     subgroup = "science-pack",
     order = "g-a[space-science-pack]",
     stack_size = 200,
+    weight = 1 * kg,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"

@@ -106,6 +106,7 @@ scale_offset(rocket.cargo_attachment_offset, scale)
 
 data.raw["item"]["rocket-silo"].localised_name = {"entity-name.rocket-silo"}
 data.raw["item"]["rocket-silo"].stack_size = 5
+data.raw["item"]["rocket-silo"].weight = 0.5 * tons
 
 data.raw.recipe["rocket-silo"].ingredients =
 {

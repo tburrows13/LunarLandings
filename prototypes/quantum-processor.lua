@@ -21,6 +21,7 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "g[processing-unit]-a[quantum]",
-    stack_size = 100
+    stack_size = 100,
+    weight = 5 * kg
   },
 }

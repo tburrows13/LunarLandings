@@ -23,6 +23,7 @@ data:extend{
     subgroup = "space-related",
     order = "y[interstellar-satellite]",
     stack_size = 1,
+    weight = 1 * tons,
     rocket_launch_products = {{type="item", name="space-science-pack", amount=1000}},
   },
   {

@@ -12,7 +12,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "a[silica]",
-    stack_size = 100
+    stack_size = 100,
+    weight = 1 * kg,
   },
   {
     type = "item",
@@ -21,7 +22,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "b[silicon]",
-    stack_size = 100
+    stack_size = 100,
+    weight = 1 * kg,
   },
   {
     type = "recipe",

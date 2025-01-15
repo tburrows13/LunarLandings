@@ -13,7 +13,8 @@ data:extend{
     },
     subgroup = "raw-resource",
     order = "h[moon]-c[aluminium-ore]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2 * kg
   },
   {
     type = "item",
@@ -22,7 +23,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "c[alumina]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 4 * kg,
   },
   {
     type = "item",
@@ -31,7 +33,8 @@ data:extend{
     icon_size = 128,
     subgroup = "ll-raw-material-moon",
     order = "d[aluminium-plate]",
-    stack_size = 100
+    stack_size = 100,
+    weight = 2 * kg,
   },
   {
     type = "fluid",

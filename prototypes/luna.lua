@@ -69,7 +69,7 @@ end
 
 local function persistent_ambient_sounds()
   local persistent_ambient_sounds = {
-    base_ambience = {filename = "__LunarLandings__/sound/luna-ambience.ogg", volume = 0.2}
+    base_ambience = {filename = "__LunarLandings__/sound/luna-ambience.ogg", volume = 0.1}
   }
 
   if mods["space-age"] then
@@ -109,7 +109,7 @@ data:extend(
     magnitude = 0.7,
     draw_orbit = false,
     order = "a[nauvis]-b[luna]",
-    subgroup = BASE_ONLY and "space-related" or "planets",
+    subgroup = "planets",
     map_gen_settings = planet_map_gen.luna(),
     pollutant_type = nil,
     solar_power_in_space = 300,
@@ -132,7 +132,15 @@ data:extend(
 })
 
 if BASE_ONLY then
+  data:extend{
+    {
+      type = "item-subgroup",
+      name = "planets",
+      group = "production",
+      order = "h"
+    },
+  }
   local nauvis = data.raw.planet.nauvis
-  nauvis.subgroup = "space-related"
+  nauvis.subgroup = "planets"
   nauvis.localised_description = {"", {"space-location-description.nauvis"}, "\n\n", {"space-location-description.nauvis-append"}}
 end

@@ -14,7 +14,8 @@ data:extend{
     },
     subgroup = "raw-resource",
     order = "h[moon]-d[ice]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 1 * kg
   },
   {
     type = "resource",

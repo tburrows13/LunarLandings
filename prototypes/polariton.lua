@@ -18,7 +18,8 @@ data:extend{
     },
     subgroup = "ll-polaritons",
     order = "a[superposed-polariton]",
-    stack_size = 1
+    stack_size = 1,
+    weight = 200 * kg,
   },
   {
     type = "item",
@@ -33,7 +34,8 @@ data:extend{
     },
     subgroup = "ll-polaritons",
     order = "b[polariton]-b[right]",
-    stack_size = 1
+    stack_size = 1,
+    weight = 200 * kg,
   },
   {
     type = "item",
@@ -48,7 +50,8 @@ data:extend{
     },
     subgroup = "ll-polaritons",
     order = "b[polariton]-d[left]",
-    stack_size = 1
+    stack_size = 1,
+    weight = 200 * kg,
   },
   {
     type = "item",
@@ -63,7 +66,8 @@ data:extend{
     },
     subgroup = "ll-polaritons",
     order = "b[polariton]-a[up]",
-    stack_size = 1
+    stack_size = 1,
+    weight = 200 * kg,
   },
   {
     type = "item",
@@ -78,7 +82,8 @@ data:extend{
     },
     subgroup = "ll-polaritons",
     order = "b[polariton]-c[down]",
-    stack_size = 1
+    stack_size = 1,
+    weight = 200 * kg,
   },
   {
     type = "recipe",
