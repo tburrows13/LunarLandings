@@ -447,7 +447,7 @@ end
 local function on_research_finished(event)
   if event.by_script then return end
   local technology = event.research
-  if technology.name == BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo" then
+  if technology.name == (BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo") then
     if game.is_multiplayer() then
       game.print({"ll-console-info.rocket-silo-research-complete"})
     else
