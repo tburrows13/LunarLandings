@@ -1,6 +1,6 @@
 {
   "name": "LunarLandings",
-  "version": "1.0.19",
+  "version": "1.1.0",
   "title": "Lunar Landings",
   "author": "Xorimuth",
   "homepage": "https://discord.gg/pkJc4v9nfT",
@@ -20,7 +20,7 @@
     "? better-victory-screen >= 0.2.14",
     "? Milestones",
 
-    "(?) space-age",
+    "! space-age",
 
     "! wret-beacon-rebalance-mod",
     "! beacon-overhaul",

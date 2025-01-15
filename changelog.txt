@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 15 January 2025
+  Features:
+    - Updated for Factorio 2.0 (Space Age support coming soon)
+    - Support for Elevated Rails
+    - Loads with Quality, but balance has not been considered
+    - Supports loading 1.1 saves, although some things may need manually fixing ingame
+    - Added new soundtrack by FluidNatalie
+  Changes:
+    - Rocket silos are now 7x7 rather than 9x9, and launch items based on weight rather than stack size
+    - Reworked map generation, mountains have more layers. Map gen is mostly the same, but will contain discontinuities on existing saves
+    - Removed satellite, reworked early Luna unlocks and techs to simply player progression and learning
+---------------------------------------------------------------------------------------------------
 Version: 1.0.17
 Date: 3 October 2024
   Features:
