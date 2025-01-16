@@ -1,6 +1,8 @@
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 
+
+animation_speed = 0.5
 data:extend{
   {
     type = "recipe",
@@ -115,100 +117,72 @@ data:extend{
         layers =
         {
           {
-            filename = "__base__/graphics/entity/steel-furnace/steel-furnace.png",
-            priority = "high",
-            width = 171,
-            height = 174,
-            frame_count = 1,
-            shift = util.by_pixel(-1.25, 2),
-            scale = 0.5 * 1.5
-          },
-          {
-            filename = "__base__/graphics/entity/steel-furnace/steel-furnace-shadow.png",
-            priority = "high",
-            width = 277,
-            height = 85,
-            frame_count = 1,
             draw_as_shadow = true,
-            shift = util.by_pixel(39.25 * 1.5, 11.25 * 1.5),
-            scale = 0.5 * 1.5
-          }
-        }
-      },
-      working_visualisations =
-      {
-        {
-          draw_as_light = true,
-          fadeout = true,
-          effect = "flicker",
-          animation =
-          {
-            filename = "__base__/graphics/entity/steel-furnace/steel-furnace-fire.png",
+            filename = "__LunarLandings__/graphics/entities/heat-furnace/convector-shadow.png",
             priority = "high",
-            line_length = 8,
-            width = 57,
-            height = 81,
-            frame_count = 48,
-            direction_count = 1,
-            shift = util.by_pixel(-0.75, 5.75),
-            scale = 0.5 * 1.5
+            width = 600,
+            height = 500,
+            frame_count = 1,
+            line_length = 1,
+            repeat_count = 80,
+            animation_speed = animation_speed,
+            shift = util.by_pixel_hr(0, -8),
+            scale = 0.5 * 0.57,
           },
-        },
-        {
-          fadeout = true,
-          draw_as_light = true,
-          effect = "flicker",
-          animation =
           {
-            filename = "__base__/graphics/entity/steel-furnace/steel-furnace-glow.png",
             priority = "high",
-            width = 60,
-            height = 43,
-            frame_count = 1,
-            shift = {0.03125, 0.640625},
-            blend_mode = "additive",
-            scale = 1.5,
-          }
-        },
-        {
-          fadeout = true,
-          draw_as_light = true,
-          effect = "flicker",
-          animation =
-          {
-            filename = "__base__/graphics/entity/steel-furnace/steel-furnace-working.png",
-            priority = "high",
-            line_length = 1,
-            width = 128,
-            height = 150,
-            frame_count = 1,
-            direction_count = 1,
-            shift = util.by_pixel(0, -5),
-            blend_mode = "additive",
-            scale = 0.5 * 1.5
-          }
-        },
-        {
-          draw_as_light = true,
-          draw_as_sprite = false,
-          fadeout = true,
-          effect = "flicker",
-          animation =
-          {
-            filename = "__base__/graphics/entity/steel-furnace/steel-furnace-ground-light.png",
-            priority = "high",
-            line_length = 1,
-            draw_as_sprite = false,
-            width = 152,
-            height = 126,
-            frame_count = 1,
-            direction_count = 1,
-            shift = util.by_pixel(1, 48),
-            blend_mode = "additive",
-            scale = 0.5 * 1.5
+            width = 360,
+            height = 350,
+            frame_count = 80,
+            shift = util.by_pixel_hr(0, -8),
+            animation_speed = animation_speed,
+            scale = 0.5 * 0.57,
+            stripes =
+            {
+              {
+                filename = "__LunarLandings__/graphics/entities/heat-furnace/convector-animation-1.png",
+                width_in_frames = 8,
+                height_in_frames = 8,
+              },
+              {
+                filename = "__LunarLandings__/graphics/entities/heat-furnace/convector-animation-2.png",
+                width_in_frames = 8,
+                height_in_frames = 8,
+              },
+            },
           },
         },
       },
+      working_visualisations = {{
+        fadeout = true,
+        secondary_draw_order = 1,
+        animation = {
+          layers = {
+            {
+              size = {360, 350},
+              shift = util.by_pixel_hr(0, -8),
+              scale = 0.5 * 0.57,
+              frame_count = 80,
+              draw_as_glow = true,
+              blend_mode = "additive",
+              animation_speed = animation_speed,
+              stripes =
+              {
+                {
+                  filename = "__LunarLandings__/graphics/entities/heat-furnace/convector-animation-emission-1.png",
+                  width_in_frames = 8,
+                  height_in_frames = 8,
+                },
+                {
+                  filename = "__LunarLandings__/graphics/entities/heat-furnace/convector-animation-emission-2.png",
+                  width_in_frames = 8,
+                  height_in_frames = 8,
+                },
+              },
+            },
+          },
+        },
+      }},
     },
     fast_replaceable_group = "furnace",
     water_reflection =
