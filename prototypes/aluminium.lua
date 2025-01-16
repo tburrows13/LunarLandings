@@ -103,8 +103,6 @@ data:extend{
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
         icon_size = 64,
-        scale = 0.3,
-        shift = {-8, 8},
       }
     },
     category = "chemistry",
