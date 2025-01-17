@@ -16,6 +16,7 @@ rich_moon_rock.stages = {
     scale = 0.5
   }
 }
+rich_moon_rock.factoriopedia_simulation =  { init = make_resource("ll-rich-moon-rock") }
 
 rich_moon_rock.map_color = {r=0.9, g=0.9, b=1}
 

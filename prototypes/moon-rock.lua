@@ -1,3 +1,5 @@
+require("__base__/prototypes/factoriopedia-util");
+
 local moon_rock = table.deepcopy(data.raw.resource["stone"])
 
 moon_rock.name = "ll-moon-rock"
@@ -16,7 +18,7 @@ moon_rock.stages = {
     scale = 0.5
   }
 }
-
+moon_rock.factoriopedia_simulation =  { init = make_resource("ll-moon-rock") }
 
 moon_rock.map_color = {r=0.8, g=0.8, b=0.8}
 

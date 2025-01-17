@@ -123,6 +123,7 @@ for name, bucket in pairs(entity_rock_buckets) do
   local rock = table.deepcopy(data.raw["simple-entity"][name])
   rock.name = "ll-moon-" .. name
   rock.subgroup = "ll-luna"
+  rock.icon = "__LunarLandings__/graphics/icons/" .. name .. ".png"
   rock.order = "x-c"
   rock.map_color={r=45, g=45, b=45}
   rock.minable.result = nil
