@@ -49,65 +49,9 @@ data:extend{
     stack_size = 50,
     weight = 2 * kg
   },
-  --[[{
-    type = "recipe",
-    name = "ll-moon-rock-processing-with-oxygen-helium",
-    category = "ll-electric-smelting",
-    enabled = false,
-    energy_required = 5,
-    ingredients =
-    {
-      {type="item", name="ll-moon-rock", amount=10},
-    },
-    results=
-    {
-      {type="item", name="ll-silica", amount=5},
-      {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-oxygen", amount=50, fluidbox_index = 1},
-      {type="fluid", name="ll-helium-3", amount=50, fluidbox_index = 3},
-    },
-    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-    icon_size = 64,
-    subgroup = "raw-material",
-    order = "a[oil-processing]-b[advanced-oil-processing]"
-  },]]
-  --[[{
-    type = "recipe",
-    name = "ll-moon-rock-processing-with-helium",
-    icons = {
-      {
-        icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-        icon_size = 64,
-      },
-      {
-        icon = "__LunarLandings__/graphics/fluids/helium-3.png",
-        icon_size = 64,
-        scale = 0.25,
-        shift = {-3, 3},
-      },
-    },
-    category = "ll-electric-smelting",
-    enabled = false,
-    allow_decomposition = false,
-    energy_required = 5,
-    ingredients =
-    {
-      {type="item", name="ll-moon-rock", amount=10},
-    },
-    results=
-    {
-      {type="item", name="ll-silica", amount=5},
-      {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-helium-3", amount=5, fluidbox_index = 1},
-    },
-    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-    icon_size = 64,
-    subgroup = "ll-raw-material-moon",
-    order = "a[moon-rock]-c"
-  },]]
   {
     type = "recipe",
-    name = "ll-moon-rock-processing-with-oxygen",
+    name = "ll-moon-rock-processing",
     icons = {
       {
         icon = "__LunarLandings__/graphics/icons/moon-rock.png",
@@ -132,35 +76,43 @@ data:extend{
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-oxygen", amount=100, fluidbox_index = 1},
+      {type="fluid", name="ll-oxygen", amount=5, fluidbox_index = 1},
     },
     allow_productivity = true,
-    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-    icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "a[moon-rock]-b"
   },
-
   {
     type = "recipe",
-    name = "ll-moon-rock-processing",
+    name = "ll-oxygen-extraction",
+    icons = {
+      {
+        icon = "__LunarLandings__/graphics/fluid/oxygen.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/moon-rock.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = {-3, 3},
+      },
+    },
     category = "ll-electric-smelting",
     enabled = false,
     allow_decomposition = false,
-    energy_required = 5,
+    energy_required = 10,
     ingredients =
     {
       {type="item", name="ll-moon-rock", amount=10},
+      {type="fluid", name="water", amount=1, fluidbox_index = 1},
     },
     results=
     {
-      {type="item", name="ll-silica", amount=5},
-      {type="item", name="stone", amount=5},
+      {type="item", name="ll-moon-rock", amount_min=6, amount_max=9},
+      {type="fluid", name="ll-oxygen", amount=40, fluidbox_index = 1},
     },
-    allow_productivity = true,
-    icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-    icon_size = 64,
+    allow_productivity = false,
     subgroup = "ll-raw-material-moon",
-    order = "a[moon-rock]-a",
+    order = "a[moon-rock]-b"
   },
 }
