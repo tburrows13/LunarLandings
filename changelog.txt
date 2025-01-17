@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 17 January 2025
+  Features:
+    - Added new background menu simulation (2.0.31+ only)
+    - Heat-powered furnace now uses Hurricane's convector graphics
+    - Improved various aspects of moon rock in factoriopedia
+  Changes:
+    - Removed moon-rock -> silicon without oxygen recipe
+    - Added "Oxygen extraction" recipe for getting oxygen from moon rock directly
+  Bugfixes:
+    - Fixed Luna Exploration trigger tech would never trigger
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 15 January 2025
   Bugfixes:
