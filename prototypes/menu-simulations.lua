@@ -1,3 +1,5 @@
+if not (mods["base"] == "2.0.31" or mods["base"] == "2.0.32") then return end
+
 local main_menu_simulations = {}
 
 -- Copied from space-age
