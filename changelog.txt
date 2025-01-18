@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 18 January 2025
+  Bugfixes:
+    - Fixed rocket parts not being returned to Reusable rocket recovery pad
+    - Fixed missing locale for rocket fuel recipe
+---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 17 January 2025
   Features:
