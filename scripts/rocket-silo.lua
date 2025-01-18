@@ -428,7 +428,7 @@ local function on_rocket_launched(event)
     end
   end
   if rocket.name == "rocket-silo-rocket" then
-    if rocket.force.technologies["ll-reusable-rockets"].researched and rocket.surface == "nauvis" then
+    if rocket.force.technologies["ll-reusable-rockets"].researched and rocket.surface.name == "nauvis" then
       local landing_pad = silo.surface.find_entities_filtered{name = "cargo-landing-pad"}[1]
       if landing_pad then
         landing_pad.get_inventory(defines.inventory.cargo_landing_pad_main).insert({name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED})
