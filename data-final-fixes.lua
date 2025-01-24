@@ -20,21 +20,6 @@ data.raw.tile["ll-luna-mountain"].pollution_absorption_per_second = 1
 data.raw.tile["ll-lunar-foundation"].pollution_absorption_per_second = 1
 ]]
 
-data.raw["assembling-machine"]["space-train-battery-charging-station"] = nil
-data.raw.item["space-train-battery-charging-station"] = nil
-data.raw.item["space-train-battery-pack"] = nil
-data.raw.item["space-train-destroyed-battery-pack"] = nil
-data.raw.item["space-train-discharged-battery-pack"] = nil
-data.raw.recipe["space-train-battery-pack-recharge"] = nil
-data.raw.recipe["space-train-battery-pack-refurbish"] = nil
-data.raw.recipe["space-train-battery-pack"] = nil
-data.raw.recipe["space-train-battery-charging-station"] = nil
-
-data.raw.recipe["space-train-battery-charging-station-recycling"] = nil
-data.raw.recipe["space-train-battery-pack-recycling"] = nil
-data.raw.recipe["space-train-destroyed-battery-pack-recycling"] = nil
-data.raw.recipe["space-train-discharged-battery-pack-recycling"] = nil
-
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then
     local ingredients = tech.unit.ingredients

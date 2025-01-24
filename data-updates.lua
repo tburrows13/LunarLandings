@@ -5,6 +5,21 @@ x_util.remove_recipe_effect("tech-space-trains", "space-train-destroyed-battery-
 x_util.remove_recipe_effect("tech-space-trains", "space-train-battery-pack-refurbish")
 x_util.remove_recipe_effect("tech-space-trains", "space-train-battery-pack-recharge")
 
+data.raw["assembling-machine"]["space-train-battery-charging-station"] = nil
+data.raw.item["space-train-battery-charging-station"] = nil
+data.raw.item["space-train-battery-pack"] = nil
+data.raw.item["space-train-destroyed-battery-pack"] = nil
+data.raw.item["space-train-discharged-battery-pack"] = nil
+data.raw.recipe["space-train-battery-pack-recharge"] = nil
+data.raw.recipe["space-train-battery-pack-refurbish"] = nil
+data.raw.recipe["space-train-battery-pack"] = nil
+data.raw.recipe["space-train-battery-charging-station"] = nil
+
+data.raw.recipe["space-train-battery-charging-station-recycling"] = nil
+data.raw.recipe["space-train-battery-pack-recycling"] = nil
+data.raw.recipe["space-train-destroyed-battery-pack-recycling"] = nil
+data.raw.recipe["space-train-discharged-battery-pack-recycling"] = nil
+
 -- Insert into position 1
 local space_train_tech = data.raw["technology"]["tech-space-trains"]
 table.insert(space_train_tech.effects, 1, {type = "unlock-recipe", recipe = "ll-moon-rail"})
