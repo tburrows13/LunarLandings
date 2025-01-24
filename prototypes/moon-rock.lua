@@ -52,18 +52,8 @@ data:extend{
   {
     type = "recipe",
     name = "ll-moon-rock-processing",
-    icons = {
-      {
-        icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-        icon_size = 64,
-      },
-      {
-        icon = "__LunarLandings__/graphics/fluid/oxygen.png",
-        icon_size = 64,
-        scale = 0.25,
-        shift = {-3, 3},
-      },
-    },
+    icon = "__LunarLandings__/graphics/icons/moon-rock-processing.png",
+    icon_size = 64,
     category = "ll-electric-smelting",
     enabled = false,
     allow_decomposition = false,
@@ -85,18 +75,8 @@ data:extend{
   {
     type = "recipe",
     name = "ll-oxygen-extraction",
-    icons = {
-      {
-        icon = "__LunarLandings__/graphics/fluid/oxygen.png",
-        icon_size = 64,
-      },
-      {
-        icon = "__LunarLandings__/graphics/icons/moon-rock.png",
-        icon_size = 64,
-        scale = 0.25,
-        shift = {-3, 3},
-      },
-    },
+    icon = "__LunarLandings__/graphics/fluid/oxygen.png",
+    icon_size = 64,
     category = "ll-electric-smelting",
     enabled = false,
     allow_decomposition = false,

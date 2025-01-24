@@ -8,7 +8,7 @@ data:extend{
   {
     type = "item",
     name = "ll-silica",
-    icon = "__LunarLandings__/graphics/silica.png",
+    icon = "__LunarLandings__/graphics/icons/silica.png",
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "a[silica]",
@@ -18,7 +18,7 @@ data:extend{
   {
     type = "item",
     name = "ll-silicon",
-    icon = "__LunarLandings__/graphics/silicon.png",
+    icon = "__LunarLandings__/graphics/icons/silicon.png",
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "b[silicon]",
