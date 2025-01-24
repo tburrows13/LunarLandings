@@ -1,8 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 24 January 2025
+  Changes:
+    - Renamed interstellar satellite to interstellar spacecraft
+    - Added new items to interstellar spacecraft's recipe
+    - Allowed interstellar spacecraft and RCU to be crafted in low gravity assembling machine
+  Bugfixes:
+    - Fixed items being launched to Luna would be also land in the reusable rocket recovery pad
+    - Fixed interstellar science pack being unobtainable
+    - Fixed some item icons being too small when on belts/ground
+---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 18 January 2025
   Bugfixes:
-    - Fixed rocket parts not being returned to Reusable rocket recovery pad
+    - Fixed rocket parts not being returned to reusable rocket recovery pad
     - Fixed missing locale for rocket fuel recipe
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.2
