@@ -42,6 +42,8 @@ data:extend{
       {type="item", name="rocket-control-unit", amount=50},
       {type="item", name="nuclear-fuel", amount=10},
       {type="item", name="ll-quantum-processor", amount=100},
+      {type="item", name="ll-blank-data-card", amount=100},
+      {type="item", name="ll-aluminium-plate", amount=50},
     },
     results = {{type="item", name="ll-interstellar-satellite", amount=1}},
     requester_paste_multiplier = 1
