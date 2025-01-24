@@ -51,6 +51,7 @@ rocket_silo_interstellar.base_front_sprite = {
 
 local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
 rocket_interstellar.name = "ll-rocket-interstellar"
+rocket_interstellar.cargo_pod_entity = "ll-cargo-pod-interstellar"
 rocket_interstellar.inventory_size = 1
 rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
 {
@@ -61,9 +62,14 @@ rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.
   scale = 0.5
 })
 
+local cargo_pod_interstellar = table.deepcopy(data.raw["cargo-pod"]["cargo-pod"])
+cargo_pod_interstellar.name = "ll-cargo-pod-interstellar"
+
+
 data:extend{
   rocket_silo_interstellar,
   rocket_interstellar,
+  cargo_pod_interstellar,
   {
     type = "item",
     name = "ll-rocket-silo-interstellar",

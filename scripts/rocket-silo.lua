@@ -278,6 +278,13 @@ local function inventory_has_weight_capacity_remaining(inventory)
 end
 
 local function on_tick(event)
+  for _, cargo_pod in pairs(storage.cargo_pods_to_delete or {}) do
+    if cargo_pod.valid then
+      cargo_pod.destroy()
+    end
+  end
+  storage.cargo_pods_to_delete = {}
+
   for unit_number, silo_data in pairs(Buckets.get_bucket(storage.rocket_silos, event.tick)) do
     local silo = silo_data.entity
     if not silo.valid then
@@ -443,6 +450,16 @@ local function on_rocket_launched(event)
   end
 end
 
+local function on_cargo_pod_finished_ascending(event)
+  local cargo_pod = event.cargo_pod
+  if cargo_pod.name == "cargo-pod" then
+    -- Only deletes nauvis<->luna cargo pod inventories, not interstellar rockets
+    -- Do actual deletion in on_tick after a 1-tick delay to allow send-item-to-orbit tech trigger to work
+    storage.cargo_pods_to_delete = storage.cargo_pods_to_delete or {}
+    table.insert(storage.cargo_pods_to_delete, cargo_pod)
+  end
+end
+
 local function on_research_finished(event)
   if event.by_script then return end
   local technology = event.research
@@ -471,6 +488,7 @@ RocketSilo.events = {
   [defines.events.script_raised_revive] = on_rocket_silo_built,
   [defines.events.on_rocket_launch_ordered] = on_rocket_launch_ordered,
   [defines.events.on_rocket_launched] = on_rocket_launched,
+  [defines.events.on_cargo_pod_finished_ascending] = on_cargo_pod_finished_ascending,
   [defines.events.on_research_finished] = on_research_finished,
   --[defines.events.on_script_trigger_effect] = on_rocket_silo_created,
 }
