@@ -9,14 +9,14 @@ data:extend{
         {
           size = 64,
           filename = "__LunarLandings__/graphics/item/interstellar-satellite.png",
-          scale = 0.25,
+          scale = 0.5,
         },
         {
           draw_as_light = true,
           flags = { "light" },
           size = 64,
           filename = "__LunarLandings__/graphics/item/interstellar-satellite-light.png",
-          scale = 0.25,
+          scale = 0.5,
         },
       },
     },

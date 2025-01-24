@@ -12,7 +12,7 @@ data:extend{
     icon_size = 64,
     pictures = {
       filename = "__LunarLandings__/graphics/icons/polariton/polariton.png",
-      scale = 0.25,
+      scale = 0.5,
       size = 64,
       draw_as_glow = true
     },
@@ -28,7 +28,7 @@ data:extend{
     icon_size = 64,
     pictures = {
       filename = "__LunarLandings__/graphics/icons/polariton/polariton-right.png",
-      scale = 0.25,
+      scale = 0.5,
       size = 64,
       draw_as_glow = true
     },
@@ -44,7 +44,7 @@ data:extend{
     icon_size = 64,
     pictures = {
       filename = "__LunarLandings__/graphics/icons/polariton/polariton-left.png",
-      scale = 0.25,
+      scale = 0.5,
       size = 64,
       draw_as_glow = true
     },
@@ -60,7 +60,7 @@ data:extend{
     icon_size = 64,
     pictures = {
       filename = "__LunarLandings__/graphics/icons/polariton/polariton-up.png",
-      scale = 0.25,
+      scale = 0.5,
       size = 64,
       draw_as_glow = true
     },
@@ -76,7 +76,7 @@ data:extend{
     icon_size = 64,
     pictures = {
       filename = "__LunarLandings__/graphics/icons/polariton/polariton-down.png",
-      scale = 0.25,
+      scale = 0.5,
       size = 64,
       draw_as_glow = true
     },

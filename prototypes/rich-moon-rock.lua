@@ -33,10 +33,10 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.5 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-b[rich-moon-rock]",

@@ -6,10 +6,10 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-2.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-3.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-4.png", scale = 0.25 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-2.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-3.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-4.png", scale = 0.5 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-c[aluminium-ore]",
