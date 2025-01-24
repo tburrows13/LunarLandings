@@ -38,7 +38,7 @@ data:extend{
     name = "rocket-control-unit",
     energy_required = 30,
     enabled = false,
-    category = "crafting",
+    category = "circuit-crafting",
     ingredients =
     {
       {type="item", name="advanced-circuit", amount=1},
