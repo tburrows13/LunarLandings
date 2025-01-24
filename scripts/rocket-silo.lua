@@ -452,12 +452,18 @@ end
 
 local function on_cargo_pod_finished_ascending(event)
   local cargo_pod = event.cargo_pod
-  if cargo_pod.name == "cargo-pod" then
-    -- Only deletes nauvis<->luna cargo pod inventories, not interstellar rockets
-    -- Do actual deletion in on_tick after a 1-tick delay to allow send-item-to-orbit tech trigger to work
-    storage.cargo_pods_to_delete = storage.cargo_pods_to_delete or {}
-    table.insert(storage.cargo_pods_to_delete, cargo_pod)
+  if cargo_pod.name == "ll-cargo-pod-interstellar" then
+    local inventory = cargo_pod.get_inventory(defines.inventory.cargo_unit)
+    if inventory.get_item_count("ll-interstellar-satellite") > 0 then
+      local landing_pad = game.surfaces["nauvis"].find_entities_filtered{name = "cargo-landing-pad"}[1]
+      if landing_pad then
+        landing_pad.get_inventory(defines.inventory.cargo_landing_pad_main).insert({name = "space-science-pack", count = 1000})
+      end
+    end
   end
+  -- Do actual deletion in on_tick after a 1-tick delay to allow send-item-to-orbit tech trigger to work
+  storage.cargo_pods_to_delete = storage.cargo_pods_to_delete or {}
+  table.insert(storage.cargo_pods_to_delete, cargo_pod)
 end
 
 local function on_research_finished(event)
