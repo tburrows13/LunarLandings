@@ -1,4 +1,51 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 24 January 2025
+  Changes:
+    - Renamed interstellar satellite to interstellar spacecraft
+    - Added new items to interstellar spacecraft's recipe
+    - Allowed interstellar spacecraft and RCU to be crafted in low gravity assembling machine
+  Bugfixes:
+    - Fixed items being launched to Luna would be also land in the reusable rocket recovery pad
+    - Fixed interstellar science pack being unobtainable
+    - Fixed some item icons being too small when on belts/ground
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 18 January 2025
+  Bugfixes:
+    - Fixed rocket parts not being returned to reusable rocket recovery pad
+    - Fixed missing locale for rocket fuel recipe
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 17 January 2025
+  Features:
+    - Added new background menu simulation (2.0.31+ only)
+    - Heat-powered furnace now uses Hurricane's convector graphics
+    - Improved various aspects of moon rock in factoriopedia
+  Changes:
+    - Removed moon-rock -> silicon without oxygen recipe
+    - Added "Oxygen extraction" recipe for getting oxygen from moon rock directly
+  Bugfixes:
+    - Fixed Luna Exploration trigger tech would never trigger
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 15 January 2025
+  Bugfixes:
+    - Fixed dialog appearing after every research finishes
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 15 January 2025
+  Features:
+    - Updated for Factorio 2.0 (Space Age support coming soon)
+    - Support for Elevated Rails
+    - Loads with Quality, but balance has not been considered
+    - Supports loading 1.1 saves, although some things may need manually fixing ingame
+    - Added new soundtrack by FluidNatalie
+  Changes:
+    - Rocket silos are now 7x7 rather than 9x9, and launch items based on weight rather than stack size
+    - Reworked map generation, mountains have more layers. Map gen is mostly the same, but will contain discontinuities on existing saves
+    - Removed satellite, reworked early Luna unlocks and techs to simply player progression and learning
+---------------------------------------------------------------------------------------------------
 Version: 1.0.17
 Date: 3 October 2024
   Features:

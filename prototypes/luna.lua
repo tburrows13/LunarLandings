@@ -11,14 +11,13 @@ planet_map_gen.luna = function()
       temperature = "temperature_basic",
       moisture = "moisture_basic",
       aux = "aux_basic",
-      cliffiness = "luna_cliffiness",
-      cliff_elevation = "cliff_elevation_from_elevation",
+      cliffiness = "cliffiness_luna",
+      cliff_elevation = "cliff_elevation_luna",
     },
     cliff_settings =
     {
-      name = "cliff-luna",
-      control = "luna_cliff",
-      cliff_elevation_0 = 40,
+      name = "ll-luna-cliff",
+      cliff_elevation_0 = 80,
       cliff_elevation_interval = 40,  -- Inversely proportional to "frequency"
       cliff_smoothing = 0, -- This is critical for correct cliff placement around mountains.
       richness = 0.95,  -- "continuity"
@@ -70,7 +69,7 @@ end
 
 local function persistent_ambient_sounds()
   local persistent_ambient_sounds = {
-    base_ambience = {filename = "__LunarLandings__/sound/luna-ambience.ogg", volume = 0.2}
+    base_ambience = {filename = "__LunarLandings__/sound/luna-ambience.ogg", volume = 0.1}
   }
 
   if mods["space-age"] then
@@ -110,7 +109,7 @@ data:extend(
     magnitude = 0.7,
     draw_orbit = false,
     order = "a[nauvis]-b[luna]",
-    --subgroup = "planets",
+    subgroup = "planets",
     map_gen_settings = planet_map_gen.luna(),
     pollutant_type = nil,
     solar_power_in_space = 300,
@@ -131,3 +130,17 @@ data:extend(
     persistent_ambient_sounds = persistent_ambient_sounds(),
   }
 })
+
+if BASE_ONLY then
+  data:extend{
+    {
+      type = "item-subgroup",
+      name = "planets",
+      group = "production",
+      order = "h"
+    },
+  }
+  local nauvis = data.raw.planet.nauvis
+  nauvis.subgroup = "planets"
+  nauvis.localised_description = {"", {"space-location-description.nauvis"}, "\n\n", {"space-location-description.nauvis-append"}}
+end

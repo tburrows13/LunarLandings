@@ -1,54 +1,28 @@
--- 1 vanilla rocket fuel = 10 LL liquid rocket fuel
+local rocket_part_recipe = data.raw.recipe["rocket-part"]
+local rocket_part_item = data.raw.item["rocket-part"]
+if SPACE_AGE then
+  rocket_part_recipe = table.deepcopy(rocket_part_recipe)
+  rocket_part_recipe.name = "ll-rocket-part-up"
+  rocket_part_recipe.category = "rocket-building-nauvis-to-luna"
+  rocket_part_recipe.results = {{type="item", name="ll-rocket-part-up", amount=1}}
 
-local rocket_fuel_recipe = data.raw.recipe["rocket-fuel"]
-rocket_fuel_recipe.result = nil
-rocket_fuel_recipe.results = {
-  {type="fluid", name="ll-rocket-fuel", amount=10}
-}
-rocket_fuel_recipe.subgroup = "fluid-recipes"
+  rocket_part_item = table.deepcopy(rocket_part_item)
+  rocket_part_item.name = "ll-rocket-part-up"
 
--- Replace all rocket-fuel with ll-rocket-fuel (fluid)
-for _, recipe in pairs(data.raw.recipe) do
-  if recipe.ingredients then
-    for i, ingredient in pairs(recipe.ingredients) do
-      if ingredient.name == "rocket-fuel" or ingredient[1] == "rocket-fuel" then
-        recipe.ingredients[i] = {type = "fluid", name = "ll-rocket-fuel", amount = (ingredient.amount or ingredient[2]) * 10}
-        if recipe.category == "crafting" then
-          recipe.category = "crafting-with-fluid"
-        end
-      end
-    end
-  end
+  data:extend{rocket_part_recipe, rocket_part_item}
 end
 
-data.raw["item"]["rocket-fuel"].flags = {"hide-from-fuel-tooltip"}
-data.raw["item"]["rocket-fuel"].hidden = true
-
-
-data.raw.recipe["rocket-part"].ingredients = {
+rocket_part_recipe.ingredients = {
   {type="item", name="rocket-control-unit", amount=10},
   {type="item", name="low-density-structure", amount=10},
-  {type = "fluid", name = "ll-rocket-fuel", amount = 30},
+  {type="item", name="rocket-fuel", amount=5},
 }
+rocket_part_recipe.allow_productivity = false
 
-
---data.raw["item"]["low-density-structure"].stack_size = 20
-
-data.raw["item"]["rocket-part"].order = "o[rocket-part]-b"
+rocket_part_item.localised_name = {"item-name.ll-rocket-part-up"}
+rocket_part_item.order = "o[rocket-part]-b"
 
 data:extend{
-  {
-    type = "fluid",
-    name = "ll-rocket-fuel",
-    subgroup = "fluid",
-    default_temperature = 25,
-    heat_capacity = "0.1kJ",
-    base_color = {r = 255, g = 191, b = 0},
-    flow_color = {r = 255, g = 191, b = 0},
-    icon = "__space-exploration-graphics__/graphics/icons/fluid/liquid-rocket-fuel.png",
-    icon_size = 64,
-    order = "f[rocket-fuel]"
-  },
   {
     type = "item",
     name = "rocket-control-unit",
@@ -56,20 +30,22 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "n[rocket-control-unit]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 5*kg,
   },
   {
     type = "recipe",
     name = "rocket-control-unit",
     energy_required = 30,
     enabled = false,
-    category = "crafting",
+    category = "circuit-crafting",
     ingredients =
     {
       {type="item", name="advanced-circuit", amount=1},
       {type="item", name="speed-module", amount=1},
     },
     results = {{type="item", name="rocket-control-unit", amount=1}},
+    allow_productivity = true,
   },
   {
     type = "item",
@@ -78,7 +54,8 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-a",
-    stack_size = 20,
+    stack_size = 50,
+    weight = 5*kg,
   },
   {
     type = "recipe",
@@ -93,26 +70,27 @@ data:extend{
       {type="item", name="plastic-bar", amount=2},
       {type="item", name="ll-silica", amount=5},
     },
-    results = {{type="item", name="ll-heat-shielding", amount=1}}
+    results = {{type="item", name="ll-heat-shielding", amount=1}},
+    allow_productivity = true,
   },
   {
     type = "item",
-    name = "rocket-part-down",
-    localised_name = {"item-name.rocket-part-down"},
+    name = "ll-rocket-part-down",
     icon = "__base__/graphics/icons/rocket-part.png",
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-c",
-    --hidden = true,
-    stack_size = 5
+    hidden = true,
+    stack_size = 5,
+    weight = (1000/50)*kg
   },
   {
     type = "recipe",
-    name = "rocket-part-down",
+    name = "ll-rocket-part-down",
     energy_required = 3,
     enabled = false,
-    hidden = true,
-    category = "rocket-building-luna",
+    hide_from_player_crafting = true,
+    category = "rocket-building",
     ingredients =
     {
       {type="item", name="ll-heat-shielding", amount=10},
@@ -120,35 +98,7 @@ data:extend{
       {type="item", name="rocket-control-unit", amount=10},
       {type = "fluid", name = "steam", amount = 100, temperature = 500}
     },
-    results = {{type="item", name="rocket-part-down", amount=1}}
-  },
-  {
-    type = "item",
-    name = "rocket-part-interstellar",
-    localised_name = {"item-name.rocket-part-interstellar"},
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64,
-    subgroup = "intermediate-product",
-    order = "o[rocket-part]-d",
-    hidden = true,
-    stack_size = 5
-  },
-  {
-    type = "recipe",
-    name = "rocket-part-interstellar",
-    energy_required = 3,
-    enabled = false,
-    hidden = true,
-    category = "rocket-building-interstellar",
-    ingredients =
-    {
-      {type="item", name="ll-heat-shielding", amount=10},
-      {type="item", name="low-density-structure", amount=10},
-      {type="item", name="rocket-control-unit", amount=10},
-      {type="item", name="ll-quantum-processor", amount=1},
-      {type="item", name="nuclear-fuel", amount=1},
-    },
-    results = {{type="item", name="rocket-part-interstellar", amount=1}}
+    results = {{type="item", name="ll-rocket-part-down", amount=1}}
   },
   {
     type = "item",
@@ -157,7 +107,8 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-e",
-    stack_size = 1
+    stack_size = 1,
+    weight = (1000/50)*kg
   },
   {
     type = "recipe",
@@ -170,8 +121,6 @@ data:extend{
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
         icon_size = 64,
-        scale = 0.3,
-        shift = {-8, 8},
       }
     },
     energy_required = 60,
@@ -187,9 +136,22 @@ data:extend{
       {type="item", name="copper-plate", amount=5}
     },
     results = {
-      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 10},
-      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 10},
+      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 8},
+      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 8},
     },
     allow_productivity = true,
   },
+  {
+    type = "recipe-category",
+    name = "rocket-building-luna"
+  },
 }
+
+if SPACE_AGE then
+  data:extend{
+    {
+      type = "recipe-category",
+      name = "rocket-building-nauvis-to-luna"
+    }
+  }
+end

@@ -80,6 +80,12 @@ local default_anywhere = {
   ["curved-rail-a"] = true,
   ["curved-rail-b"] = true,
   ["half-diagonal-rail"] = true,
+  ["elevated-straight-rail"] = true,
+  ["elevated-curved-rail-a"] = true,
+  ["elevated-curved-rail-b"] = true,
+  ["elevated-half-diagonal-rail"] = true,
+  ["rail-ramp"] = true,
+  ["rail-support"] = true,
   ["rail-signal"] = true,
   ["rail-chain-signal"] = true,
   ["car"] = true,
@@ -87,6 +93,9 @@ local default_anywhere = {
   ["spider-leg"] = true,
   ["electric-pole"] = true,
   ["simple-entity"] = true,
+  ["cargo-pod"] = true,
+  ["temporary-container"] = true,
+  ["item-request-proxy"] = true,
 }
 
 local function get_default_surface_conditions(prototype)
@@ -118,7 +127,7 @@ end
 
 for prototype_type, _ in pairs(defines.prototypes.entity) do
   for name, prototype in pairs(data.raw[prototype_type] or {}) do
-    if prototype.hidden or not prototype.collision_box or prototype_type == "cliff" or prototype.tile_buildability_rules then
+    if prototype.hidden or not prototype.collision_box or prototype_type == "cliff" then
       goto continue
     end
     local surface_conditions = prototype.ll_surface_conditions
@@ -156,11 +165,14 @@ for prototype_type, _ in pairs(defines.prototypes.entity) do
           colliding_tile_layers.ll_luna_foundation_tile = true
         end
       end
+
+      if table_size(colliding_tile_layers) == 0 then goto continue end
+
       local tile_buildability_rules = prototype.tile_buildability_rules or {}
       table.insert(tile_buildability_rules, {
         area = prototype.collision_box,
-        colliding_tiles = {layers=colliding_tile_layers},
-        required_tiles = {layers={ground_tile=true}},
+        colliding_tiles = {layers = colliding_tile_layers},
+        required_tiles = {layers = {ground_tile = true, water_tile = true}},
         remove_on_collision = true,
       })
       prototype.tile_buildability_rules = tile_buildability_rules
@@ -170,11 +182,11 @@ for prototype_type, _ in pairs(defines.prototypes.entity) do
     if type(surface_conditions.luna) == "table" then
       local luna_conditions = surface_conditions.luna
       if not surface_conditions.nauvis and luna_conditions.mountain and not luna_conditions.plain and not luna_conditions.lowland and not luna_conditions.foundation then
-        add_to_description(prototype, {"ll-surface-conditions.must-be-placed-on", "Luna mountains"})
+        add_to_description(prototype, {"ll-surface-conditions.must-be-placed-on", {"tile-name.ll-luna-mountain"}})
         goto continue
       end
       if not surface_conditions.nauvis and luna_conditions.foundation and not luna_conditions.plain and not luna_conditions.lowland and not luna_conditions.mountain then
-        add_to_description(prototype, {"ll-surface-conditions.must-be-placed-on", "Luna foundations"})
+        add_to_description(prototype, {"ll-surface-conditions.must-be-placed-on", {"tile-name.ll-lunar-foundation"}})
         goto continue
       end
     end
@@ -182,29 +194,29 @@ for prototype_type, _ in pairs(defines.prototypes.entity) do
     local restrictions_list = {""}
     if surface_conditions.luna == false then
       add_comma(restrictions_list)
-      table.insert(restrictions_list, "Luna")
+      table.insert(restrictions_list, {"space-location-name.luna"})
     end
     if surface_conditions.nauvis == false then
       add_comma(restrictions_list)
-      table.insert(restrictions_list, "Nauvis")
+      table.insert(restrictions_list, {"space-location-name.nauvis"})
     end
     if type(surface_conditions.luna) == "table" then
       local luna_conditions = surface_conditions.luna
       if not luna_conditions.plain then
         add_comma(restrictions_list)
-        table.insert(restrictions_list, "Luna plains")
+        table.insert(restrictions_list, {"tile-name.ll-luna-plain"})
         end
       if not luna_conditions.lowland then
         add_comma(restrictions_list)
-        table.insert(restrictions_list, "Luna lowlands")
+        table.insert(restrictions_list, {"tile-name.ll-luna-lowland"})
         end
       if not luna_conditions.mountain then
         add_comma(restrictions_list)
-        table.insert(restrictions_list, "Luna mountains")
+        table.insert(restrictions_list, {"tile-name.ll-luna-mountain"})
         end
       if not luna_conditions.foundation then
         add_comma(restrictions_list)
-        table.insert(restrictions_list, "Lunar foundations")
+        table.insert(restrictions_list, {"tile-name.ll-lunar-foundation"})
         end
       end
     if #restrictions_list > 1 then

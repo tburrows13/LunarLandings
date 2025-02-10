@@ -38,37 +38,35 @@ local function on_script_trigger_effect(event)
     force = entity.force,
     create_build_effect_smoke = false,
   }
-  Buckets.add(storage.oxygen_diffusers, entity.unit_number, {
+
+  local diffuser_data = {
     entity = entity,
     fluidbox = fluidbox,
     fluid_production_statistics = entity.force.get_fluid_production_statistics(entity.surface),
     position = position,
-  })
+  }
+  Buckets.add(storage.oxygen_diffusers, entity.unit_number, diffuser_data)
 
   script.register_on_object_destroyed(entity)
+
+  entity.energy = 1  -- Allows it to instantly go to working/insufficient-oxygen statuses
+  update_diffuser(diffuser_data.entity, diffuser_data.fluidbox, diffuser_data.fluid_production_statistics)
 end
 
 
 local function on_entity_built(event)
-  local entity = event.created_entity or event.entity
-  -- TODO event filters
+  local entity = event.entity
   if not entity.valid then return end
   if entity.surface.name ~= "luna" then return end
 
-  if entity.name == "ll-oxygen-diffuser" then
-    local assemblers = entity.get_beacon_effect_receivers()
-    for _, assembler in pairs(assemblers) do
-      if assembler.type == "assembling-machine" and oxygen_machines[assembler.name] then
-        -- Enable entities now covered by diffuser
-        assembler.active = true
-      end
-    end
+  --if entity.name == "ll-oxygen-diffuser" then
 
-  elseif entity.type == "assembling-machine" and oxygen_machines[entity.name] then
+  if entity.type == "assembling-machine" and oxygen_machines[entity.name] then
     if not affected_by_oxygen_diffuser(entity) then
-      entity.active = false
+      entity.disabled_by_script = true
+      entity.custom_status = {diode = defines.entity_status_diode.red, label = {"custom-entity-status.ll-requires-oxygen-diffuser-nearby"}}
       if event.name == defines.events.on_built_entity then
-        local player = game.get_player(event.player_index)
+        local player = game.get_player(event.player_index)  ---@cast player -?
         player.create_local_flying_text{text = {"ll-console-info.requires-oxygen"}, position = entity.position}
       end
     end
@@ -84,7 +82,8 @@ local function on_entity_removed(event)
       if assembler.type == "assembling-machine" and oxygen_machines[assembler.name]
         and not affected_by_oxygen_diffuser(assembler, unit_number) then
         -- Disable entities which are no longer covered by diffuser
-        assembler.active = false
+        assembler.disabled_by_script = true
+        assembler.custom_status = {diode = defines.entity_status_diode.red, label = {"custom-entity-status.ll-requires-oxygen-diffuser-nearby"}}
       end
     end
   end
@@ -101,9 +100,9 @@ local function on_object_destroyed(event)
   end
 end
 
-local function update_diffuser(entity, fluidbox, fluid_production_statistics)
+function update_diffuser(diffuser, fluidbox, fluid_production_statistics)
   -- Check activity of machines in range, then remove the appropriate amount of oxygen
-  local assemblers = entity.get_beacon_effect_receivers()
+  local assemblers = diffuser.get_beacon_effect_receivers()
 
   if not next(assemblers) then return end
 
@@ -125,10 +124,13 @@ local function update_diffuser(entity, fluidbox, fluid_production_statistics)
   end
 
   -- Diffuser has no power
-  if entity.energy == 0 then 
+  if diffuser.energy == 0 then
     for _, assembler in pairs(assemblers) do
-      assembler.active = false
+      assembler.disabled_by_script = true
+      assembler.custom_status = {diode = defines.entity_status_diode.red, label = {"custom-entity-status.ll-requires-oxygen"}}
     end
+    diffuser.disabled_by_script = false
+    diffuser.custom_status = nil
     return
   end
 
@@ -136,14 +138,20 @@ local function update_diffuser(entity, fluidbox, fluid_production_statistics)
   local oxygen_in_fluidbox = fluidbox.get_fluid_count("ll-oxygen")
   if oxygen_in_fluidbox >= oxygen_required then
     for _, assembler in pairs(assemblers) do
-      assembler.active = true
+      assembler.disabled_by_script = false
+      assembler.custom_status = nil
     end
     fluidbox.remove_fluid{name = "ll-oxygen", amount = oxygen_required}
     fluid_production_statistics.on_flow("ll-oxygen", -oxygen_required)
+    diffuser.disabled_by_script = false
+    diffuser.custom_status = {diode = defines.entity_status_diode.green, label = {"entity-status.working"}}
   else
     for _, assembler in pairs(assemblers) do
-      assembler.active = false
+      assembler.disabled_by_script = true
+      assembler.custom_status = {diode = defines.entity_status_diode.red, label = {"custom-entity-status.ll-requires-oxygen"}}
     end
+    diffuser.disabled_by_script = true
+    diffuser.custom_status = {diode = defines.entity_status_diode.red, label = {"custom-entity-status.ll-insufficient-oxygen-supply"}}
   end
 end
 

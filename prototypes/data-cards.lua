@@ -12,7 +12,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-data-cards",
     order = "a",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2.5 * kg,
   },
   {
     type = "item",
@@ -21,7 +22,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-data-cards",
     order = "b",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2.5 * kg,
   },
   {
     type = "item",
@@ -30,7 +32,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-data-cards",
     order = "c",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2.5 * kg,
   },
   {
     type = "item",
@@ -39,7 +42,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-data-cards",
     order = "d",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2.5 * kg,
   },
   {
     type = "item",
@@ -48,7 +52,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-data-cards",
     order = "e",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2.5 * kg,
   },
   {
     type = "recipe-category",
@@ -116,8 +121,6 @@ data:extend{
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
         icon_size = 64,
-        scale = 0.3,
-        shift = {-8, 8},
       }
     },
     subgroup = "ll-data-cards",

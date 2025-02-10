@@ -7,12 +7,12 @@ Lunar Landings is a completely standalone mod. Some parts may look similar becau
 Lunar Landings is _significantly_ shorter and easier. No changes are made to vanilla until chemical science, and only 2 new science packs are added (compared to SE's 22).
 
 ### How does this compare to [Space Age](https://factorio.com/blog/post/fff-373)?
-Lunar Landings shares a similar design philosophy to the upcoming Space Age expansion in that it adds a specific named planet, with its own challenges and limitations, and is a natural extension of vanilla gameplay. It is likely that LL and SA will be compatible in the future.
+Lunar Landings shares a similar design philosophy to the upcoming Space Age expansion in that it adds a specific named planet, with its own challenges and limitations, and is a natural extension of vanilla gameplay. LL and SA will be compatible in the future.
 
 # Information
 
 ## Features
-- Cheaper rocket silo, with reusable rocket parts
+- Cheaper & smaller rocket silo, with reusable rocket parts
 - Moon rock, processed into silicon, stone, and oxygen
 - Oxygen diffusers, provide oxygen to nearby machines
 - Ice, can be mined and melted to provide water
@@ -23,13 +23,11 @@ Lunar Landings shares a similar design philosophy to the upcoming Space Age expa
 - Astrocrystals, processed into quantum things...
 
 ## Other mods
-Alien Biomes is a required mod because it contains some decoratives that Lunar Landings uses for the Luna surface. Included is an "Earth-like Nauvis" map gen preset which reduces some things that are more alien-looking. You can also turn off tile-based movement penalties in mod settings.
-
-Lunar Landings is not compatible with any other overhaul mods. It will probably be compatible with [Freight Forwarding](https://mods.factorio.com/mod/FreightForwarding) and Space Age in the future. If you would like to contribute compatibility with another mod, please get in touch.
+Lunar Landings is not compatible with any other overhaul mods. If you would like to contribute compatibility with another mod, please get in touch.
 
 If you want additional complexity, consider adding [AAI Industry](https://mods.factorio.com/mod/aai-industry) or [Planetfall's ores and intermediates mods](https://mods.factorio.com/user/planetfall). These mods are compatible, but may not have been as thoroughly tested for bugs and balance.
 
-Also incompatible with beacon overhaul mods such as [Beacon Rebalance](https://mods.factorio.com/mod/wret-beacon-rebalance-mod) for technical reasons, due to the implementation of LL's oxygen diffusers. This may be possible to resolve in the future, but on the other hand I might not bother due to 2.0's upcoming beacon rebalance anyway. If you want to try a beacon overhaul, [Alternative Beacons](https://mods.factorio.com/mod/alternative-beacons) is compatible.
+Also incompatible with beacon overhaul mods such as [Beacon Rebalance](https://mods.factorio.com/mod/wret-beacon-rebalance-mod) for technical reasons, due to the implementation of LL's oxygen diffusers. If you want to try a beacon overhaul, [Alternative Beacons](https://mods.factorio.com/mod/alternative-beacons) is compatible.
 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
@@ -46,13 +44,16 @@ Thank you to [Galdoc](https://mods.factorio.com/user/Galdoc) for the rich moon r
 Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon) for the mass driver requester graphics from [Spidertron Logistics System](https://mods.factorio.com/mod/spidertron-logistics).
 Thank you to [Malcolm Riley](https://github.com/malcolmriley/unused-renders) for the red mud and ice icon.
 Thank you to [Frontrider](https://mods.factorio.com/user/Frontrider) for the mass driver technology icon and for adapting the ice icon.
-Thank you to [RedRafe](https://mods.factorio.com/user/RedRafe), [Stringweasel](https://mods.factorio.com/user/Stringweasel) and [Quezler](https://mods.factorio.com/user/Quezler) for various code contributions.
+Thank you to [notnotmelon](https://mods.factorio.com/user/notnotmelon), [RedRafe](https://mods.factorio.com/user/RedRafe), [Stringweasel](https://mods.factorio.com/user/Stringweasel) and [Quezler](https://mods.factorio.com/user/Quezler) for various code contributions.
 Thank you to all who have playtested this mod on my discord, especially [fgardt](https://mods.factorio.com/user/fgardt)!
 
 "Equatorial Complex", "Lightless Dawn", "Mesmerizing Galaxy Loop"
 Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 3.0
 http://creativecommons.org/licenses/by/3.0/
+
+Other tracks composed for LL by FluidNatalie
+https://mods.factorio.com/user/FluidNatalie
 
 ---
 If anyone would like to contribute better graphics, please get in touch! See [this spreadsheet](https://docs.google.com/spreadsheets/d/1FhgrZ515K0LOmLnjiVnLSTErVAsyBAdzu2bxaOg-TPY/edit?usp=sharing) for a current list of assets that could do with replacing.

@@ -1,3 +1,6 @@
+BASE_ONLY = not script.active_mods["space-age"]
+SPACE_AGE = not BASE_ONLY
+
 local handler = require "event_handler"
 gui = require "__LunarLandings__.scripts.gui-lite"
 

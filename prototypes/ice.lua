@@ -8,13 +8,14 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.25 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice.png",   scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-2.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/ice-3.png", scale = 0.5 },
     },
     subgroup = "raw-resource",
     order = "h[moon]-d[ice]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 1 * kg
   },
   {
     type = "resource",
@@ -24,7 +25,7 @@ data:extend{
     flags = {"placeable-neutral"},
     category = "ll-core",
     subgroup = "raw-resource",
-    order="a-b-a",
+    order = "a-c-c",
     selection_priority = 49,
     highlight = true,
     infinite = true,

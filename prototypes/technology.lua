@@ -11,17 +11,6 @@ x_util.remove_prerequisite("processing-unit", "chemical-science-pack")
 x_util.add_prerequisite("processing-unit", "ll-luna-automation")
 x_util.add_prerequisite("processing-unit", "ll-moon-rock-processing")
 
-data.raw.technology["rocket-silo"].unit.count = 500
-x_util.remove_prerequisite("rocket-silo", "speed-module-3")
-x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
-x_util.remove_prerequisite("rocket-silo", "utility-science-pack")
-x_util.add_prerequisite("rocket-silo", "low-density-structure")
-x_util.add_prerequisite("rocket-silo", "rocket-control-unit")
-x_util.add_prerequisite("rocket-silo", "electric-engine")
-x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
-x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
-x_util.remove_recipe_effect("rocket-silo", "satellite")
-
 x_util.add_prerequisite("production-science-pack", "ll-heat-shielding")
 
 x_util.add_prerequisite("power-armor-mk2", "ll-quantum-computing")
@@ -32,12 +21,6 @@ x_util.add_prerequisite("spidertron", "ll-space-science-pack")
 x_util.remove_prerequisite("spidertron", "rocket-control-unit")
 
 x_util.remove_prerequisite("atomic-bomb", "rocket-control-unit")
-
-x_util.remove_prerequisite("space-science-pack", "rocket-silo")
-x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
-x_util.remove_recipe_effect("space-science-pack", "satellite")
-x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
---data.raw.technology["space-science-pack"].unit.count = 3000  -- TODO 2.0
 
 data:extend{
   {
@@ -76,32 +59,6 @@ data:extend{
   },
   {
     type = "technology",
-    name = "ll-used-rocket-part-recycling",
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64,
-    effects =
-    {
-      {
-        type = "unlock-recipe",
-        recipe = "ll-used-rocket-part-recycling"
-      },
-    },
-    prerequisites = {"ll-luna-exploration"},
-    unit =
-    {
-      count = 500,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-      },
-      time = 30
-    },
-    order = "c-o-a"
-  },
-  {
-    type = "technology",
     name = "ll-luna-exploration",
     icons = util.technology_icon_constant_planet("__LunarLandings__/graphics/technology/luna.png"),
     essential = true,
@@ -114,17 +71,32 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ll-landing-pad"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "rocket-part-down"
+        recipe = "ll-rocket-part-down"
       }
     },
-    prerequisites = {"rocket-silo"},
+    prerequisites = {BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo"},
     research_trigger = {
       type = "send-item-to-orbit",
-      item = "rocket-silo"
+      item = "ll-landing-pad"
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
+    name = "ll-reusable-rockets",
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-used-rocket-part-recycling"
+      },
+    },
+    prerequisites = {"ll-luna-exploration"},
+    research_trigger = {
+      type = "build-entity",
+      entity = "cargo-landing-pad"
     },
     order = "c-o-a"
   },
@@ -141,32 +113,17 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ll-moon-rock-processing-with-oxygen"
+        recipe = "ll-oxygen-extraction"
       },
-      --[[{
-        type = "unlock-recipe",
-        recipe = "ll-moon-rock-processing-with-helium"
-      },]]
-      --[[{
-        type = "unlock-recipe",
-        recipe = "ll-moon-rock-processing-with-oxygen-helium"
-      },]]
       {
         type = "unlock-recipe",
         recipe = "ll-silicon"
       },
     },
-    prerequisites = {"ll-luna-exploration", "advanced-material-processing-2"},
-    unit =
-    {
-      count = 150,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-      },
-      time = 30
+    prerequisites = {"ll-reusable-rockets", "advanced-material-processing-2"},
+    research_trigger = {
+      type = "mine-entity",
+      entity = "ll-moon-rock"
     },
     order = "c-o-a"
   },
@@ -224,7 +181,7 @@ data:extend{
         recipe = "ll-lunar-foundation"
       }
     },
-    prerequisites = {"ll-luna-exploration"},
+    prerequisites = {"ll-reusable-rockets"},
     unit =
     {
       count = 150,
@@ -254,7 +211,7 @@ data:extend{
         recipe = "ll-melt-ice"
       },
     },
-    prerequisites = {"advanced-material-processing-2", "ll-luna-exploration"},
+    prerequisites = {"advanced-material-processing-2", "ll-reusable-rockets"},
     unit =
     {
       count = 150,
@@ -378,17 +335,9 @@ data:extend{
       },
     },
     prerequisites = {"ll-arc-furnace"},
-    unit =
-    {
-      count = 150,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-      },
-      time = 30
+    research_trigger = {
+      type = "mine-entity",
+      entity = "ll-rich-moon-rock"
     },
     order = "c-o-a"
   },
@@ -398,6 +347,7 @@ data:extend{
     name = "ll-space-data-collection",
     icon = "__space-exploration-graphics__/graphics/technology/telescope.png",
     icon_size = 128,
+    prerequisites = {"advanced-circuit", "ll-luna-automation"},
     effects =
     {
       {
@@ -422,8 +372,6 @@ data:extend{
       },
 
     },
-    --prerequisites = {"utility-science-pack", "production-science-pack"},
-    prerequisites = {"advanced-circuit"},
     unit =
     {
       count = 150,
@@ -432,8 +380,6 @@ data:extend{
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
         {"chemical-science-pack", 1},
-        --{"production-science-pack", 1},
-        --{"utility-science-pack", 1},
       },
       time = 30
     },
@@ -544,17 +490,9 @@ data:extend{
         recipe = "ll-astrocrystal-processing"
       }
     },
-    unit =
-    {
-      count = 300,
-      ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        --{"utility-science-pack", 1},
-      },
-      time = 30
+    research_trigger = {
+      type = "mine-entity",
+      entity = "ll-astrocrystals"
     },
     order = "c-a"
   },
@@ -723,39 +661,6 @@ data:extend{
   },
   {
     type = "technology",
-    name = "ll-interstellar-rocket-silo",
-    icon = "__space-exploration-graphics__/graphics/technology/probe-rocket.png",
-    icon_size = 128,
-    essential = true,
-    prerequisites = {"ll-quantum-science-pack"},
-    effects =
-    {
-      {
-        type = "unlock-recipe",
-        recipe = "ll-rocket-silo-interstellar"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "rocket-part-interstellar"
-      },
-    },
-    unit =
-    {
-      count = 3000,
-      ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        {"utility-science-pack", 1},
-        {"ll-space-science-pack", 1}
-      },
-      time = 60
-    },
-    order = "c-a"
-  },
-  {
-    type = "technology",
     name = "ll-research-productivity-1",
     icons = util.technology_icon_constant_productivity("__base__/graphics/technology/research-speed.png"),
     icon_size = 256,
@@ -813,5 +718,4 @@ data:extend{
     upgrade = true,
     order = "c-a"
   },
-
 }

@@ -143,6 +143,7 @@ data:extend{
     place_result = "ll-landing-pad",
     order = "n[landing-pad]",
     subgroup = "space-related",
+    weight = 50 * kg,
   },
   {
     type = "recipe",

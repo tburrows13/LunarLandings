@@ -6,14 +6,15 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-2.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-3.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-4.png", scale = 0.25 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore.png",   scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-2.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-3.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/aluminium-ore-4.png", scale = 0.5 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-c[aluminium-ore]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2 * kg
   },
   {
     type = "item",
@@ -22,7 +23,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
     order = "c[alumina]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 4 * kg,
   },
   {
     type = "item",
@@ -31,7 +33,8 @@ data:extend{
     icon_size = 128,
     subgroup = "ll-raw-material-moon",
     order = "d[aluminium-plate]",
-    stack_size = 100
+    stack_size = 100,
+    weight = 2 * kg,
   },
   {
     type = "fluid",
@@ -100,8 +103,6 @@ data:extend{
       {
         icon = "__LunarLandings__/graphics/icons/recycle.png",
         icon_size = 64,
-        scale = 0.3,
-        shift = {-8, 8},
       }
     },
     category = "chemistry",
@@ -144,7 +145,7 @@ data:extend{
     },
     category = "crafting",
     subgroup = "intermediate-product",
-    order = "o[low-density-structure]-a",
+    order = "d[rocket-parts]-a[low-density-structure]-a[aluminium]",
     energy_required = 20,
     enabled = false,
     ingredients =
@@ -155,7 +156,6 @@ data:extend{
     },
     results = {{type="item", name="low-density-structure", amount=1}},
     main_product = "",
-    order = "o[low-density-structure]-a",
     allow_productivity = true,
   },
 }

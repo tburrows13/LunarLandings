@@ -22,6 +22,7 @@ for _, force in pairs(game.forces) do
 end
 
 storage.satellites_launched = nil
+storage.satellite_cursors = nil
 
 if game.surfaces["luna"] then
   game.planets["luna"].associate_surface("luna")

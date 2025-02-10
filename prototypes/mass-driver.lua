@@ -13,7 +13,7 @@ data:extend{
       {type="item", name="rocket-control-unit", amount=1},
       {type="item", name="ll-heat-shielding", amount=1},
       {type="item", name="ll-aluminium-plate", amount=3},
-      {type="fluid", name="ll-rocket-fuel", amount=5}
+      {type="item", name="rocket-fuel", amount=1}
     },
     results = {{type="item", name="ll-mass-driver-capsule", amount=1}},
   },
@@ -54,6 +54,7 @@ data:extend{
     name = "ll-mass-driver-requester",
     icon = "__LunarLandings__/graphics/icons/mass-driver-requester.png",
     icon_size = 64,
+    trash_inventory_size = 18,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "ll-mass-driver-requester"},
     max_health = 350,
@@ -147,6 +148,7 @@ data:extend{
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "ll-mass-driver"},
     max_health = 1000,
+    trash_inventory_size = 18,
     corpse = "artillery-turret-remnants",
     dying_explosion = "artillery-turret-explosion",
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
@@ -232,5 +234,11 @@ data:extend{
     },
     call_for_help_radius = 1,
   },
-
+  {
+    type = "sound",
+    name = "ll-mass-driver-kaboom",
+    category = "explosion",
+    filename = "__LunarLandings__/sound/mass-driver-kaboom.ogg",
+    speed = 0.7
+  }
 }

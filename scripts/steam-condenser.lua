@@ -242,7 +242,7 @@ function SteamCondenser.reset_condenser_connections()
   for _, surface in pairs(game.surfaces) do
     local turbines = surface.find_entities_filtered{type = "generator", name = "steam-turbine"}
     for _, turbine in pairs(turbines) do
-      on_entity_built{created_entity = turbine}
+      on_entity_built{entity = turbine}
     end
   end
   for _, condenser_list in pairs(steam_condensers.list) do

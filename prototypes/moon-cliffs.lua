@@ -62,7 +62,7 @@ data:extend{
   {
     type = "cliff",
     name = "ll-luna-cliff",
-    icon = "__base__/graphics/icons/cliff.png",
+    icon = "__LunarLandings__/graphics/icons/cliff.png",
     icon_size = 64,
     subgroup = "cliffs",
     flags = {"placeable-neutral"},

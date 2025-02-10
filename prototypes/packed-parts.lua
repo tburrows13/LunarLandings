@@ -33,7 +33,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-packed-rocket-ingredients",
     order = "n[rocket-control-unit]",
-    stack_size = 4
+    stack_size = 10,
+    weight = 25*kg,
   },
   {
     type = "recipe",
@@ -80,7 +81,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-packed-rocket-ingredients",
     order = "o[low-density-structure]",
-    stack_size = 4
+    stack_size = 10,
+    weight = 25*kg,
   },
   {
     type = "recipe",
@@ -127,7 +129,8 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-packed-rocket-ingredients",
     order = "q[low-density-structure]",
-    stack_size = 4
+    stack_size = 10,
+    weight = 25*kg,
   },
   {
     type = "recipe",

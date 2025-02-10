@@ -1,0 +1,12 @@
+{
+  "item":
+  [
+    ["rocket-part-down", "ll-rocket-part-down"],
+    ["rocket-part-interstellar", "ll-rocket-part-interstellar"]
+  ],
+  "recipe":
+  [
+    ["rocket-part-down", "ll-rocket-part-down"],
+    ["rocket-part-interstellar", "ll-rocket-part-interstellar"]
+  ]
+}

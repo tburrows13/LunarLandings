@@ -24,12 +24,13 @@ data:extend{
     type = "assembling-machine",
     name = "ll-steam-condenser",
     flags = { "placeable-neutral", "placeable-player", "player-creation" },
-    minable = { mining_time = 0.5, result = "ll-steam-condenser" },        
+    minable = { mining_time = 0.5, result = "ll-steam-condenser" },
     max_health = 150,
     corpse = "medium-remnants",
 
     collision_box = {{ -1.3, -1.3 }, { 1.3, 1.3 }},
     selection_box = {{ -1.5, -1.5 }, { 1.5, 1.5 }},
+    drawing_box_vertical_extension = 2.5,
     fluid_boxes =
     {
       {
@@ -37,14 +38,14 @@ data:extend{
         --pipe_picture = bery0zas.functions.pipe_pictures(),  -- TODO
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = { 1, -1 } }},
+        pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = { -1, 1 } }},
       },
       {
         production_type = "input",  -- TODO 2.0 make linked connection?
         --pipe_picture = bery0zas.functions.pipe_pictures(),
         --pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = { 0, -0.35 } }},
+        pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = { 0, 0.35 } }},
         hide_connection_info = true,
       },
       {
@@ -52,7 +53,7 @@ data:extend{
         --pipe_picture = bery0zas.functions.pipe_pictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{ flow_direction = "output", direction = defines.direction.north, position = { -1, -1 } }},
+        pipe_connections = {{ flow_direction = "output", direction = defines.direction.south, position = { 1, 1 } }},
       }
     },
 
@@ -77,7 +78,7 @@ data:extend{
     graphics_set = {
       animation =
       {
-        east =
+        west =
         {
           layers =
           {
@@ -89,7 +90,7 @@ data:extend{
               frame_count = 1,
               animation_speed = 1.0,
               line_length = 1,
-              shift = util.by_pixel(31, -33),
+              shift = util.by_pixel(32, -33),
               scale = 0.5
             },
             {
@@ -101,12 +102,12 @@ data:extend{
               animation_speed = 1.0,
               line_length = 1,
               draw_as_shadow = true,
-              shift = util.by_pixel(31, -33),
+              shift = util.by_pixel(32, -33),
               scale = 0.5
             }
           }
         },
-        north =
+        south =
         {
           layers =
           {
@@ -135,7 +136,7 @@ data:extend{
             }
           }
         },      
-        west =
+        east =
         {
           layers =
           {
@@ -164,7 +165,7 @@ data:extend{
             }
           }
         },
-        south =
+        north =
         {
           layers =
           {
@@ -205,7 +206,7 @@ data:extend{
       },
       distance = 5.5,
     },
-    
+
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     working_sound =

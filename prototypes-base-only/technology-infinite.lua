@@ -1,4 +1,3 @@
-
 local infinite_mining_productivity = data.raw.technology["mining-productivity-4"]
 infinite_mining_productivity.name = "mining-productivity-6"
 infinite_mining_productivity.prerequisites = {"mining-productivity-5", "space-science-pack"}

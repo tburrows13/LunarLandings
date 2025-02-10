@@ -29,7 +29,8 @@ data:extend{
     subgroup = "space-related",
     order = "o[oxygen-diffuser]",
     place_result = "ll-oxygen-diffuser",
-    stack_size = 10
+    stack_size = 10,
+    weight = 50 * kg,
   },
   {
     type = "beacon",

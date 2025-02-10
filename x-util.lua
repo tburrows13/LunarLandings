@@ -192,4 +192,15 @@ function x_util.set_item_subgroup_order(subgroup_name, order)
   item_subgroup.order = order
 end
 
+
+function x_util.scale_sprite(sprite, scale)
+  sprite.scale = (sprite.scale or 0.5) * scale
+  sprite.shift = {sprite.shift[1] * scale, sprite.shift[2] * scale}
+end
+
+function x_util.scale_offset(offset, scale)
+  offset[1] = offset[1] * scale
+  offset[2] = offset[2] * scale
+end
+
 return x_util

@@ -2,12 +2,13 @@ local rich_moon_rock = table.deepcopy(data.raw.resource["stone"])
 
 rich_moon_rock.name = "ll-rich-moon-rock"
 rich_moon_rock.minable.result = "ll-rich-moon-rock"
+rich_moon_rock.order = "a-c-b"
 
 rich_moon_rock.icon = "__LunarLandings__/graphics/icons/rich-moon-rock.png"
 rich_moon_rock.stages = {
   sheet =
   {
-    filename = "__LunarLandings__/graphics/moon-rock/moon-rock.png",  -- TODO 2.0 reset back to rich-moon-rock.png
+    filename = "__LunarLandings__/graphics/moon-rock/rich-moon-rock.png",
     priority = "extra-high",
     size = 128,
     frame_count = 8,
@@ -15,6 +16,7 @@ rich_moon_rock.stages = {
     scale = 0.5
   }
 }
+rich_moon_rock.factoriopedia_simulation =  { init = make_resource("ll-rich-moon-rock") }
 
 rich_moon_rock.map_color = {r=0.9, g=0.9, b=1}
 
@@ -31,14 +33,15 @@ data:extend{
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.25 },
-      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.25 }
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock.png",   scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-1.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-2.png", scale = 0.5 },
+      { size = 64, filename = "__LunarLandings__/graphics/icons/rich-moon-rock-3.png", scale = 0.5 }
     },
     subgroup = "raw-resource",
     order = "h[moon]-b[rich-moon-rock]",
-    stack_size = 50
+    stack_size = 50,
+    weight = 2 * kg
   },
   {
     type = "recipe",
