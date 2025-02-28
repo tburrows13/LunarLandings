@@ -17,8 +17,6 @@ data.raw.technology["space-science-pack"].research_trigger = {
 x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 x_util.remove_recipe_effect("space-science-pack", "satellite")
-x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
---data.raw.technology["space-science-pack"].unit.count = 3000  -- TODO 2.0
 
 data:extend{
   {
@@ -37,6 +35,10 @@ data:extend{
       {
         type = "unlock-recipe",
         recipe = "ll-rocket-part-interstellar"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-interstellar-satellite"
       },
     },
     unit =

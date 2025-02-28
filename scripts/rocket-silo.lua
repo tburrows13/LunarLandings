@@ -374,6 +374,14 @@ local function on_rocket_launched(event)
         victorious_force = rocket.force
       }
     end
+
+    local cargo_pod = event.rocket.cargo_pod  ---@cast cargo_pod -?
+    local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast inventory -?
+    if inventory.get_item_count("ll-interstellar-satellite") > 0 then
+      inventory.remove({name = "ll-interstellar-satellite", count = 100})
+      inventory.insert({name = "space-science-pack", count= 1000})
+      cargo_pod.cargo_pod_destination = {type = defines.cargo_destination.surface, surface = "nauvis"}
+    end
     return
   end
 

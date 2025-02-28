@@ -68,6 +68,7 @@ rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.
 
 local cargo_pod_interstellar = table.deepcopy(data.raw["cargo-pod"]["cargo-pod"])
 cargo_pod_interstellar.name = "ll-interstellar-cargo-pod"
+cargo_pod_interstellar.order = "c[cargo-pod]-c[interstellar]"
 
 
 data:extend{
