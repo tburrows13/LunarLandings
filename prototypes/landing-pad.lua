@@ -205,7 +205,6 @@ data:extend{
     },
     collision_box = {{-2.7, -2.7}, {2.7, 2.7}},
     selection_box = {{-3, -3}, {3, 3}},
-    flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    se_allow_in_space = true,
+    flags = {"placeable-neutral", "placeable-player", "player-creation", "no-automated-item-insertion"},
   }
 }
