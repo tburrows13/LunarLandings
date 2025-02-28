@@ -50,6 +50,8 @@ rocket_silo_interstellar.base_front_sprite = {
     },
   }
 }
+rocket_silo_interstellar.circuit_connector = circuit_connector_definitions["rocket-silo"]
+rocket_silo_interstellar.circuit_wire_max_distance = default_circuit_wire_max_distance
 
 local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
 rocket_interstellar.name = "ll-interstellar-rocket"

@@ -48,6 +48,19 @@ rocket_silo.fluid_boxes = {
 }
 rocket_silo.fluid_boxes_off_when_no_fluid_recipe = true
 
+data.raw["rocket-silo"]["rocket-silo"].circuit_connector = circuit_connector_definitions.create_vector
+(
+  universal_connector_template,
+  {
+    { variation = 25, main_offset = util.by_pixel(48.5 * scale, 104 * scale), shadow_offset = util.by_pixel(75.5 * scale, 129 * scale), show_shadow = true },
+    { variation = 25, main_offset = util.by_pixel(48.5 * scale, 104 * scale), shadow_offset = util.by_pixel(75.5 * scale, 129 * scale), show_shadow = true }, -- unused but RocketSilo derives from AssemblingMachine which requires 4 connectors
+    { variation = 25, main_offset = util.by_pixel(48.5 * scale, 104 * scale), shadow_offset = util.by_pixel(75.5 * scale, 129 * scale), show_shadow = true }, -- also unused
+    { variation = 25, main_offset = util.by_pixel(48.5 * scale, 104 * scale), shadow_offset = util.by_pixel(75.5 * scale, 129 * scale), show_shadow = true }  -- also unused
+  }
+)
+
+data.raw["rocket-silo"]["rocket-silo"].circuit_wire_max_distance = default_circuit_wire_max_distance
+
 -- Reduce size from 9x9 to 7x7
 rocket_silo.collision_box = {{-3.20, -3.20}, {3.20, 3.20}}
 rocket_silo.selection_box = {{-3.5, -3.5}, {3.5, 3.5}}

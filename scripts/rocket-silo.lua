@@ -1,6 +1,6 @@
 local Buckets = require "scripts.buckets"
 
----@alias AutoLaunch "none" | "any" | "full"
+---@alias AutoLaunch "none" | "full" | "circuit"
 
 ---@class RocketSiloData
 ---@field entity LuaEntity
@@ -75,15 +75,19 @@ local function build_gui(player, silo)
                     tooltip = {"gui-rocket-silo.auto-launch-tooltip"}
                   },
                   {
-                    type = "radiobutton", name = "ll-auto-launch-none", caption = {"gui-rocket-silo.auto-launch-none"}, state = silo_data.auto_launch == "none",
+                    type = "radiobutton", name = "ll-auto-launch-none", caption = {"gui-rocket-silo.auto-launch-none"},
+                    state = silo_data.auto_launch == "none",
                     handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                   },
                   {
-                    type = "radiobutton", name = "ll-auto-launch-any", caption = {"gui-rocket-silo.auto-launch-any"}, state = silo_data.auto_launch == "any",
+                    type = "radiobutton", name = "ll-auto-launch-full", caption = {"gui-rocket-silo.auto-launch-full"},
+                    state = silo_data.auto_launch == "full",
                     handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                   },
                   {
-                    type = "radiobutton", name = "ll-auto-launch-full", caption = {"gui-rocket-silo.auto-launch-full"}, state = silo_data.auto_launch == "full",
+                    type = "radiobutton", name = "ll-auto-launch-circuit", caption = {"", {"gui-rocket-silo.auto-launch-circuit"}, " [img=info]"},
+                    tooltip = {"gui-rocket-silo.auto-launch-circuit-tooltip"},
+                    state = silo_data.auto_launch == "circuit",
                     handler = {[defines.events.on_gui_checked_state_changed] = RocketSilo.auto_launch_changed},
                   },
                 }
@@ -118,16 +122,16 @@ end
 function RocketSilo.auto_launch_changed(player, element, silo, silo_data, silo_gui_data)
   if element.name == "ll-auto-launch-none" then
     silo_data.auto_launch = "none"
-    silo_gui_data["ll-auto-launch-any"].state = false
     silo_gui_data["ll-auto-launch-full"].state = false
-  elseif element.name == "ll-auto-launch-any" then
-    silo_data.auto_launch = "any"
-    silo_gui_data["ll-auto-launch-none"].state = false
-    silo_gui_data["ll-auto-launch-full"].state = false
+    silo_gui_data["ll-auto-launch-circuit"].state = false
   elseif element.name == "ll-auto-launch-full" then
     silo_data.auto_launch = "full"
     silo_gui_data["ll-auto-launch-none"].state = false
-    silo_gui_data["ll-auto-launch-any"].state = false
+    silo_gui_data["ll-auto-launch-circuit"].state = false
+  elseif element.name == "ll-auto-launch-circuit" then
+    silo_data.auto_launch = "circuit"
+    silo_gui_data["ll-auto-launch-none"].state = false
+    silo_gui_data["ll-auto-launch-full"].state = false
   end
 end
 
@@ -152,8 +156,8 @@ local function update_gui(player, silo)
   local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
   local gui_elements = storage.rocket_silo_guis[player.index]
   gui_elements["ll-auto-launch-none"].state = silo_data.auto_launch == "none"
-  gui_elements["ll-auto-launch-any"].state = silo_data.auto_launch == "any"
   gui_elements["ll-auto-launch-full"].state = silo_data.auto_launch == "full"
+  gui_elements["ll-auto-launch-circuit"].state = silo_data.auto_launch == "circuit"
   gui_elements["ll-destination-dropdown"].visible = silo.name ~= "ll-rocket-silo-interstellar"
 end
 
@@ -209,7 +213,7 @@ local function on_rocket_silo_built(event)
 
   Buckets.add(storage.rocket_silos, entity.unit_number, {
     entity = entity,
-    auto_launch = "none",  -- "none", "any", "full"
+    auto_launch = "none",  -- "none", "full", "circuit"
     destination = get_surface_destination_name(entity.surface.name),
   })
 end
@@ -291,15 +295,16 @@ local function on_tick(event)
       Buckets.remove(storage.rocket_silos, unit_number)
     else
       if silo.rocket_silo_status == defines.rocket_silo_status.rocket_ready then
-        if silo_data.auto_launch == "any" then
-          local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
-          if not inventory.is_empty() then
-            launch_if_destination_has_space(silo_data, #inventory - inventory.count_empty_stacks(true, true))
-          end
-        elseif silo_data.auto_launch == "full" then
+        if silo_data.auto_launch == "full" then
           local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
           if not inventory_has_weight_capacity_remaining(inventory) or inventory.is_full() then
             launch_if_destination_has_space(silo_data, #inventory - inventory.count_empty_stacks())
+          end
+        elseif silo_data.auto_launch == "circuit" then
+          local launch_signal = silo.get_signal({type="virtual", name="signal-check"}, defines.wire_connector_id.circuit_red, defines.wire_connector_id.circuit_green)
+          if launch_signal > 0 then
+            local inventory = silo.get_inventory(defines.inventory.rocket_silo_rocket)
+            launch_if_destination_has_space(silo_data, #inventory - inventory.count_empty_stacks(true, true))
           end
         end
       end
@@ -381,12 +386,12 @@ local function on_rocket_launched(event)
         create_build_effect_smoke = false,
       }   ---@cast return_cargo_pod -?
       local return_inventory = return_cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast return_inventory -?
-      game.print(return_inventory.insert({name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED}))
+      return_inventory.insert({name = "ll-used-rocket-part", count = NAUVIS_ROCKET_SILO_PARTS_REQUIRED})
       return_cargo_pod.cargo_pod_destination = {type = defines.cargo_destination.surface, surface = "nauvis"}
       return_cargo_pod.force_finish_ascending()
     elseif rocket.surface.name == "luna" then
       local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast inventory -?
-      game.print(inventory.insert({name = "ll-used-rocket-part", count = LUNA_ROCKET_SILO_PARTS_REQUIRED}))
+      inventory.insert({name = "ll-used-rocket-part", count = LUNA_ROCKET_SILO_PARTS_REQUIRED})
     end
   end
 end
