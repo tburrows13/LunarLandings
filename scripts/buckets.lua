@@ -1,65 +1,116 @@
 local DEFAULT_INTERVAL = 60
 
+---@class BucketsLib
 local Buckets = {}
 
+---@alias BucketID number
+---@alias EntryID any
+---@alias EntryValue any
+
+---@alias Bucket<K, V> table<K, V>
+
+---@generic K, V
+---@class Buckets<K, V>
+---@field list table<BucketID, table>
+---@field interval number
+
+---@generic K, V
+---@param interval number?
+---@return Buckets<K, V>
 function Buckets.new(interval)
-  local bucket = { list = {}, interval = interval or DEFAULT_INTERVAL }
-  return bucket
+  local buckets = { list = {}, interval = interval or DEFAULT_INTERVAL }
+  return buckets
 end
 
-function Buckets.add(bucket, id, data)
-  local bucket_id = id % bucket.interval
-  bucket.list[bucket_id] = bucket.list[bucket_id] or {}
-  bucket.list[bucket_id][id] = data or {}
+---Add an entry to the buckets object
+---@generic K, V
+---@param buckets Buckets<K, V>
+---@param id EntryID
+---@param data EntryValue
+function Buckets.add(buckets, id, data)
+  local bucket_id = id % buckets.interval
+  buckets.list[bucket_id] = buckets.list[bucket_id] or {}
+  buckets.list[bucket_id][id] = data or {}
 end
 
-function Buckets.get(bucket, id)
+--- Retrieve entry given ID
+---@generic K, V
+---@param buckets Buckets<K, V>
+---@param id K
+---@return V
+function Buckets.get(buckets, id)
+  local bucket_id = id % buckets.interval
+  local bucket_data = buckets.list[bucket_id]
+  return bucket_data[id]
+end
+
+--- Retrieve entry using id or `nil` if doesn't exist
+---@generic K, V
+---@param buckets Buckets<K, V>
+---@param id K
+---@return V?
+function Buckets.get_optional(buckets, id)
   if not id then return end
-  local bucket_id = id % bucket.interval
-  local bucket_data = bucket.list[bucket_id]
+  local bucket_id = id % buckets.interval
+  local bucket_data = buckets.list[bucket_id]
   return bucket_data and bucket_data[id]
 end
 
-function Buckets.remove(bucket, id)
+---@generic K, V
+---@param buckets Buckets<K, V>
+---@param id K
+function Buckets.remove(buckets, id)
   if not id then return end
-  local bucket_id = id % bucket.interval
-  if bucket.list[bucket_id] then
-    bucket.list[bucket_id][id] = nil
+  local bucket_id = id % buckets.interval
+  if buckets.list[bucket_id] then
+    buckets.list[bucket_id][id] = nil
   end
 end
 
-function Buckets.get_bucket(bucket, id)
-  local bucket_id = id % bucket.interval
-  bucket.list[bucket_id] = bucket.list[bucket_id] or {}
-  return bucket.list[bucket_id]
+---@generic K, V
+---@param buckets Buckets<K, V>
+---@param id K
+---@return table<K, V>
+function Buckets.get_bucket(buckets, id)
+  local bucket_id = id % buckets.interval
+  buckets.list[bucket_id] = buckets.list[bucket_id] or {}
+  return buckets.list[bucket_id]
 end
 
-function Buckets.reallocate(bucket, new_interval)
+---@generic K, V
+---@param buckets Buckets<K, V>
+---@param new_interval number?
+function Buckets.reallocate(buckets, new_interval)
   local tmp = {}
-  if bucket.interval == new_interval then
+  if buckets.interval == new_interval then
     return
   end
 
-  for b_id=0, bucket.interval do
-    local bucket_data = bucket.list[b_id]
+  for b_id=0, buckets.interval do
+    local bucket_data = buckets.list[b_id]
     for id, data in pairs(bucket_data or {}) do
       tmp[id] = data
     end
-    bucket.list[b_id] = nil
+    buckets.list[b_id] = nil
   end
 
-  bucket.interval = new_interval or DEFAULT_INTERVAL
+  buckets.interval = new_interval or DEFAULT_INTERVAL
   for id, data in pairs(tmp) do
-    Buckets.add(bucket, id, data)
+    Buckets.add(buckets, id, data)
   end
 end
 
+--- Convert existing `tbl` into a Buckets object
+---@generic K, V
+---@param tbl table
+---@param interval number
+---@return Buckets<K, V>
 function Buckets.migrate(tbl, interval)
-  local bucket = Buckets.new(interval)
+  local buckets = Buckets.new(interval)
   for id, data in pairs(tbl) do
-    Buckets.add(bucket, id, data)
+    Buckets.add(buckets, id, data)
   end
-  return bucket
+  return buckets
 end
 
 return Buckets

@@ -119,4 +119,16 @@ data.raw.recipe["rocket-silo"].ingredients =
 
 data.raw["cargo-landing-pad"]["cargo-landing-pad"].localised_name = {"entity-name.ll-cargo-landing-pad"}
 data.raw["cargo-landing-pad"]["cargo-landing-pad"].localised_description = {"entity-description.ll-cargo-landing-pad"}
+data.raw["cargo-landing-pad"]["cargo-landing-pad"].inventory_size = 120
 data.raw["cargo-landing-pad"]["cargo-landing-pad"].ll_surface_conditions = {nauvis = true, luna = false}
+for _, hatch in pairs(data.raw["cargo-landing-pad"]["cargo-landing-pad"].cargo_station_parameters.hatch_definitions) do
+  hatch.receiving_cargo_units = {"ll-rocket-part-cargo-pod"}
+end
+
+local rocket_part_cargo_pod = table.deepcopy(data.raw["cargo-pod"]["cargo-pod"])
+rocket_part_cargo_pod.name = "ll-rocket-part-cargo-pod"
+rocket_part_cargo_pod.inventory_size = 20
+data:extend{rocket_part_cargo_pod}
+
+data.raw["cargo-pod"]["cargo-pod"].inventory_size = 25
+data.raw["temporary-container"]["cargo-pod-container"].inventory_size = 25

@@ -9,7 +9,7 @@ rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
 rocket_silo_interstellar.rocket_parts_required = INTERSTELLAR_ROCKET_PARTS_REQUIRED
 rocket_silo_interstellar.fixed_recipe = "ll-rocket-part-interstellar"
-rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
+rocket_silo_interstellar.rocket_entity = "ll-interstellar-rocket"
 rocket_silo_interstellar.ll_surface_conditions = {nauvis = false, luna = true}
 
 rocket_silo_interstellar.base_day_sprite = {layers = {
@@ -50,8 +50,8 @@ rocket_silo_interstellar.base_front_sprite = {
 }
 
 local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
-rocket_interstellar.name = "ll-rocket-interstellar"
-rocket_interstellar.cargo_pod_entity = "ll-cargo-pod-interstellar"
+rocket_interstellar.name = "ll-interstellar-rocket"
+rocket_interstellar.cargo_pod_entity = "ll-interstellar-cargo-pod"
 rocket_interstellar.inventory_size = 1
 rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
 {
@@ -63,7 +63,7 @@ rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.
 })
 
 local cargo_pod_interstellar = table.deepcopy(data.raw["cargo-pod"]["cargo-pod"])
-cargo_pod_interstellar.name = "ll-cargo-pod-interstellar"
+cargo_pod_interstellar.name = "ll-interstellar-cargo-pod"
 
 
 data:extend{

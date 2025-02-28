@@ -1,7 +1,16 @@
----@type ScriptLib
 local LandingPad = {}
 
+---@alias SurfaceName string
+---@alias LandingPadName string
 
+---@class LandingPadData
+---@field entity LuaEntity
+---@field name string
+---@field surface_name string
+---@field cargo_pods_targeting table<UnitNumber, LuaEntity>
+
+---@param player LuaPlayer
+---@param name string
 local function build_gui(player, name)
   local anchor = {gui = defines.relative_gui_type.container_gui, position = defines.relative_gui_position.right, name = "ll-landing-pad"}
 
@@ -46,7 +55,7 @@ end
 
 gui.add_handlers(LandingPad,
   function(event, handler)
-    local player = game.get_player(event.player_index)
+    local player = game.get_player(event.player_index)  ---@cast player -?
     local entity = player.opened
     if not entity or not entity.valid then return end
     local entity_data = storage.landing_pads[entity.unit_number]
@@ -54,6 +63,9 @@ gui.add_handlers(LandingPad,
   end
 )
 
+---@param name LandingPadName
+---@param unit_number UnitNumber
+---@param surface_name SurfaceName
 function LandingPad.name_added(name, unit_number, surface_name)
   local names = storage.landing_pad_names[surface_name]
   if name ~= "Default" and names[name] and next(names[name]) then
@@ -66,6 +78,9 @@ function LandingPad.name_added(name, unit_number, surface_name)
   end
 end
 
+---@param name LandingPadName
+---@param unit_number UnitNumber
+---@param surface_name SurfaceName
 function LandingPad.name_removed(name, unit_number, surface_name)
   local names = storage.landing_pad_names[surface_name]
   if names[name] then
@@ -76,6 +91,21 @@ function LandingPad.name_removed(name, unit_number, surface_name)
   end
 end
 
+---@param landing_pad_unit_number UnitNumber
+---@param cargo_pod LuaEntity
+function LandingPad.register_targeting_cargo_pod(landing_pad_unit_number, cargo_pod)
+  local landing_pad_data = storage.landing_pads[landing_pad_unit_number]
+  if not landing_pad_data then return end
+  landing_pad_data.cargo_pods_targeting[cargo_pod.unit_number] = cargo_pod
+end
+
+---@param landing_pad_unit_number UnitNumber
+---@param cargo_pod LuaEntity
+function LandingPad.unregister_targeting_cargo_pod(landing_pad_unit_number, cargo_pod)
+  local landing_pad_data = storage.landing_pads[landing_pad_unit_number]
+  if not landing_pad_data then return end
+  landing_pad_data.cargo_pods_targeting[cargo_pod.unit_number] = nil
+end
 
 local function update_gui(player, name)
   local text_field = player.gui.relative["ll-landing-pad-relative-frame"].children[2].children[1].children[1]
@@ -86,7 +116,7 @@ local function on_gui_opened(event)
   local entity = event.entity
   if not entity or not entity.valid then return end
   if entity.name ~= "ll-landing-pad" then return end
-  local player = game.get_player(event.player_index)
+  local player = game.get_player(event.player_index)  ---@cast player -?
 
   --if player.gui.relative["ll-landing-pad-relative-frame"] then
   --  player.gui.relative["ll-landing-pad-relative-frame"].destroy()
@@ -125,7 +155,8 @@ local function on_built_entity(event)
   storage.landing_pads[entity.unit_number] = {
     entity = entity,
     name = "Default",
-    surface_name = entity.surface.name
+    surface_name = entity.surface.name,
+    cargo_pods_targeting = {}
   }
   LandingPad.name_added("Default", entity.unit_number, entity.surface.name)
   script.register_on_object_destroyed(entity)
@@ -150,8 +181,11 @@ LandingPad.events = {
 }
 
 LandingPad.on_init = function ()
+  ---@type table<UnitNumber, LandingPadData>
   storage.landing_pads = {}
+  ---@type table<SurfaceName, table<LandingPadName, table<UnitNumber, boolean>>>
   storage.landing_pad_names = {nauvis = {}, luna = {}}
+  ---@type table<PlayerIndex, table<string, any>>
   storage.landing_pad_guis = {}
 end
 
