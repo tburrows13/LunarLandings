@@ -6,7 +6,9 @@ local scale_sprite = x_util.scale_sprite
 local rocket_silo = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo.name = "ll-rocket-silo-up"
 rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}
-rocket_silo.localised_description = {"entity-description.ll-rocket-silo"}
+rocket_silo.localised_description = {"entity-description.ll-rocket-silo", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.factoriopedia_description = {"entity-description.ll-rocket-silo-rich-text", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.factoriopedia_alternative = "ll-rocket-silo-up"
 rocket_silo.minable.result = "ll-rocket-silo-up"
 rocket_silo.placeable_by = {item = "ll-rocket-silo-up", count = 1}
 rocket_silo.rocket_entity = "ll-small-rocket-silo-rocket"

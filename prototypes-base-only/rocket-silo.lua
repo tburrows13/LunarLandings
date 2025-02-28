@@ -8,6 +8,8 @@ local LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
 
 local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
 rocket_silo.localised_description = {"entity-description.ll-rocket-silo", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.factoriopedia_description = {"entity-description.ll-rocket-silo-rich-text", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.factoriopedia_alternative = "rocket-silo"
 rocket_silo.rocket_parts_required = NAUVIS_ROCKET_SILO_PARTS_REQUIRED
 rocket_silo.to_be_inserted_to_rocket_inventory_size = 20
 rocket_silo.fluid_boxes = {
