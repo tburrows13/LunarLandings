@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 28 February 2025
+  Features:
+    - Minimum factorio version increased to 2.0.35
+    - Cargo pods now visibly land into landing pads
+    - Rocket silos can now be connected to the circuit network and launched by signal
+  Changes:
+    - Inserters can no longer insert into landing pads
+    - Removed rocket silo "Auto-launch with any items" mode
+  Bugfixes:
+    - Fixed item spills when multiple rocket silos are targeting the same landing pad
+    - Fixed crash when removing rocket silo while its rocket is in flight
+    - Fixed rockets not launching even when there is some space in the destination landing pad
+    - Fixed progression softlock at the end of the tech tree
+  Compatibility:
+    - Added compatibility with Even Pickier Dollies
+---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 24 January 2025
   Changes:
