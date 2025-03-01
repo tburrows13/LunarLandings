@@ -36,13 +36,14 @@ data:extend{
   {
     type = "recipe",
     name = "rocket-control-unit",
-    energy_required = 30,
+    energy_required = 12,
     enabled = false,
     category = "circuit-crafting",
     ingredients =
     {
-      {type="item", name="advanced-circuit", amount=1},
-      {type="item", name="speed-module", amount=1},
+      {type="item", name="advanced-circuit", amount=2},
+      {type="item", name="electronic-circuit", amount=3},
+      {type="fluid", name="sulfuric-acid", amount=3},
     },
     results = {{type="item", name="rocket-control-unit", amount=1}},
     allow_productivity = true,

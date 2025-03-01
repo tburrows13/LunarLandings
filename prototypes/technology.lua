@@ -43,7 +43,7 @@ data:extend{
         recipe = "ll-unpack-rocket-control-unit"
       },
     },
-    prerequisites = {"chemical-science-pack", "speed-module"},
+    prerequisites = {"chemical-science-pack"},
     unit =
     {
       count = 300,
