@@ -151,7 +151,7 @@ data:extend{
     ingredients =
     {
       {type="item", name="steel-plate", amount=2},
-      {type="item", name="ll-aluminium-plate", amount=15},
+      {type="item", name="ll-aluminium-plate", amount=5},
       {type="item", name="plastic-bar", amount=5}
     },
     results = {{type="item", name="low-density-structure", amount=1}},
