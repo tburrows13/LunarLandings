@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+Date: 1 March 2025
+  Changes:
+    - Changed rocket control unit recipe to be cheaper and faster. It now requires electronic circuits, advanced circuits, and sulfuric acid
+    - Halved cost of Nauvis/Luna rocket parts
+    - Used rocket parts now stack to 10 and take half the time to recycle
+    - Interstellar rockets require twice as many quantum processors and nuclear fuel
+    - Improved LDS-from-aluminium recipe by reducing required aluminium from 15 to 5
+    - Reduced oxygen output from moon rock processing from 5 to 2
+  Bugfixes:
+    - Fixed error on load with Orbital Ion Cannon
+    - Fixed error in migration when loading pre-1.1.5 saves
+---------------------------------------------------------------------------------------------------
 Version: 1.1.5
 Date: 28 February 2025
   Features:
