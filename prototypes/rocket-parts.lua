@@ -19,6 +19,20 @@ rocket_part_recipe.ingredients = {
 }
 rocket_part_recipe.allow_productivity = false
 
+rocket_part_item.icon = nil
+rocket_part_item.icons = {
+  {
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64,
+  },
+  {
+    icon = "__base__/graphics/icons/nauvis.png",
+    icon_size = 64,
+    scale = 0.3,
+    shift = {6, 6},
+    draw_background = true,
+  }
+}
 rocket_part_item.localised_name = {"item-name.ll-rocket-part-up"}
 rocket_part_item.order = "o[rocket-part]-b"
 
@@ -77,8 +91,19 @@ data:extend{
   {
     type = "item",
     name = "ll-rocket-part-down",
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/rocket-part.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__LunarLandings__/graphics/icons/luna.png",
+        icon_size = 64,
+        scale = 0.3,
+        shift = {6, 6},
+        draw_background = true,
+      }
+    },
     subgroup = "intermediate-product",
     order = "o[rocket-part]-c",
     hidden = true,

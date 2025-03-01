@@ -2,7 +2,19 @@ local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 100
 
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
-rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png"
+rocket_silo_interstellar.icons = {
+  {
+    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
+    icon_size = 64,
+  },
+  {
+    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket.png",
+    icon_size = 64,
+    scale = 0.38,
+    shift = {0, -3},
+    draw_background = true,
+  }
+}
 rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
 rocket_silo_interstellar.localised_description = {"entity-description.ll-rocket-silo-interstellar", tostring(INTERSTELLAR_ROCKET_PARTS_REQUIRED)}
 rocket_silo_interstellar.factoriopedia_description = nil
@@ -78,8 +90,7 @@ data:extend{
   {
     type = "item",
     name = "ll-rocket-silo-interstellar",
-    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
-    icon_size = 64,
+    icons = table.deepcopy(rocket_silo_interstellar.icons),
     subgroup = "space-related",
     order = "x[interstellar-rocket-silo]",
     place_result = "ll-rocket-silo-interstellar",
@@ -105,8 +116,19 @@ data:extend{
     type = "item",
     name = "ll-rocket-part-interstellar",
     localised_name = {"item-name.ll-rocket-part-interstellar"},
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/rocket-part.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__space-exploration-graphics__/graphics/icons/probe-rocket.png",
+        icon_size = 64,
+        scale = 0.3,
+        shift = {6, 6},
+        draw_background = true,
+      }
+    },
     subgroup = "intermediate-product",
     order = "o[rocket-part]-d",
     hidden = true,
