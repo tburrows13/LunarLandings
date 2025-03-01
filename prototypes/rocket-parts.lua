@@ -13,9 +13,9 @@ if SPACE_AGE then
 end
 
 rocket_part_recipe.ingredients = {
-  {type="item", name="rocket-control-unit", amount=10},
-  {type="item", name="low-density-structure", amount=10},
-  {type="item", name="rocket-fuel", amount=5},
+  {type="item", name="rocket-control-unit", amount=5},
+  {type="item", name="low-density-structure", amount=5},
+  {type="fluid", name="ll-rocket-fuel", amount=25},
 }
 rocket_part_recipe.allow_productivity = false
 
@@ -41,7 +41,7 @@ data:extend{
     category = "circuit-crafting",
     ingredients =
     {
-      {type="item", name="advanced-circuit", amount=2},
+      {type="item", name="advanced-circuit", amount=3},
       {type="item", name="electronic-circuit", amount=3},
       {type="fluid", name="sulfuric-acid", amount=3},
     },
@@ -94,10 +94,10 @@ data:extend{
     category = "rocket-building",
     ingredients =
     {
-      {type="item", name="ll-heat-shielding", amount=10},
-      {type="item", name="low-density-structure", amount=10},
-      {type="item", name="rocket-control-unit", amount=10},
-      {type = "fluid", name = "steam", amount = 100, temperature = 500}
+      {type="item", name="ll-heat-shielding", amount=5},
+      {type="item", name="low-density-structure", amount=5},
+      {type="item", name="rocket-control-unit", amount=5},
+      {type = "fluid", name = "steam", amount = 50, temperature = 500}
     },
     results = {{type="item", name="ll-rocket-part-down", amount=1}}
   },
@@ -108,8 +108,8 @@ data:extend{
     icon_size = 64,
     subgroup = "intermediate-product",
     order = "o[rocket-part]-e",
-    stack_size = 1,
-    weight = (1000/50)*kg
+    stack_size = 10,
+    weight = (1000/20)*kg
   },
   {
     type = "recipe",
@@ -137,8 +137,8 @@ data:extend{
       {type="item", name="copper-plate", amount=5}
     },
     results = {
-      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 9},
-      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 9},
+      {type = "item", name = "rocket-control-unit", amount_min = 2, amount_max = 4},
+      {type = "item", name = "low-density-structure", amount_min = 2, amount_max = 4},
     },
     allow_productivity = true,
   },

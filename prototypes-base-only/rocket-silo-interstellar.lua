@@ -1,4 +1,4 @@
-local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 50
+local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 100
 
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
@@ -122,9 +122,9 @@ data:extend{
     category = "rocket-building-interstellar",
     ingredients =
     {
-      {type="item", name="ll-heat-shielding", amount=10},
-      {type="item", name="low-density-structure", amount=10},
-      {type="item", name="rocket-control-unit", amount=10},
+      {type="item", name="ll-heat-shielding", amount=5},
+      {type="item", name="low-density-structure", amount=5},
+      {type="item", name="rocket-control-unit", amount=5},
       {type="item", name="ll-quantum-processor", amount=1},
       {type="item", name="nuclear-fuel", amount=1},
     },
