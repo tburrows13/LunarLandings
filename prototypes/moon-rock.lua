@@ -62,11 +62,11 @@ data:extend{
     {
       {type="item", name="ll-moon-rock", amount=10},
     },
-    results=
+    results =
     {
       {type="item", name="ll-silica", amount=5},
       {type="item", name="stone", amount=5},
-      {type="fluid", name="ll-oxygen", amount=5, fluidbox_index = 1},
+      {type="fluid", name="ll-oxygen", amount=2, fluidbox_index = 1},
     },
     allow_productivity = true,
     subgroup = "ll-raw-material-moon",
