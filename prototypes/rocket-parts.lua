@@ -124,7 +124,7 @@ data:extend{
         icon_size = 64,
       }
     },
-    energy_required = 60,
+    energy_required = 30,
     enabled = false,
     subgroup = "intermediate-product",
     category = "crafting",
@@ -137,8 +137,8 @@ data:extend{
       {type="item", name="copper-plate", amount=5}
     },
     results = {
-      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 8},
-      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 8},
+      {type = "item", name = "rocket-control-unit", amount_min = 5, amount_max = 9},
+      {type = "item", name = "low-density-structure", amount_min = 5, amount_max = 9},
     },
     allow_productivity = true,
   },

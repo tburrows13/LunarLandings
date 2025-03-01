@@ -2,6 +2,7 @@ data.raw.technology["rocket-silo"].unit.count = 500
 x_util.remove_prerequisite("rocket-silo", "speed-module-3")
 x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
 x_util.remove_prerequisite("rocket-silo", "utility-science-pack")
+x_util.remove_prerequisite("rocket-silo", "electric-energy-accumulators")
 x_util.add_prerequisite("rocket-silo", "low-density-structure")
 x_util.add_prerequisite("rocket-silo", "rocket-control-unit")
 x_util.add_prerequisite("rocket-silo", "electric-engine")
