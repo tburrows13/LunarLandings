@@ -2,6 +2,7 @@ local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 100
 
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
+rocket_silo_interstellar.icon = nil
 rocket_silo_interstellar.icons = {
   {
     icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
@@ -130,7 +131,7 @@ data:extend{
       }
     },
     subgroup = "intermediate-product",
-    order = "o[rocket-part]-d",
+    order = "o[rocket-part]-e",
     hidden = true,
     stack_size = 5,
     weight = (1000/50)*kg

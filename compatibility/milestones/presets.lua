@@ -34,7 +34,7 @@ return {
       {type="fluid",      name="petroleum-gas",           quantity=1},
       {type="item",       name="construction-robot",      quantity=1},
       {type="technology", name="rocket-silo",             quantity=1},
-      {type="item",       name="rocket-part",             quantity=100},
+      {type="item",       name="ll-rocket-part-nauvis",             quantity=100},
       {type="technology", name="ll-luna-exploration",     quantity=1},
       {type="item",       name="ll-telescope",            quantity=100},
       {type="item",       name="spidertron",              quantity=1},

@@ -71,7 +71,7 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ll-rocket-part-down"
+        recipe = "ll-rocket-part-luna"
       }
     },
     prerequisites = {BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo"},

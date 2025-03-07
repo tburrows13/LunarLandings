@@ -10,7 +10,9 @@ local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
 rocket_silo.localised_description = {"entity-description.ll-rocket-silo", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
 rocket_silo.factoriopedia_description = {"entity-description.ll-rocket-silo-rich-text", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
 rocket_silo.factoriopedia_alternative = "rocket-silo"
+rocket_silo.crafting_categories = {"rocket-building-nauvis-luna"}
 rocket_silo.rocket_parts_required = NAUVIS_ROCKET_SILO_PARTS_REQUIRED
+rocket_silo.fixed_recipe = "ll-rocket-part-nauvis"
 rocket_silo.to_be_inserted_to_rocket_inventory_size = 20
 rocket_silo.fluid_boxes = {
   {
@@ -92,9 +94,8 @@ rocket_silo_down.name = "ll-rocket-silo-down"
 rocket_silo_down.localised_name = {"entity-name.ll-rocket-silo-down"}
 rocket_silo_down.minable.result = "rocket-silo"
 rocket_silo_down.placeable_by = {item = "rocket-silo", count = 1}
---rocket_silo_down.crafting_categories = {"rocket-building-luna"}
 rocket_silo_down.rocket_parts_required = LUNA_ROCKET_SILO_PARTS_REQUIRED
-rocket_silo_down.fixed_recipe = "ll-rocket-part-down"
+rocket_silo_down.fixed_recipe = "ll-rocket-part-luna"
 rocket_silo_down.hidden = true
 --table.insert(rocket_silo_down.flags, "not-in-made-in")
 data:extend{rocket_silo_down}
@@ -148,3 +149,6 @@ data:extend{rocket_part_cargo_pod}
 
 data.raw["cargo-pod"]["cargo-pod"].inventory_size = 25
 data.raw["temporary-container"]["cargo-pod-container"].inventory_size = 25
+
+data.raw.item["rocket-part"] = nil
+data.raw.recipe["rocket-part"] = nil

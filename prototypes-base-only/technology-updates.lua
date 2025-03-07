@@ -9,6 +9,11 @@ x_util.add_prerequisite("rocket-silo", "electric-engine")
 x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
 x_util.remove_recipe_effect("rocket-silo", "satellite")
+
+x_util.remove_recipe_effect("rocket-silo", "rocket-part")
+x_util.remove_recipe_effect("rocket-silo", "cargo-landing-pad")
+x_util.add_unlock("rocket-silo", "ll-rocket-part-nauvis")
+x_util.add_unlock("rocket-silo", "cargo-landing-pad")  -- Remove and then add so that it appears after rocket part
 x_util.add_unlock("rocket-silo", "ll-landing-pad")
 
 data.raw.technology["space-science-pack"].research_trigger = {
