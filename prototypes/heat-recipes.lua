@@ -32,11 +32,6 @@ for name, recipe in pairs(data.raw.recipe) do
       data:extend{heat_recipe}
     end
 
-    heat_recipe.allow_efficiency = false
     table.insert(heat_recipes, heat_recipe.name)
   end
-end
-local efficiency_modules = {"efficiency-module", "efficiency-module-2", "efficiency-module-3"}
-for _, module_name in pairs(efficiency_modules) do
-  data.raw.module[module_name].limitation_message_key = "efficiency-module-not-usable-on-heat-recipes"
 end

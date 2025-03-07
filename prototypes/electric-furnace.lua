@@ -64,7 +64,7 @@ data:extend{
       {type = "fluid", name = "water", amount = 200, fluidbox_index = 1},
     },
     main_product = "",
-    allow_efficiency = false,
+    allow_consumption = false,
   },
   {
     type = "recipe",
@@ -83,6 +83,6 @@ data:extend{
       {type = "fluid", name = "steam", amount = 20, temperature = 500, fluidbox_index = 1},
     },
     main_product = "",
-    allow_efficiency = false,
+    allow_consumption = false,
   },
 }
