@@ -13,6 +13,7 @@ local oxygen_machines = {
   ["chemical-plant"] = true,
   ["oil-refinery"] = true,
   ["centrifuge"] = true,
+  ["recycler"] = true,
 }
 
 local function affected_by_oxygen_diffuser(entity, ignore_unit_number)

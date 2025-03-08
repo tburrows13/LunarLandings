@@ -134,6 +134,11 @@ data:extend{
         light = {intensity = 0.5, size = 8, shift = {0.0, 0.0}, color = {r = 0.9, g = 1, b = 0.8}}
       },
     },]]
+    surface_conditions = {{
+      property = "gravity",
+      min = 1.5,
+      max = 1.5,
+    }},
     ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = true, foundation = false}}
   },
 }

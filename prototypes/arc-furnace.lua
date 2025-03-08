@@ -180,6 +180,11 @@ data:extend{
         }
       }
     },
+    surface_conditions = {{
+      property = "gravity",
+      min = 1.5,
+      max = 1.5,
+    }},
     ll_surface_conditions = {nauvis = false, luna = true},
   },
   {

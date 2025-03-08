@@ -16,6 +16,14 @@ ___________|||______________________________|______________/
 
 if not mods["elevated-rails"] then return end
 
+local function moon_only_surface_conditions()
+  return {{
+    property = "gravity",
+    min = 1.5,
+    max = 1.5,
+  }}
+end
+
 local moon_rails = data.raw["rail-planner"]["ll-moon-rail"].rails
 table.insert(moon_rails, "ll-moon-rail-ramp")
 table.insert(moon_rails, "ll-moon-elevated-straight-rail")
@@ -87,6 +95,7 @@ elevated_straight_rail.name = "ll-moon-elevated-straight-rail"
 elevated_straight_rail.minable.result = "ll-moon-rail"
 elevated_straight_rail.placeable_by.item = "ll-moon-rail"
 elevated_straight_rail.factoriopedia_alternative = "ll-moon-straight-rail"
+elevated_straight_rail.surface_conditions = moon_only_surface_conditions()
 elevated_straight_rail.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
 
 local half_diagonal_rail = table.deepcopy(data.raw["elevated-half-diagonal-rail"]["elevated-half-diagonal-rail"])
@@ -96,6 +105,7 @@ half_diagonal_rail.name = "ll-moon-elevated-half-diagonal-rail"
 half_diagonal_rail.minable.result = "ll-moon-rail"
 half_diagonal_rail.placeable_by.item = "ll-moon-rail"
 half_diagonal_rail.factoriopedia_alternative = "ll-moon-half-diagonal-rail"
+half_diagonal_rail.surface_conditions = moon_only_surface_conditions()
 half_diagonal_rail.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
 
 local elevated_curved_rail_a = table.deepcopy(data.raw["elevated-curved-rail-a"]["elevated-curved-rail-a"])
@@ -105,6 +115,7 @@ elevated_curved_rail_a.name = "ll-moon-elevated-curved-rail-a"
 elevated_curved_rail_a.minable.result = "ll-moon-rail"
 elevated_curved_rail_a.placeable_by.item = "ll-moon-rail"
 elevated_curved_rail_a.factoriopedia_alternative = "ll-moon-curved-rail-a"
+elevated_curved_rail_a.surface_conditions = moon_only_surface_conditions()
 elevated_curved_rail_a.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
 
 local elevated_curved_rail_b = table.deepcopy(data.raw["elevated-curved-rail-b"]["elevated-curved-rail-b"])
@@ -114,6 +125,7 @@ elevated_curved_rail_b.name = "ll-moon-elevated-curved-rail-b"
 elevated_curved_rail_b.minable.result = "ll-moon-rail"
 elevated_curved_rail_b.placeable_by.item = "ll-moon-rail"
 elevated_curved_rail_b.factoriopedia_alternative = "ll-moon-curved-rail-b"
+elevated_curved_rail_b.surface_conditions = moon_only_surface_conditions()
 elevated_curved_rail_b.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
 
 local rail_ramp = table.deepcopy(data.raw["rail-ramp"]["rail-ramp"])
@@ -123,6 +135,7 @@ rail_ramp.name = "ll-moon-rail-ramp"
 rail_ramp.minable.result = "ll-moon-rail-ramp"
 rail_ramp.support_range = rail_ramp.support_range * 2
 rail_ramp.factoriopedia_alternative = "ll-moon-rail-ramp"
+rail_ramp.surface_conditions = moon_only_surface_conditions()
 rail_ramp.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = false, foundation = true}}
 
 local rail_support = table.deepcopy(data.raw["rail-support"]["rail-support"])
@@ -133,6 +146,7 @@ rail_support.minable.result = "ll-moon-rail-support"
 rail_support.factoriopedia_alternative = "ll-moon-rail-support"
 rail_support.support_range = rail_support.support_range * 2
 rail_support.collision_mask_allow_on_deep_oil_ocean = nil
+rail_support.surface_conditions = moon_only_surface_conditions()
 rail_support.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
 
 data:extend {rail_ramp, rail_support, elevated_straight_rail, half_diagonal_rail, elevated_curved_rail_a, elevated_curved_rail_b}

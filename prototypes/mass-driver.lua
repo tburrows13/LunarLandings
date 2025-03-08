@@ -115,6 +115,11 @@ data:extend{
         }
       }
     },
+    surface_conditions = {{
+      property = "gravity",
+      min = 1.5,
+      max = 1.5,
+    }},
     ll_surface_conditions = {nauvis = false, luna = true},
   },
   {
@@ -193,6 +198,11 @@ data:extend{
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    surface_conditions = {{
+      property = "gravity",
+      min = 10,
+      max = 10,
+    }},
     ll_surface_conditions = {nauvis = true, luna = false},
   },
   {

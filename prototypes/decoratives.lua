@@ -131,7 +131,6 @@ for name, bucket in pairs(entity_rock_buckets) do
   rock.minable.results = {{type = "item", name = "ll-moon-rock", amount_min = entity_rock_results[rock.name][1], amount_max = entity_rock_results[rock.name][2]}}
   rock.loot = nil
   rock.autoplace = moon_rock_autoplace(bucket, lowland_entity_rock_buckets[name])
-  rock.ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   switch_filenames(rock.pictures)
   data:extend{rock}
 end
