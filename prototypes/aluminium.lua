@@ -157,5 +157,6 @@ data:extend{
     results = {{type="item", name="low-density-structure", amount=1}},
     main_product = "",
     allow_productivity = true,
+    auto_recycle = false,
   },
 }

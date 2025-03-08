@@ -10,7 +10,7 @@ local function require_base_only(filename)
 end
 
 local function require_space_age(filename)
-  if BASE_ONLY then
+  if SPACE_AGE then
     require("__LunarLandings__.prototypes-space-age." .. filename)
   end
 end
@@ -77,4 +77,5 @@ require "__LunarLandings__.prototypes.tips-and-tricks"
 require "__LunarLandings__.prototypes.menu-simulations"
 require "__LunarLandings__.prototypes.sounds"
 require "__LunarLandings__.prototypes.item-sounds"
+require_space_age "space-age-changes"
 --require "__LunarLandings__.prototypes.construction-bots"

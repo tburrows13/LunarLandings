@@ -1,4 +1,6 @@
 data.raw.tool["space-science-pack"].stack_size = 200
+data.raw.tool["space-science-pack"].localised_name = {"item-name.ll-interstellar-science-pack"}
+data.raw.tool["space-science-pack"].localised_description = {"item-description.ll-interstellar-science-pack"}
 
 data:extend{
   {

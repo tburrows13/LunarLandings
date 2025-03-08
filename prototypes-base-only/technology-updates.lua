@@ -16,6 +16,8 @@ x_util.add_unlock("rocket-silo", "ll-rocket-part-nauvis")
 x_util.add_unlock("rocket-silo", "cargo-landing-pad")  -- Remove and then add so that it appears after rocket part
 x_util.add_unlock("rocket-silo", "ll-landing-pad")
 
+data.raw.technology["space-science-pack"].localised_name = {"technology-name.ll-interstellar-science-pack"}
+data.raw.technology["space-science-pack"].localised_description = {"technology-description.ll-interstellar-science-pack"}
 data.raw.technology["space-science-pack"].research_trigger = {
   type = "send-item-to-orbit",
   item = "ll-interstellar-satellite"

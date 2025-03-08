@@ -3,6 +3,9 @@ local scale = 7 / 9  -- 0.77778
 local scale_offset = x_util.scale_offset
 local scale_sprite = x_util.scale_sprite
 
+local NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
+local LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
+
 local rocket_silo = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo.name = "ll-rocket-silo-up"
 rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}
@@ -89,7 +92,7 @@ scale_sprite(rocket_silo.base_front_sprite, scale)
 local rocket_silo_down = table.deepcopy(rocket_silo)
 rocket_silo_down.name = "ll-rocket-silo-down"
 rocket_silo_down.localised_name = {"entity-name.ll-rocket-silo-down"}
-rocket_silo_down.rocket_parts_required = 5
+rocket_silo_down.rocket_parts_required = LUNA_ROCKET_SILO_PARTS_REQUIRED
 rocket_silo_down.fixed_recipe = "ll-rocket-part-luna"
 table.insert(rocket_silo_down.flags, "not-in-made-in")
 data:extend{rocket_silo_down}
@@ -131,11 +134,11 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {type = "item", name = "steel-plate", amount = 1000},
-      {type = "item", name = "concrete", amount = 1000},
-      {type = "item", name = "pipe", amount = 100},
-      {type = "item", name = "processing-unit", amount = 200},
-      {type = "item", name = "electric-engine-unit", amount = 200}
+      {type="item", name="steel-plate", amount=200},
+      {type="item", name="concrete", amount=200},
+      {type="item", name="pipe", amount=20},
+      {type="item", name="advanced-circuit", amount=100},
+      {type="item", name="electric-engine-unit", amount=40}
     },
     energy_required = 30,
     results = {{type="item", name="ll-rocket-silo-up", amount=1}},

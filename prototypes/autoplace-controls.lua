@@ -5,7 +5,7 @@ data:extend(
     name = "ll-moon-rock",
     localised_name = {"", "[entity=ll-moon-rock] ", {"entity-name.ll-moon-rock"}},
     richness = true,
-    order = "d-a",
+    order = "a-z-a",
     category = "resource"
   },
   {
@@ -13,7 +13,7 @@ data:extend(
     name = "ll-ice",
     localised_name = {"", "[entity=ll-ice] ", {"entity-name.ll-ice"}},
     richness = true,
-    order = "d-b",
+    order = "a-z-b",
     category = "resource"
   },
   {
@@ -21,7 +21,7 @@ data:extend(
     name = "ll-rich-moon-rock",
     localised_name = {"", "[entity=ll-rich-moon-rock] ", {"entity-name.ll-rich-moon-rock"}},
     richness = true,
-    order = "d-c",
+    order = "a-z-c",
     category = "resource"
   },
   {
@@ -29,7 +29,7 @@ data:extend(
     name = "ll-astrocrystals",
     localised_name = {"", "[entity=ll-astrocrystals] ", {"entity-name.ll-astrocrystals"}},
     richness = true,
-    order = "d-d",
+    order = "a-z-d",
     category = "resource",
   },
 }
