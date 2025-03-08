@@ -1,6 +1,13 @@
 x_util.add_prerequisite("planet-discovery-aquilo", "ll-space-science-pack")
 x_util.add_prerequisite("quantum-processor", "ll-quantum-science-pack")
 x_util.add_unlock("space-platform-thruster", "ll-processing-unit-without-silicon")
+
+x_util.add_effect("processing-unit-productivity", {
+  type = "change-recipe-productivity",
+  recipe = "ll-processing-unit-without-silicon",
+  change = 0.1
+})
+
 data:extend{
   {
     type = "technology",

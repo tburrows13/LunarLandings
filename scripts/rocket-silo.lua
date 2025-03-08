@@ -437,9 +437,10 @@ local function on_cargo_pod_finished_descending(event)
     if stack and stack.valid_for_read then
       local inserted = landing_pad_inventory.insert(stack)
       if inserted < stack.count then
+        stack.count = stack.count - inserted
         cargo_pod.surface.spill_item_stack{
           position = destination_data.entity.position,
-          stack = {name = stack.name, count = stack.count - inserted},
+          stack = stack,
           allow_belts = false,
         }
       end

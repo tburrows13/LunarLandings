@@ -1,3 +1,4 @@
+data.raw.item["ll-ice"].localised_name = {"item-name.ll-compressed-ice"}
 data.raw.item["ll-quantum-processor"].localised_name = {"item-name.ll-quantum-circuit"}
 x_util.add_ingredient("quantum-processor", "ll-quantum-processor", 1)
 
