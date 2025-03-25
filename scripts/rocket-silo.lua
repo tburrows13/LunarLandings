@@ -378,11 +378,21 @@ local function on_rocket_launched(event)
     local cargo_pod = event.rocket.cargo_pod  ---@cast cargo_pod -?
     local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast inventory -?
     if inventory.get_item_count("ll-interstellar-satellite") > 0 then
+      if not rocket.force.technologies["space-science-pack"].researched then
+        rocket.force.technologies["space-science-pack"].researched = true
+      end
       inventory.remove({name = "ll-interstellar-satellite", count = 100})
       inventory.insert({name = "space-science-pack", count= 1000})
       cargo_pod.cargo_pod_destination = {type = defines.cargo_destination.surface, surface = "nauvis"}
     end
     return
+  end
+
+  if rocket.name == "rocket-silo-rocket" and not rocket.force.technologies["ll-luna-exploration"].researched then
+    local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast inventory -?
+    if inventory.get_item_count("ll-landing-pad") > 0 then
+      rocket.force.technologies["ll-luna-exploration"].researched = true
+    end
   end
 
   if rocket.name == "rocket-silo-rocket" and rocket.force.technologies["ll-reusable-rockets"].researched then
