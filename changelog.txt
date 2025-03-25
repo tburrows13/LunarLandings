@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+Date: 25 March 2025
+  Bugfixes:
+    - Fixed crash when placing steam turbine
+    - Fixed send-item-to-space research triggers not working
+---------------------------------------------------------------------------------------------------
 Version: 1.1.6
 Date: 1 March 2025
   Changes:
