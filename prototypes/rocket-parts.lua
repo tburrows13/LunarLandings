@@ -119,7 +119,7 @@ data:extend{
       {type="item", name="ll-heat-shielding", amount=5},
       {type="item", name="low-density-structure", amount=5},
       {type="item", name="rocket-control-unit", amount=5},
-      {type = "fluid", name = "steam", amount = 50, temperature = 500}
+      {type = "fluid", name = "steam", amount = 200, temperature = 500}
     },
     results = {{type="item", name="ll-rocket-part-luna", amount=1}}
   },

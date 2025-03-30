@@ -104,7 +104,7 @@ local function on_entity_built(event)
     end
     if next(condensers) then
       local condenser_unit_number = condensers[1].unit_number
-      local condenser_data = Buckets.get(storage.steam_condensers, condenser_unit_number)
+      local condenser_data = Buckets.get_optional(storage.steam_condensers, condenser_unit_number)
       if condenser_data then
         condenser_data.turbines[entity.unit_number] = entity
         turbine_data.condenser = condenser_unit_number

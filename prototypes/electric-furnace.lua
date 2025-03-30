@@ -61,7 +61,7 @@ data:extend{
     energy_required = 20,
     ingredients = {{type="item", name="ll-ice", amount=1}},
     results = {
-      {type = "fluid", name = "water", amount = 200, fluidbox_index = 1},
+      {type = "fluid", name = "water", amount = 100, fluidbox_index = 1},
     },
     main_product = "",
     allow_consumption = false,
@@ -77,10 +77,10 @@ data:extend{
     order = "a[fluid]-b[steam]",
     energy_required = 30,
     ingredients = {
-      {type = "fluid", name = "water", amount = 20},
+      {type = "fluid", name = "water", amount = 15},
     },
     results = {
-      {type = "fluid", name = "steam", amount = 20, temperature = 500, fluidbox_index = 1},
+      {type = "fluid", name = "steam", amount = 150, temperature = 500, fluidbox_index = 1},
     },
     main_product = "",
     allow_consumption = false,

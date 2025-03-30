@@ -171,7 +171,7 @@ data:extend({
     energy_required = 12,
     enabled = false,
     category = "centrifuging",
-    ingredients = {{type="item", name="ll-astrocrystals", amount=4}, {type="fluid", name="steam", amount=10}},
+    ingredients = {{type="item", name="ll-astrocrystals", amount=4}, {type="fluid", name="steam", amount=60}},
     icon = "__LunarLandings__/graphics/item/raw-imersite/raw-imersite.png",
     icon_size = 64,
     subgroup = "ll-raw-material-moon",
