@@ -316,12 +316,14 @@ end
 local function on_rocket_launch_ordered(event)
   local silo = event.rocket_silo
 
-  -- Remove interstellar satellite from rocket if it isn't an interstellar rocket
-  if silo.name == "ll-rocket-silo-interstellar" then return end
-  local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast inventory -?
-  local removed = inventory.remove({name = "ll-interstellar-satellite", count = 100})
-  if removed > 0 then
-    game.print({"ll-console-info.interstellar-satellite-removed"})
+  if BASE_ONLY then
+    -- Remove interstellar satellite from rocket if it isn't an interstellar rocket
+    if silo.name == "ll-rocket-silo-interstellar" then return end
+    local inventory = event.rocket.cargo_pod.get_inventory(defines.inventory.cargo_unit)  ---@cast inventory -?
+    local removed = inventory.remove({name = "ll-interstellar-satellite", count = 100})
+    if removed > 0 then
+      game.print({"ll-console-info.interstellar-satellite-removed"})
+    end
   end
 
   local silo_data = Buckets.get(storage.rocket_silos, silo.unit_number)
@@ -360,7 +362,7 @@ end
 ---@param event EventData.on_rocket_launched
 local function on_rocket_launched(event)
   local rocket = event.rocket
-  if rocket.name == "ll-interstellar-rocket" then
+  if BASE_ONLY and rocket.name == "ll-interstellar-rocket" then
     -- Win the game
     if game.finished or game.finished_but_continuing or storage.finished then return end
     storage.finished = true
