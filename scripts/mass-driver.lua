@@ -188,6 +188,7 @@ local function on_mass_driver_built(event)
 end
 
 local function on_object_destroyed(event)
+  if event.type ~= defines.target_type.entity then return end
   local entity_data = Buckets.get(storage.mass_drivers, event.useful_id)
   if not entity_data then return end
 

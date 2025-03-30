@@ -163,6 +163,7 @@ local function on_built_entity(event)
 end
 
 local function on_object_destroyed(event)
+  if event.type ~= defines.target_type.entity then return end
   local entity_data = storage.landing_pads[event.useful_id]
   if not entity_data then return end
 

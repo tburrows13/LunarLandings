@@ -91,6 +91,7 @@ local function on_entity_removed(event)
 end
 
 local function on_object_destroyed(event)
+  if event.type ~= defines.target_type.entity then return end
   local diffuser_data = Buckets.get(storage.oxygen_diffusers, event.useful_id)
 
   if diffuser_data then

@@ -119,7 +119,7 @@ end
 
 ---@param event EventData.on_object_destroyed
 local function on_object_destroyed(event)
-  if not event.useful_id then return end  -- entity was tree/rock
+  if event.type ~= defines.target_type.entity then return end
   -- Condenser destroyed
   local condenser_data = Buckets.get(storage.steam_condensers, event.useful_id)
   if condenser_data then
