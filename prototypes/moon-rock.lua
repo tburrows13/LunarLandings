@@ -88,7 +88,7 @@ data:extend{
     },
     results=
     {
-      {type="item", name="ll-moon-rock", amount_min=6, amount_max=9},
+      {type="item", name="ll-moon-rock", amount_min=6, amount_max=9, ignored_by_productivity=9},
       {type="fluid", name="ll-oxygen", amount=40, fluidbox_index = 1},
     },
     allow_productivity = false,

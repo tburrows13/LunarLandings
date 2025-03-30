@@ -63,7 +63,7 @@ data:extend{
     results =
     {
       {type="item", name="ll-alumina", amount=5},
-      {type="fluid", name="ll-red-mud", amount_min=5, amount_max=15, fluidbox_index=1},
+      {type="fluid", name="ll-red-mud", amount_min=5, amount_max=15, fluidbox_index=1, ignored_by_productivity=15},
     },
     main_product = "ll-alumina",
     --[[icon = "__LunarLandings__/graphics/icons/moon-rock.png",
