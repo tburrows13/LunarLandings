@@ -637,7 +637,7 @@ data:extend{
     name = "ll-quantum-module",
     icon = "__LunarLandings__/graphics/technology/quantum-module.png",
     icon_size = 256,
-    prerequisites = {"ll-quantum-science-pack"},
+    prerequisites = {"ll-quantum-science-pack", "speed-module-3", "efficiency-module-3", "productivity-module-3"},
     effects =
     {
       {
