@@ -64,7 +64,7 @@ data:extend({
       "not-repairable"
     },
     max_health = 600,
-    collision_box = {{-size/2+0.23, -size/2+0.23},{size/2-0.23, size/2-0.23}},
+    collision_box = {{-size/2+0.25, -size/2+0.25},{size/2-0.25, size/2-0.25}},
     selection_box = {{-size/2, -size/2}, {size/2, size/2}},
     --enable_gui = false,
     energy_source = {
