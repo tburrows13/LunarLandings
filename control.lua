@@ -31,6 +31,7 @@ handler.add_libraries{
   LandingPad,
   require "scripts.rtg",
   require "scripts.oxygen-diffuser",
+  require "scripts.ion-robots",
   require "scripts.steam-condenser",
   require "scripts.arc-furnace",
   require "scripts.mass-driver",

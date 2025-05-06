@@ -189,7 +189,8 @@ data:extend{
     corpse = "storage-tank-remnants",
     --dying_explosion = "storage-tank-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
-    --selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    selection_priority = 1,
     collision_mask = {layers={}},
     --damaged_trigger_effect = hit_effects.entity(),
     fluid_box =

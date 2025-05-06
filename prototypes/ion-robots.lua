@@ -57,6 +57,9 @@ data:extend{
   },
 }
 
+local ion_roboport_pipe_pictures = assembler2pipepictures()
+ion_roboport_pipe_pictures.north = util.empty_sprite()
+
 data:extend{
   {
     type = "logistic-robot",
@@ -201,8 +204,8 @@ data:extend{
     max_health = 500,
     corpse = "roboport-remnants",  -- TODO big-remnants ?
     dying_explosion = "roboport-explosion",  -- TODO medium-explosion?
-    collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
-    selection_box = {{-2, -2}, {2, 2}},
+    collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     damaged_trigger_effect = hit_effects.entity(),
     resistances =
     {
@@ -243,8 +246,8 @@ data:extend{
           filename = "__LunarLandings__/graphics/entities/ion-robot/ion-roboport-base.png",
           width = 512,
           height = 512,
-          scale = 0.3,
-          --shift = util.by_pixel(2, -2.25),
+          scale = 0.39,
+          shift = util.by_pixel(0, 5),
         },
         --[[{
           filename = "__base__/graphics/entity/roboport/roboport-shadow.png",
@@ -282,7 +285,7 @@ data:extend{
       priority = "medium",
       width = 512,
       height = 512,
-      scale = 0.3,
+      scale = 0.39,
       line_length = 5,
       animation_speed = 0.5,
       frame_count = 5,
@@ -294,7 +297,7 @@ data:extend{
       priority = "medium",
       width = 512,
       height = 512,
-      scale = 0.3,
+      scale = 0.39,
       line_length = 5,
       animation_speed = 0.5,
       frame_count = 5,
@@ -354,7 +357,61 @@ data:extend{
       },
       rotate = false,
       orientation_to_variation = false
-    }
+    },
+    created_effect = {
+      type = "direct",
+      action_delivery = {
+        type = "instant",
+        source_effects = {
+          {
+            type = "script",
+            effect_id = "ll-ion-roboport-created",
+          },
+        }
+      }
+    },
   },
-
+  {
+    type = "storage-tank",
+    name = "ll-ion-roboport-fluidbox",
+    icon = "__base__/graphics/icons/storage-tank.png",
+    icon_size = 64,
+    flags = {"placeable-player", "player-creation"},
+    hidden = true,
+    --minable = {mining_time = 0.5, result = "storage-tank"},
+    max_health = 500,
+    corpse = "storage-tank-remnants",
+    --dying_explosion = "storage-tank-explosion",
+    collision_box = {{-2.3, -2.3}, {2.3, 2.3}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    selection_priority = 1,
+    collision_mask = {layers={}},
+    --damaged_trigger_effect = hit_effects.entity(),
+    fluid_box =
+    {
+      volume = 400,
+      pipe_picture = ion_roboport_pipe_pictures,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        { direction = defines.direction.east, position = {2, 0} },
+        { direction = defines.direction.west, position = {-2, 0} },
+        { direction = defines.direction.south, position = {0, 2} },
+        { direction = defines.direction.north, position = {0, -2} }
+      },
+      hide_connection_info = false,
+      filter = "ll-oxygen"
+    },
+    --two_direction_only = true,
+    window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
+    pictures =
+    {
+      picture = util.empty_sprite(),
+      fluid_background = util.empty_sprite(),
+      window_background = util.empty_sprite(),
+      flow_sprite = util.empty_sprite(),
+      gas_flow = util.empty_sprite(1),
+    },
+    flow_length_in_ticks = 360,
+  },
 }
