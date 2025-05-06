@@ -8,7 +8,7 @@ local make_simulation = function(duration, planet, filename, script)
   return
   {
     checkboard = false,
-    save = "__LunarLandings__/menu-simulations/" .. filename,
+    save = "__LunarLandings__/simulations/" .. filename,
     length = duration,
     init =
     [[
