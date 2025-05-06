@@ -193,7 +193,7 @@ function OxygenDiffuser.on_init()
 end
 
 function OxygenDiffuser.on_configuration_changed()
-  storage.oxygen_diffusers = storage.oxygen_diffusers or {}
+  storage.oxygen_diffusers = storage.oxygen_diffusers or Buckets.new()
 end
 
 return OxygenDiffuser
