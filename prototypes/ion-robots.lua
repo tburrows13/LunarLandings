@@ -30,6 +30,30 @@ data:extend{
   },
   {
     type = "recipe",
+    name = "ll-ion-construction-robot",
+    enabled = true,
+    ingredients =
+    {
+      {type = "item", name = "flying-robot-frame", amount = 1},
+      {type = "item", name = "electronic-circuit", amount = 2}
+    },
+    results = {{type="item", name="ll-ion-construction-robot", amount=1}}
+  },
+  {
+    type = "item",
+    name = "ll-ion-construction-robot",
+    icon = "__LunarLandings__/graphics/icons/ion-construction-robot.png",
+    subgroup = "logistic-network",
+    order = "a[robot]-b[construction-robot]",
+    inventory_move_sound = item_sounds.robotic_inventory_move,
+    pick_sound = item_sounds.robotic_inventory_pickup,
+    drop_sound = item_sounds.robotic_inventory_move,
+    place_result = "ll-ion-construction-robot",
+    stack_size = 50,
+    random_tint_color = item_tints.iron_rust
+  },
+  {
+    type = "recipe",
     name = "ll-ion-roboport",
     enabled = true,  -- TODO fix
     energy_required = 5,
@@ -56,6 +80,77 @@ data:extend{
     random_tint_color = item_tints.iron_rust
   },
 }
+
+local sparks =
+{
+  {
+    filename = "__base__/graphics/entity/sparks/sparks-01.png",
+    draw_as_glow = true,
+    width = 39,
+    height = 34,
+    frame_count = 19,
+    line_length = 19,
+    shift = {-0.109375, 0.3125},
+    tint = {1.0, 0.9, 0.0, 1.0},
+    animation_speed = 0.3
+  },
+  {
+    filename = "__base__/graphics/entity/sparks/sparks-02.png",
+    draw_as_glow = true,
+    width = 36,
+    height = 32,
+    frame_count = 19,
+    line_length = 19,
+    shift = {0.03125, 0.125},
+    tint = {1.0, 0.9, 0.0, 1.0},
+    animation_speed = 0.3
+  },
+  {
+    filename = "__base__/graphics/entity/sparks/sparks-03.png",
+    draw_as_glow = true,
+    width = 42,
+    height = 29,
+    frame_count = 19,
+    line_length = 19,
+    shift = {-0.0625, 0.203125},
+    tint = {1.0, 0.9, 0.0, 1.0},
+    animation_speed = 0.3
+  },
+  {
+    filename = "__base__/graphics/entity/sparks/sparks-04.png",
+    draw_as_glow = true,
+    width = 40,
+    height = 35,
+    frame_count = 19,
+    line_length = 19,
+    shift = {-0.0625, 0.234375},
+    tint = {1.0, 0.9, 0.0, 1.0},
+    animation_speed = 0.3
+  },
+  {
+    filename = "__base__/graphics/entity/sparks/sparks-05.png",
+    draw_as_glow = true,
+    width = 39,
+    height = 29,
+    frame_count = 19,
+    line_length = 19,
+    shift = {-0.109375, 0.171875},
+    tint = {1.0, 0.9, 0.0, 1.0},
+    animation_speed = 0.3
+  },
+  {
+    filename = "__base__/graphics/entity/sparks/sparks-06.png",
+    draw_as_glow = true,
+    width = 44,
+    height = 36,
+    frame_count = 19,
+    line_length = 19,
+    shift = {0.03125, 0.3125},
+    tint = {1.0, 0.9, 0.0, 1.0},
+    animation_speed = 0.3
+  }
+}
+
 
 local ion_roboport_pipe_pictures = assembler2pipepictures()
 ion_roboport_pipe_pictures.north = util.empty_sprite()
@@ -183,6 +278,181 @@ data:extend{
     shadow_in_motion_with_cargo =
     {
       filename = "__LunarLandings__/graphics/entities/ion-robot/ion-logistic-robot-shadow.png",
+      priority = "high",
+      line_length = 16,
+      width = 128,
+      height = 128,
+      shift = util.by_pixel(31.75, 19.75),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.4,
+      draw_as_shadow = true
+    },
+  },
+  {
+    type = "construction-robot",
+    name = "ll-ion-construction-robot",
+    icon = "__LunarLandings__/graphics/icons/ion-construction-robot.png",
+    flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    minable = {mining_time = 0.1, result = "ll-ion-construction-robot"},
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 85
+      },
+      {
+        type = "electric",
+        percent = 50
+      }
+    },
+    max_health = 1000,
+    collision_box = {{0, 0}, {0, 0}},
+    selection_box = {{-0.5, -1.5}, {0.5, -0.5}},
+    hit_visualization_box = {{-0.1, -1.1}, {0.1, -1.0}},
+    damaged_trigger_effect = hit_effects.flying_robot(),
+    dying_explosion = "construction-robot-explosion",
+    --factoriopedia_simulation = simulations.factoriopedia_construction_robot,
+    max_payload_size = 5,
+    speed = 0.06,
+    max_energy = "3MJ",
+    energy_per_tick = "0.05kJ",
+    speed_multiplier_when_out_of_energy = 0.2,
+    energy_per_move = "5kJ",
+    min_to_charge = 0.2,
+    max_to_charge = 0.95,
+    smoke =
+    {
+      filename = "__base__/graphics/entity/smoke-construction/smoke-01.png",
+      width = 39,
+      height = 32,
+      frame_count = 19,
+      line_length = 19,
+      shift = {0.078125, -0.15625},
+      animation_speed = 0.3
+    },
+    sparks = sparks,
+    repairing_sound = sound_variations("__base__/sound/robot-repair", 6, 0.6),
+    working_sound = sounds.construction_robot(0.47),
+    charging_sound = sounds.robot_charging,
+    mined_sound_volume_modifier = 0.6,
+    icon_draw_specification = {shift = {0, -0.2}, scale = 0.5, render_layer = "air-entity-info-icon"},
+    construction_vector = {0.30, 0.22},
+    water_reflection = robot_reflection(1),
+    idle = {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot.png",
+      priority = "high",
+      line_length = 16,
+      width = 256,
+      height = 256,
+      shift = util.by_pixel(0, -3),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.2
+    },
+    idle_with_cargo =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot.png",
+      priority = "high",
+      line_length = 16,
+      width = 256,
+      height = 256,
+      shift = util.by_pixel(0, -3),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.2
+    },
+    in_motion =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot.png",
+      priority = "high",
+      line_length = 16,
+      width = 256,
+      height = 256,
+      shift = util.by_pixel(0, -3),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.2
+    },
+    in_motion_with_cargo =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot.png",
+      priority = "high",
+      line_length = 16,
+      width = 256,
+      height = 256,
+      shift = util.by_pixel(0, -3),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.2
+    },
+    working =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot.png",
+      priority = "high",
+      line_length = 16,
+      width = 256,
+      height = 256,
+      shift = util.by_pixel(0, -3),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.2
+    },
+    shadow_idle =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot-shadow.png",
+      priority = "high",
+      line_length = 16,
+      width = 128,
+      height = 128,
+      shift = util.by_pixel(31.75, 19.75),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.4,
+      draw_as_shadow = true
+    },
+    shadow_idle_with_cargo =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot-shadow.png",
+      priority = "high",
+      line_length = 16,
+      width = 128,
+      height = 128,
+      shift = util.by_pixel(31.75, 19.75),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.4,
+      draw_as_shadow = true
+    },
+    shadow_in_motion =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot-shadow.png",
+      priority = "high",
+      line_length = 16,
+      width = 128,
+      height = 128,
+      shift = util.by_pixel(31.75, 19.75),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.4,
+      draw_as_shadow = true
+    },
+    shadow_in_motion_with_cargo =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot-shadow.png",
+      priority = "high",
+      line_length = 16,
+      width = 128,
+      height = 128,
+      shift = util.by_pixel(31.75, 19.75),
+      direction_count = 16,
+      frame_count = 1,
+      scale = 0.4,
+      draw_as_shadow = true
+    },
+    shadow_working =
+    {
+      filename = "__LunarLandings__/graphics/entities/ion-robot/ion-construction-robot-shadow.png",
       priority = "high",
       line_length = 16,
       width = 128,
