@@ -197,6 +197,40 @@ data:extend{
   },
   {
     type = "technology",
+    name = "ll-ion-robotics",
+    icon = "__LunarLandings__/graphics/technology/ion-robotics.png",
+    icon_size = 512,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ll-ion-roboport"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-ion-construction-robot"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-ion-logistic-robot"
+      }
+    },
+    prerequisites = {"processing-unit", "construction-robotics", "logistic-robotics"},
+    unit =
+    {
+      count = 300,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "c-o-a"
+  },
+  {
+    type = "technology",
     name = "ll-ice-extraction",
     icon = "__LunarLandings__/graphics/technology/core-extractor.png",
     icon_size = 256,

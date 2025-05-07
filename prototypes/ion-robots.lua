@@ -7,11 +7,12 @@ data:extend{
   {
     type = "recipe",
     name = "ll-ion-logistic-robot",
-    enabled = true,
+    enabled = false,
     ingredients =
     {
       {type = "item", name = "flying-robot-frame", amount = 1},
-      {type = "item", name = "advanced-circuit", amount = 2}
+      {type = "item", name = "low-density-structure", amount = 2},
+      {type = "item", name = "processing-unit", amount = 1}
     },
     results = {{type="item", name="ll-ion-logistic-robot", amount=1}}
   },
@@ -20,7 +21,7 @@ data:extend{
     name = "ll-ion-logistic-robot",
     icon = "__LunarLandings__/graphics/icons/ion-logistic-robot.png",
     subgroup = "logistic-network",
-    order = "a[robot]-a[logistic-robot]",
+    order = "a[robot]-c[ion-logistic-robot]",
     inventory_move_sound = item_sounds.robotic_inventory_move,
     pick_sound = item_sounds.robotic_inventory_pickup,
     drop_sound = item_sounds.robotic_inventory_move,
@@ -31,11 +32,12 @@ data:extend{
   {
     type = "recipe",
     name = "ll-ion-construction-robot",
-    enabled = true,
+    enabled = false,
     ingredients =
     {
       {type = "item", name = "flying-robot-frame", amount = 1},
-      {type = "item", name = "electronic-circuit", amount = 2}
+      {type = "item", name = "low-density-structure", amount = 2},
+      {type = "item", name = "processing-unit", amount = 1}
     },
     results = {{type="item", name="ll-ion-construction-robot", amount=1}}
   },
@@ -44,7 +46,7 @@ data:extend{
     name = "ll-ion-construction-robot",
     icon = "__LunarLandings__/graphics/icons/ion-construction-robot.png",
     subgroup = "logistic-network",
-    order = "a[robot]-b[construction-robot]",
+    order = "a[robot]-d[ion-construction-robot]",
     inventory_move_sound = item_sounds.robotic_inventory_move,
     pick_sound = item_sounds.robotic_inventory_pickup,
     drop_sound = item_sounds.robotic_inventory_move,
@@ -55,13 +57,13 @@ data:extend{
   {
     type = "recipe",
     name = "ll-ion-roboport",
-    enabled = true,  -- TODO fix
+    enabled = false,
     energy_required = 5,
     ingredients =
     {
+      {type = "item", name = "pump", amount = 5},
       {type = "item", name = "steel-plate", amount = 45},
-      {type = "item", name = "iron-gear-wheel", amount = 45},
-      {type = "item", name = "advanced-circuit", amount = 45}
+      {type = "item", name = "processing-unit", amount = 20}
     },
     results = {{type="item", name="ll-ion-roboport", amount=1}}
   },
@@ -70,7 +72,7 @@ data:extend{
     name = "ll-ion-roboport",
     icon = "__LunarLandings__/graphics/icons/ion-roboport.png",
     subgroup = "logistic-network",
-    order = "c[signal]-a[roboport]",
+    order = "c[signal]-b[ion-roboport]",
     inventory_move_sound = item_sounds.roboport_inventory_move,
     pick_sound = item_sounds.roboport_inventory_pickup,
     drop_sound = item_sounds.roboport_inventory_move,
