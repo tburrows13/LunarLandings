@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.8
+Date: 16 May 2025
+  Features:
+    - Added new "Placement restrictions" tips and tricks entry
+  Changes:
+    - Rebalanced water and ice to fit with 2.0 water -> steam ratios
+    - Reduced RTG hitbox
+  Bugfixes:
+    - Fixed interstellar science not being obtainable with subsequent intestellar rocket launches
+    - Fixed some infinite resource loops when using productivity on catalyst recipes
+    - Fixed quality modules not being allowed in low-grav machines and core extractors
+    - Fixed arc furnace and quantum resonator not having open/close sounds
+    - Fixed arc furnace and interstellar satellite having wrong item pickup/drop sounds
+---------------------------------------------------------------------------------------------------
 Version: 1.1.7
 Date: 25 March 2025
   Bugfixes:
