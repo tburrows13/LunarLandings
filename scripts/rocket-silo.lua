@@ -364,17 +364,18 @@ local function on_rocket_launched(event)
   local rocket = event.rocket
   if BASE_ONLY and rocket.name == "ll-interstellar-rocket" then
     -- Win the game
-    if game.finished or game.finished_but_continuing or storage.finished then return end
-    storage.finished = true
-    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
-      remote.call("better-victory-screen", "trigger_victory", rocket.force)
-    else
-      game.set_game_state{
-        game_finished = true,
-        player_won = true,
-        can_continue = true,
-        victorious_force = rocket.force
-      }
+    if not (game.finished or game.finished_but_continuing or storage.finished) then
+      storage.finished = true
+      if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
+        remote.call("better-victory-screen", "trigger_victory", rocket.force)
+      else
+        game.set_game_state{
+          game_finished = true,
+          player_won = true,
+          can_continue = true,
+          victorious_force = rocket.force
+        }
+      end
     end
 
     local cargo_pod = event.rocket.cargo_pod  ---@cast cargo_pod -?
