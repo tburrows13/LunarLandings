@@ -54,6 +54,10 @@ data.raw.recipe["space-fluid-wagon"].ingredients = {
   {type="item", name="pipe", amount=8},
 }
 
+data.raw["item-with-entity-data"]["space-locomotive"].order = "c[rolling-stock]-e[space-locomotive]"
+data.raw["item-with-entity-data"]["space-cargo-wagon"].order = "c[rolling-stock]-f[space-cargo-wagon]"
+data.raw["item-with-entity-data"]["space-fluid-wagon"].order = "c[rolling-stock]-g[space-fluid-wagon]"
+
 if mods["elevated-rails"] then
   table.insert(data.raw.technology["tech-space-trains"].effects, 2, {
     type = "unlock-recipe",

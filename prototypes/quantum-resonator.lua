@@ -52,7 +52,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/icons/computer-core.png",
     icon_size = 64,
     subgroup = "production-machine",
-    order = "i[quantum-resonator]",
+    order = "fb[quantum-resonator]",
     place_result = "ll-quantum-resonator",
     stack_size = 50
   },
