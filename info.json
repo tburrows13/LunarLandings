@@ -7,7 +7,7 @@
   "description": "A small overhaul which expands the factory onto Nauvis' moon: Luna.\n\nNot yet compatible with Space Age. Expected by March-April 2025.",
   "factorio_version": "2.0",
   "dependencies": [
-    "base >= 2.0.35",
+    "base >= 2.0.49",
     "alien-biomes-graphics",
     "SpidertronPatrols",
     "se-space-trains",
