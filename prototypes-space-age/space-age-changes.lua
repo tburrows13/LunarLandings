@@ -5,6 +5,8 @@ x_util.add_ingredient("quantum-processor", "ll-quantum-processor", 1)
 table.insert(data.raw.lab.biolab.inputs, 7, "ll-space-science-pack")
 table.insert(data.raw.lab.biolab.inputs, 8, "ll-quantum-science-pack")
 
+data.raw.recipe["rocket-control-unit"].category = "electronics-with-fluid"
+
 data.raw.recipe["processing-unit"].icon = nil
 data.raw.recipe["processing-unit"].icons = {
   {icon = "__base__/graphics/icons/processing-unit.png", icon_size = 64},
@@ -16,7 +18,7 @@ data:extend{
     type = "recipe",
     name = "ll-processing-unit-without-silicon",
     localised_name = {"item-name.processing-unit"},
-    category = "crafting-with-fluid",
+    category = "electronics-with-fluid",
     enabled = false,
     energy_required = 10,
     ingredients =

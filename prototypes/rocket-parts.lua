@@ -49,7 +49,8 @@ data:extend{
     name = "rocket-control-unit",
     energy_required = 12,
     enabled = false,
-    category = "circuit-crafting",
+    category = "crafting-with-fluid",
+    additional_categories = {"circuit-crafting"},
     ingredients =
     {
       {type="item", name="advanced-circuit", amount=3},

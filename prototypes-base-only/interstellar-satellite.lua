@@ -35,7 +35,8 @@ data:extend{
     name = "ll-interstellar-satellite",
     energy_required = 20,
     enabled = false,
-    category = "circuit-crafting",
+    category = "crafting-with-fluid",
+    additional_categories = {"circuit-crafting"},
     ingredients =
     {
       --{type="item", name="satellite", amount=1},  -- TODO 2.0 add more to the recipe in lieu of satellite
