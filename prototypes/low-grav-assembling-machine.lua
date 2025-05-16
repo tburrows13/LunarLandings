@@ -1,24 +1,8 @@
 local sounds = require("__base__.prototypes.entity.sounds")
 
 for i, recipe in pairs({"copper-cable", "electronic-circuit", "advanced-circuit"}) do
-  data.raw.recipe[recipe].category = "circuit-crafting"
-end
-
-local function add_to_crafting_categories(prototype)
-  local crafting_categories = prototype.crafting_categories or {}
-  for i, category in pairs(crafting_categories) do
-    if category == "crafting" then
-      table.insert(crafting_categories, "circuit-crafting")
-      break
-    end
-  end
-end
-
-for _, prototype in pairs(data.raw["assembling-machine"]) do
-  add_to_crafting_categories(prototype)
-end
-for _, prototype in pairs(data.raw["character"]) do
-  add_to_crafting_categories(prototype)
+  data.raw.recipe[recipe].additional_categories = data.raw.recipe[recipe].additional_categories or {}
+  table.insert(data.raw.recipe[recipe].additional_categories, "circuit-crafting")
 end
 
 data.raw.recipe["processing-unit"].category = "advanced-circuit-crafting"
