@@ -20,7 +20,7 @@ data:extend{
     icon = "__space-exploration-graphics__/graphics/icons/telescope.png",
     icon_size = 64,
     subgroup = "production-machine",
-    order = "h[telescope]",
+    order = "fa[telescope]",
     place_result = "ll-telescope",
     stack_size = 50
   },

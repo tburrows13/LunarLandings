@@ -216,7 +216,7 @@ data:extend{
     icon = "__space-exploration-graphics__/graphics/icons/space-platform-plating.png",
     icon_size = 64,
     subgroup = "terrain",
-    order = "e[moon]-a[foundation]",
+    order = "c[landfill]-aa[lunar-foundation]",
     stack_size = 100,
     place_as_tile =
     {
