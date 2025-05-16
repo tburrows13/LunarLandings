@@ -25,6 +25,7 @@ rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
 rocket_silo_interstellar.rocket_parts_required = INTERSTELLAR_ROCKET_PARTS_REQUIRED
 rocket_silo_interstellar.fixed_recipe = "ll-rocket-part-interstellar"
 rocket_silo_interstellar.rocket_entity = "ll-interstellar-rocket"
+rocket_silo_interstellar.can_launch_without_landing_pads = true
 rocket_silo_interstellar.ll_surface_conditions = {nauvis = false, luna = true}
 
 rocket_silo_interstellar.base_day_sprite = {layers = {

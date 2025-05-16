@@ -384,9 +384,7 @@ local function on_rocket_launched(event)
       if not rocket.force.technologies["space-science-pack"].researched then
         rocket.force.technologies["space-science-pack"].researched = true
       end
-      inventory.remove({name = "ll-interstellar-satellite", count = 100})
-      inventory.insert({name = "space-science-pack", count= 1000})
-      cargo_pod.cargo_pod_destination = {type = defines.cargo_destination.surface, surface = "nauvis"}
+      cargo_pod.cargo_pod_destination = {type = defines.cargo_destination.surface, surface = "nauvis", transform_launch_products = true}
     end
     return
   end
