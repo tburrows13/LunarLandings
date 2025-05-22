@@ -256,3 +256,11 @@ data.raw["assembling-machine"]["assembling-machine-3"].ll_surface_conditions = {
 data.raw["assembling-machine"]["chemical-plant"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
 data.raw["assembling-machine"]["oil-refinery"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
 data.raw["assembling-machine"]["centrifuge"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+if mods["quality"] then
+  data.raw["furnace"]["recycler"].ll_surface_conditions = {nauvis = true, luna = {plain = false, lowland = false, mountain = false, foundation = true}}
+end
+if SPACE_AGE then
+  data.raw["assembling-machine"]["foundry"].ll_surface_conditions = {nauvis = true, luna = false}
+  data.raw["assembling-machine"]["electromagnetic-plant"].ll_surface_conditions = {nauvis = true, luna = false}
+  data.raw["assembling-machine"]["cryogenic-plant"].ll_surface_conditions = {nauvis = true, luna = false}
+end

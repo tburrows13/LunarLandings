@@ -2,6 +2,14 @@ local Buckets = require "scripts.buckets"
 
 local SteamCondenser = {}
 
+---@class TurbineData
+---@field condenser? UnitNumber
+
+---@class SteamCondenserData
+---@field entity LuaEntity
+---@field position MapPosition
+---@field turbines table<UnitNumber, LuaEntity>
+
 ---@param position MapPosition
 ---@return BoundingBox
 local function condenser_position_to_area(position)
@@ -77,7 +85,7 @@ local function on_script_trigger_effect(event)
   script.register_on_object_destroyed(entity)
 end
 
----@param event EventData.on_built_entity | EventData.on_robot_built_entity | EventData.on_space_platform_built_entity | EventData.script_raised_built | EventData.script_raised_revive
+---@param event {entity: LuaEntity}
 local function on_entity_built(event)
   local entity = event.entity
   if not entity.valid then return end
@@ -96,7 +104,7 @@ local function on_entity_built(event)
     end
     if next(condensers) then
       local condenser_unit_number = condensers[1].unit_number
-      local condenser_data = Buckets.get(storage.steam_condensers, condenser_unit_number)
+      local condenser_data = Buckets.get_optional(storage.steam_condensers, condenser_unit_number)
       if condenser_data then
         condenser_data.turbines[entity.unit_number] = entity
         turbine_data.condenser = condenser_unit_number
@@ -111,12 +119,12 @@ end
 
 ---@param event EventData.on_object_destroyed
 local function on_object_destroyed(event)
-  if not event.useful_id then return end  -- entity was tree/rock
+  if event.type ~= defines.target_type.entity then return end
   -- Condenser destroyed
   local condenser_data = Buckets.get(storage.steam_condensers, event.useful_id)
   if condenser_data then
     for unit_number, turbine in pairs(condenser_data.turbines) do
-      on_entity_built{entity = turbine  --[[@as EventData.on_built_entity]]}  -- send the turbine off to check for another condenser
+      on_entity_built{entity = turbine}  -- send the turbine off to check for another condenser
     end
     Buckets.remove(storage.steam_condensers, event.useful_id)
   end
@@ -169,7 +177,7 @@ local function on_selected_entity_changed (event)
     end
   elseif entity.name == "steam-turbine" then
     local turbine_data = storage.turbines[entity.unit_number]
-    if turbine_data then
+    if turbine_data and turbine_data.condenser then
       local condenser = Buckets.get(storage.steam_condensers, turbine_data.condenser)
       if condenser and condenser.entity.valid then
         table.insert(player_data.highlight_boxes, condenser.entity.surface.create_entity{
@@ -185,7 +193,7 @@ local function on_selected_entity_changed (event)
 end
 
 ---@param entity LuaEntity
----@param turbines table<number, LuaEntity>
+---@param turbines table<UnitNumber, LuaEntity>
 local function update_condenser(entity, turbines)
   if not next(turbines) then return end
 
@@ -235,8 +243,10 @@ local function on_tick(event)
 end
 
 function SteamCondenser.reset_condenser_connections()
+  ---@type Buckets<UnitNumber, SteamCondenserData>
   local steam_condensers = storage.steam_condensers
   storage.steam_condensers = Buckets.new()
+  ---@type table<UnitNumber, TurbineData>
   storage.turbines = {}
 
   for _, surface in pairs(game.surfaces) do
@@ -273,7 +283,9 @@ SteamCondenser.events = {
 }
 
 function SteamCondenser.on_init()
+  ---@type Buckets<UnitNumber, SteamCondenserData>
   storage.steam_condensers = Buckets.new()
+  ---@type table<UnitNumber, TurbineData>
   storage.turbines = {}
 end
 

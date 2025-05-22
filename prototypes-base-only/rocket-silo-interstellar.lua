@@ -1,15 +1,31 @@
-local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 50
+local INTERSTELLAR_ROCKET_PARTS_REQUIRED = 100
 
 local rocket_silo_interstellar = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo_interstellar.name = "ll-rocket-silo-interstellar"
-rocket_silo_interstellar.icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png"
+rocket_silo_interstellar.icon = nil
+rocket_silo_interstellar.icons = {
+  {
+    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
+    icon_size = 64,
+  },
+  {
+    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket.png",
+    icon_size = 64,
+    scale = 0.38,
+    shift = {0, -3},
+    draw_background = true,
+  }
+}
 rocket_silo_interstellar.localised_name = {"entity-name.ll-rocket-silo-interstellar"}
 rocket_silo_interstellar.localised_description = {"entity-description.ll-rocket-silo-interstellar", tostring(INTERSTELLAR_ROCKET_PARTS_REQUIRED)}
+rocket_silo_interstellar.factoriopedia_description = nil
+rocket_silo_interstellar.factoriopedia_alternative = nil
 rocket_silo_interstellar.minable.result = "ll-rocket-silo-interstellar"
 rocket_silo_interstellar.crafting_categories = {"rocket-building-interstellar"}
 rocket_silo_interstellar.rocket_parts_required = INTERSTELLAR_ROCKET_PARTS_REQUIRED
 rocket_silo_interstellar.fixed_recipe = "ll-rocket-part-interstellar"
-rocket_silo_interstellar.rocket_entity = "ll-rocket-interstellar"
+rocket_silo_interstellar.rocket_entity = "ll-interstellar-rocket"
+rocket_silo_interstellar.can_launch_without_landing_pads = true
 rocket_silo_interstellar.ll_surface_conditions = {nauvis = false, luna = true}
 
 rocket_silo_interstellar.base_day_sprite = {layers = {
@@ -48,10 +64,12 @@ rocket_silo_interstellar.base_front_sprite = {
     },
   }
 }
+rocket_silo_interstellar.circuit_connector = circuit_connector_definitions["rocket-silo"]
+rocket_silo_interstellar.circuit_wire_max_distance = default_circuit_wire_max_distance
 
 local rocket_interstellar = table.deepcopy(data.raw["rocket-silo-rocket"]["rocket-silo-rocket"])
-rocket_interstellar.name = "ll-rocket-interstellar"
-rocket_interstellar.cargo_pod_entity = "ll-cargo-pod-interstellar"
+rocket_interstellar.name = "ll-interstellar-rocket"
+rocket_interstellar.cargo_pod_entity = "ll-interstellar-cargo-pod"
 rocket_interstellar.inventory_size = 1
 rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.5), --util.mul_shift(rocket_rise_offset, -1),
 {
@@ -63,7 +81,8 @@ rocket_interstellar.rocket_sprite = util.add_shift_offset(util.by_pixel(0, 32*3.
 })
 
 local cargo_pod_interstellar = table.deepcopy(data.raw["cargo-pod"]["cargo-pod"])
-cargo_pod_interstellar.name = "ll-cargo-pod-interstellar"
+cargo_pod_interstellar.name = "ll-interstellar-cargo-pod"
+cargo_pod_interstellar.order = "c[cargo-pod]-c[interstellar]"
 
 
 data:extend{
@@ -73,8 +92,7 @@ data:extend{
   {
     type = "item",
     name = "ll-rocket-silo-interstellar",
-    icon = "__space-exploration-graphics__/graphics/icons/probe-rocket-silo.png",
-    icon_size = 64,
+    icons = table.deepcopy(rocket_silo_interstellar.icons),
     subgroup = "space-related",
     order = "x[interstellar-rocket-silo]",
     place_result = "ll-rocket-silo-interstellar",
@@ -100,10 +118,21 @@ data:extend{
     type = "item",
     name = "ll-rocket-part-interstellar",
     localised_name = {"item-name.ll-rocket-part-interstellar"},
-    icon = "__base__/graphics/icons/rocket-part.png",
-    icon_size = 64,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/rocket-part.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__space-exploration-graphics__/graphics/icons/probe-rocket.png",
+        icon_size = 64,
+        scale = 0.3,
+        shift = {6, 6},
+        draw_background = true,
+      }
+    },
     subgroup = "intermediate-product",
-    order = "o[rocket-part]-d",
+    order = "o[rocket-part]-e",
     hidden = true,
     stack_size = 5,
     weight = (1000/50)*kg
@@ -117,9 +146,9 @@ data:extend{
     category = "rocket-building-interstellar",
     ingredients =
     {
-      {type="item", name="ll-heat-shielding", amount=10},
-      {type="item", name="low-density-structure", amount=10},
-      {type="item", name="rocket-control-unit", amount=10},
+      {type="item", name="ll-heat-shielding", amount=5},
+      {type="item", name="low-density-structure", amount=5},
+      {type="item", name="rocket-control-unit", amount=5},
       {type="item", name="ll-quantum-processor", amount=1},
       {type="item", name="nuclear-fuel", amount=1},
     },

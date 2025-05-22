@@ -23,7 +23,7 @@ data.raw.tile["ll-lunar-foundation"].pollution_absorption_per_second = 1
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then
     local ingredients = tech.unit.ingredients
-    if x_util.contains_research_ingredient(tech.name, "space-science-pack") then
+    if BASE_ONLY and x_util.contains_research_ingredient(tech.name, "space-science-pack") then
       if not x_util.contains_research_ingredient(tech.name, "ll-space-science-pack") then
         table.insert(ingredients, {"ll-space-science-pack", 1})
       end

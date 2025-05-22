@@ -1,5 +1,4 @@
 local function blacklist_entities()
-  if not script.active_mods["PickerDollies"] then return end
   if not remote.interfaces["PickerDollies"] then return end
   if not remote.interfaces["PickerDollies"]["add_blacklist_name"] then return end
   -- Blacklist LL entities

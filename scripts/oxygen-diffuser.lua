@@ -13,6 +13,7 @@ local oxygen_machines = {
   ["chemical-plant"] = true,
   ["oil-refinery"] = true,
   ["centrifuge"] = true,
+  ["recycler"] = true,
 }
 
 local function affected_by_oxygen_diffuser(entity, ignore_unit_number)
@@ -90,6 +91,7 @@ local function on_entity_removed(event)
 end
 
 local function on_object_destroyed(event)
+  if event.type ~= defines.target_type.entity then return end
   local diffuser_data = Buckets.get(storage.oxygen_diffusers, event.useful_id)
 
   if diffuser_data then

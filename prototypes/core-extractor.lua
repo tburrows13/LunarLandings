@@ -47,7 +47,7 @@ data:extend({
       usage_priority = "secondary-input",
       emissions_per_minute = {},
     },
-    allowed_effects = {"consumption", "pollution"},  -- Don't want to allow speed beacons
+    allowed_effects = {"consumption", "pollution", "quality"},  -- Don't want to allow speed beacons
     module_slots = 2,
     mining_speed = 1,
     resource_categories = {"ll-core"},

@@ -94,8 +94,8 @@ data:extend(
 {
   {
     type = "surface-property",
-    name = "ll-atmospheric-oxygen",
-    default_value = 100
+    name = "ll-radiation",
+    default_value = 0
   },
   {
     type = "planet",
@@ -123,7 +123,7 @@ data:extend(
       ["day-night-cycle"] = 60 * minute,
       pressure = 100,
       gravity = 1.5,
-      ["ll-atmospheric-oxygen"] = 0,
+      ["ll-radiation"] = 17,
       ["solar-power"] = 125,
     },
     surface_render_parameters = {},

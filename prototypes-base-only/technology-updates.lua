@@ -2,14 +2,22 @@ data.raw.technology["rocket-silo"].unit.count = 500
 x_util.remove_prerequisite("rocket-silo", "speed-module-3")
 x_util.remove_prerequisite("rocket-silo", "productivity-module-3")
 x_util.remove_prerequisite("rocket-silo", "utility-science-pack")
+x_util.remove_prerequisite("rocket-silo", "electric-energy-accumulators")
 x_util.add_prerequisite("rocket-silo", "low-density-structure")
 x_util.add_prerequisite("rocket-silo", "rocket-control-unit")
 x_util.add_prerequisite("rocket-silo", "electric-engine")
 x_util.remove_research_ingredient("rocket-silo", "utility-science-pack")
 x_util.remove_research_ingredient("rocket-silo", "production-science-pack")
 x_util.remove_recipe_effect("rocket-silo", "satellite")
+
+x_util.remove_recipe_effect("rocket-silo", "rocket-part")
+x_util.remove_recipe_effect("rocket-silo", "cargo-landing-pad")
+x_util.add_unlock("rocket-silo", "ll-rocket-part-nauvis")
+x_util.add_unlock("rocket-silo", "cargo-landing-pad")  -- Remove and then add so that it appears after rocket part
 x_util.add_unlock("rocket-silo", "ll-landing-pad")
 
+data.raw.technology["space-science-pack"].localised_name = {"technology-name.ll-interstellar-science-pack"}
+data.raw.technology["space-science-pack"].localised_description = {"technology-description.ll-interstellar-science-pack"}
 data.raw.technology["space-science-pack"].research_trigger = {
   type = "send-item-to-orbit",
   item = "ll-interstellar-satellite"
@@ -17,8 +25,6 @@ data.raw.technology["space-science-pack"].research_trigger = {
 x_util.remove_prerequisite("space-science-pack", "rocket-silo")
 x_util.add_prerequisite("space-science-pack", "ll-interstellar-rocket-silo")
 x_util.remove_recipe_effect("space-science-pack", "satellite")
-x_util.add_unlock("space-science-pack", "ll-interstellar-satellite")
---data.raw.technology["space-science-pack"].unit.count = 3000  -- TODO 2.0
 
 data:extend{
   {
@@ -37,6 +43,10 @@ data:extend{
       {
         type = "unlock-recipe",
         recipe = "ll-rocket-part-interstellar"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ll-interstellar-satellite"
       },
     },
     unit =

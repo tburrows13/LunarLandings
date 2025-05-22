@@ -1,5 +1,11 @@
 local x_util = {}
 
+function x_util.set_stack_size(item, stack_size)
+  local item = data.raw.item[item] or data.raw.tool[item] or data.raw.ammo[item]
+  if not item then return end
+  item.stack_size = stack_size or 50
+end
+
 function x_util.add_prerequisite(tech_name, prerequisite)
   local technology = data.raw.technology[tech_name]
   for _, name in pairs(technology.prerequisites) do
@@ -55,9 +61,9 @@ function x_util.add_effect(technology_name, effect)
   if technology then
     if not technology.effects then technology.effects = {} end
     if effect and effect.type == "unlock-recipe" then
-      if not data.raw.recipe[effect.recipe] then
-        return
-      end
+      --if not data.raw.recipe[effect.recipe] then
+      --  return
+      --end
       table.insert(technology.effects, effect)
     end
   end
@@ -110,10 +116,21 @@ function x_util.is_descendant_of(tech_name, ancestor)
 end
 
 -- From bzutil
+-- check if a table contains a sought value
+function x_util.contains(table, sought)
+  for i, value in pairs(table) do
+    if value == sought then
+      return true
+    end
+  end
+  return false
+end
+
+-- From bzutil
 local function add_ingredient(recipe, ingredient, quantity, is_fluid)
   if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
-      if existing[1] == ingredient or existing.name == ingredient then
+      if existing.name == ingredient then
         return
       end
     end
@@ -138,28 +155,18 @@ end
 local function replace_ingredient(recipe, old, new, amount, multiply)
   if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
-      if existing[1] == new or existing.name == new then
+      if existing.name == new then
         return
       end
     end
-    for i, ingredient in pairs(recipe.ingredients) do 
-      if ingredient.name == old then 
-        ingredient.name = new 
+    for i, ingredient in pairs(recipe.ingredients) do
+      if ingredient.name == old then
+        ingredient.name = new
         if amount then
           if multiply then
             ingredient.amount = amount * ingredient.amount
           else
             ingredient.amount = amount
-          end
-        end
-      end
-      if ingredient[1] == old then 
-        ingredient[1] = new
-        if amount then
-          if multiply then
-            ingredient[2] = amount * ingredient[2]
-          else
-            ingredient[2] = amount
           end
         end
       end
@@ -173,6 +180,51 @@ end
 function x_util.replace_ingredient(recipe_name, old, new, amount, multiply, options)
   if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
     replace_ingredient(data.raw.recipe[recipe_name], old, new, amount, multiply)
+  end
+end
+
+-- From bzutil
+local function set_ingredient(recipe, ingredient, quantity)
+  if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing.name == ingredient then
+        existing.amount = quantity
+        return
+      end
+    end
+    table.insert(recipe.ingredients, {type="item", name=ingredient, amount=quantity})
+  end
+end
+
+-- From bzutil
+-- Set an ingredient to a given quantity
+function x_util.set_ingredient(recipe_name, ingredient, quantity)
+  if data.raw.recipe[recipe_name] and data.raw.item[ingredient] then
+    set_ingredient(data.raw.recipe[recipe_name], ingredient, quantity)
+  end
+end
+
+-- From bzutil
+local function remove_ingredient(recipe, old)
+  index = -1
+	if recipe ~= nil and recipe.ingredients ~= nil then
+		for i, ingredient in pairs(recipe.ingredients) do
+      if ingredient.name == old  then
+        index = i
+        break
+      end
+    end
+    if index > -1 then
+      table.remove(recipe.ingredients, index)
+    end
+  end
+end
+
+-- From bzutil
+-- Remove an ingredient from a recipe
+function x_util.remove_ingredient(recipe_name, old)
+  if data.raw.recipe[recipe_name] then
+    remove_ingredient(data.raw.recipe[recipe_name], old)
   end
 end
 

@@ -3,16 +3,21 @@ local scale = 7 / 9  -- 0.77778
 local scale_offset = x_util.scale_offset
 local scale_sprite = x_util.scale_sprite
 
+local NAUVIS_ROCKET_SILO_PARTS_REQUIRED = 20
+local LUNA_ROCKET_SILO_PARTS_REQUIRED = 5
+
 local rocket_silo = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
 rocket_silo.name = "ll-rocket-silo-up"
 rocket_silo.localised_name = {"entity-name.ll-rocket-silo-up"}
-rocket_silo.localised_description = {"entity-description.ll-rocket-silo"}
+rocket_silo.localised_description = {"entity-description.ll-rocket-silo", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.factoriopedia_description = {"entity-description.ll-rocket-silo-rich-text", tostring(NAUVIS_ROCKET_SILO_PARTS_REQUIRED), tostring(LUNA_ROCKET_SILO_PARTS_REQUIRED)}
+rocket_silo.factoriopedia_alternative = "ll-rocket-silo-up"
 rocket_silo.minable.result = "ll-rocket-silo-up"
 rocket_silo.placeable_by = {item = "ll-rocket-silo-up", count = 1}
 rocket_silo.rocket_entity = "ll-small-rocket-silo-rocket"
-rocket_silo.crafting_categories = {"rocket-building-nauvis-to-luna"}
-rocket_silo.rocket_parts_required = 20
-rocket_silo.fixed_recipe = "ll-rocket-part-up"
+rocket_silo.crafting_categories = {"rocket-building-nauvis-luna"}
+rocket_silo.rocket_parts_required = NAUVIS_ROCKET_SILO_PARTS_REQUIRED
+rocket_silo.fixed_recipe = "ll-rocket-part-nauvis"
 rocket_silo.launch_to_space_platforms = false
 rocket_silo.to_be_inserted_to_rocket_inventory_size = 20
 rocket_silo.logistic_trash_inventory_size = 0
@@ -87,9 +92,8 @@ scale_sprite(rocket_silo.base_front_sprite, scale)
 local rocket_silo_down = table.deepcopy(rocket_silo)
 rocket_silo_down.name = "ll-rocket-silo-down"
 rocket_silo_down.localised_name = {"entity-name.ll-rocket-silo-down"}
-rocket_silo_down.crafting_categories = {"rocket-building-luna"}
-rocket_silo_down.rocket_parts_required = 5
-rocket_silo_down.fixed_recipe = "ll-rocket-part-down"
+rocket_silo_down.rocket_parts_required = LUNA_ROCKET_SILO_PARTS_REQUIRED
+rocket_silo_down.fixed_recipe = "ll-rocket-part-luna"
 table.insert(rocket_silo_down.flags, "not-in-made-in")
 data:extend{rocket_silo_down}
 
@@ -130,11 +134,11 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {type = "item", name = "steel-plate", amount = 1000},
-      {type = "item", name = "concrete", amount = 1000},
-      {type = "item", name = "pipe", amount = 100},
-      {type = "item", name = "processing-unit", amount = 200},
-      {type = "item", name = "electric-engine-unit", amount = 200}
+      {type="item", name="steel-plate", amount=200},
+      {type="item", name="concrete", amount=200},
+      {type="item", name="pipe", amount=20},
+      {type="item", name="advanced-circuit", amount=100},
+      {type="item", name="electric-engine-unit", amount=40}
     },
     energy_required = 30,
     results = {{type="item", name="ll-rocket-silo-up", amount=1}},

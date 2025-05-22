@@ -200,7 +200,7 @@ data:extend{
     energy_usage = "750kW",
     module_slots = 6,
     --module_info_icon_shift = util.by_pixel_hr(0, 32 + (0.7*64)),  -- default is {0, 0.7}
-    allowed_effects = {"consumption", "speed", "productivity", "pollution"},
+    allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"},
     --scale_entity_info_icon = true,
     --[[working_visualisations =
     {
@@ -209,6 +209,10 @@ data:extend{
         light = {intensity = 0.8, size = 20, shift = {0.0, 0.0}, color = {r = 0.7, g = 0.8, b = 1}}
       },
     },]]
+    surface_conditions = {{
+      property = "gravity",
+      max = 1.5,
+    }},
     ll_surface_conditions = {nauvis = false, luna = {plain = false, lowland = false, mountain = false, foundation = true}},
   },
 

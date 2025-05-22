@@ -53,6 +53,7 @@ data:extend{
     },
     results = {{type="item", name="ll-packed-rocket-control-unit", amount=1}},
     main_product = "",
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -71,6 +72,7 @@ data:extend{
     },
     results = {{type="item", name="rocket-control-unit", amount=5}},
     main_product = "",
+    auto_recycle = false,
   },
   {
     type = "item",
@@ -101,6 +103,7 @@ data:extend{
     },
     results = {{type="item", name="ll-packed-low-density-structure", amount=1}},
     main_product = "",
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -119,6 +122,7 @@ data:extend{
     },
     results = {{type="item", name="low-density-structure", amount=5}},
     main_product = "",
+    auto_recycle = false,
   },
   {
     type = "item",
@@ -149,6 +153,7 @@ data:extend{
     },
     results = {{type="item", name="ll-packed-heat-shielding", amount=1}},
     main_product = "",
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -167,5 +172,6 @@ data:extend{
     },
     results = {{type="item", name="ll-heat-shielding", amount=5}},
     main_product = "",
+    auto_recycle = false,
   },
 }

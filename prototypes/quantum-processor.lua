@@ -20,7 +20,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/icons/quantum-processor.png",
     icon_size = 64,
     subgroup = "intermediate-product",
-    order = "g[processing-unit]-a[quantum]",
+    order = "b[circuits]-d[quantum-processor]",
     stack_size = 100,
     weight = 5 * kg
   },

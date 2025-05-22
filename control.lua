@@ -3,6 +3,7 @@ SPACE_AGE = not BASE_ONLY
 
 local handler = require "event_handler"
 gui = require "__LunarLandings__.scripts.gui-lite"
+LandingPad = require "__LunarLandings__.scripts.landing-pad"
 
 local compatibility = require "scripts.compatibility"
 compatibility.preload_remote_interface()
@@ -27,7 +28,7 @@ handler.add_libraries{
   require "scripts.moon-surface",
   require "scripts.moon-view",
   require "scripts.rocket-silo",
-  require "scripts.landing-pad",
+  LandingPad,
   require "scripts.rtg",
   require "scripts.oxygen-diffuser",
   require "scripts.steam-condenser",

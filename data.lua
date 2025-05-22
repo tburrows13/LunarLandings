@@ -10,7 +10,7 @@ local function require_base_only(filename)
 end
 
 local function require_space_age(filename)
-  if BASE_ONLY then
+  if SPACE_AGE then
     require("__LunarLandings__.prototypes-space-age." .. filename)
   end
 end
@@ -28,8 +28,8 @@ require "__LunarLandings__.prototypes.quantum-module"
 require "__LunarLandings__.prototypes.custom-input"
 require "__LunarLandings__.prototypes.item-groups"
 require_base_only "rocket-silo-interstellar"
-require_base_or_sa "rocket-silo"
 require "__LunarLandings__.prototypes.rocket-parts"
+require_base_or_sa "rocket-silo"
 require_base_only "interstellar-satellite"
 require "__LunarLandings__.prototypes.packed-parts"
 require "__LunarLandings__.prototypes.mass-driver"
@@ -77,4 +77,5 @@ require "__LunarLandings__.prototypes.tips-and-tricks"
 require "__LunarLandings__.prototypes.menu-simulations"
 require "__LunarLandings__.prototypes.sounds"
 require "__LunarLandings__.prototypes.item-sounds"
+require_space_age "space-age-changes"
 --require "__LunarLandings__.prototypes.construction-bots"

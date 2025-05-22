@@ -13,10 +13,10 @@ data:extend{
     subgroup = "fluid-recipes",
     energy_required = 0.1,
     ingredients = {
-      {type = "fluid", name = "water", amount = 100},
+      {type = "fluid", name = "water", amount = 10},
       {type = "fluid", name = "steam", amount = 400, temperature = 500},
     },
-    results = {{type = "fluid", name = "water", amount = 450}},
+    results = {{type = "fluid", name = "water", amount = 45}},
     order = "a[fluid]-c[water]",
     main_product = ""
   },

@@ -1,3 +1,6 @@
+local sounds = require("__base__.prototypes.entity.sounds")
+
+
 ei_pipe_big_data = {
   north = util.empty_sprite(),
   south = {
@@ -129,6 +132,9 @@ data:extend{
         }
       },
     },
+    impact_category = "metal-large",
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
     working_sound =
     {
       sound = {filename = "__base__/sound/nuclear-reactor-1.ogg", volume = 0.6},

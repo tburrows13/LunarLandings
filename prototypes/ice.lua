@@ -77,7 +77,6 @@ data:extend{
     },
     map_color = {0.1, 0.2, 0.5},
     map_grid = false,
-    ll_surface_conditions = {nauvis = false, luna = true},
   }
 
 }

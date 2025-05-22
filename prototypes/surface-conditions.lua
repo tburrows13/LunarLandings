@@ -98,6 +98,23 @@ local default_anywhere = {
   ["item-request-proxy"] = true,
 }
 
+local function ban_from_luna(prototype)
+  if prototype.surface_conditions then return end
+  prototype.surface_conditions = {{
+    property = "ll-radiation",
+    min = 0,
+    max = 0,
+  }}
+end
+
+local function restrict_to_luna(prototype)
+  if prototype.surface_conditions then return end
+  prototype.surface_conditions = {{
+    property = "ll-radiation",
+    min = 1,
+  }}
+end
+
 local function get_default_surface_conditions(prototype)
   local type = prototype.type
   if type == "lab" or type == "radar" or train_types[type] then
@@ -127,6 +144,9 @@ end
 
 for prototype_type, _ in pairs(defines.prototypes.entity) do
   for name, prototype in pairs(data.raw[prototype_type] or {}) do
+    if BASE_ONLY and prototype.surface_conditions then
+      prototype.surface_conditions = nil
+    end
     if prototype.hidden or not prototype.collision_box or prototype_type == "cliff" then
       goto continue
     end
@@ -142,13 +162,21 @@ for prototype_type, _ in pairs(defines.prototypes.entity) do
       --local mask = collision_mask_util.get_mask(prototype)
       local colliding_tile_layers = {}
       if surface_conditions.luna == false then
-        colliding_tile_layers.ll_luna_tile = true
+        if SPACE_AGE then
+          ban_from_luna(prototype)
+        else
+          colliding_tile_layers.ll_luna_tile = true
+        end
       elseif surface_conditions.luna == true then
         -- Set default
         surface_conditions.lua = {plain = true, lowland = false, mountain = true, foundation = true}
       end
       if surface_conditions.nauvis == false then
-        colliding_tile_layers.ll_nauvis_tile = true
+        if SPACE_AGE then
+          restrict_to_luna(prototype)
+        else
+          colliding_tile_layers.ll_nauvis_tile = true
+        end
       end
       if type(surface_conditions.luna) == "table" then
         local luna_conditions = surface_conditions.luna

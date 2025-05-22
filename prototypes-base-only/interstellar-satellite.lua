@@ -1,4 +1,6 @@
 data.raw.tool["space-science-pack"].stack_size = 200
+data.raw.tool["space-science-pack"].localised_name = {"item-name.ll-interstellar-science-pack"}
+data.raw.tool["space-science-pack"].localised_description = {"item-description.ll-interstellar-science-pack"}
 
 data:extend{
   {
@@ -26,8 +28,7 @@ data:extend{
     order = "y[interstellar-satellite]",
     stack_size = 1,
     weight = 1 * tons,
-    --rocket_launch_products = {{type="item", name="space-science-pack", amount=1000}},  -- Messes with 2.0 systems. Return items by script instead
-    localised_description = {"", {"item-description.ll-interstellar-satellite"}, "\n\n[font=default-semibold][color=255, 230, 192]", {"description.rocket-launch-products"}, "[/color][/font]:\n", "[img=item.space-science-pack] [font=default-bold]1.0k ×[/font] ", {"item-name.space-science-pack"}},
+    rocket_launch_products = {{type="item", name="space-science-pack", amount=1000}},
   },
   {
     type = "recipe",

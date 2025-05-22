@@ -162,9 +162,8 @@ data:extend{
     icon = "__LunarLandings__/graphics/landing-pad.png",
     icon_size = 64,
     inventory_size = 40,
-    inventory_type = "with_filters_and_bar",
-    enable_inventory_bar = false,
-    scale_info_icons = false,
+    inventory_type = "normal",
+    icon_draw_specification = {scale = 1.5, scale_for_many = 1.5},
     picture = {
       layers = {
         {
@@ -205,7 +204,6 @@ data:extend{
     },
     collision_box = {{-2.7, -2.7}, {2.7, 2.7}},
     selection_box = {{-3, -3}, {3, 3}},
-    flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    se_allow_in_space = true,
+    flags = {"placeable-neutral", "placeable-player", "player-creation", "no-automated-item-insertion"},
   }
 }

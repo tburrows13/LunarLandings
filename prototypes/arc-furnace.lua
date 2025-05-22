@@ -1,4 +1,3 @@
-local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 
 data:extend{
@@ -163,6 +162,9 @@ data:extend{
         }
       }]]
     --},
+    impact_category = "metal-large",
+    open_sound = sounds.electric_large_open,
+    close_sound = sounds.electric_large_close,
     working_sound =
     {
       sound = {filename = "__base__/sound/electric-furnace.ogg", volume = 0.6},
@@ -180,6 +182,11 @@ data:extend{
         }
       }
     },
+    surface_conditions = {{
+      property = "gravity",
+      min = 1.5,
+      max = 1.5,
+    }},
     ll_surface_conditions = {nauvis = false, luna = true},
   },
   {

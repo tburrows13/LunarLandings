@@ -43,7 +43,7 @@ data:extend{
         recipe = "ll-unpack-rocket-control-unit"
       },
     },
-    prerequisites = {"chemical-science-pack", "speed-module"},
+    prerequisites = {"chemical-science-pack"},
     unit =
     {
       count = 300,
@@ -71,7 +71,7 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ll-rocket-part-down"
+        recipe = "ll-rocket-part-luna"
       }
     },
     prerequisites = {BASE_ONLY and "rocket-silo" or "ll-luna-rocket-silo"},
@@ -637,7 +637,7 @@ data:extend{
     name = "ll-quantum-module",
     icon = "__LunarLandings__/graphics/technology/quantum-module.png",
     icon_size = 256,
-    prerequisites = {"ll-quantum-science-pack"},
+    prerequisites = {"ll-quantum-science-pack", "speed-module-3", "efficiency-module-3", "productivity-module-3"},
     effects =
     {
       {

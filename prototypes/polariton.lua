@@ -100,6 +100,7 @@ data:extend{
     },
     show_amount_in_title = false,
     always_show_products = true,
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -116,6 +117,7 @@ data:extend{
     },
     show_amount_in_title = false,
     always_show_products = true,
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -136,6 +138,7 @@ data:extend{
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.1},
       {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.05},
     },
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -156,6 +159,7 @@ data:extend{
       {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.1},
       {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.05},
     },
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -176,6 +180,7 @@ data:extend{
       {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.1},
       {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.05},
     },
+    auto_recycle = false,
   },
   {
     type = "recipe",
@@ -196,5 +201,6 @@ data:extend{
       {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.1},
       {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.05},
     },
+    auto_recycle = false,
   },
 }

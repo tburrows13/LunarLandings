@@ -27,6 +27,7 @@ end
 
 ---@param event EventData.on_object_destroyed
 local function on_object_destroyed(event)
+  if event.type ~= defines.target_type.entity then return end
   local furnace_data = storage.arc_furnaces[event.useful_id]
 
   if furnace_data then

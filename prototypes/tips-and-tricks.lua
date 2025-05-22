@@ -104,11 +104,40 @@ data:extend{
   },
   {
     type = "tips-and-tricks-item",
+    name = "ll-placement-restrictions",
+    tag = "[item=ll-lunar-foundation]",
+    category = "lunar-landings",
+    indent = 1,
+    order = "e",
+    starting_status = "unlocked",
+    trigger =
+    {
+      type = "change-surface",
+      surface = "luna"
+    },
+    simulation = {
+      mods = {"LunarLandings"},
+      checkboard = false,
+      save = "__LunarLandings__/simulations/tips-and-tricks-placement-restrictions.zip",
+      init =
+      [[
+        local sim_planet = game.surfaces["luna"]
+        --local center = {logo.position.x, logo.position.y+21}
+        game.simulation.camera_surface_index = sim_planet.index
+        game.simulation.camera_position = {2, 0}
+        game.simulation.camera_zoom = 1.15
+        game.simulation.camera_player = nil
+        --game.tick_paused = false
+      ]]
+    }
+  },
+  {
+    type = "tips-and-tricks-item",
     name = "ll-oxygen",
     tag = "[fluid=ll-oxygen]",
     category = "lunar-landings",
     indent = 1,
-    order = "e",
+    order = "f",
     starting_status = "unlocked",
     trigger =
     {
@@ -151,7 +180,7 @@ data:extend{
     tag = "[entity=ll-steam-condenser]",
     category = "lunar-landings",
     indent = 1,
-    order = "f",
+    order = "g",
     starting_status = "unlocked",
     trigger =
     {
