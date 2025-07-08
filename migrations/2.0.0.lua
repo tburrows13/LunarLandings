@@ -2,7 +2,7 @@ for _, player in pairs(game.players) do
   player.opened = nil
 end
 
-for unit_number, arc_furnace_data in pairs(storage.arc_furnaces) do
+for unit_number, arc_furnace_data in pairs(storage.arc_furnaces or {}) do
   if arc_furnace_data.entity.valid and arc_furnace_data.reactor.valid then
     arc_furnace_data.storage_tank_s = nil
     arc_furnace_data.storage_tank_w = nil

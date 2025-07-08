@@ -290,7 +290,7 @@ function SteamCondenser.on_init()
 end
 
 function SteamCondenser.on_configuration_changed()
-  storage.steam_condensers = storage.steam_condensers or {}
+  storage.steam_condensers = storage.steam_condensers or Buckets.new()
   storage.turbines = storage.turbines or {}
 
   -- Trigger reset for all condenser-turbine connections when connection logic has changed

@@ -500,7 +500,7 @@ RocketSilo.on_init = function ()
 end
 
 RocketSilo.on_configuration_changed = function(changed_data)
-  storage.rocket_silos = storage.rocket_silos or {}
+  storage.rocket_silos = storage.rocket_silos or Buckets.new()
   storage.rocket_silo_guis = storage.rocket_silo_guis or {}
   storage.cargo_pod_destinations = storage.cargo_pod_destinations or {}
   disable_rocket_victory()

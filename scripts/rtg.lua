@@ -70,7 +70,7 @@ RTG.on_init = function ()
 end
 
 RTG.on_configuration_changed = function(changed_data)
-  storage.rtgs = storage.rtgs or {}
+  storage.rtgs = storage.rtgs or Buckets.new()
 end
 
 return RTG
