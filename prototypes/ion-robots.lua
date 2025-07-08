@@ -187,6 +187,7 @@ data:extend{
     energy_per_move = "5kJ",
     min_to_charge = 0.2,
     max_to_charge = 0.95,
+    ll_surface_conditions = {nauvis = false, luna = true},
     working_sound = sounds.flying_robot(0.48),
     charging_sound = sounds.robot_charging,
     icon_draw_specification = {shift = {0, -0.2}, scale = 0.5, render_layer = "air-entity-info-icon"},
@@ -323,6 +324,7 @@ data:extend{
     energy_per_move = "5kJ",
     min_to_charge = 0.2,
     max_to_charge = 0.95,
+    ll_surface_conditions = {nauvis = false, luna = true},
     smoke =
     {
       filename = "__base__/graphics/entity/smoke-construction/smoke-01.png",
