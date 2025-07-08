@@ -65,8 +65,7 @@ local train_types = {["locomotive"] = true, ["cargo-wagon"] = true, ["fluid-wago
   {nauvis = false, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
 
   Defaults:
-  lab, radar: {nauvis = true, luna = false}
-  logistic-container (active-provider, requester, buffer): {nauvis = true, luna = false}
+  lab, radar, bots, roboports, certain trains: {nauvis = true, luna = false}
   straight-rail, curved-rail, rail-signal, rail-chain-signal, car, spider-vehicle, spider-leg, electric-pole, simple-entity: {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
   everything else: {nauvis = true, luna = {plain = true, lowland = false, mountain = true, foundation = true}}
 
@@ -119,7 +118,7 @@ local function get_default_surface_conditions(prototype)
   local type = prototype.type
   if type == "lab" or type == "radar" or train_types[type] then
     return {nauvis = true, luna = false}
-  elseif type == "logistic-container" and (prototype.logistic_mode == "active-provider" or prototype.logistic_mode == "requester" or prototype.logistic_mode == "buffer") then
+  elseif type == "roboport" or type == "logistic-robot" or type == "construction-robot" then
     return {nauvis = true, luna = false}
   elseif default_anywhere[type] then
     return {nauvis = true, luna = {plain = true, lowland = true, mountain = true, foundation = true}}
@@ -169,7 +168,7 @@ for prototype_type, _ in pairs(defines.prototypes.entity) do
         end
       elseif surface_conditions.luna == true then
         -- Set default
-        surface_conditions.lua = {plain = true, lowland = false, mountain = true, foundation = true}
+        surface_conditions.luna = {plain = true, lowland = false, mountain = true, foundation = true}
       end
       if surface_conditions.nauvis == false then
         if SPACE_AGE then

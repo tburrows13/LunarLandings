@@ -83,7 +83,7 @@ local function on_init()
   --luna.show_clouds = false
 
   luna.request_to_generate_chunks({0, 0}, 1)
-
+  storage.luna_surface_index = luna.index
   log("LunarLandings: on_init() done")
 end
 
@@ -122,6 +122,8 @@ local function on_configuration_changed()
         cliff.destructible = false
       end
     end
+
+    storage.luna_surface_index = luna.index
   end
 end
 

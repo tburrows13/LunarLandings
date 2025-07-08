@@ -187,6 +187,7 @@ data:extend{
     energy_per_move = "5kJ",
     min_to_charge = 0.2,
     max_to_charge = 0.95,
+    ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}},
     working_sound = sounds.flying_robot(0.48),
     charging_sound = sounds.robot_charging,
     icon_draw_specification = {shift = {0, -0.2}, scale = 0.5, render_layer = "air-entity-info-icon"},
@@ -323,6 +324,7 @@ data:extend{
     energy_per_move = "5kJ",
     min_to_charge = 0.2,
     max_to_charge = 0.95,
+    ll_surface_conditions = {nauvis = false, luna = {plain = true, lowland = true, mountain = true, foundation = true}},
     smoke =
     {
       filename = "__base__/graphics/entity/smoke-construction/smoke-01.png",
@@ -510,6 +512,7 @@ data:extend{
     -- stationing_offset = {0, -0.5},
     charging_offsets = {{-1.5, -0.5}, {1.5, -0.5}, {-1, 1}, {1, 1}, {-1, -1.3}, {1, -1.3}},
     robots_shrink_when_entering_and_exiting = true,
+    ll_surface_conditions = {nauvis = false, luna = true},
     base =
     {
       layers =
