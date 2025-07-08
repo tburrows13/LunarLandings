@@ -91,10 +91,39 @@ IonRobots.events = {
 
 function IonRobots.on_init()
   storage.ion_roboports = Buckets.new(10)
+  storage.luna_roboports_processed = true
 end
 
 function IonRobots.on_configuration_changed()
   storage.ion_roboports = storage.ion_roboports or Buckets.new(10)
+
+  if not storage.luna_roboports_processed then
+    storage.luna_roboports_processed = true
+    local luna = game.surfaces["luna"]
+    if luna then
+      local luna_roboports = luna.find_entities_filtered{type = "roboport"}
+      local roboport_count = #luna_roboports
+      for _, roboport in pairs(luna_roboports) do
+        if roboport.name ~= "ll-ion-roboport" then
+          local robot_inventory = roboport.get_inventory(defines.inventory.roboport_robot)
+          if robot_inventory and #robot_inventory > 0 then
+            luna.spill_inventory{inventory = robot_inventory, position = roboport.position, force = roboport.force, allow_belts = false, drop_full_stack = true}
+          end
+          local repair_inventory = roboport.get_inventory(defines.inventory.roboport_material)
+          if repair_inventory and #repair_inventory > 0 then
+            luna.spill_inventory{inventory = repair_inventory, position = roboport.position, force = roboport.force, allow_belts = false, drop_full_stack = true}
+          end
+
+          local items_to_place_this = roboport.prototype.items_to_place_this
+          if items_to_place_this then
+            luna.spill_item_stack{position = roboport.position, stack = items_to_place_this[1], allow_belts = false, drop_full_stack = true}
+          end
+          roboport.destroy()
+        end
+      end
+      game.print("[img=utility/warning_icon] [LL] Regular roboports and robots can no longer be used on Luna. " .. tostring(roboport_count) .. " Luna roboports and their contents have been dropped onto the ground.\nUse [entity=ll-ion-roboport] [entity=ll-ion-logistic-robot] and [entity=ll-ion-construction-robot] instead, which are powered by both electricity and [fluid=ll-oxygen].\nAll logistic chest types may now be used on Luna.")
+    end
+  end
 end
 
 return IonRobots
