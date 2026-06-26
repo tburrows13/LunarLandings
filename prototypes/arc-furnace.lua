@@ -77,7 +77,7 @@ data:extend{
     fluid_boxes = {
       {
         volume = 200,
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
           {flow_direction = "input", direction = defines.direction.east, position = {2, 0}},
@@ -86,7 +86,7 @@ data:extend{
       },
       {
         volume = 200,
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
           {flow_direction = "output", direction = defines.direction.west, position = {-2, 0}},

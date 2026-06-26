@@ -8,7 +8,7 @@ furnace.fluid_boxes =
 {
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1, 1} }},
@@ -16,7 +16,7 @@ furnace.fluid_boxes =
   },
   --[[{
     production_type = "output",
-    pipe_picture = assembler3pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -1} }},
@@ -24,7 +24,7 @@ furnace.fluid_boxes =
   },]]
   {
     production_type = "output",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {1, -1} }},
@@ -32,7 +32,7 @@ furnace.fluid_boxes =
   },
   --[[{
     production_type = "output",
-    pipe_picture = assembler3pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, 1} }},

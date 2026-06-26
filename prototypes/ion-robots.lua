@@ -154,7 +154,8 @@ local sparks =
 }
 
 
-local ion_roboport_pipe_pictures = assembler2pipepictures()
+local ion_roboport_pipe_pictures = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures
+
 ion_roboport_pipe_pictures.north = util.empty_sprite()
 
 data:extend{

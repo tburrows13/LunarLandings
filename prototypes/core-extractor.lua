@@ -60,7 +60,7 @@ data:extend({
     input_fluid_box = {
       volume = 200,
       pipe_covers = pipecoverspictures(),
-      pipe_picture = assembler3pipepictures(),  -- TODO does nothing
+      pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler3pipepictures,  -- TODO does nothing
       pipe_connections =
       {
         { direction = defines.direction.west, position = {-5, 0} },

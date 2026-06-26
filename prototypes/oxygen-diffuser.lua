@@ -3,7 +3,8 @@ local sounds = require("__base__.prototypes.entity.sounds")
 
 data.raw["assembling-machine"]["assembling-machine-1"].allowed_effects = {"productivity"}
 
-local diffuser_pipe_pictures = assembler3pipepictures()
+local diffuser_pipe_pictures = require("__base__.prototypes.entity.assembler-pictures").assembler3pipepictures
+
 diffuser_pipe_pictures.north = util.empty_sprite()
 
 data:extend{

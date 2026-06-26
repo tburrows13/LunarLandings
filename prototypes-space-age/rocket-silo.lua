@@ -30,7 +30,7 @@ end
 rocket_silo.fluid_boxes = {
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction = "input", direction = defines.direction.north, position = {0, -3} }},
@@ -38,7 +38,7 @@ rocket_silo.fluid_boxes = {
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction = "input", direction = defines.direction.south, position = {0, 3} }},
@@ -46,7 +46,7 @@ rocket_silo.fluid_boxes = {
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction = "input", direction = defines.direction.east, position = {3, 0} }},
@@ -54,7 +54,7 @@ rocket_silo.fluid_boxes = {
   },
   {
     production_type = "input",
-    pipe_picture = assembler2pipepictures(),
+    pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
     pipe_covers = pipecoverspictures(),
     volume = 1000,
     pipe_connections = {{ flow_direction = "input", direction = defines.direction.west, position = {-3, 0} }},

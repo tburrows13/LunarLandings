@@ -95,7 +95,7 @@ data:extend{
     {
       {
         production_type = "input",
-        pipe_picture = assembler3pipepictures(),
+        pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler3pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 1000,
         pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1, 1} }},
@@ -103,7 +103,7 @@ data:extend{
       },
       {
         production_type = "output",
-        pipe_picture = assembler3pipepictures(),
+        pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler3pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 1000,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {1, -1} }},
