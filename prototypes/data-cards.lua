@@ -63,7 +63,7 @@ data:extend{
     type = "recipe",
     name = "ll-blank-data-card",
     enabled = false,
-    category = "advanced-circuit-crafting",
+    categories = {"advanced-circuit-crafting"},
     energy_required = 10,
     ingredients = {
       {type="item", name="advanced-circuit", amount=5},
@@ -100,7 +100,7 @@ data:extend{
     icon_size = 64,
     subgroup = "ll-data-cards",
     enabled = false,
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     ingredients = {
       {type="item", name="ll-junk-data-card", amount=1},
       {type="item", name="advanced-circuit", amount=1},
@@ -126,7 +126,7 @@ data:extend{
     subgroup = "ll-data-cards",
     enabled = false,
     allow_decomposition = false,
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     ingredients = {
       {type="item", name="ll-broken-data-card", amount=1},
       {type="item", name="stone", amount=1},
@@ -140,7 +140,7 @@ data:extend{
     type = "recipe",
     name = "ll-data-card",
     enabled = false,
-    category = "ll-telescope-data",
+    categories = {"ll-telescope-data"},
     always_show_made_in = true,
     energy_required = 5,
     ingredients = {
@@ -158,7 +158,7 @@ data:extend{
     type = "recipe",
     name = "ll-quantum-data-card",
     enabled = false,
-    category = "ll-telescope-data",
+    categories = {"ll-telescope-data"},
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {

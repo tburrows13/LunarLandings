@@ -143,7 +143,7 @@ data:extend{
     energy_required = 3,
     enabled = false,
     hide_from_player_crafting = true,
-    category = "rocket-building-interstellar",
+    categories = {"rocket-building-interstellar"},
     ingredients =
     {
       {type="item", name="ll-heat-shielding", amount=5},

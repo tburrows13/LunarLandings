@@ -12,8 +12,8 @@ for _, recipe in pairs(data.raw.recipe) do
     for i, ingredient in pairs(recipe.ingredients) do
       if ingredient.name == "rocket-fuel" or ingredient[1] == "rocket-fuel" then
         recipe.ingredients[i] = {type = "fluid", name = "ll-rocket-fuel", amount = (ingredient.amount or ingredient[2]) * 10}
-        if not recipe.category or recipe.category == "crafting" then
-          recipe.category = "crafting-with-fluid"
+        if not recipe.categories or table.concat(recipe.categories) == "crafting" then
+          recipe.categories = {"crafting-with-fluid"}
         end
       end
     end

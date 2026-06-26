@@ -1,6 +1,6 @@
 local rocket_part_recipe = table.deepcopy(data.raw.recipe["rocket-part"])
 rocket_part_recipe.name = "ll-rocket-part-nauvis"
-rocket_part_recipe.category = "rocket-building-nauvis-luna"
+rocket_part_recipe.categories = {"rocket-building-nauvis-luna"}
 rocket_part_recipe.results = {{type="item", name="ll-rocket-part-nauvis", amount=1}}
 rocket_part_recipe.ingredients = {
   {type="item", name="rocket-control-unit", amount=5},
@@ -49,8 +49,7 @@ data:extend{
     name = "rocket-control-unit",
     energy_required = 12,
     enabled = false,
-    category = "crafting-with-fluid",
-    additional_categories = {"circuit-crafting"},
+    categories = {"crafting-with-fluid", "circuit-crafting"},
     ingredients =
     {
       {type="item", name="advanced-circuit", amount=3},
@@ -73,7 +72,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-heat-shielding",
-    category = "crafting",
+    categories = {"crafting"},
     energy_required = 20,
     enabled = false,
     ingredients =
@@ -114,7 +113,7 @@ data:extend{
     energy_required = 3,
     enabled = false,
     hide_from_player_crafting = true,
-    category = "rocket-building-nauvis-luna",
+    categories = {"rocket-building-nauvis-luna"},
     ingredients =
     {
       {type="item", name="ll-heat-shielding", amount=5},
@@ -150,7 +149,7 @@ data:extend{
     energy_required = 30,
     enabled = false,
     subgroup = "intermediate-product",
-    category = "crafting",
+    categories = {"crafting"},
     order = "o[rocket-part]-b",
     allow_decomposition = false,
     ingredients =

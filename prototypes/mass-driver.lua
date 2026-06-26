@@ -6,7 +6,7 @@ data:extend{
     type = "recipe",
     name = "ll-mass-driver-capsule",
     enabled = false,
-    category = "crafting-with-fluid",
+    categories = {"crafting-with-fluid"},
     energy_required = 1,
     ingredients =
     {

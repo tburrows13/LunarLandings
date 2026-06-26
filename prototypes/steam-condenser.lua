@@ -9,7 +9,7 @@ data:extend{
     icon = "__LunarLandings__/graphics/icons/condense-steam.png",
     icon_size = 64,
     enabled = false,
-    category = "ll-steam-condensing",
+    categories = {"ll-steam-condensing"},
     subgroup = "fluid-recipes",
     energy_required = 0.1,
     ingredients = {

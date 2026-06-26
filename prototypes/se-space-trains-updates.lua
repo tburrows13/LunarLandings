@@ -72,11 +72,11 @@ if mods["elevated-rails"] then
 end
 
 if SPACE_AGE then
-  data.raw["recipe"]["space-locomotive"].category = "crafting"
+  data.raw["recipe"]["space-locomotive"].categories = {"crafting"}
   data.raw["recipe"]["space-locomotive"].allow_productivity = false
-  data.raw["recipe"]["space-cargo-wagon"].category = "crafting"
+  data.raw["recipe"]["space-cargo-wagon"].categories = {"crafting"}
   data.raw["recipe"]["space-cargo-wagon"].allow_productivity = false
-  data.raw["recipe"]["space-fluid-wagon"].category = "crafting"
+  data.raw["recipe"]["space-fluid-wagon"].categories = {"crafting"}
   data.raw["recipe"]["space-fluid-wagon"].allow_productivity = false
 
   data.raw["technology"]["tech-space-trains"].unit = {

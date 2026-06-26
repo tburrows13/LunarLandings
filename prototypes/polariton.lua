@@ -89,7 +89,7 @@ data:extend{
     type = "recipe",
     name = "ll-superposition-right-left",
     enabled = false,
-    category = "ll-quantum-resonating",
+    categories = {"ll-quantum-resonating"},
     energy_required = 10,
     ingredients = {
       {type="item", name="ll-right-polariton", amount=1},
@@ -106,7 +106,7 @@ data:extend{
     type = "recipe",
     name = "ll-superposition-up-down",
     enabled = false,
-    category = "ll-quantum-resonating",
+    categories = {"ll-quantum-resonating"},
     energy_required = 10,
     ingredients = {
       {type="item", name="ll-up-polariton", amount=1},
@@ -127,7 +127,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-a[up]",
     enabled = false,
-    category = "ll-quantum-resonating",
+    categories = {"ll-quantum-resonating"},
     energy_required = 10,
     ingredients = {
       {type="item", name="ll-up-polariton", amount=1},
@@ -148,7 +148,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-b[right]",
     enabled = false,
-    category = "ll-quantum-resonating",
+    categories = {"ll-quantum-resonating"},
     energy_required = 10,
     ingredients = {
       {type="item", name="ll-right-polariton", amount=1},
@@ -169,7 +169,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-c[down]",
     enabled = false,
-    category = "ll-quantum-resonating",
+    categories = {"ll-quantum-resonating"},
     energy_required = 10,
     ingredients = {
       {type="item", name="ll-down-polariton", amount=1},
@@ -190,7 +190,7 @@ data:extend{
     subgroup = "ll-polaritons",
     order = "b[polarisation]-d[left]",
     enabled = false,
-    category = "ll-quantum-resonating",
+    categories = {"ll-quantum-resonating"},
     energy_required = 10,
     ingredients = {
       {type="item", name="ll-left-polariton", amount=1},

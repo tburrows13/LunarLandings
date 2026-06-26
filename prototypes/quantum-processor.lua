@@ -2,7 +2,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-quantum-processor",
-    category = "advanced-circuit-crafting",
+    categories = {"advanced-circuit-crafting"},
     enabled = false,
     energy_required = 10,
     ingredients =

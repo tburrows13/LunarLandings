@@ -52,7 +52,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-alumina",
-    category = "ll-arc-smelting",
+    categories = {"ll-arc-smelting"},
     enabled = false,
     energy_required = 10,
     ingredients =
@@ -74,7 +74,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-aluminium-plate",
-    category = "ll-arc-smelting",
+    categories = {"ll-arc-smelting"},
     enabled = false,
     energy_required = 10,
     ingredients =
@@ -105,7 +105,7 @@ data:extend{
         icon_size = 64,
       }
     },
-    category = "chemistry",
+    categories = {"chemistry"},
     enabled = false,
     allow_decomposition = false,
     energy_required = 20,
@@ -143,7 +143,7 @@ data:extend{
         shift = {-8, -8},
       }
     },
-    category = "crafting",
+    categories = {"crafting"},
     subgroup = "intermediate-product",
     order = "d[rocket-parts]-a[low-density-structure]-a[aluminium]",
     energy_required = 20,

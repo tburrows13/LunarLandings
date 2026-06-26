@@ -18,7 +18,7 @@ data:extend{
     name = "ll-space-science-pack",
     enabled = false,
     energy_required = 35,
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     ingredients =
     {
       {type = "item", name = "ll-data-card", amount = 5},

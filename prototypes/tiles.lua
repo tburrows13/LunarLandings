@@ -230,7 +230,7 @@ data:extend{
     name = "ll-lunar-foundation",
     energy_required = 15,
     enabled = false,
-    category = "crafting-with-fluid",
+    categories = {"crafting-with-fluid"},
     ingredients =
     {
       {type="item", name="stone-brick", amount=40},

@@ -46,7 +46,7 @@ data:extend{
   {
     type = "recipe",
     name = "ll-rich-moon-rock-processing",
-    category = "ll-arc-smelting",
+    categories = {"ll-arc-smelting"},
     enabled = false,
     allow_decomposition = false,
     energy_required = 10,

@@ -71,7 +71,7 @@ data:extend{
     name = "ll-fusion-fuel",
     energy_required = 90,
     enabled = true,
-    category = "centrifuging",
+    categories = {"centrifuging"},
     subgroup = "intermediate-product",
     ingredients = {
       {type = "fluid", name = "ll-helium-3", amount = 1000},

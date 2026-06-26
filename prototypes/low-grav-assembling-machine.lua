@@ -1,11 +1,11 @@
 local sounds = require("__base__.prototypes.entity.sounds")
 
 for i, recipe in pairs({"copper-cable", "electronic-circuit", "advanced-circuit"}) do
-  data.raw.recipe[recipe].additional_categories = data.raw.recipe[recipe].additional_categories or {}
-  table.insert(data.raw.recipe[recipe].additional_categories, "circuit-crafting")
+  data.raw.recipe[recipe].categories = data.raw.recipe[recipe].categories or {"crafting"}
+  table.insert(data.raw.recipe[recipe].categories, "circuit-crafting")
 end
 
-data.raw.recipe["processing-unit"].category = "advanced-circuit-crafting"
+data.raw.recipe["processing-unit"].categories = {"advanced-circuit-crafting"}
 
 local animation_speed = 0.3
 data:extend{
