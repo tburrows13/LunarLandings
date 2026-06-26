@@ -28,8 +28,8 @@ data:extend{
     main_product = "ll-quantum-science-pack",
     results = {
       {type="item", name="ll-quantum-science-pack", amount=5},
-      {type = "item", name = "ll-blank-data-card", amount = 5, probability = 0.9, ignored_by_productivity = 5},
-      {type = "item", name = "ll-broken-data-card", amount = 5, probability = 0.1, ignored_by_productivity = 5},
+      {type = "item", name = "ll-blank-data-card", amount = 5, shared_probability = {min = 0, max = 0.9}, ignored_by_productivity = 5},
+      {type = "item", name = "ll-broken-data-card", amount = 5, shared_probability = {min = 0.9, max = 1}, ignored_by_productivity = 5},
     },
     allow_productivity = true,
   },

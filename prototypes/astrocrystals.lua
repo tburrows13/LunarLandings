@@ -179,10 +179,10 @@ data:extend({
     results =
     {
       {type = "fluid", name = "ll-astroflux", amount = 10},
-      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.0025},
-      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.0025},
-      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.0025},
-      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.0025},
+      {type = "item", name = "ll-up-polariton", amount = 1, shared_probability = {min = 0, max = 0.0025}},
+      {type = "item", name = "ll-right-polariton", amount = 1, shared_probability = {min = 0.0025, max = 0.005}},
+      {type = "item", name = "ll-down-polariton", amount = 1, shared_probability = {min = 0.005, max = 0.0075}},
+      {type = "item", name = "ll-left-polariton", amount = 1, shared_probability = {min = 0.0075, max = 0.01}},
     },
     allow_productivity = true,
   },

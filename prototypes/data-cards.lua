@@ -106,8 +106,8 @@ data:extend{
       {type="item", name="advanced-circuit", amount=1},
     },
     results = {
-      {type = "item", name = "ll-blank-data-card", amount = 1, probability = 0.9},
-      {type = "item", name = "ll-broken-data-card", amount = 1, probability = 0.1},
+      {type = "item", name = "ll-blank-data-card", amount = 1, shared_probability = {min = 0, max = 0.9}},
+      {type = "item", name = "ll-broken-data-card", amount = 1, shared_probability = {min = 0.9, max = 1}},
     },
   },
   {
@@ -149,8 +149,8 @@ data:extend{
       {type = "fluid", name = "ll-oxygen", amount = 10}
     },
     results = {
-      {type = "item", name = "ll-data-card", amount = 1, probability = 0.9},
-      {type = "item", name = "ll-junk-data-card", amount = 1, probability = 0.1},
+      {type = "item", name = "ll-data-card", amount = 1, shared_probability = {min = 0, max = 0.9}},
+      {type = "item", name = "ll-junk-data-card", amount = 1, shared_probability = {min = 0.9, max = 1}},
     },
     main_product = "ll-data-card"
   },
@@ -167,13 +167,13 @@ data:extend{
       {type="item", name="ll-superposed-polariton", amount=1},
       {type = "fluid", name = "ll-oxygen", amount = 10}
     },
-    results = {
-      {type = "item", name = "ll-quantum-data-card", amount = 1, probability = 0.7},
-      {type = "item", name = "ll-junk-data-card", amount = 1, probability = 0.3},
-      {type = "item", name = "ll-up-polariton", amount = 1, probability = 0.10},
-      {type = "item", name = "ll-right-polariton", amount = 1, probability = 0.40},
-      {type = "item", name = "ll-down-polariton", amount = 1, probability = 0.35},
-      {type = "item", name = "ll-left-polariton", amount = 1, probability = 0.15},
+    results = { -- TODO distribute data card results across polariton probabilities?
+      {type = "item", name = "ll-quantum-data-card", amount = 1, shared_probability = {min = 0, max = 0.7}},
+      {type = "item", name = "ll-junk-data-card", amount = 1, shared_probability = {min = 0.7, max = 1}},
+      {type = "item", name = "ll-up-polariton", amount = 1, shared_probability = {min = 0, max = 0.10}},
+      {type = "item", name = "ll-right-polariton", amount = 1, shared_probability = {min = 0.10, max = 0.50}},
+      {type = "item", name = "ll-down-polariton", amount = 1, shared_probability = {min = 0.50, max = 0.85}},
+      {type = "item", name = "ll-left-polariton", amount = 1, shared_probability = {min = 0.85, max = 1}},
     },
     main_product = "ll-quantum-data-card"
   },
